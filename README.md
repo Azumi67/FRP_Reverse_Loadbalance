@@ -4,19 +4,20 @@
 ---------------------------------------------------------------
 ![competed-task-list-5169136-4334496](https://github.com/Azumi67/V2ray_loadbalance_multipleServers/assets/119934376/c5b1d05a-d9b0-468b-9278-ed8336c01ca9)
  **فهرست :**
+ --
 
-- دسترسی سریع به اسکریپت **[کلیک]()**
-- امکانات >> **[کلیک](https://github.com/Azumi67/V2ray_loadbalance_multipleServers/blob/main/README.md#%D8%A7%D9%85%DA%A9%D8%A7%D9%86%D8%A7%D8%AA)**
-- ریورس تانل بدون لود بالانس >> **[کلیک](https://github.com/Azumi67/V2ray_loadbalance_multipleServers/assets/119934376/3ec2f05f-3308-4441-8cce-62ab4776f4e2)**
--  ریورس تانل با لود بالانس : تک سرور >> **[کلیک](https://github.com/Azumi67/V2ray_loadbalance_multipleServers/assets/119934376/3ec2f05f-3308-4441-8cce-62ab4776f4e2)**
--  لود بالانس 5 سرور خارج 1 سرور ایران >> **[کلیک](https://github.com/Azumi67/V2ray_loadbalance_multipleServers/assets/119934376/3ec2f05f-3308-4441-8cce-62ab4776f4e2)**
-   - سرور ایران >>  **[کلیک](https://github.com/Azumi67/V2ray_loadbalance_multipleServers/assets/119934376/3ec2f05f-3308-4441-8cce-62ab4776f4e2)**
-   - سرور خارج اول المان >>   **[کلیک](https://github.com/Azumi67/V2ray_loadbalance_multipleServers/assets/119934376/3ec2f05f-3308-4441-8cce-62ab4776f4e2)**
-     - روش ایپی 6 >>    **[کلیک](https://github.com/Azumi67/V2ray_loadbalance_multipleServers/assets/119934376/3ec2f05f-3308-4441-8cce-62ab4776f4e2)**
-     - روش لوکال ایپی >>  **[کلیک](https://github.com/Azumi67/V2ray_loadbalance_multipleServers/assets/119934376/3ec2f05f-3308-4441-8cce-62ab4776f4e2)**
-   - سرور خارج دوم ترکیه >>  **[کلیک](https://github.com/Azumi67/V2ray_loadbalance_multipleServers/assets/119934376/3ec2f05f-3308-4441-8cce-62ab4776f4e2)**
-      - روش ایپی 6  >>   **[کلیک](https://github.com/Azumi67/V2ray_loadbalance_multipleServers/assets/119934376/3ec2f05f-3308-4441-8cce-62ab4776f4e2)**
-       - روش لوکال ایپی >>  **[کلیک](https://github.com/Azumi67/V2ray_loadbalance_multipleServers/assets/119934376/3ec2f05f-3308-4441-8cce-62ab4776f4e2)**
+- **دسترسی سریع به اسکریپت** >> **[کلیک]()**
+- **امکانات** >> **[کلیک](https://github.com/Azumi67/V2ray_loadbalance_multipleServers/blob/main/README.md#%D8%A7%D9%85%DA%A9%D8%A7%D9%86%D8%A7%D8%AA)**
+- **ریورس تانل بدون لود بالانس** >> **[کلیک](https://github.com/Azumi67/V2ray_loadbalance_multipleServers/assets/119934376/3ec2f05f-3308-4441-8cce-62ab4776f4e2)**
+-  **ریورس تانل با لود بالانس : تک سرور** >> **[کلیک](https://github.com/Azumi67/V2ray_loadbalance_multipleServers/assets/119934376/3ec2f05f-3308-4441-8cce-62ab4776f4e2)**
+-  **لود بالانس 5 سرور خارج 1 سرور ایران** >> **[کلیک](https://github.com/Azumi67/V2ray_loadbalance_multipleServers/assets/119934376/3ec2f05f-3308-4441-8cce-62ab4776f4e2)**
+   - **سرور ایران** >>  **[کلیک](https://github.com/Azumi67/V2ray_loadbalance_multipleServers/blob/main/README.md#-%D8%B3%D8%B1%D9%88%D8%B1-%D8%A7%DB%8C%D8%B1%D8%A7%D9%86)**
+   - **سرور خارج اول المان :**  
+     - روش ایپی 6 >>    **[کلیک](https://github.com/Azumi67/V2ray_loadbalance_multipleServers/blob/main/README.md#-%D8%B3%D8%B1%D9%88%D8%B1-%D8%AE%D8%A7%D8%B1%D8%AC-%D8%A7%D9%88%D9%84-%D8%A7%D9%84%D9%85%D8%A7%D9%86-%D8%B1%D9%88%D8%B4-%D8%A7%D9%88%D9%84---%D8%A7%D8%B3%D8%AA%D9%81%D8%A7%D8%AF%D9%87-%D8%A7%D8%B2-ipv6)**
+     - روش لوکال ایپی >>  **[کلیک](https://github.com/Azumi67/V2ray_loadbalance_multipleServers/blob/main/README.md#%D8%B3%D8%B1%D9%88%D8%B1-%D8%AE%D8%A7%D8%B1%D8%AC-%D8%A7%D9%84%D9%85%D8%A7%D9%86-%D8%B1%D9%88%D8%B4-%D8%AF%D9%88%D9%85---%D8%A7%D8%B3%D8%AA%D9%81%D8%A7%D8%AF%D9%87-%D8%A7%D8%B2-%D9%84%D9%88%DA%A9%D8%A7%D9%84-%D8%A7%DB%8C%D9%BE%DB%8C)**
+   - **سرور خارج دوم ترکیه :**
+      - روش ایپی 6  >>   **[کلیک](https://github.com/Azumi67/V2ray_loadbalance_multipleServers/blob/main/README.md#-%D8%B3%D8%B1%D9%88%D8%B1-%D8%AE%D8%A7%D8%B1%D8%AC-%D8%AF%D9%88%D9%85-%D8%AA%D8%B1%DA%A9%DB%8C%D9%87-%D8%B1%D9%88%D8%B4-%D8%A7%D9%88%D9%84---%D8%A7%D8%B3%D8%AA%D9%81%D8%A7%D8%AF%D9%87-%D8%A7%D8%B2-ipv6)**
+       - روش لوکال ایپی >>  **[کلیک](https://github.com/Azumi67/V2ray_loadbalance_multipleServers/blob/main/README.md#%D8%B3%D8%B1%D9%88%D8%B1-%D8%AE%D8%A7%D8%B1%D8%AC-%D8%AF%D9%88%D9%85-%D8%AA%D8%B1%DA%A9%DB%8C%D9%87-%D8%B1%D9%88%D8%B4-%D8%AF%D9%88%D9%85---%D8%A7%D8%B3%D8%AA%D9%81%D8%A7%D8%AF%D9%87-%D8%A7%D8%B2-%D9%84%D9%88%DA%A9%D8%A7%D9%84-%D8%A7%DB%8C%D9%BE%DB%8C)**
 
 ----------------------------------
 **توضیح کوتاه:**
