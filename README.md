@@ -3,14 +3,20 @@
 [ امکان لودبالانس بین 5 سرور خارج و 1 سرور ایران | 3 سرور ایران و 1 سرور خارج ]
 ---------------------------------------------------------------
 ![competed-task-list-5169136-4334496](https://github.com/Azumi67/V2ray_loadbalance_multipleServers/assets/119934376/c5b1d05a-d9b0-468b-9278-ed8336c01ca9)
- **فهرست**
+ **فهرست :**
 
 - دسترسی سریع به اسکریپت **[کلیک]()**
-- امکانات **[کلیک]()**
-- ریورس تانل بدون لود بالانس **[کلیک]()**
--  ریورس تانل با لود بالانس : تک سرور **[کلیک]()**
--  لود بالانس 5 سرور خارج 1 سرور ایران **[کلیک]()**
-
+- امکانات >> **[کلیک](https://github.com/Azumi67/V2ray_loadbalance_multipleServers/blob/main/README.md#%D8%A7%D9%85%DA%A9%D8%A7%D9%86%D8%A7%D8%AA)**
+- ریورس تانل بدون لود بالانس >> **[کلیک](https://github.com/Azumi67/V2ray_loadbalance_multipleServers/assets/119934376/3ec2f05f-3308-4441-8cce-62ab4776f4e2)**
+-  ریورس تانل با لود بالانس : تک سرور >> **[کلیک](https://github.com/Azumi67/V2ray_loadbalance_multipleServers/assets/119934376/3ec2f05f-3308-4441-8cce-62ab4776f4e2)**
+-  لود بالانس 5 سرور خارج 1 سرور ایران >> **[کلیک](https://github.com/Azumi67/V2ray_loadbalance_multipleServers/assets/119934376/3ec2f05f-3308-4441-8cce-62ab4776f4e2)**
+   - سرور ایران >>  **[کلیک](https://github.com/Azumi67/V2ray_loadbalance_multipleServers/assets/119934376/3ec2f05f-3308-4441-8cce-62ab4776f4e2)**
+   - سرور خارج اول المان >>   **[کلیک](https://github.com/Azumi67/V2ray_loadbalance_multipleServers/assets/119934376/3ec2f05f-3308-4441-8cce-62ab4776f4e2)**
+     - روش ایپی 6 >>    **[کلیک](https://github.com/Azumi67/V2ray_loadbalance_multipleServers/assets/119934376/3ec2f05f-3308-4441-8cce-62ab4776f4e2)**
+     - روش لوکال ایپی >>  **[کلیک](https://github.com/Azumi67/V2ray_loadbalance_multipleServers/assets/119934376/3ec2f05f-3308-4441-8cce-62ab4776f4e2)**
+   - سرور خارج دوم ترکیه >>  **[کلیک](https://github.com/Azumi67/V2ray_loadbalance_multipleServers/assets/119934376/3ec2f05f-3308-4441-8cce-62ab4776f4e2)**
+      - روش ایپی 6  >>   **[کلیک](https://github.com/Azumi67/V2ray_loadbalance_multipleServers/assets/119934376/3ec2f05f-3308-4441-8cce-62ab4776f4e2)**
+       - روش لوکال ایپی >>  **[کلیک](https://github.com/Azumi67/V2ray_loadbalance_multipleServers/assets/119934376/3ec2f05f-3308-4441-8cce-62ab4776f4e2)**
 
 ----------------------------------
 **توضیح کوتاه:**
@@ -209,7 +215,7 @@
 
 
 ![green-dot-clipart-3](https://github.com/Azumi67/6TO4-PrivateIP/assets/119934376/902a2efa-f48f-4048-bc2a-5be12143bef3) **سرور ایران** 
-
+--
 **مسیر : گزینه 4 [LoadBalancer [5] Kharej [1] IRAN] > سرور ایران > بدون داشبورد**
 
 <p align="right">
@@ -232,7 +238,7 @@
 
 -------------------------
 ![R (10)](https://github.com/Azumi67/V2ray_loadbalance_multipleServers/assets/119934376/bb9bd866-6e94-4513-8afb-0f31051e06a5) **سرور خارج اول (المان) روش اول - استفاده از IPV6**
-
+--
 **اگر این روش برای شما سخت است میتوانید از روش دوم که با لوکال ایپی میباشد استفاده نمایید**
 
 **مسیر : گزینه 4 [LoadBalancer [5] Kharej [1] IRAN] > سرور خارج اول > روش ایپی 6**
@@ -277,7 +283,7 @@
 - اگر کمی گیج کننده بود ، با ازمون و خطا و مطالعه دوباره ، میتوانید لود بالانس را پیاده سازی کنید.
 -------------------------
 ![green-dot-clipart-3](https://github.com/Azumi67/V2ray_loadbalance_multipleServers/assets/119934376/ae98a157-9520-46d0-afa6-93525a2f9d0a)**سرور خارج (المان) روش دوم - استفاده از لوکال ایپی**
-
+--
 
 **مسیر : گزینه 4 [LoadBalancer [5] Kharej [1] IRAN] > سرور خارج اول > روش لوکال ایپی**
 
@@ -308,7 +314,7 @@
 
 --------------------------
 ![R (10)](https://github.com/Azumi67/V2ray_loadbalance_multipleServers/assets/119934376/bb9bd866-6e94-4513-8afb-0f31051e06a5) **سرور خارج دوم (ترکیه) روش اول - استفاده از IPV6**
-
+--
 **اگر این روش برای شما سخت است میتوانید از روش دوم که با لوکال ایپی میباشد استفاده نمایید**
 
 **مسیر : گزینه 4 [LoadBalancer [5] Kharej [1] IRAN] > سرور خارج دوم > روش ایپی 6**
@@ -351,7 +357,7 @@
 - اگر کمی گیج کننده بود ، با ازمون و خطا و مطالعه دوباره ، میتوانید لود بالانس را پیاده سازی کنید.
 -------------------------
 ![green-dot-clipart-3](https://github.com/Azumi67/V2ray_loadbalance_multipleServers/assets/119934376/ae98a157-9520-46d0-afa6-93525a2f9d0a)**سرور خارج دوم (ترکیه) روش دوم - استفاده از لوکال ایپی**
-
+--
 
 **مسیر : گزینه 4 [LoadBalancer [5] Kharej [1] IRAN] > سرور خارج دوم > روش لوکال ایپی**
 
