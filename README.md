@@ -22,10 +22,11 @@
    - **سرور خارج دوم ترکیه :**
       - روش ایپی 6  >>   **[کلیک](https://github.com/Azumi67/V2ray_loadbalance_multipleServers/blob/main/README.md#-%D8%B3%D8%B1%D9%88%D8%B1-%D8%AE%D8%A7%D8%B1%D8%AC-%D8%AF%D9%88%D9%85-%D8%AA%D8%B1%DA%A9%DB%8C%D9%87-%D8%B1%D9%88%D8%B4-%D8%A7%D9%88%D9%84---%D8%A7%D8%B3%D8%AA%D9%81%D8%A7%D8%AF%D9%87-%D8%A7%D8%B2-ipv6)**
        - روش لوکال ایپی >>  **[کلیک](https://github.com/Azumi67/V2ray_loadbalance_multipleServers/blob/main/README.md#%D8%B3%D8%B1%D9%88%D8%B1-%D8%AE%D8%A7%D8%B1%D8%AC-%D8%AF%D9%88%D9%85-%D8%AA%D8%B1%DA%A9%DB%8C%D9%87-%D8%B1%D9%88%D8%B4-%D8%AF%D9%88%D9%85---%D8%A7%D8%B3%D8%AA%D9%81%D8%A7%D8%AF%D9%87-%D8%A7%D8%B2-%D9%84%D9%88%DA%A9%D8%A7%D9%84-%D8%A7%DB%8C%D9%BE%DB%8C)**
-- **لود بالانس 3 سرور ایران 1 سرور خارج** >>
-  - سرور خارج روش ایپی 6 >>
-  - سرور خارج روش لوکال ایپی >>
-
+- **لود بالانس 3 سرور ایران 1 سرور خارج** >>  **[کلیک](https://github.com/Azumi67/V2ray_loadbalance_multipleServers/assets/119934376/3ec2f05f-3308-4441-8cce-62ab4776f4e2)**
+  - سرور ایران >>   **[کلیک](https://github.com/Azumi67/V2ray_loadbalance_multipleServers#-%D8%B3%D8%B1%D9%88%D8%B1-%D8%A7%D9%88%D9%84-%D8%A7%DB%8C%D8%B1%D8%A7%D9%86)**
+  - سرور خارج روش ایپی 6 >>  **[کلیک](https://github.com/Azumi67/V2ray_loadbalance_multipleServers/tree/main#%D8%B3%D8%B1%D9%88%D8%B1-%D8%AE%D8%A7%D8%B1%D8%AC-%D8%B1%D9%88%D8%B4-%D8%A7%D9%88%D9%84-ipv6)**
+  - سرور خارج روش لوکال ایپی >>  **[کلیک](https://github.com/Azumi67/V2ray_loadbalance_multipleServers/tree/main#%D8%B3%D8%B1%D9%88%D8%B1-%D8%AE%D8%A7%D8%B1%D8%AC-%D8%B1%D9%88%D8%B4-%D8%AF%D9%88%D9%85-%D9%84%D9%88%DA%A9%D8%A7%D9%84-%D8%A7%DB%8C%D9%BE%DB%8C)**
+- **لودبالانس با پرایوت ایپی**
 ----------------------------------
 **توضیح کوتاه:**
 
@@ -380,12 +381,13 @@
 - اگر این روش برای شما سخت است میتوانید از روش دوم که با لوکال ایپی میباشد و نیازی به ایپی 6 ندارد استفاده نمایید.
 ----------------------
 ![OIP2 (1)](https://github.com/Azumi67/V2ray_loadbalance_multipleServers/assets/119934376/3ec2f05f-3308-4441-8cce-62ab4776f4e2)
-ریورس تانل با لود بالانس - 3 سرور ایران| 1 سرور خارج [ تک پورت یا چندین پورت ]
+ریورس تانل با لود بالانس - 3 سرور ایران | 1 سرور خارج [ تک پورت یا چندین پورت ]
 --------------
 
 
 ![green-dot-clipart-3](https://github.com/Azumi67/6TO4-PrivateIP/assets/119934376/902a2efa-f48f-4048-bc2a-5be12143bef3) **سرور اول ایران** 
---
+---
+
 **مسیر : گزینه 5 [LoadBalancer [1] Kharej [3] IRAN] > سرور ایران اول > بدون داشبورد**
 <p align="right">
   <img src="https://github.com/Azumi67/V2ray_loadbalance_multipleServers/assets/119934376/e8a667c9-57ee-453e-96f7-65737848f220" alt="Image" />
