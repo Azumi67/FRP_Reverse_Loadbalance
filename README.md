@@ -27,9 +27,18 @@
   - سرور ایران >>   **[کلیک](https://github.com/Azumi67/V2ray_loadbalance_multipleServers#-%D8%B3%D8%B1%D9%88%D8%B1-%D8%A7%D9%88%D9%84-%D8%A7%DB%8C%D8%B1%D8%A7%D9%86)**
   - سرور خارج روش ایپی 6 >>  **[کلیک](https://github.com/Azumi67/V2ray_loadbalance_multipleServers/tree/main#%D8%B3%D8%B1%D9%88%D8%B1-%D8%AE%D8%A7%D8%B1%D8%AC-%D8%B1%D9%88%D8%B4-%D8%A7%D9%88%D9%84-ipv6)**
   - سرور خارج روش لوکال ایپی >>  **[کلیک](https://github.com/Azumi67/V2ray_loadbalance_multipleServers/tree/main#%D8%B3%D8%B1%D9%88%D8%B1-%D8%AE%D8%A7%D8%B1%D8%AC-%D8%B1%D9%88%D8%B4-%D8%AF%D9%88%D9%85-%D9%84%D9%88%DA%A9%D8%A7%D9%84-%D8%A7%DB%8C%D9%BE%DB%8C)**
-- **لودبالانس با پرایوت ایپی**
-- **آموزش** >> **[کلیک]()**
-- **ریورس تانل با پرایوت ایپی بدون لود بالانس** >> **[کلیک]()**
+- **لودبالانس با پرایوت ایپی**  >> **[کلیک](https://github.com/Azumi67/V2ray_loadbalance_multipleServers/assets/119934376/e46e5f76-b533-42bc-aa07-88f7dbe4af02)**
+- **آموزش** >> **[کلیک](https://github.com/Azumi67/PrivateIP-Tunnel/assets/119934376/398f8b07-65be-472e-9821-631f7b70f783)**
+- **پیش نیازها** >> **[کلیک](https://github.com/Azumi67/V2ray_loadbalance_multipleServers/assets/119934376/98d8c2bd-c9d2-4ecf-8db9-246b90e1ef0f)**
+- **ریورس تانل با پرایوت ایپی بدون لود بالانس** >> **[کلیک](https://github.com/Azumi67/V2ray_loadbalance_multipleServers/assets/119934376/3ec2f05f-3308-4441-8cce-62ab4776f4e2)**
+- **ریورس تانل با لود بالانس - تک سرور [ استفاده از Native IPV6 و پرایوت ایپی]**  >> **[کلیک](https://github.com/Azumi67/V2ray_loadbalance_multipleServers/assets/119934376/3ec2f05f-3308-4441-8cce-62ab4776f4e2)**
+- **پرایوت ایپی 5 سرور خارج و 1 سرور ایران**  >> **[کلیک](https://github.com/Azumi67/V2ray_loadbalance_multipleServers/assets/119934376/637973f2-5968-4a01-bec7-9068dfadcb3b)**
+- **ریورس تانل با لود بالانس - 5 سرور خارج | 1 سرور ایران [ استفاده از Native IPV6 و پرایوت ایپی ]**  >> **[کلیک](https://github.com/Azumi67/V2ray_loadbalance_multipleServers/assets/119934376/3ec2f05f-3308-4441-8cce-62ab4776f4e2)**
+  - سرور ایران  >> **[کلیک](https://github.com/Azumi67/V2ray_loadbalance_multipleServers#-%D8%B3%D8%B1%D9%88%D8%B1-%D8%A7%DB%8C%D8%B1%D8%A7%D9%86-%D9%BE%D8%B1%D8%A7%DB%8C%D9%88%D8%AA-%D8%A7%DB%8C%D9%BE%DB%8C)**
+  - سرور خارج اول (ترکیه) روش اول - استفاده از IPV6 >> **[کلیک](https://github.com/Azumi67/V2ray_loadbalance_multipleServers#-%D8%B3%D8%B1%D9%88%D8%B1-%D8%AE%D8%A7%D8%B1%D8%AC-%D8%A7%D9%88%D9%84-%D8%AA%D8%B1%DA%A9%DB%8C%D9%87-%D8%B1%D9%88%D8%B4-%D8%A7%D9%88%D9%84---%D8%A7%D8%B3%D8%AA%D9%81%D8%A7%D8%AF%D9%87-%D8%A7%D8%B2-ipv6)**
+  - سرور خارج اول (ترکیه) روش دوم - استفاده از لوکال ایپی >> **[کلیک](https://github.com/Azumi67/V2ray_loadbalance_multipleServers/assets/119934376/ae98a157-9520-46d0-afa6-93525a2f9d0a)**
+  - سرور خارج دوم (آلمان) روش اول - استفاده از IPV6  >> **[کلیک](https://github.com/Azumi67/V2ray_loadbalance_multipleServers#-%D8%B3%D8%B1%D9%88%D8%B1-%D8%AE%D8%A7%D8%B1%D8%AC-%D8%AF%D9%88%D9%85-%D8%A2%D9%84%D9%85%D8%A7%D9%86-%D8%B1%D9%88%D8%B4-%D8%A7%D9%88%D9%84---%D8%A7%D8%B3%D8%AA%D9%81%D8%A7%D8%AF%D9%87-%D8%A7%D8%B2-ipv6)**
+  - سرور خارج دوم (آلمان) روش دوم - استفاده از لوکال ایپی  >> **[کلیک](https://github.com/Azumi67/V2ray_loadbalance_multipleServers#%D8%B3%D8%B1%D9%88%D8%B1-%D8%AE%D8%A7%D8%B1%D8%AC-%D8%AF%D9%88%D9%85-%D8%A2%D9%84%D9%85%D8%A7%D9%86-%D8%B1%D9%88%D8%B4-%D8%AF%D9%88%D9%85---%D8%A7%D8%B3%D8%AA%D9%81%D8%A7%D8%AF%D9%87-%D8%A7%D8%B2-%D9%84%D9%88%DA%A9%D8%A7%D9%84-%D8%A7%DB%8C%D9%BE%DB%8C)**
 ----------------------------------
 **توضیح کوتاه:**
 
@@ -695,7 +704,6 @@
 - ایپی های ساخته شده را داخل notepad برای لودبالانس و ریورس تانل یادداشت نمایید
 
 
--------------------------------
 
 ---------------------------------------
 ![OIP2 (1)](https://github.com/Azumi67/V2ray_loadbalance_multipleServers/assets/119934376/3ec2f05f-3308-4441-8cce-62ab4776f4e2)
@@ -781,7 +789,7 @@
 
 - اگر کمی گیج کننده بود ، با ازمون و خطا و مطالعه دوباره ، میتوانید لود بالانس را پیاده سازی کنید.
 -------------------------
-![green-dot-clipart-3](https://github.com/Azumi67/V2ray_loadbalance_multipleServers/assets/119934376/ae98a157-9520-46d0-afa6-93525a2f9d0a)**سرور خارج (ترکیه) روش دوم - استفاده از لوکال ایپی**
+![green-dot-clipart-3](https://github.com/Azumi67/V2ray_loadbalance_multipleServers/assets/119934376/ae98a157-9520-46d0-afa6-93525a2f9d0a)**سرور خارج اول (ترکیه) روش دوم - استفاده از لوکال ایپی**
 --
 
 **مسیر : گزینه 4 [LoadBalancer [5] Kharej [1] IRAN] > روش لوکال ایپی > سرور خارج اول**
@@ -885,7 +893,7 @@
 - در اینجا بوسیله روش دوم، کانفیگ سرور دوم خارج (آلمان) را انجام میدهیم
 - من دو کانفیگ vmess در سرور المان دارم و پورت های آن 8080 و 8081 میباشد
 - چون دو پورت دارم و میخواهم هر دو پورت را به یک سرور ایران لود بالانس کنم ، پس تعداد 2 را برای لود بالانس انتخاب میکنم که 2 گروه برای من بسازد
--  چون سرور دوم من سرور آلمان میباشد پس مقدار Starting v2ray number عدد 1 میباشد.
+-  چون سرور دوم من سرور آلمان میباشد پس مقدار Starting v2ray number عدد 3 میباشد.
 -  مانند مثال بالا که توضیح دادم ، چون دو عدد کانفیگ دارم، دو گروه لود بالانس ایجاد میکنیم و برای همین مقدار Starting v2ray number برای سرور سوم ( اگر دارید) مقدار 5 میباشد که در اسکرین شات هم مشخص است.
 
 ----------------------
