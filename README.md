@@ -11,9 +11,9 @@
  ----------------------
 
 - **دسترسی سریع به اسکریپت** >> **[کلیک](https://github.com/Azumi67/V2ray_loadbalance_multipleServers#%D8%A7%D8%B3%DA%A9%D8%B1%DB%8C%D9%BE%D8%AA-%D9%85%D9%86)**
-- **اسکریپت های کارآمد**  >> **[کلیک]()**
+- **اسکریپت های کارآمد**  >> **[کلیک](https://github.com/Azumi67/V2ray_loadbalance_multipleServers#%D8%A7%D8%B3%DA%A9%D8%B1%DB%8C%D9%BE%D8%AA-%D9%87%D8%A7%DB%8C-%DA%A9%D8%A7%D8%B1%D8%A2%D9%85%D8%AF-)**
 - **امکانات** >> **[کلیک](https://github.com/Azumi67/V2ray_loadbalance_multipleServers/blob/main/README.md#%D8%A7%D9%85%DA%A9%D8%A7%D9%86%D8%A7%D8%AA)**
-- **آموزش** >> **[کلیک]()**
+- **آموزش** >> **[کلیک](https://github.com/Azumi67/V2ray_loadbalance_multipleServers#%D8%A2%D9%85%D9%88%D8%B2%D8%B4)**
 - **ریورس تانل بدون لود بالانس** >> **[کلیک](https://github.com/Azumi67/V2ray_loadbalance_multipleServers#%D8%B1%DB%8C%D9%88%D8%B1%D8%B3-%D8%AA%D8%A7%D9%86%D9%84-%D8%A8%D8%AF%D9%88%D9%86-%D9%84%D9%88%D8%AF-%D8%A8%D8%A7%D9%84%D8%A7%D9%86%D8%B3--%D8%AA%DA%A9-%D9%BE%D9%88%D8%B1%D8%AA-%DB%8C%D8%A7-%DA%86%D9%86%D8%AF%DB%8C%D9%86-%D9%BE%D9%88%D8%B1%D8%AA-)**
 -  **ریورس تانل با لود بالانس : تک سرور** >> **[کلیک](https://github.com/Azumi67/V2ray_loadbalance_multipleServers#%D8%B1%DB%8C%D9%88%D8%B1%D8%B3-%D8%AA%D8%A7%D9%86%D9%84-%D8%A8%D8%A7-%D9%84%D9%88%D8%AF-%D8%A8%D8%A7%D9%84%D8%A7%D9%86%D8%B3---%D8%AA%DA%A9-%D8%B3%D8%B1%D9%88%D8%B1--%D8%AA%DA%A9-%D9%BE%D9%88%D8%B1%D8%AA-%DB%8C%D8%A7-%DA%86%D9%86%D8%AF%DB%8C%D9%86-%D9%BE%D9%88%D8%B1%D8%AA-)**
 -  **لود بالانس 5 سرور خارج 1 سرور ایران** >> **[کلیک](https://github.com/Azumi67/V2ray_loadbalance_multipleServers#%D8%B1%DB%8C%D9%88%D8%B1%D8%B3-%D8%AA%D8%A7%D9%86%D9%84-%D8%A8%D8%A7-%D9%84%D9%88%D8%AF-%D8%A8%D8%A7%D9%84%D8%A7%D9%86%D8%B3---5-%D8%B3%D8%B1%D9%88%D8%B1-%D8%AE%D8%A7%D8%B1%D8%AC--1-%D8%B3%D8%B1%D9%88%D8%B1-%D8%A7%DB%8C%D8%B1%D8%A7%D9%86--%D8%AA%DA%A9-%D9%BE%D9%88%D8%B1%D8%AA-%DB%8C%D8%A7-%DA%86%D9%86%D8%AF%DB%8C%D9%86-%D9%BE%D9%88%D8%B1%D8%AA-)**
@@ -1132,7 +1132,7 @@ python3 <(curl -Ls https://raw.githubusercontent.com/Azumi67/V2ray_loadbalance_m
  <div dir="rtl">&bull; اگر سرور شما خطای externally-managed-environment داد از دستور زیر اقدام به اجرای اسکریپت نمایید.</div>
  
 ```
-
+bash <(curl -s -L https://raw.githubusercontent.com/Azumi67/V2ray_loadbalance_multipleServers/main/managed2.sh)
 ```
 
 ---------------------------------------------
