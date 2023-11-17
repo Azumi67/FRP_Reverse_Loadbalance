@@ -39,10 +39,10 @@
   - سرور خارج اول (ترکیه) روش دوم - استفاده از لوکال ایپی >> **[کلیک](https://github.com/Azumi67/V2ray_loadbalance_multipleServers#%D8%B3%D8%B1%D9%88%D8%B1-%D8%AE%D8%A7%D8%B1%D8%AC-%D8%A7%D9%88%D9%84-%D8%AA%D8%B1%DA%A9%DB%8C%D9%87-%D8%B1%D9%88%D8%B4-%D8%AF%D9%88%D9%85---%D8%A7%D8%B3%D8%AA%D9%81%D8%A7%D8%AF%D9%87-%D8%A7%D8%B2-%D9%84%D9%88%DA%A9%D8%A7%D9%84-%D8%A7%DB%8C%D9%BE%DB%8C)**
   - سرور خارج دوم (آلمان) روش اول - استفاده از IPV6  >> **[کلیک](https://github.com/Azumi67/V2ray_loadbalance_multipleServers#-%D8%B3%D8%B1%D9%88%D8%B1-%D8%AE%D8%A7%D8%B1%D8%AC-%D8%AF%D9%88%D9%85-%D8%A2%D9%84%D9%85%D8%A7%D9%86-%D8%B1%D9%88%D8%B4-%D8%A7%D9%88%D9%84---%D8%A7%D8%B3%D8%AA%D9%81%D8%A7%D8%AF%D9%87-%D8%A7%D8%B2-ipv6)**
   - سرور خارج دوم (آلمان) روش دوم - استفاده از لوکال ایپی  >> **[کلیک](https://github.com/Azumi67/V2ray_loadbalance_multipleServers#%D8%B3%D8%B1%D9%88%D8%B1-%D8%AE%D8%A7%D8%B1%D8%AC-%D8%AF%D9%88%D9%85-%D8%A2%D9%84%D9%85%D8%A7%D9%86-%D8%B1%D9%88%D8%B4-%D8%AF%D9%88%D9%85---%D8%A7%D8%B3%D8%AA%D9%81%D8%A7%D8%AF%D9%87-%D8%A7%D8%B2-%D9%84%D9%88%DA%A9%D8%A7%D9%84-%D8%A7%DB%8C%D9%BE%DB%8C)**
--  **لود بالانس 3 سرور ایران 1 سرور خارج** >>  **[کلیک]()**
-  - سرور ایران >>   **[کلیک]()**
-  - سرور خارج روش ایپی 6 >>  **[کلیک]()**
-  - سرور خارج روش لوکال ایپی >>  **[کلیک]()**
+-  **لود بالانس 3 سرور ایران 1 سرور خارج** >>  **[کلیک](https://github.com/Azumi67/V2ray_loadbalance_multipleServers/blob/main/README.md#%D8%B1%DB%8C%D9%88%D8%B1%D8%B3-%D8%AA%D8%A7%D9%86%D9%84-%D8%A8%D8%A7-%D9%84%D9%88%D8%AF-%D8%A8%D8%A7%D9%84%D8%A7%D9%86%D8%B3---3-%D8%B3%D8%B1%D9%88%D8%B1-%D8%A7%DB%8C%D8%B1%D8%A7%D9%86--1-%D8%B3%D8%B1%D9%88%D8%B1-%D8%AE%D8%A7%D8%B1%D8%AC--%D8%A7%D8%B3%D8%AA%D9%81%D8%A7%D8%AF%D9%87-%D8%A7%D8%B2-%D9%BE%D8%B1%D8%A7%DB%8C%D9%88%D8%AA-%D8%A7%DB%8C%D9%BE%DB%8C-%D9%88-native-ipv6-)**
+  - سرور ایران >>   **[کلیک](https://github.com/Azumi67/V2ray_loadbalance_multipleServers/blob/main/README.md#-%D8%B3%D8%B1%D9%88%D8%B1-%D8%A7%D9%88%D9%84-%D8%A7%DB%8C%D8%B1%D8%A7%D9%86-1)**
+  - سرور خارج روش ایپی 6 >>  **[کلیک](https://github.com/Azumi67/V2ray_loadbalance_multipleServers/blob/main/README.md#%D8%B3%D8%B1%D9%88%D8%B1-%D8%AE%D8%A7%D8%B1%D8%AC-%D8%AA%D8%B1%DA%A9%DB%8C%D9%87-%D8%B1%D9%88%D8%B4-%D8%A7%D9%88%D9%84-ipv6-%D9%88-%D9%BE%D8%B1%D8%A7%DB%8C%D9%88%D8%AA-%D8%A7%DB%8C%D9%BE%DB%8C)**
+  - سرور خارج روش لوکال ایپی >>  **[کلیک](https://github.com/Azumi67/V2ray_loadbalance_multipleServers/blob/main/README.md#%D8%B3%D8%B1%D9%88%D8%B1-%D8%AE%D8%A7%D8%B1%D8%AC-%D8%B1%D9%88%D8%B4-%D8%AF%D9%88%D9%85-%D9%84%D9%88%DA%A9%D8%A7%D9%84-%D8%A7%DB%8C%D9%BE%DB%8C-1)**
 ----------------------------------
 **توضیح کوتاه:**
 
@@ -1007,6 +1007,7 @@
   <img src="https://github.com/Azumi67/V2ray_loadbalance_multipleServers/assets/119934376/ccfc3dd4-c329-46f4-a41b-39ccaee3f57c" alt="Image" />
 </p>
 
+
 -----
 - **ایپی های پرایوت سرور خارج و ایران (امین) و (شاتل)**
 - در سرور خارج ، پرایوت ایپی های سرور امین عبارت است از : fd1d:fc98:b73e:b481::1 و fd1d:fc98:b73e:b482::1
@@ -1045,8 +1046,8 @@
 **مسیر : گزینه 5 [LoadBalancer [1] Kharej [3] IRAN] > سرور خارج > لوکال ایپی**
 
 -----
-- **ایپی های پرایوت سرور خارج و ایران (امین) و (شاتل)**
 
+- **ایپی های پرایوت سرور خارج و ایران (امین) و (شاتل)**
 - ایپی های پرایوت سرور امین : fd1d:fc98:b73e:b481::2 و fd1d:fc98:b73e:b482::2
 - ایپی پرایوت های سرور شاتل : fd1d:fc98:b73e:b381::2 و fd1d:fc98:b73e:b382::2
 - باید دقت کنیم که ایپی های درست را در ریورس تانل استفاده کنیم.
