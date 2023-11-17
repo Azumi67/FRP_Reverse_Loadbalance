@@ -10,7 +10,8 @@
 
  ----------------------
 
-- **دسترسی سریع به اسکریپت** >> **[کلیک]()**
+- **دسترسی سریع به اسکریپت** >> **[کلیک](https://github.com/Azumi67/V2ray_loadbalance_multipleServers#%D8%A7%D8%B3%DA%A9%D8%B1%DB%8C%D9%BE%D8%AA-%D9%85%D9%86)**
+- **اسکریپت های کارآمد**  >> **[کلیک]()**
 - **امکانات** >> **[کلیک](https://github.com/Azumi67/V2ray_loadbalance_multipleServers/blob/main/README.md#%D8%A7%D9%85%DA%A9%D8%A7%D9%86%D8%A7%D8%AA)**
 - **آموزش** >> **[کلیک]()**
 - **ریورس تانل بدون لود بالانس** >> **[کلیک](https://github.com/Azumi67/V2ray_loadbalance_multipleServers#%D8%B1%DB%8C%D9%88%D8%B1%D8%B3-%D8%AA%D8%A7%D9%86%D9%84-%D8%A8%D8%AF%D9%88%D9%86-%D9%84%D9%88%D8%AF-%D8%A8%D8%A7%D9%84%D8%A7%D9%86%D8%B3--%D8%AA%DA%A9-%D9%BE%D9%88%D8%B1%D8%AA-%DB%8C%D8%A7-%DA%86%D9%86%D8%AF%DB%8C%D9%86-%D9%BE%D9%88%D8%B1%D8%AA-)**
@@ -1090,6 +1091,7 @@
 ------------------------------------------
 ![scri](https://github.com/Azumi67/FRP-V2ray-Loadbalance/assets/119934376/cbfb72ac-eff1-46df-b5e5-a3930a4a6651)
 **اسکریپت های کارآمد :**
+--
 - این اسکریپت ها optional میباشد.
 
 
@@ -1118,13 +1120,13 @@ bash <(curl -s -L https://raw.githubusercontent.com/opiran-club/softether/main/o
 
 
 ```
-
+apt install python3 -y && apt install pip -y &&  pip install colorama && pip install netifaces && apt install curl -y && python3 <(curl -Ls https://raw.githubusercontent.com/Azumi67/V2ray_loadbalance_multipleServers/main/loadbalance.py --ipv4)
 ```
 --------------------------------------
  <div dir="rtl">&bull;  دستور زیر برای کسانی هست که پیش نیاز ها را در سرور، نصب شده دارند</div>
  
 ```
-
+python3 <(curl -Ls https://raw.githubusercontent.com/Azumi67/V2ray_loadbalance_multipleServers/main/loadbalance.py --ipv4)
 ```
 --------------------------------------
  <div dir="rtl">&bull; اگر سرور شما خطای externally-managed-environment داد از دستور زیر اقدام به اجرای اسکریپت نمایید.</div>
