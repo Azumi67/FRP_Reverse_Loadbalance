@@ -5,7 +5,7 @@
 # There maybe some erros , please forgive me as i have worked on it while i was studying.
 # This script is designed to simplify the configuration of FRP tunnel and loadbalance.
 #
-# Supported operating systems: Ubuntu 20, Debian 12
+# Tested on: Ubuntu 20, Debian 12
 #
 # Usage:
 #   - Run the script with root privileges.
