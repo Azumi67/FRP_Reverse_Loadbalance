@@ -46,7 +46,7 @@
   - سرور ایران >>   **[کلیک](https://github.com/Azumi67/V2ray_loadbalance_multipleServers/blob/main/README.md#-%D8%B3%D8%B1%D9%88%D8%B1-%D8%A7%D9%88%D9%84-%D8%A7%DB%8C%D8%B1%D8%A7%D9%86-1)**
   - سرور خارج روش ایپی 6 >>  **[کلیک](https://github.com/Azumi67/V2ray_loadbalance_multipleServers/blob/main/README.md#%D8%B3%D8%B1%D9%88%D8%B1-%D8%AE%D8%A7%D8%B1%D8%AC-%D8%AA%D8%B1%DA%A9%DB%8C%D9%87-%D8%B1%D9%88%D8%B4-%D8%A7%D9%88%D9%84-ipv6-%D9%88-%D9%BE%D8%B1%D8%A7%DB%8C%D9%88%D8%AA-%D8%A7%DB%8C%D9%BE%DB%8C)**
   - سرور خارج روش لوکال ایپی >>  **[کلیک](https://github.com/Azumi67/V2ray_loadbalance_multipleServers/blob/main/README.md#%D8%B3%D8%B1%D9%88%D8%B1-%D8%AE%D8%A7%D8%B1%D8%AC-%D8%B1%D9%88%D8%B4-%D8%AF%D9%88%D9%85-%D9%84%D9%88%DA%A9%D8%A7%D9%84-%D8%A7%DB%8C%D9%BE%DB%8C-1)**
-- **سورس ها** >> **[کلیک]()**
+- **سورس ها** >> **[کلیک](https://github.com/Azumi67/V2ray_loadbalance_multipleServers/blob/main/README.md#%D8%B3%D9%88%D8%B1%D8%B3-%D9%87%D8%A7)**
 ----------------------------------
 **توضیح کوتاه:**
 
