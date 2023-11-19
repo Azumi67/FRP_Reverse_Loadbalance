@@ -926,8 +926,14 @@ def frp_menu():
         display_error(f"Unsupported CPU architecture: {arch}")
         return
 
-    display_notification("\033[93mDownloading FRP in a sec...\033[0m")
-    display_notification("\033[93mPlease wait, updating...\033[0m")
+    display_notification("\033[93mDownloading FRP...\033[0m")
+
+    try:
+        subprocess.run(['wget', '-O', '/root/frp.tar.gz', frp_download_url], check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        display_checkmark("\033[92mFRP downloaded successfully!\033[0m")
+    except subprocess.CalledProcessError as e:
+        display_error(f"An error occurred while downloading FRP: {str(e)}")
+        return
 
     subprocess.Popen('apt update &>/dev/null &', shell=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 
@@ -936,7 +942,6 @@ def frp_menu():
     apt_update_pid = subprocess.check_output('echo $!', shell=True).decode().strip()
 
     while apt_update_pid:
-        clear()
         display_notification("\033[93mPlease wait, updating...\033[0m")
         print(f"Azumi is working in the background, timer: {seconds} seconds")
         seconds += 1
@@ -952,15 +957,26 @@ def frp_menu():
 
     display_checkmark("\033[92mUpdate completed successfully!\033[0m")
 
-    subprocess.run(['tar', '-xf', '/root/frp.tar.gz', '-C', '/root'], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-    subprocess.run(['rm', '/root/frp.tar.gz'], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-
+    try:
+        subprocess.run(['tar', '-xf', '/root/frp.tar.gz', '-C', '/root'], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        subprocess.run(['rm', '/root/frp.tar.gz'], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    except Exception as e:
+        display_error(f"An error occurred while extracting the FRP archive: {str(e)}")
+        return
 
     old_dir_path = '/root/frp_0.52.3_linux_amd64'
     new_dir_path = '/root/frp'
-    shutil.move(old_dir_path, new_dir_path)
-    
-    display_checkmark("\033[92mFRP downloaded and installed successfully!\033[0m")
+
+    if not os.path.exists(old_dir_path):
+        display_error(f"Directory '{old_dir_path}' does not exist.")
+        return
+
+    try:
+        os.rename(old_dir_path, new_dir_path)
+        display_checkmark("\033[92mFRP downloaded and installed successfully!\033[0m")
+    except Exception as e:
+        display_error(f"An error occurred while moving the directory: {str(e)}")
+        return
 
     subprocess.call('sysctl -p &>/dev/null', shell=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 
