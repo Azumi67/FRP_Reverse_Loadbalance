@@ -935,28 +935,6 @@ def frp_menu():
         display_error(f"An error occurred while downloading FRP: {str(e)}")
         return
 
-    subprocess.Popen('apt update &>/dev/null &', shell=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-
-    seconds = 0
-
-    apt_update_pid = subprocess.check_output('echo $!', shell=True).decode().strip()
-
-    while apt_update_pid:
-        display_notification("\033[93mPlease wait, updating...\033[0m")
-        print(f"Azumi is working in the background, timer: {seconds} seconds")
-        seconds += 1
-        subprocess.call('sleep 1', shell=True)
-        try:
-            subprocess.check_output(f'ps -p {apt_update_pid} -o pid=', shell=True)
-        except subprocess.CalledProcessError:
-            apt_update_pid = None
-
-    for i in range(11):
-        subprocess.call('sleep 0.5', shell=True)
-        display_progress(10, i)
-
-    display_checkmark("\033[92mUpdate completed successfully!\033[0m")
-
     try:
         subprocess.run(['tar', '-xf', '/root/frp.tar.gz', '-C', '/root'], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
         subprocess.run(['rm', '/root/frp.tar.gz'], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
