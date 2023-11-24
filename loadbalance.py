@@ -907,7 +907,7 @@ def status4_menu():
     
 def frp_menu():
     def stop_loading():
-        display_error("Installation process interrupted.")
+        display_error("\033[91mInstallation process interrupted.\033[0m")
         exit(1)
 
     subprocess.call('sysctl -w net.ipv4.ip_forward=1 &>/dev/null', shell=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
@@ -920,8 +920,10 @@ def frp_menu():
 
     if arch in ['x86_64', 'amd64']:
         frp_download_url = "https://github.com/fatedier/frp/releases/download/v0.52.3/frp_0.52.3_linux_amd64.tar.gz"
+        frp_directory_name = "frp_0.52.3_linux_amd64"
     elif arch in ['aarch64', 'arm64']:
         frp_download_url = "https://github.com/fatedier/frp/releases/download/v0.52.3/frp_0.52.3_linux_arm64.tar.gz"
+        frp_directory_name = "frp_0.52.3_linux_arm64"
     else:
         display_error(f"Unsupported CPU architecture: {arch}")
         return
@@ -942,18 +944,16 @@ def frp_menu():
         display_error(f"An error occurred while extracting the FRP archive: {str(e)}")
         return
 
-    old_dir_path = '/root/frp_0.52.3_linux_amd64'
+    old_dir_path = f'/root/{frp_directory_name}'
     new_dir_path = '/root/frp'
 
-    if not os.path.exists(old_dir_path):
-        display_error(f"Directory '{old_dir_path}' does not exist.")
-        return
-
     try:
+        if os.path.exists(new_dir_path):
+            shutil.rmtree(new_dir_path)
         os.rename(old_dir_path, new_dir_path)
         display_checkmark("\033[92mFRP downloaded and installed successfully!\033[0m")
     except Exception as e:
-        display_error(f"An error occurred while moving the directory: {str(e)}")
+        display_error(f"An error occurred while moving frp: {str(e)}")
         return
 
     subprocess.call('sysctl -p &>/dev/null', shell=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
