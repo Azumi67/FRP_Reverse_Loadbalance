@@ -3540,7 +3540,6 @@ def i3kharej_ipv6():
     num_groups = int(input("\033[93mEnter the number of \033[92mloadbalance groups\033[96m [For each different port, there should be a group\033[92m]: \033[0m"))
     print("\033[93m───────────────────────────────────────────────────────────────────────────────────────\033[0m")
     num_iran_servers = int(input("\033[93mEnter the number of \033[92mIRAN\033[93m servers:\033[0m "))
-    num_groups = int(input("\033[93mEnter the number of \033[92mloadbalance\033[93m groups:\033[0m "))
 
     groups = []
     for i in range(num_groups):
@@ -3589,7 +3588,7 @@ def i3kharej_ipv6():
             ipv6_count = int(input("\033[93mEnter the number of IPv6 addresses needed for \033[92m{}\033[93m:\033[0m ".format(group_name)))
             ipv6_addresses = []
             for i in range(ipv6_count):
-                ipv6_address = input("\033[93mEnter IPv6 address #{} for \033[92m{}\033[93m:\033[0m ".format(i + 1, group_name))
+                ipv6_address = input("\033[93mEnter \033[92mKharej\033[93m IPv6 address #{} for \033[92m{}\033[93m:\033[0m ".format(i + 1, group_name))
                 ipv6_addresses.append(ipv6_address)
             print("\033[93m───────────────────────────────────────────────────────────────────────────────────────\033[0m")
 
