@@ -80,34 +80,34 @@ def display_logo2():
     print(logo2)
     
 def display_logo():
-    colorama.init()
-    logo = """
-    ⠀⠀    \033[1;96m       ⠄⠠⠤⠤⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀   ⠀⠀⢀⠠⢀⣢⣈⣉⠁⡆⠀⠀⠀⠀⠀⠀
-⠀⠀             ⠀⡏⢠⣾⢷⢶⣄⣕⠢⢄⠀⠀⣀⣠⠤⠔⠒⠒⠒⠒⠒⠒⠢⠤⠄⣀⠤⢊⣤⣶⣿⡿⣿⢹⢀⡇⠀⠀⠀⠀⠀⠀
-⠀⠀             ⠀⢻⠈⣿⢫⡞⠛⡟⣷⣦⡝⠋⠉⣤⣤⣶⣶⣶⣿⣿⣿⡗⢲⣴⠀⠈⠑⣿⡟⡏⠀⢱⣮⡏⢨⠃⠀⠀⠀⠀⠀⠀
-⠀⠀             ⠀⠸⡅⣹⣿⠀⠀⢩⡽⠋⣠⣤⣿⣿⣏⣛⡻⠿⣿⢟⣹⣴⢿⣹⣿⡟⢦⣀⠙⢷⣤⣼⣾⢁⡾⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀             ⠀⢻⡀⢳⣟⣶⠯⢀⡾⢍⠻⣿⣿⣽⣿⣽⡻⣧⣟⢾⣹⡯⢷⡿⠁⠀⢻⣦⡈⢿⡟⠁⡼⠁⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀             ⠀⢷⠠⢻⠏⢰⣯⡞⡌⣵⠣⠘⡉⢈⠓⡿⠳⣯⠋⠁⠀⠀⢳⡀⣰⣿⣿⣷⡈⢣⡾⠁⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀             ⠀⠀⠙⣎⠀⣿⣿⣷⣾⣷⣼⣵⣆⠂⡐⢀⣴⣌⠀⣀⣤⣾⣿⣿⣿⣿⣿⣿⣷⣀⠣⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀            ⠀⠀  ⠄⠑⢺⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣳⣿⢽⣧⡤⢤⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀            ⠀⠀  ⢸⣈⢹⣟⣿⣿⣿⣿⣿⣻⢹⣿⣻⢿⣿⢿⣽⣳⣯⣿⢷⣿⡷⣟⣯⣻⣽⠧⠾⢤⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀             ⠀ ⢇⠤⢾⣟⡾⣽⣿⣽⣻⡗⢹⡿⢿⣻⠸⢿⢯⡟⡿⡽⣻⣯⣿⣎⢷⣣⡿⢾⢕⣎⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀             ⠀⡠⡞⡟⣻⣮⣍⡛⢿⣽⣻⡀⠁⣟⣣⠿⡠⣿⢏⡞⠧⠽⢵⣳⣿⣺⣿⢿⡋⠙⡀⠇⠱⠀⠀⠀
-⠀⠀⠀             ⠀⢰⠠⠁⠀⢻⡿⣛⣽⣿⢟⡁\033[1;91m⣭⣥⣅⠀⠀⠀⠀⠀⠀⣶⣟⣧\033[1;96m⠿⢿⣿⣯⣿⡇⠀⡇⠀⢀⡇⠀⠀⠀⠀⠀⠀
-⠀⠀             ⠀⠀⢸⠀⠀⡇⢹⣾⣿⣿⣷⡿⢿\033[1;91m⢷⡏⡈⠀⠀⠀⠀⠀⠀⠈⡹⡷⡎\033[1;96m⢸⣿⣿⣿⡇⠀⡇⠀⠸⡇⠀⠀⠀⠀⠀⠀
-⠀             ⠀⠀⠀⢸⡄⠂⠖⢸⣿⣿⣿⡏⢃⠘\033[1;91m⡊⠩⠁⠀⠀⠀⠀⠀⠀⠀⠁⠀⠁\033[1;96m⢹⣿⣿⣿⡇⢰⢁⡌⢀⠇⠀⠀⠀⠀⠀⠀
-⠀⠀             ⠀⠀⠀⢷⡘⠜⣤⣿⣿⣿⣷⡅⠐⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⣧⣕⣼⣠⡵⠋⠀⠀⠀⠀⠀⠀⠀
-⠀⠀              ⠀⠀⠀⣸⣻⣿⣾⣿⣿⣿⣿⣾⡄⠀⠀⠀⠀⠀⢀⣀⠀⠀⠀⠀⠀⣠⣿⣿⣿⣿⣿⣿⣿⢀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀             ⠀⠀⡇⣿⣻⣿⣿⣿⣿⣿⣿⣿⣦⣤⣀⠀⠀⠀⠀⠀⠀⣠⣴⣾⣿⣿⣿⣿⣿⣿⣳⣿⡸⡀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀             ⠀⠀\033[1;96m⣸⢡⣿⢿⣿⣿⣿⣿⣿⣿⣿⢿⣿⡟⣽⠉⠀⠒⠂⠉⣯⢹⣿⡿⣿⣿⣿⣿⣿⣯⣿⡇⠇ ⡇ \033[1;92mAuthor: github.com/Azumi67  \033[1;96m⡇⠀⠀⠀⠀⠀⠀⠀
-⠀⠀             ⠀\033[1;96m⢰⡏⣼⡿⣿⣻⣿⣿⣿⣿⣿⢿⣻⡿⠁⠘⡆⠀⠀⠀⢠⠇⠘⣿⣿⣽⣿⣿⣿⣿⣯⣿⣷⣸⠀⠀ ⠀⠀⠀⠀
-  \033[1;96m  ______   \033[1;94m _______  \033[1;92m __    \033[1;93m  _______     \033[1;91m    __      \033[1;96m  _____  ___  
- \033[1;96m  /    " \  \033[1;94m|   __ "\ \033[1;92m|" \  \033[1;93m  /"      \    \033[1;91m   /""\     \033[1;96m (\"   \|"  \ 
- \033[1;96m // ____  \ \033[1;94m(. |__) :)\033[1;92m||  |  \033[1;93m|:        |   \033[1;91m  /    \   \033[1;96m  |.\\   \    |
- \033[1;96m/  /    ) :)\033[1;94m|:  ____/ \033[1;92m|:  |  \033[1;93m|_____/   )   \033[1;91m /' /\  \   \033[1;96m |: \.   \\  |
-\033[1;96m(: (____/ // \033[1;94m(|  /     \033[1;92m|.  | \033[1;93m //       /   \033[1;91m //  __'  \  \033[1;96m |.  \    \ |
- \033[1;96m\        / \033[1;94m/|__/ \   \033[1;92m/\  |\ \033[1;93m |:  __   \  \033[1;91m /   /  \\   \ \033[1;96m |    \    \|
- \033[1;96m \"_____ / \033[1;94m(_______) \033[1;92m(__\_|_)\033[1;93m |__|  \___) \033[1;91m(___/    \___) \033[1;96m\___|\____\)
+    colorama.init()  
+    logo = """ 
+\033[1;96m
+                  ⣾⣿⣿⣿⣿⣿⣿⣿⣿⣯⠿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠛⣿⣿
+                ⢺⣽⡿⣅⠹⣿⣿⣿⣿⣿⣿⣿⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⢿⣿⡻⣿⣻⣿⣿⣿⣁⣴⢟⡻⠻⣯⣌⣿
+          ⠔⢫⠆⣾⡿⢷⣮⣥⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠯⠝⠛⠉⠀⠁⠀⠀⠀⠀⠀⠀⠀⠀⠈⠙⠻⣏⣀⣙⡄⢿⣿⣿⣿⣿⣿⣿⣿⢟
+       ⢀⠳⢒⣷⣿⣿⢱⡂⠜⣿⣿⣿⣿⣿⣿⣿⡿⢛⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢿⣿⣿⣿⣿⣿⣿⣿⣿⡿⡱⠟⢀⡇⠸⣶⣿
+       ⠈⢩⣣⣿⣿⣿⣾⣿⣿⣿⣿⣿⣿⣿⣿⠏⡰⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣭⡽⠟⠫⠅⣿⡿⢶⣿⠿⣻⣿⣿⣿⣿
+         ⢠⣿⣿⣿⣿⣿⣉⠻⣿⣿⣿⣿⢏⠊⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢤⠢⣀⣀⠤⢞⢟⣟⣒⣣⠼⡯⡟⢻⡥⡒⠘⣿
+        ⢠⠋⣴⡿⡿⣿⡔⠻⣿⣿⣿⣿⣏⠂⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠠⡀⣆⣐⣥⣴⣾⣿⣿⣿⣶⠊⣼⣀⣸⣧⣿⣿⣿⣽
+       ⣠⣿⣾⡟⣤⣇⠘⣿⣷⣿⣿⣿⡿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠄⢻⣿⣿⣿⣿⣿⣿⣽⣻⣿⣿⣿⣿⢿⡍⢻⣿⣿⡇
+      ⣰⠏⣾⣿⣿⣿⣿⣾⣿⣿⣿⣿⣿⠃⠀⣀⠠⠤⠐⠒⠒⠓⠒⠄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠠⠐⠒⠒⠒⠤⠤⣀⠀⠘⣿⣿⣿⣿⣿⣿⣷⡟⢰⡿⠻⣟⡚⠻⣷⣿
+     ⣰⠃⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠔⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠑⢿⣿⣿⣿⣿⣿⢙⢲⡞⢀⡄⠈⡗⣲⣾⣿⣿⡟⠁
+⠀   ⢠⠇⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿\033[1;96m⠀⠀⠀⠀⣀⣀⠀⠀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⣿⣿⣿⣿⣿⣿⣾⣿⣷⣯⣼⣿⣿⣿⣿⣿⣿⣿⠀
+   ⢀⡎⠀⠀⣯⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡏\033[1;91m⡀⠀⣎⣁⣤⣼⣖⣶⣦⣬⣑⠂⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠖⣈⣭⣤⣴⣮⣭⣴⡦\033[1;96m⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⣟⠿
+⠀  ⡼⠀⠀⢠⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇\033[1;91m⢧⣤⣾⡿⣿⣿⣿⣿⣯⣽⣿⣷⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀  ⣰⣾⢿⣿⣿⣿⣿⣙\033[1;96m⣿⣿⣿⣽⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡱⣎⡟⠀
+  ⢰⠇⠀⠀⢸⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿\033[1;91m⡠⣾⣿⠟⠀⣿⣿⠛⢽⣿⡿⢿⣿⠛⠀⠀⠀⠀⠀⠀⠀⠀⠀ ⠀⠋⠧⣾⣿⡟⠻ ⣿⣿\033[1;96m⢿⣿⡟⣿⣿⣿⣿⡿⠿⣿⣿⣿⣿⣿⣿⣿⣾⣾⣿
+⠀⠀⣿⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡆\033[1;91m⠀⠙⠆⠀⠙⡘⠢⡘⠿⢃⡞⡾⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⣫⠳⡙⢿⠃⡚⣻\033[1;96m⢻⣿⣿⣿⣿⠴⠐⣸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀
+⠀⢸⡇⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣟⢺⡄\033[1;91m⠀⠀⢢⡀⠙⠢⢀⣀⠡⠛⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠑⠦⣄⣀⣁⠮⠃\033[1;96m⣸⣏⣺⣿⣿⠹⡎⣇⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀
+⠀⣼⡇⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠣⣷⠀\033[1;91m⠀⠉⠙⠛⠦⠲⠒⠂⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠒⠲⠦⠴⠶⠶⠊\033[1;96m⣿⠇⣼⣿⣿⡩⢛⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀
+⠀⣿⡇⠀⠀⢀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣦⡘⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢰⣿⠀⣿⣿⡏⢀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⢞⣿⠀\033[1;92mAuthor: github.com/Azumi67  \033[1;96m  ⠀⠀⠀⠀
+  \033[96m  ______   \033[1;94m _______  \033[1;92m __    \033[1;93m  _______     \033[1;91m    __      \033[1;96m  _____  ___  
+ \033[96m  /    " \  \033[1;94m|   __ "\ \033[1;92m|" \  \033[1;93m  /"      \    \033[1;91m   /""\     \033[1;96m (\"   \|"  \ 
+ \033[96m // ____  \ \033[1;94m(. |__) :)\033[1;92m||  |  \033[1;93m|:        |   \033[1;91m  /    \   \033[1;96m  |.\\   \    |
+ \033[96m/  /    ) :)\033[1;94m|:  ____/ \033[1;92m|:  |  \033[1;93m|_____/   )   \033[1;91m /' /\  \   \033[1;96m |: \.   \\  |
+\033[96m(: (____/ // \033[1;94m(|  /     \033[1;92m|.  | \033[1;93m //       /   \033[1;91m //  __'  \  \033[1;96m |.  \    \ |
+ \033[96m\        / \033[1;94m/|__/ \   \033[1;92m/\  |\ \033[1;93m |:  __   \  \033[1;91m /   /  \\   \ \033[1;96m |    \    \|
+ \033[96m \"_____ / \033[1;94m(_______) \033[1;92m(__\_|_)\033[1;93m |__|  \___) \033[1;91m(___/    \___) \033[1;96m\___|\____\)
 """
     print(logo)
 def main_menu():
@@ -1103,11 +1103,13 @@ def kharej_method1():
     with open(frpc_ini_path, "w") as f:
         f.write("[common]\n")
         f.write("server_addr = {}\n".format(iran_ipv6))
-        f.write("server_port = 443\n")
+        server_port = input("\033[93mEnter \033[92mTunnel port\033[93m (default 443): \033[0m")
+        if not server_port:
+            server_port = "443"
+        f.write("server_port = {}\n".format(server_port))
         f.write("authentication_mode = token\n")
         f.write("token = azumi\n")
 
-    ufw_rules = []  
 
     for i in range(1, num_ipv6 + 1):
         kharej_ipv6 = input("\033[93mEnter \033[92m{}th Kharej \033[93m IPv6 address: \033[0m".format(i))
@@ -1125,8 +1127,6 @@ def kharej_method1():
             f.write("use_encryption = true\n")
             f.write("use_compression = true\n")
 
-        ufw_rules.append("{}/tcp".format(iran_port))
-        ufw_rules.append("{}/tcp".format(kharej_port))
 
     display_checkmark("\033[92mKharej configuration generated. Yours Truly, Azumi.\033[0m")
 
@@ -1138,20 +1138,17 @@ def kharej_method1():
         f.write("[Service]\n")
         f.write("ExecStart=/root/frp/./frpc -c /root/frp/frpc.toml\n")
         f.write("Restart=always\n")
+        f.write("RestartSec=21601\n")    
         f.write("User=root\n")
         f.write("\n")
         f.write("[Install]\n")
         f.write("WantedBy=multi-user.target\n")
         
-    os.system("ufw allow 443/tcp")
-    for rule in ufw_rules:
-        os.system("ufw allow {}".format(rule))
     time.sleep(1)
     os.system("systemctl daemon-reload")
     os.system("systemctl enable azumifrpc1")
     display_notification("\033[93mStarting FRP service...\033[0m")
-    os.system("systemctl start azumifrpc1")
-
+    os.system("systemctl restart azumifrpc1")
     display_checkmark("\033[92mFRP Service Started!\033[0m")    
 
 def kharej_method2():
@@ -1179,12 +1176,14 @@ def kharej_method2():
 
     iran_ipv6 = input("\033[93mEnter \033[92mIRAN\033[93m IPV4/IPv6 address: \033[0m")
     
-    ufw_rules = []  
 
     with open(frpc_ini_path, "w") as f:
         f.write("[common]\n")
         f.write("server_addr = {}\n".format(iran_ipv6))
-        f.write("server_port = 443\n")
+        server_port = input("\033[93mEnter \033[92mTunnel port\033[93m (default 443): \033[0m")
+        if not server_port:
+            server_port = "443"
+        f.write("server_port = {}\n".format(server_port))
         f.write("authentication_mode = token\n")
         f.write("token = azumi\n")
 
@@ -1203,8 +1202,6 @@ def kharej_method2():
             f.write("use_encryption = true\n")
             f.write("use_compression = true\n")
         
-        ufw_rules.append("{}/tcp".format(kharej_port))
-        ufw_rules.append("{}/tcp".format(iran_port))
 
     display_checkmark("\033[92mKharej configuration generated. Yours Truly, Azumi.\033[0m")
 
@@ -1216,20 +1213,18 @@ def kharej_method2():
         f.write("[Service]\n")
         f.write("ExecStart=/root/frp/./frpc -c /root/frp/frpc.toml\n")
         f.write("Restart=always\n")
+        f.write("RestartSec=21601\n")
         f.write("User=root\n")
         f.write("\n")
         f.write("[Install]\n")
         f.write("WantedBy=multi-user.target\n")
 
 
-    os.system("ufw allow 443/tcp")
-    for rule in ufw_rules:
-        os.system("ufw allow {}".format(rule))
 
     os.system("systemctl daemon-reload")
     os.system("systemctl enable azumifrpc1")
     display_notification("\033[93mStarting FRP service...\033[0m")
-    os.system("systemctl start azumifrpc1")
+    os.system("systemctl restart azumifrpc1")
 
     display_checkmark("\033[92mFRP Service Started!\033[0m") 
     
@@ -1265,11 +1260,13 @@ def iran_tcp_no_dashboard():
     if os.path.exists("frp/frps.toml"):
         os.remove("frp/frps.toml")
     
-    ufw_rules = []  
 
     with open("frp/frps.toml", "w") as f:
         f.write("[common]\n")
-        f.write("bind_port = 443\n")
+        bind_port = input("\033[93mEnter \033[92mTunnel Port\033[93m (default 443): \033[0m")
+        if not bind_port:
+            bind_port = "443"
+        f.write("bind_port = {}\n".format(bind_port))
         f.write("token = azumi\n")
         f.write("\n")
         for i in range(num_instances):
@@ -1280,8 +1277,7 @@ def iran_tcp_no_dashboard():
             f.write("use_encryption = true\n")
             f.write("use_compression = true\n")
             f.write("\n")
-            ufw_rules.append("{}/tcp".format(local_ports_list[i]))
-            ufw_rules.append("{}/tcp".format(remote_ports_list[i]))
+
 
     display_checkmark("\033[92mIRAN configuration generated. Yours Truly, Azumi.\033[0m")
 
@@ -1294,8 +1290,8 @@ After=network.target
 
 [Service]
 ExecStart=/root/frp/./frps -c {frps_path}
-Restart=on-failure
-RestartSec=3s
+Restart=always
+RestartSec=21600
 User=root
 
 [Install]
@@ -1308,14 +1304,11 @@ WantedBy=multi-user.target
         f.write(service_content)
         
     
-    os.system("ufw allow 443/tcp")
-    for rule in ufw_rules:
-        os.system("ufw allow {}".format(rule))
 
     display_notification("\033[93mStarting FRP service...\033[0m")
     os.system("systemctl daemon-reload")
     os.system("systemctl enable {}".format(service_name))
-    os.system("systemctl start {}".format(service_name))
+    os.system("systemctl restart {}".format(service_name))
 
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
@@ -1373,11 +1366,14 @@ def iran_tcp_dashboard():
         dashboard_user = input("\033[93mEnter the \033[92mDashboard username\033[93m: \033[0m")
         dashboard_pwd = input("\033[93mEnter the \033[92mDashboard password\033[93m: \033[0m")
         dashboard_port = input("\033[93mEnter the \033[92mDashboard port\033[93m: \033[0m")
+        bind_port = input("\033[93mEnter \033[92mTunnel port\033[93m (default 443): \033[0m")
+        if not bind_port:
+           bind_port = "443"
         print("\033[93m───────────────────────────────────────────────────────────────────────────────\033[0m")
 
         with open('frp/frps.toml', 'w') as frps_ini:
             frps_ini.write(f'''[common]
-bind_port = 443
+bind_port = {bind_port}
 token = azumi
 dashboard_port = {dashboard_port}
 dashboard_user = {dashboard_user}
@@ -1404,8 +1400,8 @@ After=network.target
 
 [Service]
 ExecStart=/root/frp/./frps -c {frps_path}
-Restart=on-failure
-RestartSec=3s
+Restart=always
+RestartSec=21600
 User=root
 
 [Install]
@@ -1540,7 +1536,10 @@ def kharej_load_local():
     with open("frp/frpc.toml", "w") as f:
         f.write("[common]\n")
         f.write("server_addr = {}\n".format(iran_ipv6))
-        f.write("server_port = 443\n")
+        server_port = input("\033[93mEnter \033[92mTunnel port\033[93m (default 443): \033[0m")
+        if not server_port:
+            server_port = "443"
+        f.write("server_port = {}\n".format(server_port))
         f.write("token = azumi\n")
 
     starting_v2ray_number = 1  
@@ -1587,6 +1586,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frps_path}
 Restart=always
+RestartSec=21601
 User=root
 
 [Install]
@@ -1600,7 +1600,7 @@ WantedBy=multi-user.target
 
     os.system("systemctl daemon-reload")
     os.system("systemctl enable {}".format(service_name))
-    os.system("systemctl start {}".format(service_name))
+    os.system("systemctl restart {}".format(service_name))
 
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
@@ -1645,7 +1645,10 @@ def kharej_load_ipv6():
     with open("frp/frpc.toml", "w") as f:
         f.write("[common]\n")
         f.write("server_addr = {}\n".format(iran_ipv6))
-        f.write("server_port = 443\n")
+        server_port = input("\033[93mEnter \033[92mTunnel port\033[93m (default 443): \033[0m")
+        if not server_port:
+            server_port = "443"
+        f.write("server_port = {}\n".format(server_port))
         f.write("token = azumi\n")
 
     starting_v2ray_number = 1 
@@ -1692,6 +1695,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frps_path}
 Restart=always
+RestartSec=21601
 User=root
 
 [Install]
@@ -1705,7 +1709,7 @@ WantedBy=multi-user.target
 
     os.system("systemctl daemon-reload")
     os.system("systemctl enable {}".format(service_name))
-    os.system("systemctl start {}".format(service_name))
+    os.system("systemctl restart {}".format(service_name))
 
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
@@ -1771,11 +1775,13 @@ def iran_tcp_no_dashboardd():
     if os.path.exists("frp/frps.toml"):
         os.remove("frp/frps.toml")
     
-    ufw_rules = []  
 
     with open("frp/frps.toml", "w") as f:
         f.write("[common]\n")
-        f.write("bind_port = 443\n")
+        bind_port = input("\033[93mEnter \033[92mTunnel Port\033[93m (default 443): \033[0m")
+        if not bind_port:
+            bind_port = "443"
+        f.write("bind_port = {}\n".format(bind_port))
         f.write("token = azumi\n")
         f.write("\n")
         for i in range(num_instances):
@@ -1786,8 +1792,6 @@ def iran_tcp_no_dashboardd():
             f.write("use_encryption = true\n")
             f.write("use_compression = true\n")
             f.write("\n")
-            ufw_rules.append("{}/tcp".format(local_ports_list[i]))
-            ufw_rules.append("{}/tcp".format(remote_ports_list[i]))
 
     display_checkmark("\033[92mIRAN configuration generated. Yours Truly, Azumi.\033[0m")
 
@@ -1800,8 +1804,8 @@ After=network.target
 
 [Service]
 ExecStart=/root/frp/./frps -c {frps_path}
-Restart=on-failure
-RestartSec=3s
+Restart=always
+RestartSec=21601
 User=root
 
 [Install]
@@ -1813,15 +1817,12 @@ WantedBy=multi-user.target
     with open(service_path, "w") as f:
         f.write(service_content)
         
-    
-    os.system("ufw allow 443/tcp")
-    for rule in ufw_rules:
-        os.system("ufw allow {}".format(rule))
+
 
     display_notification("\033[93mStarting FRP service...\033[0m")
     os.system("systemctl daemon-reload")
     os.system("systemctl enable {}".format(service_name))
-    os.system("systemctl start {}".format(service_name))
+    os.system("systemctl restart {}".format(service_name))
 
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
@@ -1876,11 +1877,14 @@ def iran_tcp_dashboardd():
         dashboard_user = input("\033[93mEnter the \033[92mDashboard username\033[93m: \033[0m")
         dashboard_pwd = input("\033[93mEnter the \033[92mDashboard password\033[93m: \033[0m")
         dashboard_port = input("\033[93mEnter the \033[92mDashboard port\033[93m: \033[0m")
+        bind_port = input("\033[93mEnter \033[92mTunnel port\033[93m (default 443): \033[0m")
+        if not bind_port:
+           bind_port = "443"
         print("\033[93m───────────────────────────────────────────────────────────────────────────────\033[0m")
 
         with open('frp/frps.toml', 'w') as frps_ini:
             frps_ini.write(f'''[common]
-bind_port = 443
+bind_port = {bind_port}
 token = azumi
 dashboard_port = {dashboard_port}
 dashboard_user = {dashboard_user}
@@ -1907,8 +1911,8 @@ After=network.target
 
 [Service]
 ExecStart=/root/frp/./frps -c {frps_path}
-Restart=on-failure
-RestartSec=3s
+Restart=always
+RestartSec=21600
 User=root
 
 [Install]
@@ -2060,7 +2064,10 @@ def kharej1_local():
     with open("frp/frpc.toml", "w") as f:
         f.write("[common]\n")
         f.write("server_addr = {}\n".format(iran_ipv6))
-        f.write("server_port = 443\n")
+        server_port = input("\033[93mEnter \033[92mTunnel port\033[93m (default 443): \033[0m")
+        if not server_port:
+            server_port = "443"
+        f.write("server_port = {}\n".format(server_port))
         f.write("vhost_https_port = 8443\n")
         f.write("transport.tls.disable_custom_tls_first_byte = false\n")
         f.write("token = azumi\n")
@@ -2095,7 +2102,7 @@ def kharej1_local():
             f.write("use_compression = true\n")
 
     time.sleep(1)
-    display_notification("\033[93mTunnel ports are 443-8443..\033[0m")
+    display_notification("\033[93mLoadbalance port is 8443..\033[0m")
 
     service_name = "azumifrpc3"
     frps_path = "/root/frp/frpc.toml"
@@ -2107,6 +2114,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frps_path}
 Restart=always
+RestartSec=21601
 User=root
 
 [Install]
@@ -2120,7 +2128,7 @@ WantedBy=multi-user.target
 
     os.system("systemctl daemon-reload")
     os.system("systemctl enable {}".format(service_name))
-    os.system("systemctl start {}".format(service_name))
+    os.system("systemctl restart {}".format(service_name))
 
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
@@ -2169,7 +2177,10 @@ def kharej2_local():
     with open("frp/frpc.toml", "w") as f:
         f.write("[common]\n")
         f.write("server_addr = {}\n".format(iran_ipv6))
-        f.write("server_port = 443\n")
+        server_port = input("\033[93mEnter \033[92mTunnel port\033[93m (default 443): \033[0m")
+        if not server_port:
+            server_port = "443"
+        f.write("server_port = {}\n".format(server_port))
         f.write("vhost_https_port = 8443\n")
         f.write("transport.tls.disable_custom_tls_first_byte = false\n")
         f.write("token = azumi\n")
@@ -2204,7 +2215,7 @@ def kharej2_local():
             f.write("use_compression = true\n")
 
     time.sleep(1)
-    display_notification("\033[93mTunnel ports are 443-8443..\033[0m")
+    display_notification("\033[93mLoadbalance port is 8443..\033[0m")
 
     service_name = "azumifrpc4"
     frps_path = "/root/frp/frpc.toml"
@@ -2216,6 +2227,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frps_path}
 Restart=always
+RestartSec=21601
 User=root
 
 [Install]
@@ -2229,7 +2241,7 @@ WantedBy=multi-user.target
 
     os.system("systemctl daemon-reload")
     os.system("systemctl enable {}".format(service_name))
-    os.system("systemctl start {}".format(service_name))
+    os.system("systemctl restart {}".format(service_name))
 
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
@@ -2278,7 +2290,10 @@ def kharej3_local():
     with open("frp/frpc.toml", "w") as f:
         f.write("[common]\n")
         f.write("server_addr = {}\n".format(iran_ipv6))
-        f.write("server_port = 443\n")
+        server_port = input("\033[93mEnter \033[92mTunnel port\033[93m (default 443): \033[0m")
+        if not server_port:
+            server_port = "443"
+        f.write("server_port = {}\n".format(server_port))
         f.write("vhost_https_port = 8443\n")
         f.write("transport.tls.disable_custom_tls_first_byte = false\n")
         f.write("token = azumi\n")
@@ -2313,7 +2328,7 @@ def kharej3_local():
             f.write("use_compression = true\n")
 
     time.sleep(1)
-    display_notification("\033[93mTunnel ports are 443-8443..\033[0m")
+    display_notification("\033[93mLoadbalance port is 8443..\033[0m")
 
     service_name = "azumifrpc5"
     frps_path = "/root/frp/frpc.toml"
@@ -2325,6 +2340,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frps_path}
 Restart=always
+RestartSec=21601
 User=root
 
 [Install]
@@ -2338,7 +2354,7 @@ WantedBy=multi-user.target
 
     os.system("systemctl daemon-reload")
     os.system("systemctl enable {}".format(service_name))
-    os.system("systemctl start {}".format(service_name))
+    os.system("systemctl restart {}".format(service_name))
 
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
@@ -2387,7 +2403,10 @@ def kharej4_local():
     with open("frp/frpc.toml", "w") as f:
         f.write("[common]\n")
         f.write("server_addr = {}\n".format(iran_ipv6))
-        f.write("server_port = 443\n")
+        server_port = input("\033[93mEnter \033[92mTunnel port\033[93m (default 443): \033[0m")
+        if not server_port:
+            server_port = "443"
+        f.write("server_port = {}\n".format(server_port))
         f.write("vhost_https_port = 8443\n")
         f.write("transport.tls.disable_custom_tls_first_byte = false\n")
         f.write("token = azumi\n")
@@ -2422,7 +2441,7 @@ def kharej4_local():
             f.write("use_compression = true\n")
 
     time.sleep(1)
-    display_notification("\033[93mTunnel ports are 443-8443..\033[0m")
+    display_notification("\033[93mLoadbalance port is 8443..\033[0m")
 
     service_name = "azumifrpc6"
     frps_path = "/root/frp/frpc.toml"
@@ -2434,6 +2453,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frps_path}
 Restart=always
+RestartSec=21601
 User=root
 
 [Install]
@@ -2447,7 +2467,7 @@ WantedBy=multi-user.target
 
     os.system("systemctl daemon-reload")
     os.system("systemctl enable {}".format(service_name))
-    os.system("systemctl start {}".format(service_name))
+    os.system("systemctl restart {}".format(service_name))
 
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
@@ -2496,7 +2516,10 @@ def kharej5_local():
     with open("frp/frpc.toml", "w") as f:
         f.write("[common]\n")
         f.write("server_addr = {}\n".format(iran_ipv6))
-        f.write("server_port = 443\n")
+        server_port = input("\033[93mEnter \033[92mTunnel port\033[93m (default 443): \033[0m")
+        if not server_port:
+            server_port = "443"
+        f.write("server_port = {}\n".format(server_port))
         f.write("vhost_https_port = 8443\n")
         f.write("transport.tls.disable_custom_tls_first_byte = false\n")
         f.write("token = azumi\n")
@@ -2531,7 +2554,7 @@ def kharej5_local():
             f.write("use_compression = true\n")
 
     time.sleep(1)
-    display_notification("\033[93mTunnel ports are 443-8443..\033[0m")
+    display_notification("\033[93mLoadbalance port is 8443..\033[0m")
 
     service_name = "azumifrpc7"
     frps_path = "/root/frp/frpc.toml"
@@ -2543,6 +2566,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frps_path}
 Restart=always
+RestartSec=21601
 User=root
 
 [Install]
@@ -2556,7 +2580,7 @@ WantedBy=multi-user.target
 
     os.system("systemctl daemon-reload")
     os.system("systemctl enable {}".format(service_name))
-    os.system("systemctl start {}".format(service_name))
+    os.system("systemctl restart {}".format(service_name))
 
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
@@ -2655,7 +2679,10 @@ def kharej1():
     with open("frp/frpc.toml", "w") as f:
         f.write("[common]\n")
         f.write("server_addr = {}\n".format(iran_ipv6))
-        f.write("server_port = 443\n")
+        server_port = input("\033[93mEnter \033[92mTunnel port\033[93m (default 443): \033[0m")
+        if not server_port:
+            server_port = "443"
+        f.write("server_port = {}\n".format(server_port))
         f.write("vhost_https_port = 8443\n")
         f.write("transport.tls.disable_custom_tls_first_byte = false\n")
         f.write("token = azumi\n")
@@ -2696,7 +2723,7 @@ def kharej1():
                 f.write("use_compression = true\n")
 
     time.sleep(1)
-    display_notification("\033[93mTunnel ports are 443-8443..\033[0m")
+    display_notification("\033[93mLoadbalance port is 8443..\033[0m")
 
     service_name = "azumifrpc3"
     frps_path = "/root/frp/frpc.toml"
@@ -2708,6 +2735,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frps_path}
 Restart=always
+RestartSec=21601
 User=root
 
 [Install]
@@ -2721,7 +2749,7 @@ WantedBy=multi-user.target
 
     os.system("systemctl daemon-reload")
     os.system("systemctl enable {}".format(service_name))
-    os.system("systemctl start {}".format(service_name))
+    os.system("systemctl restart {}".format(service_name))
 
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
@@ -2773,7 +2801,10 @@ def kharej2():
     with open("frp/frpc.toml", "w") as f:
         f.write("[common]\n")
         f.write("server_addr = {}\n".format(iran_ipv6))
-        f.write("server_port = 443\n")
+        server_port = input("\033[93mEnter \033[92mTunnel port\033[93m (default 443): \033[0m")
+        if not server_port:
+            server_port = "443"
+        f.write("server_port = {}\n".format(server_port))
         f.write("vhost_https_port = 8443\n")
         f.write("transport.tls.disable_custom_tls_first_byte = false\n")
         f.write("token = azumi\n")
@@ -2814,7 +2845,7 @@ def kharej2():
                 f.write("use_compression = true\n")
 
     time.sleep(1)
-    display_notification("\033[93mTunnel ports are 443-8443..\033[0m")
+    display_notification("\033[93mLoadbalance port is 8443..\033[0m")
 
     service_name = "azumifrpc4"
     frps_path = "/root/frp/frpc.toml"
@@ -2826,6 +2857,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frps_path}
 Restart=always
+RestartSec=21601
 User=root
 
 [Install]
@@ -2839,7 +2871,7 @@ WantedBy=multi-user.target
 
     os.system("systemctl daemon-reload")
     os.system("systemctl enable {}".format(service_name))
-    os.system("systemctl start {}".format(service_name))
+    os.system("systemctl restart {}".format(service_name))
 
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
@@ -2890,7 +2922,10 @@ def kharej3():
     with open("frp/frpc.toml", "w") as f:
         f.write("[common]\n")
         f.write("server_addr = {}\n".format(iran_ipv6))
-        f.write("server_port = 443\n")
+        server_port = input("\033[93mEnter \033[92mTunnel port\033[93m (default 443): \033[0m")
+        if not server_port:
+            server_port = "443"
+        f.write("server_port = {}\n".format(server_port))
         f.write("vhost_https_port = 8443\n")
         f.write("transport.tls.disable_custom_tls_first_byte = false\n")
         f.write("token = azumi\n")
@@ -2931,7 +2966,7 @@ def kharej3():
                 f.write("use_compression = true\n")
 
     time.sleep(1)
-    display_notification("\033[93mTunnel ports are 443-8443..\033[0m")
+    display_notification("\033[93mLoadbalance port is 8443..\033[0m")
 
     service_name = "azumifrpc5"
     frps_path = "/root/frp/frpc.toml"
@@ -2943,6 +2978,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frps_path}
 Restart=always
+RestartSec=21601
 User=root
 
 [Install]
@@ -2956,7 +2992,7 @@ WantedBy=multi-user.target
 
     os.system("systemctl daemon-reload")
     os.system("systemctl enable {}".format(service_name))
-    os.system("systemctl start {}".format(service_name))
+    os.system("systemctl restart {}".format(service_name))
 
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
@@ -3007,7 +3043,10 @@ def kharej4():
     with open("frp/frpc.toml", "w") as f:
         f.write("[common]\n")
         f.write("server_addr = {}\n".format(iran_ipv6))
-        f.write("server_port = 443\n")
+        server_port = input("\033[93mEnter \033[92mTunnel port\033[93m (default 443): \033[0m")
+        if not server_port:
+            server_port = "443"
+        f.write("server_port = {}\n".format(server_port))
         f.write("vhost_https_port = 8443\n")
         f.write("transport.tls.disable_custom_tls_first_byte = false\n")
         f.write("token = azumi\n")
@@ -3048,7 +3087,7 @@ def kharej4():
                 f.write("use_compression = true\n")
 
     time.sleep(1)
-    display_notification("\033[93mTunnel ports are 443-8443..\033[0m")
+    display_notification("\033[93mLoadbalance port is 8443..\033[0m")
 
     service_name = "azumifrpc6"
     frps_path = "/root/frp/frpc.toml"
@@ -3060,6 +3099,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frps_path}
 Restart=always
+RestartSec=21601
 User=root
 
 [Install]
@@ -3073,7 +3113,7 @@ WantedBy=multi-user.target
 
     os.system("systemctl daemon-reload")
     os.system("systemctl enable {}".format(service_name))
-    os.system("systemctl start {}".format(service_name))
+    os.system("systemctl restart {}".format(service_name))
  
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
@@ -3124,7 +3164,10 @@ def kharej5():
     with open("frp/frpc.toml", "w") as f:
         f.write("[common]\n")
         f.write("server_addr = {}\n".format(iran_ipv6))
-        f.write("server_port = 443\n")
+        server_port = input("\033[93mEnter \033[92mTunnel port\033[93m (default 443): \033[0m")
+        if not server_port:
+            server_port = "443"
+        f.write("server_port = {}\n".format(server_port))
         f.write("vhost_https_port = 8443\n")
         f.write("transport.tls.disable_custom_tls_first_byte = false\n")
         f.write("token = azumi\n")
@@ -3165,7 +3208,7 @@ def kharej5():
                 f.write("use_compression = true\n")
 
     time.sleep(1)
-    display_notification("\033[93mTunnel ports are 443-8443..\033[0m")
+    display_notification("\033[93mLoadbalance port is 8443..\033[0m")
 
     service_name = "azumifrpc7"
     frps_path = "/root/frp/frpc.toml"
@@ -3177,6 +3220,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frps_path}
 Restart=always
+RestartSec=21601
 User=root
 
 [Install]
@@ -3190,7 +3234,7 @@ WantedBy=multi-user.target
 
     os.system("systemctl daemon-reload")
     os.system("systemctl enable {}".format(service_name))
-    os.system("systemctl start {}".format(service_name))
+    os.system("systemctl restart {}".format(service_name))
 
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
@@ -3266,7 +3310,10 @@ def iran_without_dash():
 
     with open("frp/frps.toml", "w") as f:
         f.write("[common]\n")
-        f.write("bind_port = 443\n")
+        bind_port = input("\033[93mEnter \033[92mTunnel Port\033[93m (default 443): \033[0m")
+        if not bind_port:
+            bind_port = "443"
+        f.write("bind_port = {}\n".format(bind_port))
         f.write("vhost_https_port = 8443\n")
         f.write("transport.tls.disable_custom_tls_first_byte = false\n")
         f.write("token = azumi\n")
@@ -3290,8 +3337,8 @@ After=network.target
 
 [Service]
 ExecStart=/root/frp/./frps -c {frps_path}
-Restart=on-failure
-RestartSec=3s
+Restart=always
+RestartSec=21600
 User=root
 
 [Install]
@@ -3306,7 +3353,7 @@ WantedBy=multi-user.target
     time.sleep(1)
     os.system("systemctl daemon-reload")
     os.system("systemctl enable {}".format(service_name))
-    os.system("systemctl start {}".format(service_name))
+    os.system("systemctl restart {}".format(service_name))
     time.sleep(1)
     os.system("systemctl restart {}".format(service_name))
     display_checkmark("\033[92mFRP Service Started!\033[0m")
@@ -3362,11 +3409,14 @@ def iran_with_dash():
         dashboard_user = input("\033[93mEnter the \033[92mDashboard username\033[93m: \033[0m")
         dashboard_pwd = input("\033[93mEnter the \033[92mDashboard password\033[93m: \033[0m")
         dashboard_port = input("\033[93mEnter the \033[92mDashboard port\033[93m: \033[0m")
-        print("\033[93m──────────────────────────────────────────────────────────────────────────────\033[0m")
+        bind_port = input("\033[93mEnter \033[92mTunnel port\033[93m (default 443): \033[0m")
+        if not bind_port:
+           bind_port = "443"
+        print("\033[93m───────────────────────────────────────────────────────────────────────────────\033[0m")
 
         with open('frp/frps.toml', 'w') as frps_ini:
             frps_ini.write(f'''[common]
-bind_port = 443
+bind_port = {bind_port}
 vhost_https_port = 8443
 transport.tls.disable_custom_tls_first_byte = false
 token = azumi
@@ -3395,8 +3445,8 @@ After=network.target
 
 [Service]
 ExecStart=/root/frp/./frps -c {frps_path}
-Restart=on-failure
-RestartSec=3s
+Restart=always
+RestartSec=21600
 User=root
 
 [Install]
@@ -3564,7 +3614,10 @@ def i3kharej_ipv6():
         with open(frpc1_path, "w") as f:
             f.write("[common]\n")
             f.write("server_addr = SERVER_IP\n")
-            f.write("server_port = 443\n")
+            server_port = input("\033[93mEnter \033[92mTunnel port\033[93m (default 443): \033[0m")
+            if not server_port:
+                server_port = "443"
+            f.write("server_port = {}\n".format(server_port))
             f.write("vhost_https_port = 8443\n")
             f.write("transport.tls.disable_custom_tls_first_byte = false\n")
             f.write("token = azumi\n")
@@ -3581,7 +3634,7 @@ def i3kharej_ipv6():
         with open(frpc_path, "w") as f:
             f.write("[common]\n")
             f.write("server_addr = {}\n".format(iran_ipv6))
-            f.write("server_port = 443\n")
+            f.write("server_port = {}\n".format(server_port))
             f.write("vhost_https_port = 8443\n")
             f.write("transport.tls.disable_custom_tls_first_byte = false\n")
             f.write("token = azumi\n")
@@ -3619,7 +3672,7 @@ def i3kharej_ipv6():
                 f.write("use_compression = true\n")
 
         time.sleep(1)
-        print("Tunnel ports are 443-8443...")
+        print("Loadbalance port is 8443...")
 
 
         service_name = "azumifrpc1{}".format(server_num)
@@ -3632,6 +3685,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frpc_path}
 Restart=always
+RestartSec=21601
 User=root
 
 [Install]
@@ -3645,7 +3699,7 @@ WantedBy=multi-user.target
 
         os.system("systemctl daemon-reload")
         os.system("systemctl enable {}".format(service_name))
-        os.system("systemctl start {}".format(service_name))
+        os.system("systemctl restart {}".format(service_name))
         display_checkmark("\033[92mFRP Service Started!\033[0m")
 
 def i3kharej_local():
@@ -3689,7 +3743,10 @@ def i3kharej_local():
         with open(frpc1_path, "w") as f:
             f.write("[common]\n")
             f.write("server_addr = SERVER_IP\n")
-            f.write("server_port = 443\n")
+            server_port = input("\033[93mEnter \033[92mTunnel port\033[93m (default 443): \033[0m")
+            if not server_port:
+                server_port = "443"
+            f.write("server_port = {}\n".format(server_port))
             f.write("vhost_https_port = 8443\n")
             f.write("transport.tls.disable_custom_tls_first_byte = false\n")
             f.write("token = azumi\n")
@@ -3706,7 +3763,7 @@ def i3kharej_local():
         with open(frpc_path, "w") as f:  
             f.write("[common]\n")
             f.write("server_addr = {}\n".format(iran_ipv6))
-            f.write("server_port = 443\n")
+            f.write("server_port = {}\n".format(server_port))
             f.write("vhost_https_port = 8443\n")
             f.write("transport.tls.disable_custom_tls_first_byte = false\n")
             f.write("token = azumi\n")
@@ -3736,7 +3793,7 @@ def i3kharej_local():
                 f.write("use_compression = true\n")
 
         time.sleep(1)
-        print("Tunnel ports are 443-8443...")
+        print("Loadbalance port is 8443...")
 
 
         service_name = "azumifrpc1{}".format(server_num)
@@ -3749,6 +3806,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frpc_path}
 Restart=always
+RestartSec=21601
 User=root
 
 [Install]
@@ -3762,7 +3820,7 @@ WantedBy=multi-user.target
 
         os.system("systemctl daemon-reload")
         os.system("systemctl enable {}".format(service_name))
-        os.system("systemctl start {}".format(service_name))
+        os.system("systemctl restart {}".format(service_name))
         display_checkmark("\033[92mFRP Service Started!\033[0m")
 
     
@@ -3797,7 +3855,10 @@ def i3iran_first():
 
     with open("frp/frps.toml", "w") as f:
         f.write("[common]\n")
-        f.write("bind_port = 443\n")
+        bind_port = input("\033[93mEnter \033[92mTunnel Port\033[93m (default 443): \033[0m")
+        if not bind_port:
+            bind_port = "443"
+        f.write("bind_port = {}\n".format(bind_port))
         f.write("vhost_https_port = 8443\n")
         f.write("transport.tls.disable_custom_tls_first_byte = false\n")
         f.write("token = azumi\n")
@@ -3821,8 +3882,8 @@ After=network.target
 
 [Service]
 ExecStart=/root/frp/./frps -c {frps_path}
-Restart=on-failure
-RestartSec=3s
+Restart=always
+RestartSec=21600
 User=root
 
 [Install]
@@ -3837,7 +3898,7 @@ WantedBy=multi-user.target
     display_notification("\033[93mStarting FRP service...\033[0m")
     os.system("systemctl daemon-reload")
     os.system("systemctl enable {}".format(service_name))
-    os.system("systemctl start {}".format(service_name))
+    os.system("systemctl restart {}".format(service_name))
 
     display_checkmark("\033[92mFRP Service Started!\033[0m")
     
@@ -3872,7 +3933,10 @@ def i3iran_second():
 
     with open("frp/frps.toml", "w") as f:
         f.write("[common]\n")
-        f.write("bind_port = 443\n")
+        bind_port = input("\033[93mEnter \033[92mTunnel Port\033[93m (default 443): \033[0m")
+        if not bind_port:
+            bind_port = "443"
+        f.write("bind_port = {}\n".format(bind_port))
         f.write("vhost_https_port = 8443\n")
         f.write("transport.tls.disable_custom_tls_first_byte = false\n")
         f.write("token = azumi\n")
@@ -3896,8 +3960,8 @@ After=network.target
 
 [Service]
 ExecStart=/root/frp/./frps -c {frps_path}
-Restart=on-failure
-RestartSec=3s
+Restart=always
+RestartSec=21600
 User=root
 
 [Install]
@@ -3912,7 +3976,7 @@ WantedBy=multi-user.target
     display_notification("\033[93mStarting FRP service...\033[0m")
     os.system("systemctl daemon-reload")
     os.system("systemctl enable {}".format(service_name))
-    os.system("systemctl start {}".format(service_name))
+    os.system("systemctl restart {}".format(service_name))
 
     display_checkmark("\033[92mFRP Service Started!\033[0m")
     
@@ -3947,7 +4011,10 @@ def i3iran_third():
 
     with open("frp/frps.toml", "w") as f:
         f.write("[common]\n")
-        f.write("bind_port = 443\n")
+        bind_port = input("\033[93mEnter \033[92mTunnel Port\033[93m (default 443): \033[0m")
+        if not bind_port:
+            bind_port = "443"
+        f.write("bind_port = {}\n".format(bind_port))
         f.write("vhost_https_port = 8443\n")
         f.write("transport.tls.disable_custom_tls_first_byte = false\n")
         f.write("token = azumi\n")
@@ -3971,8 +4038,8 @@ After=network.target
 
 [Service]
 ExecStart=/root/frp/./frps -c {frps_path}
-Restart=on-failure
-RestartSec=3s
+Restart=always
+RestartSec=21600
 User=root
 
 [Install]
@@ -3987,7 +4054,7 @@ WantedBy=multi-user.target
     display_notification("\033[93mStarting FRP service...\033[0m")
     os.system("systemctl daemon-reload")
     os.system("systemctl enable {}".format(service_name))
-    os.system("systemctl start {}".format(service_name))
+    os.system("systemctl restart {}".format(service_name))
 
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 main_menu()
