@@ -183,9 +183,10 @@ def start_menu():
     print('\033[93mChoose what to do:\033[0m')
     print('1. \033[92mTCP Tunnel SERVICE \033[0m')
     print('2. \033[93mLoadBalance Single Server SERVICE \033[0m')
-    print('3. \033[96mLoadBalance [5] Kharej [1] IRAN SERVICE \033[0m')
-    print('4. \033[97mLoadBalance [1] Kharej [3] IRAN SERVICE  \033[0m')
-    print('5. \033[94mBack to the main menu\033[0m')
+    print('3. \033[96mLoadBalance [10] Kharej [1] IRAN SERVICE \033[0m')
+    print('4. \033[93mLoadBalance [10] Kharej [1] IRAN SERVICE \033[0m')
+    print('5. \033[97mLoadBalance [1] Kharej [3] IRAN SERVICE  \033[0m')
+    print('6. \033[94mBack to the main menu\033[0m')
     print("\033[93m╰───────────────────────────────────────╯\033[0m")
 
     while True:
@@ -200,9 +201,12 @@ def start_menu():
             start_kharej5()
             break
         elif server_type == '4':
-            start_kharej1()
+            start_kharej10()
             break
         elif server_type == '5':
+            start_kharej1()
+            break
+        elif server_type == '6':
             os.system("clear")
             main_menu()
             break
@@ -236,8 +240,128 @@ def start_kharej1():
             break
         else:
             print('Invalid choice.')
+            
+def start_kharej10():
+    os.system("clear")
+    print('\033[92m ^ ^\033[0m')
+    print('\033[92m(\033[91mO,O\033[92m)\033[0m')
+    print('\033[92m(   ) \033[93mLoadBalance [10] Kharej [2] IRAN SERVICE \033[0m')
+    print('\033[92m "-"\033[93m════════════════════════════════════\033[0m')
+    print("\033[93m╭───────────────────────────────────────╮\033[0m")
+    print('\033[93mChoose what to do:\033[0m')
+    print('1. \033[92mRestart SERVICE \033[0m')
+    print('2. \033[93mStop SERVICE \033[0m')
+    print('5. \033[94mBack to the previous menu\033[0m')
+    print("\033[93m╰───────────────────────────────────────╯\033[0m")
 
+    while True:
+        server_type = input('\033[38;5;205mEnter your choice Please: \033[0m')
+        if server_type == '1':
+            restart_kharej10()
+            break
+        elif server_type == '2':
+            stop_kharej10()
+            break
+        elif server_type == '3':
+            os.system("clear")
+            start_menu()
+            break
+        else:
+            print('Invalid choice.')            
 
+def restart_kharej10():
+    os.system("clear")
+    display_notification("\033[93mRestarting LoadBalance [10] Kharej [2] IRAN...\033[0m")
+    print("\033[93m╭─────────────────────────────────────────────╮\033[0m")
+
+    try:
+        subprocess.run("systemctl daemon-reload", shell=True)
+        subprocess.run("systemctl restart azumifrps3.service > /dev/null 2>&1", shell=True)
+        time.sleep(1)
+        subprocess.run("systemctl restart azumifrpc12.service > /dev/null 2>&1", shell=True)
+        time.sleep(1)
+        subprocess.run("systemctl restart azumifrpc11.service > /dev/null 2>&1", shell=True)
+
+        print("Progress: ", end="")
+
+        frames = ["⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏"]
+        delay = 0.1
+        duration = 1
+        end_time = time.time() + duration
+
+        while time.time() < end_time:
+            for frame in frames:
+                print("\r[%s] Loading...  " % frame, end="")
+                time.sleep(delay)
+                print("\r[%s]             " % frame, end="")
+                time.sleep(delay)
+
+        display_checkmark("\033[92mUninstall completed!\033[0m")
+    except subprocess.CalledProcessError as e:
+        print("Error:", e.output.decode().strip())
+        
+def stop_kharej10():
+    os.system("clear")
+    display_notification("\033[93mRestarting LoadBalance [10] Kharej [2] IRAN...\033[0m")
+    print("\033[93m╭─────────────────────────────────────────────╮\033[0m")
+
+    try:
+        subprocess.run("systemctl daemon-reload", shell=True)
+        subprocess.run("systemctl stop azumifrps3.service > /dev/null 2>&1", shell=True)
+        time.sleep(1)
+        subprocess.run("systemctl stop azumifrpc12.service > /dev/null 2>&1", shell=True)
+        time.sleep(1)
+        subprocess.run("systemctl stop azumifrpc11.service > /dev/null 2>&1", shell=True)
+
+        print("Progress: ", end="")
+
+        frames = ["⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏"]
+        delay = 0.1
+        duration = 1
+        end_time = time.time() + duration
+
+        while time.time() < end_time:
+            for frame in frames:
+                print("\r[%s] Loading...  " % frame, end="")
+                time.sleep(delay)
+                print("\r[%s]             " % frame, end="")
+                time.sleep(delay)
+
+        display_checkmark("\033[92mUninstall completed!\033[0m")
+    except subprocess.CalledProcessError as e:
+        print("Error:", e.output.decode().strip())
+        
+def stop_kharej1():
+    os.system("clear")
+    display_notification("\033[93mRestarting LoadBalance [1] Kharej [3] IRAN...\033[0m")
+    print("\033[93m╭─────────────────────────────────────────────╮\033[0m")
+
+    try:
+        subprocess.run("systemctl daemon-reload", shell=True)
+        subprocess.run("systemctl stop azumifrps3.service > /dev/null 2>&1", shell=True)
+        time.sleep(1)
+        subprocess.run("systemctl stop azumifrpc12.service > /dev/null 2>&1", shell=True)
+        time.sleep(1)
+        subprocess.run("systemctl stop azumifrpc11.service > /dev/null 2>&1", shell=True)
+
+        print("Progress: ", end="")
+
+        frames = ["⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏"]
+        delay = 0.1
+        duration = 1
+        end_time = time.time() + duration
+
+        while time.time() < end_time:
+            for frame in frames:
+                print("\r[%s] Loading...  " % frame, end="")
+                time.sleep(delay)
+                print("\r[%s]             " % frame, end="")
+                time.sleep(delay)
+
+        display_checkmark("\033[92mUninstall completed!\033[0m")
+    except subprocess.CalledProcessError as e:
+        print("Error:", e.output.decode().strip())
+        
 def restart_kharej1():
     os.system("clear")
     display_notification("\033[93mRestarting LoadBalance [1] Kharej [3] IRAN...\033[0m")
@@ -257,7 +381,7 @@ def restart_kharej1():
 
         frames = ["⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏"]
         delay = 0.1
-        duration = 3
+        duration = 1
         end_time = time.time() + duration
 
         while time.time() < end_time:
@@ -275,7 +399,7 @@ def start_kharej5():
     os.system("clear")
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
-    print('\033[92m(   ) \033[93mLoadBalance [5] Kharej [1] IRAN SERVICE\033[0m')
+    print('\033[92m(   ) \033[93mLoadBalance [10] Kharej [1] IRAN SERVICE\033[0m')
     print('\033[92m "-"\033[93m════════════════════════════════════\033[0m')
     print("\033[93m╭───────────────────────────────────────╮\033[0m")
     print('\033[93mChoose what to do:\033[0m')
@@ -302,28 +426,33 @@ def start_kharej5():
 
 def restart_kharej5():
     os.system("clear")
-    display_notification("\033[93mRestarting LoadBalance [5] Kharej [1] IRAN...\033[0m")
+    display_notification("\033[93mRestarting LoadBalance [10] Kharej [1] IRAN...\033[0m")
     print("\033[93m╭─────────────────────────────────────────────╮\033[0m")
 
     try:
         subprocess.run("systemctl daemon-reload", shell=True)
         subprocess.run("systemctl restart azumifrpc3.service > /dev/null 2>&1", shell=True)
-        time.sleep(1)
-        subprocess.run("systemctl restart azumifrpc4.service > /dev/null 2>&1", shell=True)
-        time.sleep(1)
-        subprocess.run("systemctl restart azumifrpc5.service > /dev/null 2>&1", shell=True)
-        time.sleep(1)
-        subprocess.run("systemctl restart azumifrpc6.service > /dev/null 2>&1", shell=True)
-        time.sleep(1)
-        subprocess.run("systemctl restart azumifrpc7.service > /dev/null 2>&1", shell=True)
-        time.sleep(1)
-        subprocess.run("systemctl restart azumifrps3.service > /dev/null 2>&1", shell=True)
 
+        subprocess.run("systemctl restart azumifrpc4.service > /dev/null 2>&1", shell=True)
+
+        subprocess.run("systemctl restart azumifrpc5.service > /dev/null 2>&1", shell=True)
+
+        subprocess.run("systemctl restart azumifrpc6.service > /dev/null 2>&1", shell=True)
+
+        subprocess.run("systemctl restart azumifrpc7.service > /dev/null 2>&1", shell=True)
+        subprocess.run("systemctl restart azumifrpc8.service > /dev/null 2>&1", shell=True)
+        subprocess.run("systemctl restart azumifrpc9.service > /dev/null 2>&1", shell=True)
+        subprocess.run("systemctl restart azumifrpc10.service > /dev/null 2>&1", shell=True)
+        subprocess.run("systemctl restart azumifrpc11.service > /dev/null 2>&1", shell=True)
+        subprocess.run("systemctl restart azumifrpc12.service > /dev/null 2>&1", shell=True)
+        subprocess.run("systemctl restart azumifrps13.service > /dev/null 2>&1", shell=True)
+        time.sleep(1)
+        
         print("Progress: ", end="")
 
         frames = ["⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏"]
         delay = 0.1
-        duration = 3
+        duration = 1
         end_time = time.time() + duration
 
         while time.time() < end_time:
@@ -339,7 +468,7 @@ def restart_kharej5():
 		
 def stop_kharej5():
     os.system("clear")
-    display_notification("\033[93mStopping LoadBalance [5] Kharej [1] IRAN...\033[0m")
+    display_notification("\033[93mStopping LoadBalance [10] Kharej [1] IRAN...\033[0m")
     print("\033[93m╭─────────────────────────────────────────────╮\033[0m")
 
     try:
@@ -353,14 +482,18 @@ def stop_kharej5():
         subprocess.run("systemctl stop azumifrpc6.service > /dev/null 2>&1", shell=True)
         time.sleep(1)
         subprocess.run("systemctl stop azumifrpc7.service > /dev/null 2>&1", shell=True)
-        time.sleep(1)
-        subprocess.run("systemctl stop azumifrps3.service > /dev/null 2>&1", shell=True)
+        subprocess.run("systemctl stop azumifrpc8.service > /dev/null 2>&1", shell=True)
+        subprocess.run("systemctl stop azumifrpc9.service > /dev/null 2>&1", shell=True)
+        subprocess.run("systemctl stop azumifrpc10.service > /dev/null 2>&1", shell=True)
+        subprocess.run("systemctl stop azumifrpc11.service > /dev/null 2>&1", shell=True)
+        subprocess.run("systemctl stop azumifrpc12.service > /dev/null 2>&1", shell=True)
+        subprocess.run("systemctl stop azumifrps13.service > /dev/null 2>&1", shell=True)
 
         print("Progress: ", end="")
 
         frames = ["⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏"]
         delay = 0.1
-        duration = 3
+        duration = 1
         end_time = time.time() + duration
 
         while time.time() < end_time:
@@ -417,7 +550,7 @@ def restart_single_load():
         
         frames = ["⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏"]
         delay = 0.1
-        duration = 3
+        duration = 1
         end_time = time.time() + duration
         
         while time.time() < end_time:
@@ -446,7 +579,7 @@ def stop_single_load():
         
         frames = ["⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏"]
         delay = 0.1
-        duration = 3
+        duration = 1
         end_time = time.time() + duration
         
         while time.time() < end_time:
@@ -503,7 +636,7 @@ def restart_tcp_tunnel():
         
         frames = ["⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏"]
         delay = 0.1
-        duration = 3
+        duration = 1
         end_time = time.time() + duration
         
         while time.time() < end_time:
@@ -532,7 +665,7 @@ def stop_tcp_tunnel():
         
         frames = ["⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏"]
         delay = 0.1
-        duration = 3
+        duration = 1
         end_time = time.time() + duration
         
         while time.time() < end_time:
@@ -557,9 +690,10 @@ def remove_menu():
     print('\033[93mChoose what to do:\033[0m')
     print('1. \033[92mTCP Tunnel \033[0m')
     print('2. \033[93mLoadBalance Single Server \033[0m')
-    print('3. \033[96mLoadBalance [5] Kharej [1] IRAN \033[0m')
-    print('4. \033[97mLoadBalance [1] Kharej [3] IRAN  \033[0m')
-    print('5. \033[94mBack to the main menu\033[0m')
+    print('3. \033[96mLoadBalance [10] Kharej [1] IRAN \033[0m')
+    print('4. \033[93mLoadBalance [10] Kharej [2] IRAN \033[0m')
+    print('5. \033[97mLoadBalance [1] Kharej [3] IRAN  \033[0m')
+    print('6. \033[94mBack to the main menu\033[0m')
     print("\033[93m╰───────────────────────────────────────╯\033[0m")
 
     while True:
@@ -574,9 +708,12 @@ def remove_menu():
             remove_kharej5()
             break
         elif server_type == '4':
-            remove_kharej1()
+            remove_kharej10()
             break
         elif server_type == '5':
+            remove_kharej1()
+            break
+        elif server_type == '6':
             os.system("clear")
             main_menu()
             break
@@ -609,7 +746,7 @@ def remove_tcp_tunnel():
 
         frames = ["⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏"]
         delay = 0.1
-        duration = 3
+        duration = 1
         end_time = time.time() + duration
 
         while time.time() < end_time:
@@ -649,7 +786,7 @@ def remove_single_load():
 
         frames = ["⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏"]
         delay = 0.1
-        duration = 3
+        duration = 1
         end_time = time.time() + duration
 
         while time.time() < end_time:
@@ -665,7 +802,7 @@ def remove_single_load():
 		
 def remove_kharej5():
     os.system("clear")
-    display_notification("\033[93mRemoving LoadBalance [5] Kharej [1] IRAN...\033[0m")
+    display_notification("\033[93mRemoving LoadBalance [10] Kharej [1] IRAN...\033[0m")
     print("\033[93m╭─────────────────────────────────────────────╮\033[0m")
 
     try:
@@ -681,18 +818,37 @@ def remove_kharej5():
         subprocess.run("systemctl disable azumifrpc4.service > /dev/null 2>&1", shell=True)
         subprocess.run("systemctl stop azumifrpc4.service > /dev/null 2>&1", shell=True)
         subprocess.run("rm /etc/systemd/system/azumifrpc4.service > /dev/null 2>&1", shell=True)
-        time.sleep(1)
+
         subprocess.run("systemctl disable azumifrpc5.service > /dev/null 2>&1", shell=True)
         subprocess.run("systemctl stop azumifrpc5.service > /dev/null 2>&1", shell=True)
         subprocess.run("rm /etc/systemd/system/azumifrpc5.service > /dev/null 2>&1", shell=True)
-        time.sleep(1)
+
         subprocess.run("systemctl disable azumifrpc6.service > /dev/null 2>&1", shell=True)
         subprocess.run("systemctl stop azumifrpc6.service > /dev/null 2>&1", shell=True)
         subprocess.run("rm /etc/systemd/system/azumifrpc6.service > /dev/null 2>&1", shell=True)
-        time.sleep(1)
+
         subprocess.run("systemctl disable azumifrpc7.service > /dev/null 2>&1", shell=True)
         subprocess.run("systemctl stop azumifrpc7.service > /dev/null 2>&1", shell=True)
         subprocess.run("rm /etc/systemd/system/azumifrpc7.service > /dev/null 2>&1", shell=True)
+        subprocess.run("systemctl disable azumifrpc8.service > /dev/null 2>&1", shell=True)
+        subprocess.run("systemctl stop azumifrpc8.service > /dev/null 2>&1", shell=True)
+        subprocess.run("rm /etc/systemd/system/azumifrpc8.service > /dev/null 2>&1", shell=True)
+        time.sleep(1)
+        subprocess.run("systemctl disable azumifrpc9.service > /dev/null 2>&1", shell=True)
+        subprocess.run("systemctl stop azumifrpc9.service > /dev/null 2>&1", shell=True)
+        subprocess.run("rm /etc/systemd/system/azumifrpc9.service > /dev/null 2>&1", shell=True)
+
+        subprocess.run("systemctl disable azumifrpc10.service > /dev/null 2>&1", shell=True)
+        subprocess.run("systemctl stop azumifrpc10.service > /dev/null 2>&1", shell=True)
+        subprocess.run("rm /etc/systemd/system/azumifrpc10.service > /dev/null 2>&1", shell=True)
+
+        subprocess.run("systemctl disable azumifrpc11.service > /dev/null 2>&1", shell=True)
+        subprocess.run("systemctl stop azumifrpc11.service > /dev/null 2>&1", shell=True)
+        subprocess.run("rm /etc/systemd/system/azumifrpc11.service > /dev/null 2>&1", shell=True)
+
+        subprocess.run("systemctl disable azumifrpc12.service > /dev/null 2>&1", shell=True)
+        subprocess.run("systemctl stop azumifrpc12.service > /dev/null 2>&1", shell=True)
+        subprocess.run("rm /etc/systemd/system/azumifrpc12.service > /dev/null 2>&1", shell=True)
         time.sleep(1)
         subprocess.run("systemctl disable azumifrps3.service > /dev/null 2>&1", shell=True)
         subprocess.run("systemctl stop azumifrps3.service > /dev/null 2>&1", shell=True)
@@ -704,7 +860,53 @@ def remove_kharej5():
 
         frames = ["⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏"]
         delay = 0.1
-        duration = 3
+        duration = 1
+        end_time = time.time() + duration
+
+        while time.time() < end_time:
+            for frame in frames:
+                print("\r[%s] Loading...  " % frame, end="")
+                time.sleep(delay)
+                print("\r[%s]             " % frame, end="")
+                time.sleep(delay)
+
+        display_checkmark("\033[92mUninstall completed!\033[0m")
+    except subprocess.CalledProcessError as e:
+        print("Error:", e.output.decode().strip())
+
+def remove_kharej10():
+    os.system("clear")
+    display_notification("\033[93mRemoving LoadBalance [10] Kharej [2] IRAN...\033[0m")
+    print("\033[93m╭─────────────────────────────────────────────╮\033[0m")
+
+    try:
+        if subprocess.call("test -f /root/frp/frpc1.toml", shell=True) == 0:
+            subprocess.run("rm /root/frp/frpc1.toml", shell=True)
+        if subprocess.call("test -f /root/frp/frpc2.toml", shell=True) == 0:
+            subprocess.run("rm /root/frp/frpc2.toml", shell=True)
+        if subprocess.call("test -f /root/frp/frps.toml", shell=True) == 0:
+            subprocess.run("rm /root/frp/frps.toml", shell=True)
+
+        time.sleep(1)
+        subprocess.run("systemctl disable azumifrps3.service > /dev/null 2>&1", shell=True)
+        subprocess.run("systemctl stop azumifrps3.service > /dev/null 2>&1", shell=True)
+        subprocess.run("rm /etc/systemd/system/azumifrps3.service > /dev/null 2>&1", shell=True)
+
+        subprocess.run("systemctl disable azumifrpc12.service > /dev/null 2>&1", shell=True)
+        subprocess.run("systemctl stop azumifrpc12.service > /dev/null 2>&1", shell=True)
+        subprocess.run("rm /etc/systemd/system/azumifrpc12.service > /dev/null 2>&1", shell=True)
+        time.sleep(1)
+        subprocess.run("systemctl disable azumifrpc11.service > /dev/null 2>&1", shell=True)
+        subprocess.run("systemctl stop azumifrpc11.service > /dev/null 2>&1", shell=True)
+        subprocess.run("rm /etc/systemd/system/azumifrpc11.service > /dev/null 2>&1", shell=True)
+
+        subprocess.run("systemctl daemon-reload", shell=True)
+
+        print("Progress: ", end="")
+
+        frames = ["⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏"]
+        delay = 0.1
+        duration = 1
         end_time = time.time() + duration
 
         while time.time() < end_time:
@@ -737,11 +939,11 @@ def remove_kharej1():
         subprocess.run("systemctl disable azumifrps3.service > /dev/null 2>&1", shell=True)
         subprocess.run("systemctl stop azumifrps3.service > /dev/null 2>&1", shell=True)
         subprocess.run("rm /etc/systemd/system/azumifrps3.service > /dev/null 2>&1", shell=True)
-        time.sleep(1)
+
         subprocess.run("systemctl disable azumifrpc13.service > /dev/null 2>&1", shell=True)
         subprocess.run("systemctl stop azumifrpc13.service > /dev/null 2>&1", shell=True)
         subprocess.run("rm /etc/systemd/system/azumifrpc13.service > /dev/null 2>&1", shell=True)
-        time.sleep(1)
+
         subprocess.run("systemctl disable azumifrpc12.service > /dev/null 2>&1", shell=True)
         subprocess.run("systemctl stop azumifrpc12.service > /dev/null 2>&1", shell=True)
         subprocess.run("rm /etc/systemd/system/azumifrpc12.service > /dev/null 2>&1", shell=True)
@@ -756,7 +958,7 @@ def remove_kharej1():
 
         frames = ["⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏"]
         delay = 0.1
-        duration = 3
+        duration = 1
         end_time = time.time() + duration
 
         while time.time() < end_time:
@@ -793,9 +995,10 @@ def status_menu():
     print('\033[93mChoose what to do:\033[0m')
     print('1. \033[92mTCP Tunnel \033[91mSTATUS\033[0m')
     print('2. \033[93mLoadBalance Single Server \033[91mSTATUS \033[0m')
-    print('3. \033[96mLoadBalance [5] Kharej [1] IRAN \033[91mSTATUS \033[0m')
-    print('4. \033[97mLoadBalance [1] Kharej [3] IRAN \033[91mSTATUS \033[0m')
-    print('5. \033[94mBack to the main menu\033[0m')
+    print('3. \033[96mLoadBalance [10] Kharej [1] IRAN \033[91mSTATUS \033[0m')
+    print('4. \033[93mLoadBalance [10] Kharej [2] IRAN \033[91mSTATUS \033[0m')
+    print('5. \033[97mLoadBalance [1] Kharej [3] IRAN \033[91mSTATUS \033[0m')
+    print('6. \033[94mBack to the main menu\033[0m')
     print("\033[93m╰───────────────────────────────────────╯\033[0m")
 
     while True:
@@ -810,9 +1013,12 @@ def status_menu():
             status3_menu()
             break
         elif server_type == '4':
-            status4_menu()
+            status6_menu()
             break
         elif server_type == '5':
+            status4_menu()
+            break
+        elif server_type == '6':
             os.system('clear')
             main_menu()
             break
@@ -870,7 +1076,13 @@ def status3_menu():
         "azumifrpc4.service",
         "azumifrpc5.service",
         "azumifrpc6.service",
-        "azumifrpc7.service"
+        "azumifrpc7.service",
+        "azumifrpc8.service",
+        "azumifrpc9.service",
+        "azumifrpc10.service",
+        "azumifrpc11.service",
+        "azumifrpc12.service",
+        "azumifrpc13.service"
     ]
     for i, service_name in enumerate(services, start=1):
         print(f"\033[92mKharej \033[91m[{i}]\033[0m :")
@@ -895,6 +1107,31 @@ def status4_menu():
         "azumifrpc11.service",
         "azumifrpc12.service",
         "azumifrpc13.service"
+    ]
+    for i, service_name in enumerate(services, start=1):
+        print(f"\033[92mIRAN Server \033[91m[{i}]\033[0m:")
+        display_status(service_name)
+    
+    print("\033[93m───────────────────────────────────────\033[0m")
+    display_notification("\033[93mLoadBalance \033[96mIRAN \033[0m")
+    print("\033[93m───────────────────────────────────────\033[0m")
+    service_name = "azumifrps4.service"
+
+    print(" \033[93m IRAN :\033[0m ")
+    display_status(service_name)
+
+def status6_menu():
+    os.system("clear")
+    print('\033[92m ^ ^\033[0m')
+    print('\033[92m(\033[91mO,O\033[92m)\033[0m')
+    print('\033[92m(   ) \033[93mLoadbalance STATUS Menu\033[0m')
+    print('\033[92m "-"\033[93m══════════════════════════\033[0m')
+    print("\033[93m───────────────────────────────────────\033[0m")
+    display_notification("\033[93mLoadBalance  \033[96mKharej \033[0m")
+    print("\033[93m───────────────────────────────────────\033[0m")
+    services = [
+        "azumifrpc11.service",
+        "azumifrpc12.service",
     ]
     for i, service_name in enumerate(services, start=1):
         print(f"\033[92mIRAN Server \033[91m[{i}]\033[0m:")
