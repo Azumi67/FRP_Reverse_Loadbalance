@@ -164,8 +164,9 @@
 ![green-dot-clipart-3](https://github.com/Azumi67/6TO4-PrivateIP/assets/119934376/902a2efa-f48f-4048-bc2a-5be12143bef3) **سرور خارج اول** 
 
 
+
  <p align="right">
-  <img src="https://github.com/Azumi67/V2ray_loadbalance_multipleServers/assets/119934376/1b7a97a9-cfe5-4d1a-81ab-aa7de23d406b" alt="Image" />
+  <img src="https://github.com/Azumi67/V2ray_loadbalance_multipleServers/assets/119934376/c766a851-cab0-4c45-854d-e584f657b9e0" alt="Image" />
 </p>
 
 - مسیر : گزینه 6 ( LoadBalancer [10] Kharej [2] IRAN) >> سرور خارج >> سرور خارج اول
