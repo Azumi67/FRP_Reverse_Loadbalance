@@ -125,7 +125,7 @@
 
 
  <p align="right">
-  <img src="https://github.com/Azumi67/V2ray_loadbalance_multipleServers/assets/119934376/b2bcbe74-592b-45fd-a23f-9e263518dd8d" alt="Image" />
+  <img src="https://github.com/Azumi67/V2ray_loadbalance_multipleServers/assets/119934376/a23e7bf8-3686-408b-a42c-c3861b50e7ec" alt="Image" />
 </p>
 
 - مسیر : گزینه 6 ( LoadBalancer [10] Kharej [2] IRAN) >> سرور ایران >> سرور ایران اول
