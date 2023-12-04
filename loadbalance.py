@@ -2051,7 +2051,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frps -c {frps_path}
 Restart=always
-RestartSec=21601
+RestartSec=21600
 User=root
 
 [Install]
