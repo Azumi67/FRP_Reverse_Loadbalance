@@ -1844,7 +1844,7 @@ WantedBy=multi-user.target
 
 
     num_v2ray_instances = num_groups  
-    last_v2ray_number = starting_v2ray_number + num_v2ray_instances - 1
+    last_v2ray_number = starting_v2ray_number + num_v2ray_instances 
 
     print("+--------------------------------------------------+")
     print("|   Number of Load Balance Groups: {}               |".format(num_groups))
@@ -1956,7 +1956,7 @@ WantedBy=multi-user.target
 
     num_v2ray_instances = sum(group["num_ipv6"] for group in groups)
     
-    last_v2ray_number = starting_v2ray_number + num_v2ray_instances - 1
+    last_v2ray_number = starting_v2ray_number + num_v2ray_instances 
 
     print("+--------------------------------------------------+")
     print("|   Number of Load Balance Groups: {}               |".format(num_groups))
@@ -2396,7 +2396,7 @@ WantedBy=multi-user.target
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
     num_v2ray_instances = len(groups)
-    last_v2ray_number = starting_v2ray_number + num_v2ray_instances - 1
+    last_v2ray_number = starting_v2ray_number + num_v2ray_instances 
 
     print("Use the last V2ray number for configuring the next kharej server.")
     print("+--------------------------------------------------+")
@@ -2509,7 +2509,7 @@ WantedBy=multi-user.target
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
     num_v2ray_instances = len(groups)
-    last_v2ray_number = starting_v2ray_number + num_v2ray_instances - 1
+    last_v2ray_number = starting_v2ray_number + num_v2ray_instances 
 
     print("Use the last V2ray number for configuring the next kharej server.")
     print("+--------------------------------------------------+")
@@ -2622,7 +2622,7 @@ WantedBy=multi-user.target
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
     num_v2ray_instances = len(groups)
-    last_v2ray_number = starting_v2ray_number + num_v2ray_instances - 1
+    last_v2ray_number = starting_v2ray_number + num_v2ray_instances 
 
     print("Use the last V2ray number for configuring the next kharej server.")
     print("+--------------------------------------------------+")
@@ -2735,7 +2735,7 @@ WantedBy=multi-user.target
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
     num_v2ray_instances = len(groups)
-    last_v2ray_number = starting_v2ray_number + num_v2ray_instances - 1
+    last_v2ray_number = starting_v2ray_number + num_v2ray_instances 
 
     print("Use the last V2ray number for configuring the next kharej server.")
     print("+--------------------------------------------------+")
@@ -2848,7 +2848,7 @@ WantedBy=multi-user.target
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
     num_v2ray_instances = len(groups)
-    last_v2ray_number = starting_v2ray_number + num_v2ray_instances - 1
+    last_v2ray_number = starting_v2ray_number + num_v2ray_instances 
 
     print("Use the last V2ray number for configuring the next kharej server.")
     print("+--------------------------------------------------+")
@@ -2961,7 +2961,7 @@ WantedBy=multi-user.target
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
     num_v2ray_instances = len(groups)
-    last_v2ray_number = starting_v2ray_number + num_v2ray_instances - 1
+    last_v2ray_number = starting_v2ray_number + num_v2ray_instances 
 
     print("Use the last V2ray number for configuring the next kharej server.")
     print("+--------------------------------------------------+")
@@ -3074,7 +3074,7 @@ WantedBy=multi-user.target
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
     num_v2ray_instances = len(groups)
-    last_v2ray_number = starting_v2ray_number + num_v2ray_instances - 1
+    last_v2ray_number = starting_v2ray_number + num_v2ray_instances 
 
     print("Use the last V2ray number for configuring the next kharej server.")
     print("+--------------------------------------------------+")
@@ -3187,7 +3187,7 @@ WantedBy=multi-user.target
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
     num_v2ray_instances = len(groups)
-    last_v2ray_number = starting_v2ray_number + num_v2ray_instances - 1
+    last_v2ray_number = starting_v2ray_number + num_v2ray_instances 
 
     print("Use the last V2ray number for configuring the next kharej server.")
     print("+--------------------------------------------------+")
@@ -3300,7 +3300,7 @@ WantedBy=multi-user.target
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
     num_v2ray_instances = len(groups)
-    last_v2ray_number = starting_v2ray_number + num_v2ray_instances - 1
+    last_v2ray_number = starting_v2ray_number + num_v2ray_instances 
 
     print("Use the last V2ray number for configuring the next kharej server.")
     print("+--------------------------------------------------+")
@@ -3413,7 +3413,7 @@ WantedBy=multi-user.target
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
     num_v2ray_instances = len(groups)
-    last_v2ray_number = starting_v2ray_number + num_v2ray_instances - 1
+    last_v2ray_number = starting_v2ray_number + num_v2ray_instances 
 
     print("Use the last V2ray number for configuring the next kharej server.")
     print("+--------------------------------------------------+")
@@ -3603,7 +3603,7 @@ WantedBy=multi-user.target
 
 	
     num_v2ray_instances = len(groups)
-    last_v2ray_number = starting_v2ray_number + num_v2ray_instances - 1
+    last_v2ray_number = starting_v2ray_number + num_v2ray_instances 
 
     print("Use the last V2ray number for configuring the next kharej server.")
     print("+--------------------------------------------------+")
@@ -3724,7 +3724,7 @@ WantedBy=multi-user.target
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
     num_v2ray_instances = len(groups)
-    last_v2ray_number = starting_v2ray_number + num_v2ray_instances - 1
+    last_v2ray_number = starting_v2ray_number + num_v2ray_instances 
 
     print("Use the last V2ray number for configuring the next kharej server.")
     print("+--------------------------------------------------+")
@@ -3845,7 +3845,7 @@ WantedBy=multi-user.target
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
     num_v2ray_instances = len(groups)
-    last_v2ray_number = starting_v2ray_number + num_v2ray_instances - 1
+    last_v2ray_number = starting_v2ray_number + num_v2ray_instances 
 
     print("Use the last V2ray number for configuring the next kharej server.")
     print("+--------------------------------------------------+")
@@ -3966,7 +3966,7 @@ WantedBy=multi-user.target
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
     num_v2ray_instances = len(groups)
-    last_v2ray_number = starting_v2ray_number + num_v2ray_instances - 1
+    last_v2ray_number = starting_v2ray_number + num_v2ray_instances 
 
     print("Use the last V2ray number for configuring the next kharej server.")
     print("+--------------------------------------------------+")
@@ -4087,7 +4087,7 @@ WantedBy=multi-user.target
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
     num_v2ray_instances = len(groups)
-    last_v2ray_number = starting_v2ray_number + num_v2ray_instances - 1
+    last_v2ray_number = starting_v2ray_number + num_v2ray_instances 
 
     print("Use the last V2ray number for configuring the next kharej server.")
     print("+--------------------------------------------------+")
@@ -4209,7 +4209,7 @@ WantedBy=multi-user.target
 
 	
     num_v2ray_instances = len(groups)
-    last_v2ray_number = starting_v2ray_number + num_v2ray_instances - 1
+    last_v2ray_number = starting_v2ray_number + num_v2ray_instances 
 
     print("Use the last V2ray number for configuring the next kharej server.")
     print("+--------------------------------------------------+")
@@ -4330,7 +4330,7 @@ WantedBy=multi-user.target
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
     num_v2ray_instances = len(groups)
-    last_v2ray_number = starting_v2ray_number + num_v2ray_instances - 1
+    last_v2ray_number = starting_v2ray_number + num_v2ray_instances 
 
     print("Use the last V2ray number for configuring the next kharej server.")
     print("+--------------------------------------------------+")
@@ -4451,7 +4451,7 @@ WantedBy=multi-user.target
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
     num_v2ray_instances = len(groups)
-    last_v2ray_number = starting_v2ray_number + num_v2ray_instances - 1
+    last_v2ray_number = starting_v2ray_number + num_v2ray_instances 
 
     print("Use the last V2ray number for configuring the next kharej server.")
     print("+--------------------------------------------------+")
@@ -4572,7 +4572,7 @@ WantedBy=multi-user.target
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
     num_v2ray_instances = len(groups)
-    last_v2ray_number = starting_v2ray_number + num_v2ray_instances - 1
+    last_v2ray_number = starting_v2ray_number + num_v2ray_instances 
 
     print("Use the last V2ray number for configuring the next kharej server.")
     print("+--------------------------------------------------+")
@@ -4693,7 +4693,7 @@ WantedBy=multi-user.target
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
     num_v2ray_instances = len(groups)
-    last_v2ray_number = starting_v2ray_number + num_v2ray_instances - 1
+    last_v2ray_number = starting_v2ray_number + num_v2ray_instances 
 
     print("Use the last V2ray number for configuring the next kharej server.")
     print("+--------------------------------------------------+")
