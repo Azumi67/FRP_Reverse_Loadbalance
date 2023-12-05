@@ -172,6 +172,22 @@ def main_menu():
     except KeyboardInterrupt:
         display_error("\033[91m\nProgram interrupted. Exiting...\033[0m")
         sys.exit()
+def clear_c():
+    script_path = '/etc/clear.sh'
+    command = 'sync; echo 1 > /proc/sys/vm/drop_caches'
+    script_content = f'#!/bin/sh\n{command}'
+
+    with open(script_path, 'w') as file:
+        file.write(script_content)
+
+    os.chmod(script_path, 0o755)
+
+    cron_command = script_path
+    cron_schedule = '0 */2 * * *'  
+
+    cron_entry = f'{cron_schedule} {cron_command}\n'
+    with open('/var/spool/cron/crontabs/root', 'w') as file:
+        file.write(cron_entry)
         
 def start_menu():
     os.system("clear")
@@ -1158,6 +1174,8 @@ def frp_menu():
     if "net.ipv6.conf.all.forwarding = 0" not in ipv6_forward_status.stdout:
         subprocess.run(["sudo", "sysctl", "-w", "net.ipv6.conf.all.forwarding=1"])
 
+    with open('/etc/resolv.conf', 'w') as resolv_file:
+        resolv_file.write("nameserver 8.8.8.8\n")
 
     arch = subprocess.check_output('uname -m', shell=True).decode().strip()
 
@@ -1376,7 +1394,7 @@ def kharej_method1():
         f.write("[Service]\n")
         f.write("ExecStart=/root/frp/./frpc -c /root/frp/frpc.toml\n")
         f.write("Restart=always\n")
-        f.write("RestartSec=21601\n")    
+        f.write("RestartSec=7201\n")    
         f.write("User=root\n")
         f.write("\n")
         f.write("[Install]\n")
@@ -1451,7 +1469,7 @@ def kharej_method2():
         f.write("[Service]\n")
         f.write("ExecStart=/root/frp/./frpc -c /root/frp/frpc.toml\n")
         f.write("Restart=always\n")
-        f.write("RestartSec=21601\n")
+        f.write("RestartSec=7201\n")
         f.write("User=root\n")
         f.write("\n")
         f.write("[Install]\n")
@@ -1474,6 +1492,7 @@ def create_decorated_box(message):
 	
 def iran_tcp_no_dashboard():
     os.system("clear")
+    clear_c()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
     print('\033[92m(   ) \033[92mIRAN \033[93mwithout Dashboard \033[0m')
@@ -1529,7 +1548,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frps -c {frps_path}
 Restart=always
-RestartSec=21600
+RestartSec=7201
 User=root
 
 [Install]
@@ -1556,6 +1575,7 @@ def stop_loading(load_bar_id):
     
 def iran_tcp_dashboard():
     os.system("clear")
+    clear_c()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
     print('\033[92m(   ) \033[93mWith Dashboard\033[0m')
@@ -1636,7 +1656,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frps -c {frps_path}
 Restart=always
-RestartSec=21600
+RestartSec=7201
 User=root
 
 [Install]
@@ -1740,6 +1760,7 @@ def kharej_single_load():
             
 def kharej_load_local():
     os.system("clear")
+    clear_c()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
     print('\033[92m(   ) \033[92mKharej \033[93mMethod\033[92m [2]\033[93m Loadbalance \033[0m')
@@ -1820,7 +1841,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frps_path}
 Restart=always
-RestartSec=21601
+RestartSec=7201
 User=root
 
 [Install]
@@ -1851,6 +1872,7 @@ WantedBy=multi-user.target
 
 def kharej_load_ipv6():
     os.system("clear")
+    clear_c()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
     print('\033[92m(   ) \033[92mKharej \033[93mMethod\033[92m[1]\033[93m Loadbalance \033[0m')
@@ -1932,7 +1954,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frps_path}
 Restart=always
-RestartSec=21601
+RestartSec=7201
 User=root
 
 [Install]
@@ -1991,6 +2013,7 @@ def iran_single_load():
             
 def iran_tcp_no_dashboardd():
     os.system("clear")
+    clear_c()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
     print('\033[92m(   ) \033[92mIRAN \033[93mwithout Dashboard \033[0m')
@@ -2045,7 +2068,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frps -c {frps_path}
 Restart=always
-RestartSec=21600
+RestartSec=7201
 User=root
 
 [Install]
@@ -2069,6 +2092,7 @@ WantedBy=multi-user.target
     
 def iran_tcp_dashboardd():
     os.system("clear")
+    clear_c()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
     print('\033[92m(   ) \033[93mWith Dashboard\033[0m')
@@ -2150,7 +2174,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frps -c {frps_path}
 Restart=always
-RestartSec=21600
+RestartSec=7200
 User=root
 
 [Install]
@@ -2288,6 +2312,7 @@ def i3kharej_1iran_kharej_local():
             
 def kharej1_local():
     os.system("clear")
+    clear_c()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
     print('\033[92m(   ) \033[93mKharej Server \033[92m[1]\033[93m \033[0m')
@@ -2371,7 +2396,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frps_path}
 Restart=always
-RestartSec=21601
+RestartSec=7201
 User=root
 
 [Install]
@@ -2400,7 +2425,9 @@ WantedBy=multi-user.target
     print("+--------------------------------------------------+")
             
 def kharej2_local():
+
     os.system("clear")
+    clear_c()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
     print('\033[92m(   ) \033[93mKharej Server \033[92m[2]\033[93m \033[0m')
@@ -2484,7 +2511,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frps_path}
 Restart=always
-RestartSec=21601
+RestartSec=7201
 User=root
 
 [Install]
@@ -2514,6 +2541,7 @@ WantedBy=multi-user.target
     
 def kharej3_local():
     os.system("clear")
+    clear_c()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
     print('\033[92m(   ) \033[93mKharej Server \033[92m[3]\033[93m \033[0m')
@@ -2597,7 +2625,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frps_path}
 Restart=always
-RestartSec=21601
+RestartSec=7201
 User=root
 
 [Install]
@@ -2626,6 +2654,7 @@ WantedBy=multi-user.target
     print("+--------------------------------------------------+")
     
 def kharej4_local():
+    clear_c()
     os.system("clear")
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
@@ -2710,7 +2739,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frps_path}
 Restart=always
-RestartSec=21601
+RestartSec=7201
 User=root
 
 [Install]
@@ -2740,6 +2769,7 @@ WantedBy=multi-user.target
     
 def kharej5_local():
     os.system("clear")
+    clear_c()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
     print('\033[92m(   ) \033[93mKharej Server \033[92m[5]\033[93m \033[0m')
@@ -2823,7 +2853,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frps_path}
 Restart=always
-RestartSec=21601
+RestartSec=7201
 User=root
 
 [Install]
@@ -2853,6 +2883,7 @@ WantedBy=multi-user.target
     
 def kharej6_local():
     os.system("clear")
+    clear_c()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
     print('\033[92m(   ) \033[93mKharej Server \033[92m[6]\033[93m \033[0m')
@@ -2936,7 +2967,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frps_path}
 Restart=always
-RestartSec=21601
+RestartSec=7201
 User=root
 
 [Install]
@@ -2966,6 +2997,7 @@ WantedBy=multi-user.target
             
 def kharej7_local():
     os.system("clear")
+    clear_c()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
     print('\033[92m(   ) \033[93mKharej Server \033[92m[7]\033[93m \033[0m')
@@ -3049,7 +3081,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frps_path}
 Restart=always
-RestartSec=21601
+RestartSec=7201
 User=root
 
 [Install]
@@ -3079,6 +3111,7 @@ WantedBy=multi-user.target
     
 def kharej8_local():
     os.system("clear")
+    clear_c()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
     print('\033[92m(   ) \033[93mKharej Server \033[92m[8]\033[93m \033[0m')
@@ -3162,7 +3195,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frps_path}
 Restart=always
-RestartSec=21601
+RestartSec=7201
 User=root
 
 [Install]
@@ -3192,6 +3225,7 @@ WantedBy=multi-user.target
     
 def kharej9_local():
     os.system("clear")
+    clear_c()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
     print('\033[92m(   ) \033[93mKharej Server \033[92m[9]\033[93m \033[0m')
@@ -3275,7 +3309,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frps_path}
 Restart=always
-RestartSec=21601
+RestartSec=7201
 User=root
 
 [Install]
@@ -3305,6 +3339,7 @@ WantedBy=multi-user.target
     
 def kharej10_local():
     os.system("clear")
+    clear_c()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
     print('\033[92m(   ) \033[93mKharej Server \033[92m[10]\033[93m \033[0m')
@@ -3388,7 +3423,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frps_path}
 Restart=always
-RestartSec=21601
+RestartSec=7201
 User=root
 
 [Install]
@@ -3486,6 +3521,7 @@ def i3kharej_1iran_kharej_ipv6():
 
 def kharej1():
     os.system("clear")
+    clear_c()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
     print('\033[92m(   ) \033[92mKharej \033[93mServer \033[92m[1] \033[0m')
@@ -3577,7 +3613,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frps_path}
 Restart=always
-RestartSec=21601
+RestartSec=7201
 User=root
 
 [Install]
@@ -3608,6 +3644,7 @@ WantedBy=multi-user.target
 
 def kharej2():
     os.system("clear")
+    clear_c()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
     print('\033[92m(   ) \033[92mKharej \033[93mServer \033[92m[2] \033[0m')
@@ -3699,7 +3736,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frps_path}
 Restart=always
-RestartSec=21601
+RestartSec=7201
 User=root
 
 [Install]
@@ -3729,6 +3766,7 @@ WantedBy=multi-user.target
     
 def kharej3():
     os.system("clear")
+    clear_c()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
     print('\033[92m(   ) \033[92mKharej \033[93mServer \033[92m[3] \033[0m')
@@ -3820,7 +3858,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frps_path}
 Restart=always
-RestartSec=21601
+RestartSec=7201
 User=root
 
 [Install]
@@ -3850,6 +3888,7 @@ WantedBy=multi-user.target
 
 def kharej4():
     os.system("clear")
+    clear_c()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
     print('\033[92m(   ) \033[92mKharej \033[93mServer \033[92m[4] \033[0m')
@@ -3941,7 +3980,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frps_path}
 Restart=always
-RestartSec=21601
+RestartSec=7201
 User=root
 
 [Install]
@@ -3971,6 +4010,7 @@ WantedBy=multi-user.target
 
 def kharej5():
     os.system("clear")
+    clear_c()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
     print('\033[92m(   ) \033[92mKharej \033[93mServer \033[92m[5] \033[0m')
@@ -4062,7 +4102,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frps_path}
 Restart=always
-RestartSec=21601
+RestartSec=7201
 User=root
 
 [Install]
@@ -4092,6 +4132,7 @@ WantedBy=multi-user.target
 
 def kharej6():
     os.system("clear")
+    clear_c()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
     print('\033[92m(   ) \033[92mKharej \033[93mServer \033[92m[6] \033[0m')
@@ -4183,7 +4224,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frps_path}
 Restart=always
-RestartSec=21601
+RestartSec=7201
 User=root
 
 [Install]
@@ -4214,6 +4255,7 @@ WantedBy=multi-user.target
 
 def kharej7():
     os.system("clear")
+    clear_c()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
     print('\033[92m(   ) \033[92mKharej \033[93mServer \033[92m[7] \033[0m')
@@ -4305,7 +4347,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frps_path}
 Restart=always
-RestartSec=21601
+RestartSec=7201
 User=root
 
 [Install]
@@ -4335,6 +4377,7 @@ WantedBy=multi-user.target
     
 def kharej8():
     os.system("clear")
+    clear_c()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
     print('\033[92m(   ) \033[92mKharej \033[93mServer \033[92m[8] \033[0m')
@@ -4426,7 +4469,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frps_path}
 Restart=always
-RestartSec=21601
+RestartSec=7201
 User=root
 
 [Install]
@@ -4456,6 +4499,7 @@ WantedBy=multi-user.target
 
 def kharej9():
     os.system("clear")
+    clear_c()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
     print('\033[92m(   ) \033[92mKharej \033[93mServer \033[92m[9] \033[0m')
@@ -4547,7 +4591,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frps_path}
 Restart=always
-RestartSec=21601
+RestartSec=7201
 User=root
 
 [Install]
@@ -4577,6 +4621,7 @@ WantedBy=multi-user.target
 
 def kharej10():
     os.system("clear")
+    clear_c()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
     print('\033[92m(   ) \033[92mKharej \033[93mServer \033[92m[10] \033[0m')
@@ -4668,7 +4713,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frps_path}
 Restart=always
-RestartSec=21601
+RestartSec=7201
 User=root
 
 [Install]
@@ -4727,6 +4772,7 @@ def i3kharej_1iran_iran():
 	
 def iran_without_dash():
     os.system("clear")
+    clear_c()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
     print('\033[92m(   ) \033[93mKharej Server \033[92m[1]\033[93m \033[0m')
@@ -4785,7 +4831,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frps -c {frps_path}
 Restart=always
-RestartSec=21600
+RestartSec=7200
 User=root
 
 [Install]
@@ -4808,6 +4854,7 @@ WantedBy=multi-user.target
 
 def iran_with_dash():
     os.system("clear")
+    clear_c()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
     print('\033[92m(   ) \033[93mWith Dashboard\033[0m')
@@ -4892,7 +4939,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frps -c {frps_path}
 Restart=always
-RestartSec=21600
+RestartSec=7200
 User=root
 
 [Install]
@@ -5020,6 +5067,7 @@ def i3kharej():
 
 def i3kharej_ipv6():
     os.system("clear")
+    clear_c()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
     print('\033[92m(   ) \033[92mKharej IPV6\033[93m Method \033[0m')
@@ -5130,7 +5178,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frpc_path}
 Restart=always
-RestartSec=21601
+RestartSec=7201
 User=root
 
 [Install]
@@ -5149,6 +5197,7 @@ WantedBy=multi-user.target
 
 def i3kharej_local():
     os.system("clear")
+    clear_c()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
     print('\033[92m(   ) \033[92mKharej LocalIP\033[93m Method \033[0m')
@@ -5251,7 +5300,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frpc_path}
 Restart=always
-RestartSec=21601
+RestartSec=7201
 User=root
 
 [Install]
@@ -5271,6 +5320,7 @@ WantedBy=multi-user.target
     
 def i3iran_first():
     os.system("clear")
+    clear_c()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
     print('\033[92m(   ) \033[92mIRAN \033[93mServer \033[92m[1] \033[0m')
@@ -5328,7 +5378,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frps -c {frps_path}
 Restart=always
-RestartSec=21600
+RestartSec=7201
 User=root
 
 [Install]
@@ -5349,6 +5399,7 @@ WantedBy=multi-user.target
     
 def i3iran_second():
     os.system("clear")
+    clear_c()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
     print('\033[92m(   ) \033[92mIRAN \033[93mServer \033[92m[2] \033[0m')
@@ -5406,7 +5457,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frps -c {frps_path}
 Restart=always
-RestartSec=21600
+RestartSec=7200
 User=root
 
 [Install]
@@ -5427,6 +5478,7 @@ WantedBy=multi-user.target
     
 def i3iran_third():
     os.system("clear")
+    clear_c()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
     print('\033[92m(   ) \033[92mIRAN \033[93mServer \033[92m[3] \033[0m')
@@ -5484,7 +5536,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frps -c {frps_path}
 Restart=always
-RestartSec=21600
+RestartSec=7200
 User=root
 
 [Install]
@@ -5651,6 +5703,7 @@ def i10kharej_ipv6():
 
 def i10kharej_p61():
     os.system("clear")
+    clear_c()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
     print('\033[92m(   ) \033[96mKharej \033[92m[1]\033[93m IPV6\033[93m Method \033[0m')
@@ -5764,7 +5817,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frpc_path}
 Restart=always
-RestartSec=21601
+RestartSec=7200
 User=root
 
 [Install]
@@ -5793,6 +5846,7 @@ WantedBy=multi-user.target'''
         
 def i10kharej_p62():
     os.system("clear")
+    clear_c()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
     print('\033[92m(   ) \033[96mKharej \033[92m[2]\033[93m IPV6\033[93m Method \033[0m')
@@ -5906,7 +5960,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frpc_path}
 Restart=always
-RestartSec=21601
+RestartSec=7200
 User=root
 
 [Install]
@@ -5935,6 +5989,7 @@ WantedBy=multi-user.target'''
         
 def i10kharej_p63():
     os.system("clear")
+    clear_c()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
     print('\033[92m(   ) \033[96mKharej \033[92m[3]\033[93m IPV6\033[93m Method \033[0m')
@@ -6048,7 +6103,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frpc_path}
 Restart=always
-RestartSec=21601
+RestartSec=7201
 User=root
 
 [Install]
@@ -6077,6 +6132,7 @@ WantedBy=multi-user.target'''
         
 def i10kharej_p64():
     os.system("clear")
+    clear_c()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
     print('\033[92m(   ) \033[96mKharej \033[92m[4]\033[93m IPV6\033[93m Method \033[0m')
@@ -6190,7 +6246,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frpc_path}
 Restart=always
-RestartSec=21601
+RestartSec=7201
 User=root
 
 [Install]
@@ -6219,6 +6275,7 @@ WantedBy=multi-user.target'''
         
 def i10kharej_p65():
     os.system("clear")
+    clear_c()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
     print('\033[92m(   ) \033[96mKharej \033[92m[5]\033[93m IPV6\033[93m Method \033[0m')
@@ -6332,7 +6389,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frpc_path}
 Restart=always
-RestartSec=21601
+RestartSec=7201
 User=root
 
 [Install]
@@ -6361,6 +6418,7 @@ WantedBy=multi-user.target'''
 
 def i10kharej_p66():
     os.system("clear")
+    clear_c()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
     print('\033[92m(   ) \033[96mKharej \033[92m[6]\033[93m IPV6\033[93m Method \033[0m')
@@ -6474,7 +6532,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frpc_path}
 Restart=always
-RestartSec=21601
+RestartSec=7201
 User=root
 
 [Install]
@@ -6503,6 +6561,7 @@ WantedBy=multi-user.target'''
         
 def i10kharej_p67():
     os.system("clear")
+    clear_c()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
     print('\033[92m(   ) \033[96mKharej \033[92m[7]\033[93m IPV6\033[93m Method \033[0m')
@@ -6616,7 +6675,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frpc_path}
 Restart=always
-RestartSec=21601
+RestartSec=7201
 User=root
 
 [Install]
@@ -6645,6 +6704,7 @@ WantedBy=multi-user.target'''
 
 def i10kharej_p68():
     os.system("clear")
+    clear_c()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
     print('\033[92m(   ) \033[96mKharej \033[92m[8]\033[93m IPV6\033[93m Method \033[0m')
@@ -6758,7 +6818,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frpc_path}
 Restart=always
-RestartSec=21601
+RestartSec=7201
 User=root
 
 [Install]
@@ -6787,6 +6847,7 @@ WantedBy=multi-user.target'''
 
 def i10kharej_p69():
     os.system("clear")
+    clear_c()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
     print('\033[92m(   ) \033[96mKharej \033[92m[9]\033[93m IPV6\033[93m Method \033[0m')
@@ -6900,7 +6961,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frpc_path}
 Restart=always
-RestartSec=21601
+RestartSec=7201
 User=root
 
 [Install]
@@ -6929,6 +6990,7 @@ WantedBy=multi-user.target'''
 
 def i10kharej_p70():
     os.system("clear")
+    clear_c()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
     print('\033[92m(   ) \033[96mKharej \033[92m[10]\033[93m IPV6\033[93m Method \033[0m')
@@ -7040,7 +7102,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frpc_path}
 Restart=always
-RestartSec=21601
+RestartSec=7201
 User=root
 
 [Install]
@@ -7129,6 +7191,7 @@ def i10kharej_local():
             
 def i10kharej_l61():
     os.system("clear")
+    clear_c()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
     print('\033[92m(   ) \033[96mKharej \033[92m[1]\033[94m LocalIP\033[93m Method \033[0m')
@@ -7229,7 +7292,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frpc_path}
 Restart=always
-RestartSec=21601
+RestartSec=7201
 User=root
 
 [Install]
@@ -7258,6 +7321,7 @@ WantedBy=multi-user.target'''
 
 def i10kharej_l62():
     os.system("clear")
+    clear_c()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
     print('\033[92m(   ) \033[96mKharej \033[92m[2]\033[94m LocalIP\033[93m Method \033[0m')
@@ -7358,7 +7422,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frpc_path}
 Restart=always
-RestartSec=21601
+RestartSec=7201
 User=root
 
 [Install]
@@ -7387,6 +7451,7 @@ WantedBy=multi-user.target'''
 
 def i10kharej_l63():
     os.system("clear")
+    clear_c()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
     print('\033[92m(   ) \033[96mKharej \033[92m[3]\033[94m LocalIP\033[93m Method \033[0m')
@@ -7487,7 +7552,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frpc_path}
 Restart=always
-RestartSec=21601
+RestartSec=7201
 User=root
 
 [Install]
@@ -7516,6 +7581,7 @@ WantedBy=multi-user.target'''
 
 def i10kharej_l64():
     os.system("clear")
+    clear_c()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
     print('\033[92m(   ) \033[96mKharej \033[92m[4]\033[94m LocalIP\033[93m Method \033[0m')
@@ -7616,7 +7682,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frpc_path}
 Restart=always
-RestartSec=21601
+RestartSec=7201
 User=root
 
 [Install]
@@ -7645,6 +7711,7 @@ WantedBy=multi-user.target'''
 
 def i10kharej_l65():
     os.system("clear")
+    clear_c()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
     print('\033[92m(   ) \033[96mKharej \033[92m[5]\033[94m LocalIP\033[93m Method \033[0m')
@@ -7745,7 +7812,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frpc_path}
 Restart=always
-RestartSec=21601
+RestartSec=7201
 User=root
 
 [Install]
@@ -7774,6 +7841,7 @@ WantedBy=multi-user.target'''
 
 def i10kharej_l66():
     os.system("clear")
+    clear_c()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
     print('\033[92m(   ) \033[96mKharej \033[92m[6]\033[94m LocalIP\033[93m Method \033[0m')
@@ -7874,7 +7942,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frpc_path}
 Restart=always
-RestartSec=21601
+RestartSec=7201
 User=root
 
 [Install]
@@ -7903,6 +7971,7 @@ WantedBy=multi-user.target'''
 
 def i10kharej_l67():
     os.system("clear")
+    clear_c()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
     print('\033[92m(   ) \033[96mKharej \033[92m[7]\033[94m LocalIP\033[93m Method \033[0m')
@@ -8003,7 +8072,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frpc_path}
 Restart=always
-RestartSec=21601
+RestartSec=7201
 User=root
 
 [Install]
@@ -8032,6 +8101,7 @@ WantedBy=multi-user.target'''
 
 def i10kharej_l68():
     os.system("clear")
+    clear_c()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
     print('\033[92m(   ) \033[96mKharej \033[92m[8]\033[94m LocalIP\033[93m Method \033[0m')
@@ -8132,7 +8202,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frpc_path}
 Restart=always
-RestartSec=21601
+RestartSec=7201
 User=root
 
 [Install]
@@ -8161,6 +8231,7 @@ WantedBy=multi-user.target'''
 
 def i10kharej_l69():
     os.system("clear")
+    clear_c()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
     print('\033[92m(   ) \033[96mKharej \033[92m[9]\033[94m LocalIP\033[93m Method \033[0m')
@@ -8261,7 +8332,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frpc_path}
 Restart=always
-RestartSec=21601
+RestartSec=7201
 User=root
 
 [Install]
@@ -8290,6 +8361,7 @@ WantedBy=multi-user.target'''
 
 def i10kharej_l70():
     os.system("clear")
+    clear_c()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
     print('\033[92m(   ) \033[96mKharej \033[92m[10]\033[94m LocalIP\033[93m Method \033[0m')
@@ -8390,7 +8462,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frpc_path}
 Restart=always
-RestartSec=21601
+RestartSec=7201
 User=root
 
 [Install]
@@ -8419,6 +8491,7 @@ WantedBy=multi-user.target'''
         
 def i3iran_f():
     os.system("clear")
+    clear_c()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
     print('\033[92m(   ) \033[92mIRAN \033[93mServer \033[92m[1] \033[0m')
@@ -8476,7 +8549,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frps -c {frps_path}
 Restart=always
-RestartSec=21600
+RestartSec=7200
 User=root
 
 [Install]
@@ -8497,6 +8570,7 @@ WantedBy=multi-user.target
     
 def i3iran_s():
     os.system("clear")
+    clear_c()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
     print('\033[92m(   ) \033[92mIRAN \033[93mServer \033[92m[2] \033[0m')
@@ -8554,7 +8628,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frps -c {frps_path}
 Restart=always
-RestartSec=21600
+RestartSec=7200
 User=root
 
 [Install]
