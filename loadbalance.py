@@ -1158,8 +1158,6 @@ def frp_menu():
     if "net.ipv6.conf.all.forwarding = 0" not in ipv6_forward_status.stdout:
         subprocess.run(["sudo", "sysctl", "-w", "net.ipv6.conf.all.forwarding=1"])
 
-    with open('/etc/resolv.conf', 'w') as resolv_file:
-        resolv_file.write("nameserver 8.8.8.8\n")
 
     arch = subprocess.check_output('uname -m', shell=True).decode().strip()
 
