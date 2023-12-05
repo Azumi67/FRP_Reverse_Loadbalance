@@ -138,7 +138,7 @@ def main_menu():
             print("6. \033[96mLoadBalancer \033[92m[10]\033[96m Kharej \033[92m[2]\033[96m IRAN\033[0m")
             print("7. \033[92mStop | Restart Service \033[0m")
             print("8. \033[91mUninstall\033[0m")
-            print("0. Exit")
+            print("q. Exit")
             print("\033[93m╰─────────────────────────────────────────────────────────────────────╯\033[0m")
 
             choice = input("\033[5mEnter your choice Please: \033[0m")
@@ -161,7 +161,7 @@ def main_menu():
                 start_menu()
             elif choice == '8':
                 remove_menu()
-            elif choice == '0':
+            elif choice == 'q':
                 print("Exiting...")
                 break
             else:
