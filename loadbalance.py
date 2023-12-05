@@ -4912,7 +4912,7 @@ WantedBy=multi-user.target
         subprocess.run(['systemctl', 'start', 'nginx'])
         subprocess.run(['systemctl', 'daemon-reload'])
         subprocess.run(['systemctl', 'enable', service_name])
-        subprocess.run(['systemctl', 'start', service_name])
+        subprocess.run(['systemctl', 'restart', service_name])
         display_checkmark("\033[92mFRP Service Started!\033[0m")
         
         time.sleep(1)
