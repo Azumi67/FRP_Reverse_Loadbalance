@@ -1596,7 +1596,6 @@ def iran_tcp_dashboard():
         subprocess.run(['sudo', 'certbot', 'certonly', '--standalone', '--preferred-challenges', 'http', '--agree-tos', '--email', email, '-d', domain])
 
         stop_loading(loading_bar_pid)
-        subprocess.run(['clear'])
         
         display_notification("\033[93mFor multiple ports, use commas , (no space) eg : 8080,8081\033[0m")
         kharej_v2ray_port = input("\033[93mEnter \033[92mLocal\033[93m port:\033[0m ")
@@ -1673,7 +1672,6 @@ WantedBy=multi-user.target
         if loading_bar_pid:
             stop_loading(loading_bar_pid)
 
-        subprocess.run(['clear'])
 
 
         print("\033[91mSetup failed. Please try again.\033[0m")
@@ -2112,7 +2110,6 @@ def iran_tcp_dashboardd():
         subprocess.run(['sudo', 'certbot', 'certonly', '--standalone', '--preferred-challenges', 'http', '--agree-tos', '--email', email, '-d', domain])
 
         stop_loading(loading_bar_pid)
-        subprocess.run(['clear'])
         
         display_notification("\033[93mFor multiple ports, use commas , (no space) eg : 8080,8081\033[0m")
         kharej_v2ray_port = input("\033[93mEnter \033[92mLocal\033[93m port:\033[0m ")
@@ -2189,7 +2186,6 @@ WantedBy=multi-user.target
         if loading_bar_pid:
             stop_loading(loading_bar_pid)
 
-        subprocess.run(['clear'])
 
 
         print("\033[91mSetup failed. Please try again.\033[0m")            
@@ -4853,7 +4849,7 @@ def iran_with_dash():
         subprocess.run(['sudo', 'certbot', 'certonly', '--standalone', '--preferred-challenges', 'http', '--agree-tos', '--email', email, '-d', domain])
 
         stop_loading(loading_bar_pid)
-        subprocess.run(['clear'])
+
 
         display_notification("\033[93mFor multiple ports, use commas , (no space) eg : 8080,8081\033[0m")
         kharej_v2ray_port = input("\033[93mEnter \033[92mLocal\033[93m port:\033[0m ")
@@ -4931,7 +4927,6 @@ WantedBy=multi-user.target
         if loading_bar_pid:
             stop_loading(loading_bar_pid)
 
-        subprocess.run(['clear'])
 
 
         print("\033[91mSetup failed. Please try again.\033[0m")
