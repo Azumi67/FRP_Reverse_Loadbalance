@@ -184,7 +184,7 @@ def start_menu():
     print('1. \033[92mTCP Tunnel SERVICE \033[0m')
     print('2. \033[93mLoadBalance Single Server SERVICE \033[0m')
     print('3. \033[96mLoadBalance [10] Kharej [1] IRAN SERVICE \033[0m')
-    print('4. \033[93mLoadBalance [10] Kharej [1] IRAN SERVICE \033[0m')
+    print('4. \033[93mLoadBalance [10] Kharej [2] IRAN SERVICE \033[0m')
     print('5. \033[97mLoadBalance [1] Kharej [3] IRAN SERVICE  \033[0m')
     print('6. \033[94mBack to the main menu\033[0m')
     print("\033[93m╰───────────────────────────────────────╯\033[0m")
