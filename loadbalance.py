@@ -1548,7 +1548,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frps -c {frps_path}
 Restart=always
-RestartSec=7201
+RestartSec=7200
 User=root
 
 [Install]
@@ -1656,7 +1656,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frps -c {frps_path}
 Restart=always
-RestartSec=7201
+RestartSec=7200
 User=root
 
 [Install]
@@ -2068,7 +2068,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frps -c {frps_path}
 Restart=always
-RestartSec=7201
+RestartSec=7200
 User=root
 
 [Install]
@@ -5378,7 +5378,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frps -c {frps_path}
 Restart=always
-RestartSec=7201
+RestartSec=7200
 User=root
 
 [Install]
