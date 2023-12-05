@@ -2101,7 +2101,6 @@ def iran_tcp_dashboardd():
 
         stop_loading(loading_bar_pid)
 
-        subprocess.run(['ufw', 'allow', '80'], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 
         display_notification("\033[93mChecking port 80 availability...\033[0m")
         pid = subprocess.run(['lsof', '-t', '-i', ':80'], capture_output=True, text=True).stdout.strip()
@@ -4843,7 +4842,6 @@ def iran_with_dash():
 
         stop_loading(loading_bar_pid)
 
-        subprocess.run(['ufw', 'allow', '80'], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 
         display_notification("\033[93mChecking port 80 availability...\033[0m")
         pid = subprocess.run(['lsof', '-t', '-i', ':80'], capture_output=True, text=True).stdout.strip()
