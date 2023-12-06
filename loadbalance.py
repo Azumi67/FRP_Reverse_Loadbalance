@@ -170,7 +170,6 @@ def main_menu():
         display_error("\033[91m\nProgram interrupted. Exiting...\033[0m")
         sys.exit()
         
-import subprocess
 
 def rmve_cron():
     entries_to_remove = [
@@ -190,7 +189,6 @@ def rmve_cron():
         display_checkmark("\033[92mDone!\033[0m")
     else:
         display_error("\033[91m\nIt doesn't exist..\033[0m")
-
 
 
 def res_k1():
