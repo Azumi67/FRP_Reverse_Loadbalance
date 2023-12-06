@@ -183,11 +183,20 @@ def clear_c():
     os.chmod(script_path, 0o755)
 
     cron_command = script_path
-    cron_schedule = '0 */2 * * *'  
+    cron_schedule = '0 */2 * * *'  # Executes every 2 hours
 
-    cron_entry = f'{cron_schedule} {cron_command}\n'
+    with open('/var/spool/cron/crontabs/root', 'r') as file:
+        existing_crontab = file.readlines()
+
+    filtered_crontab = [
+        line for line in existing_crontab if not line.endswith(cron_command + '\n')
+    ]
+
     with open('/var/spool/cron/crontabs/root', 'w') as file:
-        file.write(cron_entry)
+        file.writelines(filtered_crontab)
+
+    with open('/var/spool/cron/crontabs/root', 'a') as file:
+        file.write(f'{cron_schedule} {cron_command}\n')
         
 def start_menu():
     os.system("clear")
