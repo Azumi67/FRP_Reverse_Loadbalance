@@ -169,6 +169,29 @@ def main_menu():
     except KeyboardInterrupt:
         display_error("\033[91m\nProgram interrupted. Exiting...\033[0m")
         sys.exit()
+        
+import subprocess
+
+def rmve_cron():
+    entries_to_remove = [
+        "0 */2 * * * sh /etc/clear.sh",
+        "0 */2 * * * /etc/res.sh"
+    ]
+
+    existing_crontab = subprocess.check_output("crontab -l", shell=True).decode()
+    modified_crontab = existing_crontab
+
+    for entry in entries_to_remove:
+        if entry in modified_crontab:
+            modified_crontab = modified_crontab.replace(entry, "")
+
+    if modified_crontab != existing_crontab:
+        subprocess.call("echo '{}' | crontab -".format(modified_crontab), shell=True)
+        display_checkmark("\033[92mDone!\033[0m")
+    else:
+        display_error("\033[91m\nIt doesn't exist..\033[0m")
+
+
 
 def res_k1():
     if subprocess.call("test -f /etc/res.sh", shell=True) == 0:
@@ -970,6 +993,7 @@ def remove_menu():
 def remove_tcp_tunnel():
     os.system("clear")
     display_notification("\033[93mRemoving TCP Tunnel...\033[0m")
+    rmve_cron()
     print("\033[93m╭───────────────────────────────────────╮\033[0m")
 
     try:
@@ -1010,6 +1034,7 @@ def remove_tcp_tunnel():
 def remove_single_load():
     os.system("clear")
     display_notification("\033[93mRemoving LoadBalance Single Server...\033[0m")
+    rmve_cron()
     print("\033[93m╭─────────────────────────────────────────────╮\033[0m")
 
     try:
@@ -1050,6 +1075,7 @@ def remove_single_load():
 def remove_kharej5():
     os.system("clear")
     display_notification("\033[93mRemoving LoadBalance [10] Kharej [1] IRAN...\033[0m")
+    rmve_cron()
     print("\033[93m╭─────────────────────────────────────────────╮\033[0m")
 
     try:
@@ -1178,6 +1204,7 @@ def remove_kharej10():
 		
 def remove_kharej1():
     os.system("clear")
+    rmve_cron()
     display_notification("\033[93mRemoving LoadBalance [1] Kharej [3] IRAN...\033[0m")
     print("\033[93m╭─────────────────────────────────────────────╮\033[0m")
 
