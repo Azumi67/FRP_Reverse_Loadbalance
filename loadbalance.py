@@ -865,7 +865,7 @@ def remove_kharej5():
         subprocess.run("systemctl disable azumifrps3.service > /dev/null 2>&1", shell=True)
         subprocess.run("systemctl stop azumifrps3.service > /dev/null 2>&1", shell=True)
         subprocess.run("rm /etc/systemd/system/azumifrps3.service > /dev/null 2>&1", shell=True)
-	subprocess.run("systemctl disable azumifrps4.service > /dev/null 2>&1", shell=True)
+        subprocess.run("systemctl disable azumifrps4.service > /dev/null 2>&1", shell=True)
         subprocess.run("systemctl stop azumifrps4.service > /dev/null 2>&1", shell=True)
         subprocess.run("rm /etc/systemd/system/azumifrps4.service > /dev/null 2>&1", shell=True)
 
