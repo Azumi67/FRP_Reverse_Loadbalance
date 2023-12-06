@@ -135,9 +135,8 @@ def main_menu():
             print("3. \033[96mLoadBalancer \033[93m[1]\033[36m Kharej \033[93m[1]\033[36m IRAN\033[0m")
             print("4. \033[93mLoadBalancer \033[92m[10]\033[93m Kharej \033[92m[1]\033[93m IRAN\033[0m")
             print("5. \033[92mLoadBalancer \033[93m[1]\033[92m Kharej \033[93m[3]\033[92m IRAN\033[0m")
-            print("6. \033[96mLoadBalancer \033[92m[10]\033[96m Kharej \033[92m[2]\033[96m IRAN\033[0m")
-            print("7. \033[92mStop | Restart Service \033[0m")
-            print("8. \033[91mUninstall\033[0m")
+            print("6. \033[92mStop | Restart Service \033[0m")
+            print("7. \033[91mUninstall\033[0m")
             print("q. Exit")
             print("\033[93m╰─────────────────────────────────────────────────────────────────────╯\033[0m")
 
@@ -156,10 +155,8 @@ def main_menu():
             elif choice == '5':
                 i1kharej_3iran()
             elif choice == '6':
-                i10kharej_2iran()
-            elif choice == '7':
                 start_menu()
-            elif choice == '8':
+            elif choice == '7':
                 remove_menu()
             elif choice == 'q':
                 print("Exiting...")
@@ -172,7 +169,248 @@ def main_menu():
     except KeyboardInterrupt:
         display_error("\033[91m\nProgram interrupted. Exiting...\033[0m")
         sys.exit()
-	    
+
+def res_k1():
+    if subprocess.call("test -f /etc/res.sh", shell=True) == 0:
+        subprocess.call("rm /etc/res.sh", shell=True)
+
+    with open("/etc/res.sh", "w") as f:
+        f.write("#!/bin/bash\n")
+        f.write("systemctl stop azumifrpc3\n")
+        f.write("systemctl start azumifrpc3\n")
+
+
+    existing_entry = "0 */2 * * * /etc/res.sh"
+    existing_crontab = subprocess.check_output("crontab -l", shell=True).decode()
+
+    if existing_entry in existing_crontab:
+        print("\033[91mCrontab already exists.\033[0m")
+    else:
+        new_crontab = existing_crontab.strip() + "\n0 */2 * * * /etc/res.sh\n"
+        subprocess.call("echo '{}' | crontab -".format(new_crontab), shell=True)
+        display_checkmark("\033[92m2 hour reset timer added!\033[0m")
+
+    display_checkmark("\033[92mIT IS DONE.!\033[0m")
+    
+def res_k2():
+    if subprocess.call("test -f /etc/res.sh", shell=True) == 0:
+        subprocess.call("rm /etc/res.sh", shell=True)
+
+    with open("/etc/res.sh", "w") as f:
+        f.write("#!/bin/bash\n")
+        f.write("systemctl stop azumifrpc4\n")
+        f.write("systemctl start azumifrpc4\n")
+
+
+    existing_entry = "0 */2 * * * /etc/res.sh"
+    existing_crontab = subprocess.check_output("crontab -l", shell=True).decode()
+
+    if existing_entry in existing_crontab:
+        print("\033[91mCrontab already exists.\033[0m")
+    else:
+        new_crontab = existing_crontab.strip() + "\n0 */2 * * * /etc/res.sh\n"
+        subprocess.call("echo '{}' | crontab -".format(new_crontab), shell=True)
+        display_checkmark("\033[92m2 hour reset timer added!\033[0m")
+
+    display_checkmark("\033[92mIT IS DONE.!\033[0m")
+    
+def res_k3():
+    if subprocess.call("test -f /etc/res.sh", shell=True) == 0:
+        subprocess.call("rm /etc/res.sh", shell=True)
+
+    with open("/etc/res.sh", "w") as f:
+        f.write("#!/bin/bash\n")
+        f.write("systemctl stop azumifrpc5\n")
+        f.write("systemctl start azumifrpc5\n")
+
+
+    existing_entry = "0 */2 * * * /etc/res.sh"
+    existing_crontab = subprocess.check_output("crontab -l", shell=True).decode()
+
+    if existing_entry in existing_crontab:
+        print("\033[91mCrontab already exists.\033[0m")
+    else:
+        new_crontab = existing_crontab.strip() + "\n0 */2 * * * /etc/res.sh\n"
+        subprocess.call("echo '{}' | crontab -".format(new_crontab), shell=True)
+        display_checkmark("\033[92m2 hour reset timer added!\033[0m")
+
+    display_checkmark("\033[92mIT IS DONE.!\033[0m")
+    
+def res_k4():
+    if subprocess.call("test -f /etc/res.sh", shell=True) == 0:
+        subprocess.call("rm /etc/res.sh", shell=True)
+
+    with open("/etc/res.sh", "w") as f:
+        f.write("#!/bin/bash\n")
+        f.write("systemctl stop azumifrpc6\n")
+        f.write("systemctl start azumifrpc6\n")
+
+
+    existing_entry = "0 */2 * * * /etc/res.sh"
+    existing_crontab = subprocess.check_output("crontab -l", shell=True).decode()
+
+    if existing_entry in existing_crontab:
+        print("\033[91mCrontab already exists.\033[0m")
+    else:
+        new_crontab = existing_crontab.strip() + "\n0 */2 * * * /etc/res.sh\n"
+        subprocess.call("echo '{}' | crontab -".format(new_crontab), shell=True)
+        display_checkmark("\033[92m2 hour reset timer added!\033[0m")
+
+    display_checkmark("\033[92mIT IS DONE.!\033[0m")
+    
+def res_k5():
+    if subprocess.call("test -f /etc/res.sh", shell=True) == 0:
+        subprocess.call("rm /etc/res.sh", shell=True)
+
+    with open("/etc/res.sh", "w") as f:
+        f.write("#!/bin/bash\n")
+        f.write("systemctl stop azumifrpc7\n")
+        f.write("systemctl start azumifrpc7\n")
+
+
+    existing_entry = "0 */2 * * * /etc/res.sh"
+    existing_crontab = subprocess.check_output("crontab -l", shell=True).decode()
+
+    if existing_entry in existing_crontab:
+        print("\033[91mCrontab already exists.\033[0m")
+    else:
+        new_crontab = existing_crontab.strip() + "\n0 */2 * * * /etc/res.sh\n"
+        subprocess.call("echo '{}' | crontab -".format(new_crontab), shell=True)
+        display_checkmark("\033[92m2 hour reset timer added!\033[0m")
+
+    display_checkmark("\033[92mIT IS DONE.!\033[0m")
+    
+def res_k6():
+    if subprocess.call("test -f /etc/res.sh", shell=True) == 0:
+        subprocess.call("rm /etc/res.sh", shell=True)
+
+    with open("/etc/res.sh", "w") as f:
+        f.write("#!/bin/bash\n")
+        f.write("systemctl stop azumifrpc8\n")
+        f.write("systemctl start azumifrpc8\n")
+
+
+    existing_entry = "0 */2 * * * /etc/res.sh"
+    existing_crontab = subprocess.check_output("crontab -l", shell=True).decode()
+
+    if existing_entry in existing_crontab:
+        print("\033[91mCrontab already exists.\033[0m")
+    else:
+        new_crontab = existing_crontab.strip() + "\n0 */2 * * * /etc/res.sh\n"
+        subprocess.call("echo '{}' | crontab -".format(new_crontab), shell=True)
+        display_checkmark("\033[92m2 hour reset timer added!\033[0m")
+
+    display_checkmark("\033[92mIT IS DONE.!\033[0m")
+    
+def res_k7():
+    if subprocess.call("test -f /etc/res.sh", shell=True) == 0:
+        subprocess.call("rm /etc/res.sh", shell=True)
+
+    with open("/etc/res.sh", "w") as f:
+        f.write("#!/bin/bash\n")
+        f.write("systemctl stop azumifrpc9\n")
+        f.write("systemctl start azumifrpc9\n")
+
+
+    existing_entry = "0 */2 * * * /etc/res.sh"
+    existing_crontab = subprocess.check_output("crontab -l", shell=True).decode()
+
+    if existing_entry in existing_crontab:
+        print("\033[91mCrontab already exists.\033[0m")
+    else:
+        new_crontab = existing_crontab.strip() + "\n0 */2 * * * /etc/res.sh\n"
+        subprocess.call("echo '{}' | crontab -".format(new_crontab), shell=True)
+        display_checkmark("\033[92m2 hour reset timer added!\033[0m")
+
+    display_checkmark("\033[92mIT IS DONE.!\033[0m")
+    
+def res_k8():
+    if subprocess.call("test -f /etc/res.sh", shell=True) == 0:
+        subprocess.call("rm /etc/res.sh", shell=True)
+
+    with open("/etc/res.sh", "w") as f:
+        f.write("#!/bin/bash\n")
+        f.write("systemctl stop azumifrpc10\n")
+        f.write("systemctl start azumifrpc10\n")
+
+
+    existing_entry = "0 */2 * * * /etc/res.sh"
+    existing_crontab = subprocess.check_output("crontab -l", shell=True).decode()
+
+    if existing_entry in existing_crontab:
+        print("\033[91mCrontab already exists.\033[0m")
+    else:
+        new_crontab = existing_crontab.strip() + "\n0 */2 * * * /etc/res.sh\n"
+        subprocess.call("echo '{}' | crontab -".format(new_crontab), shell=True)
+        display_checkmark("\033[92m2 hour reset timer added!\033[0m")
+
+    display_checkmark("\033[92mIT IS DONE.!\033[0m")
+    
+def res_k9():
+    if subprocess.call("test -f /etc/res.sh", shell=True) == 0:
+        subprocess.call("rm /etc/res.sh", shell=True)
+
+    with open("/etc/res.sh", "w") as f:
+        f.write("#!/bin/bash\n")
+        f.write("systemctl stop azumifrpc11\n")
+        f.write("systemctl start azumifrpc11\n")
+
+    existing_entry = "0 */2 * * * /etc/res.sh"
+    existing_crontab = subprocess.check_output("crontab -l", shell=True).decode()
+
+    if existing_entry in existing_crontab:
+        print("\033[91mCrontab already exists.\033[0m")
+    else:
+        new_crontab = existing_crontab.strip() + "\n0 */2 * * * /etc/res.sh\n"
+        subprocess.call("echo '{}' | crontab -".format(new_crontab), shell=True)
+        display_checkmark("\033[92m2 hour reset timer added!\033[0m")
+
+    display_checkmark("\033[92mIT IS DONE.!\033[0m")
+    
+def res_k10():
+    if subprocess.call("test -f /etc/res.sh", shell=True) == 0:
+        subprocess.call("rm /etc/res.sh", shell=True)
+
+    with open("/etc/res.sh", "w") as f:
+        f.write("#!/bin/bash\n")
+        f.write("systemctl stop azumifrpc12\n")
+        f.write("systemctl start azumifrpc12\n")
+
+
+    existing_entry = "0 */2 * * * /etc/res.sh"
+    existing_crontab = subprocess.check_output("crontab -l", shell=True).decode()
+
+    if existing_entry in existing_crontab:
+        print("\033[91mCrontab already exists.\033[0m")
+    else:
+        new_crontab = existing_crontab.strip() + "\n0 */2 * * * /etc/res.sh\n"
+        subprocess.call("echo '{}' | crontab -".format(new_crontab), shell=True)
+        display_checkmark("\033[92m2 hour reset timer added!\033[0m")
+
+    display_checkmark("\033[92mIT IS DONE.!\033[0m")
+    
+def res_i():
+    if subprocess.call("test -f /etc/res.sh", shell=True) == 0:
+        subprocess.call("rm /etc/res.sh", shell=True)
+
+    with open("/etc/res.sh", "w") as f:
+        f.write("#!/bin/bash\n")
+        f.write("systemctl stop azumifrps3\n")
+        f.write("systemctl start azumifrps3\n")
+
+
+    existing_entry = "0 */2 * * * /etc/res.sh"
+    existing_crontab = subprocess.check_output("crontab -l", shell=True).decode()
+
+    if existing_entry in existing_crontab:
+        print("\033[91mCrontab already exists.\033[0m")
+    else:
+        new_crontab = existing_crontab.strip() + "\n0 */2 * * * /etc/res.sh\n"
+        subprocess.call("echo '{}' | crontab -".format(new_crontab), shell=True)
+        display_checkmark("\033[92m2 hour reset timer added!\033[0m")
+
+    display_checkmark("\033[92mIT IS DONE.!\033[0m")
+    
 def clear_c():
     script_path = '/etc/clear.sh'
     command = 'sync; echo 1 > /proc/sys/vm/drop_caches'
@@ -196,9 +434,8 @@ def start_menu():
     print('1. \033[92mTCP Tunnel SERVICE \033[0m')
     print('2. \033[93mLoadBalance Single Server SERVICE \033[0m')
     print('3. \033[96mLoadBalance [10] Kharej [1] IRAN SERVICE \033[0m')
-    print('4. \033[93mLoadBalance [10] Kharej [2] IRAN SERVICE \033[0m')
-    print('5. \033[97mLoadBalance [1] Kharej [3] IRAN SERVICE  \033[0m')
-    print('6. \033[94mBack to the main menu\033[0m')
+    print('4. \033[97mLoadBalance [1] Kharej [3] IRAN SERVICE  \033[0m')
+    print('5. \033[94mBack to the main menu\033[0m')
     print("\033[93m╰───────────────────────────────────────╯\033[0m")
 
     while True:
@@ -213,12 +450,9 @@ def start_menu():
             start_kharej5()
             break
         elif server_type == '4':
-            start_kharej10()
-            break
-        elif server_type == '5':
             start_kharej1()
             break
-        elif server_type == '6':
+        elif server_type == '5':
             os.system("clear")
             main_menu()
             break
@@ -350,8 +584,9 @@ def stop_kharej1():
 
     try:
         subprocess.run("systemctl daemon-reload", shell=True)
-        subprocess.run("systemctl stop azumifrps3.service > /dev/null 2>&1", shell=True)
+        subprocess.run("systemctl stop azumifrps4.service > /dev/null 2>&1", shell=True)
         time.sleep(1)
+        subprocess.run("systemctl stop azumifrpc13.service > /dev/null 2>&1", shell=True)
         subprocess.run("systemctl stop azumifrpc12.service > /dev/null 2>&1", shell=True)
         time.sleep(1)
         subprocess.run("systemctl stop azumifrpc11.service > /dev/null 2>&1", shell=True)
@@ -381,7 +616,7 @@ def restart_kharej1():
 
     try:
         subprocess.run("systemctl daemon-reload", shell=True)
-        subprocess.run("systemctl restart azumifrps3.service > /dev/null 2>&1", shell=True)
+        subprocess.run("systemctl restart azumifrps4.service > /dev/null 2>&1", shell=True)
         time.sleep(1)
         subprocess.run("systemctl restart azumifrpc13.service > /dev/null 2>&1", shell=True)
         time.sleep(1)
@@ -457,7 +692,7 @@ def restart_kharej5():
         subprocess.run("systemctl restart azumifrpc10.service > /dev/null 2>&1", shell=True)
         subprocess.run("systemctl restart azumifrpc11.service > /dev/null 2>&1", shell=True)
         subprocess.run("systemctl restart azumifrpc12.service > /dev/null 2>&1", shell=True)
-        subprocess.run("systemctl restart azumifrps13.service > /dev/null 2>&1", shell=True)
+        subprocess.run("systemctl restart azumifrpc13.service > /dev/null 2>&1", shell=True)
         time.sleep(1)
         
         print("Progress: ", end="")
@@ -499,7 +734,7 @@ def stop_kharej5():
         subprocess.run("systemctl stop azumifrpc10.service > /dev/null 2>&1", shell=True)
         subprocess.run("systemctl stop azumifrpc11.service > /dev/null 2>&1", shell=True)
         subprocess.run("systemctl stop azumifrpc12.service > /dev/null 2>&1", shell=True)
-        subprocess.run("systemctl stop azumifrps13.service > /dev/null 2>&1", shell=True)
+        subprocess.run("systemctl stop azumifrpc13.service > /dev/null 2>&1", shell=True)
 
         print("Progress: ", end="")
 
@@ -861,6 +1096,9 @@ def remove_kharej5():
         subprocess.run("systemctl disable azumifrpc12.service > /dev/null 2>&1", shell=True)
         subprocess.run("systemctl stop azumifrpc12.service > /dev/null 2>&1", shell=True)
         subprocess.run("rm /etc/systemd/system/azumifrpc12.service > /dev/null 2>&1", shell=True)
+        subprocess.run("systemctl disable azumifrpc13.service > /dev/null 2>&1", shell=True)
+        subprocess.run("systemctl stop azumifrpc13.service > /dev/null 2>&1", shell=True)
+        subprocess.run("rm /etc/systemd/system/azumifrpc13.service > /dev/null 2>&1", shell=True)
         time.sleep(1)
         subprocess.run("systemctl disable azumifrps3.service > /dev/null 2>&1", shell=True)
         subprocess.run("systemctl stop azumifrps3.service > /dev/null 2>&1", shell=True)
@@ -957,6 +1195,9 @@ def remove_kharej1():
         subprocess.run("systemctl disable azumifrps3.service > /dev/null 2>&1", shell=True)
         subprocess.run("systemctl stop azumifrps3.service > /dev/null 2>&1", shell=True)
         subprocess.run("rm /etc/systemd/system/azumifrps3.service > /dev/null 2>&1", shell=True)
+        subprocess.run("systemctl disable azumifrps4.service > /dev/null 2>&1", shell=True)
+        subprocess.run("systemctl stop azumifrps4.service > /dev/null 2>&1", shell=True)
+        subprocess.run("rm /etc/systemd/system/azumifrps4.service > /dev/null 2>&1", shell=True)
 
         subprocess.run("systemctl disable azumifrpc13.service > /dev/null 2>&1", shell=True)
         subprocess.run("systemctl stop azumifrpc13.service > /dev/null 2>&1", shell=True)
@@ -1014,9 +1255,8 @@ def status_menu():
     print('1. \033[92mTCP Tunnel \033[91mSTATUS\033[0m')
     print('2. \033[93mLoadBalance Single Server \033[91mSTATUS \033[0m')
     print('3. \033[96mLoadBalance [10] Kharej [1] IRAN \033[91mSTATUS \033[0m')
-    print('4. \033[93mLoadBalance [10] Kharej [2] IRAN \033[91mSTATUS \033[0m')
-    print('5. \033[97mLoadBalance [1] Kharej [3] IRAN \033[91mSTATUS \033[0m')
-    print('6. \033[94mBack to the main menu\033[0m')
+    print('4. \033[97mLoadBalance [1] Kharej [3] IRAN \033[91mSTATUS \033[0m')
+    print('5. \033[94mBack to the main menu\033[0m')
     print("\033[93m╰───────────────────────────────────────╯\033[0m")
 
     while True:
@@ -1031,12 +1271,9 @@ def status_menu():
             status3_menu()
             break
         elif server_type == '4':
-            status6_menu()
-            break
-        elif server_type == '5':
             status4_menu()
             break
-        elif server_type == '6':
+        elif server_type == '5':
             os.system('clear')
             main_menu()
             break
@@ -1100,7 +1337,6 @@ def status3_menu():
         "azumifrpc10.service",
         "azumifrpc11.service",
         "azumifrpc12.service",
-        "azumifrpc13.service"
     ]
     for i, service_name in enumerate(services, start=1):
         print(f"\033[92mKharej \033[91m[{i}]\033[0m :")
@@ -1176,8 +1412,6 @@ def frp_menu():
     if "net.ipv6.conf.all.forwarding = 0" not in ipv6_forward_status.stdout:
         subprocess.run(["sudo", "sysctl", "-w", "net.ipv6.conf.all.forwarding=1"])
 
-    with open('/etc/resolv.conf', 'w') as resolv_file:
-        resolv_file.write("nameserver 8.8.8.8\n")
 
     arch = subprocess.check_output('uname -m', shell=True).decode().strip()
 
@@ -1396,7 +1630,7 @@ def kharej_method1():
         f.write("[Service]\n")
         f.write("ExecStart=/root/frp/./frpc -c /root/frp/frpc.toml\n")
         f.write("Restart=always\n")
-        f.write("RestartSec=7201\n")    
+        f.write("RestartSec=10,801\n")    
         f.write("User=root\n")
         f.write("\n")
         f.write("[Install]\n")
@@ -1471,7 +1705,7 @@ def kharej_method2():
         f.write("[Service]\n")
         f.write("ExecStart=/root/frp/./frpc -c /root/frp/frpc.toml\n")
         f.write("Restart=always\n")
-        f.write("RestartSec=7201\n")
+        f.write("RestartSec=10,801\n")
         f.write("User=root\n")
         f.write("\n")
         f.write("[Install]\n")
@@ -1550,7 +1784,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frps -c {frps_path}
 Restart=always
-RestartSec=7200
+RestartSec=10,800
 User=root
 
 [Install]
@@ -1658,7 +1892,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frps -c {frps_path}
 Restart=always
-RestartSec=7200
+RestartSec=10,800
 User=root
 
 [Install]
@@ -1843,7 +2077,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frps_path}
 Restart=always
-RestartSec=7201
+RestartSec=10,801
 User=root
 
 [Install]
@@ -1956,7 +2190,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frps_path}
 Restart=always
-RestartSec=7201
+RestartSec=10,801
 User=root
 
 [Install]
@@ -2070,7 +2304,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frps -c {frps_path}
 Restart=always
-RestartSec=7200
+RestartSec=10,800
 User=root
 
 [Install]
@@ -2176,7 +2410,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frps -c {frps_path}
 Restart=always
-RestartSec=7200
+RestartSec=10,800
 User=root
 
 [Install]
@@ -2314,6 +2548,7 @@ def i3kharej_1iran_kharej_local():
             
 def kharej1_local():
     os.system("clear")
+    res_k1()
     clear_c()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
@@ -2398,7 +2633,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frps_path}
 Restart=always
-RestartSec=7201
+RestartSec=10,801
 User=root
 
 [Install]
@@ -2427,8 +2662,8 @@ WantedBy=multi-user.target
     print("+--------------------------------------------------+")
             
 def kharej2_local():
-
     os.system("clear")
+    res_k2()
     clear_c()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
@@ -2513,7 +2748,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frps_path}
 Restart=always
-RestartSec=7201
+RestartSec=10,801
 User=root
 
 [Install]
@@ -2543,6 +2778,7 @@ WantedBy=multi-user.target
     
 def kharej3_local():
     os.system("clear")
+    res_k3()
     clear_c()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
@@ -2627,7 +2863,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frps_path}
 Restart=always
-RestartSec=7201
+RestartSec=10,801
 User=root
 
 [Install]
@@ -2658,6 +2894,7 @@ WantedBy=multi-user.target
 def kharej4_local():
     clear_c()
     os.system("clear")
+    res_k4()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
     print('\033[92m(   ) \033[93mKharej Server \033[92m[4]\033[93m \033[0m')
@@ -2741,7 +2978,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frps_path}
 Restart=always
-RestartSec=7201
+RestartSec=10,801
 User=root
 
 [Install]
@@ -2771,6 +3008,7 @@ WantedBy=multi-user.target
     
 def kharej5_local():
     os.system("clear")
+    res_k5()
     clear_c()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
@@ -2855,7 +3093,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frps_path}
 Restart=always
-RestartSec=7201
+RestartSec=10,801
 User=root
 
 [Install]
@@ -2885,6 +3123,7 @@ WantedBy=multi-user.target
     
 def kharej6_local():
     os.system("clear")
+    res_k6()
     clear_c()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
@@ -2969,7 +3208,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frps_path}
 Restart=always
-RestartSec=7201
+RestartSec=10,801
 User=root
 
 [Install]
@@ -2999,6 +3238,7 @@ WantedBy=multi-user.target
             
 def kharej7_local():
     os.system("clear")
+    res_k7()
     clear_c()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
@@ -3083,7 +3323,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frps_path}
 Restart=always
-RestartSec=7201
+RestartSec=10,801
 User=root
 
 [Install]
@@ -3113,6 +3353,7 @@ WantedBy=multi-user.target
     
 def kharej8_local():
     os.system("clear")
+    res_k8()
     clear_c()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
@@ -3197,7 +3438,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frps_path}
 Restart=always
-RestartSec=7201
+RestartSec=10,801
 User=root
 
 [Install]
@@ -3227,6 +3468,7 @@ WantedBy=multi-user.target
     
 def kharej9_local():
     os.system("clear")
+    res_k9()
     clear_c()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
@@ -3311,7 +3553,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frps_path}
 Restart=always
-RestartSec=7201
+RestartSec=10,801
 User=root
 
 [Install]
@@ -3341,6 +3583,7 @@ WantedBy=multi-user.target
     
 def kharej10_local():
     os.system("clear")
+    res_k10()
     clear_c()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
@@ -3425,7 +3668,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frps_path}
 Restart=always
-RestartSec=7201
+RestartSec=10,801
 User=root
 
 [Install]
@@ -3523,6 +3766,7 @@ def i3kharej_1iran_kharej_ipv6():
 
 def kharej1():
     os.system("clear")
+    res_k1()
     clear_c()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
@@ -3615,7 +3859,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frps_path}
 Restart=always
-RestartSec=7201
+RestartSec=10,801
 User=root
 
 [Install]
@@ -3646,6 +3890,7 @@ WantedBy=multi-user.target
 
 def kharej2():
     os.system("clear")
+    res_k2()
     clear_c()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
@@ -3738,7 +3983,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frps_path}
 Restart=always
-RestartSec=7201
+RestartSec=10,801
 User=root
 
 [Install]
@@ -3768,6 +4013,7 @@ WantedBy=multi-user.target
     
 def kharej3():
     os.system("clear")
+    res_k3()
     clear_c()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
@@ -3860,7 +4106,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frps_path}
 Restart=always
-RestartSec=7201
+RestartSec=10,801
 User=root
 
 [Install]
@@ -3890,6 +4136,7 @@ WantedBy=multi-user.target
 
 def kharej4():
     os.system("clear")
+    res_k4()
     clear_c()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
@@ -3982,7 +4229,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frps_path}
 Restart=always
-RestartSec=7201
+RestartSec=10,801
 User=root
 
 [Install]
@@ -4012,6 +4259,7 @@ WantedBy=multi-user.target
 
 def kharej5():
     os.system("clear")
+    res_k5()
     clear_c()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
@@ -4104,7 +4352,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frps_path}
 Restart=always
-RestartSec=7201
+RestartSec=10,801
 User=root
 
 [Install]
@@ -4134,6 +4382,7 @@ WantedBy=multi-user.target
 
 def kharej6():
     os.system("clear")
+    res_k6()
     clear_c()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
@@ -4226,7 +4475,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frps_path}
 Restart=always
-RestartSec=7201
+RestartSec=10,801
 User=root
 
 [Install]
@@ -4257,6 +4506,7 @@ WantedBy=multi-user.target
 
 def kharej7():
     os.system("clear")
+    res_k7()
     clear_c()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
@@ -4349,7 +4599,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frps_path}
 Restart=always
-RestartSec=7201
+RestartSec=10,801
 User=root
 
 [Install]
@@ -4379,6 +4629,7 @@ WantedBy=multi-user.target
     
 def kharej8():
     os.system("clear")
+    res_k8()
     clear_c()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
@@ -4471,7 +4722,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frps_path}
 Restart=always
-RestartSec=7201
+RestartSec=10,801
 User=root
 
 [Install]
@@ -4501,6 +4752,7 @@ WantedBy=multi-user.target
 
 def kharej9():
     os.system("clear")
+    res_k9()
     clear_c()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
@@ -4593,7 +4845,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frps_path}
 Restart=always
-RestartSec=7201
+RestartSec=10,801
 User=root
 
 [Install]
@@ -4623,6 +4875,7 @@ WantedBy=multi-user.target
 
 def kharej10():
     os.system("clear")
+    res_k10()
     clear_c()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
@@ -4715,7 +4968,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frps_path}
 Restart=always
-RestartSec=7201
+RestartSec=10,801
 User=root
 
 [Install]
@@ -4747,7 +5000,7 @@ def i3kharej_1iran_iran():
     os.system("clear")
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
-    print('\033[92m(   ) \033[92m[5]\033[96mKharej\033[92m [1]\033[96mIRAN | \033[93mIRAN Menu\033[0m')
+    print('\033[92m(   ) \033[93mIRAN Menu\033[0m')
     print('\033[92m "-"\033[93m══════════════════════════════════════════\033[0m')
     print("\033[93m╭───────────────────────────────────────╮\033[0m")
     print('\033[93mChoose what to do:\033[0m')
@@ -4774,10 +5027,11 @@ def i3kharej_1iran_iran():
 	
 def iran_without_dash():
     os.system("clear")
+    res_i()
     clear_c()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
-    print('\033[92m(   ) \033[93mKharej Server \033[92m[1]\033[93m \033[0m')
+    print('\033[92m(   ) \033[93mIRAN Menu  \033[0m')
     print('\033[92m "-"\033[93m══════════════════════════\033[0m')
     display_logo2()
     print("\033[93m╭───────────────────────────────────────────────────────────────────────────────────────╮")
@@ -4833,7 +5087,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frps -c {frps_path}
 Restart=always
-RestartSec=7200
+RestartSec=10,800
 User=root
 
 [Install]
@@ -4856,6 +5110,7 @@ WantedBy=multi-user.target
 
 def iran_with_dash():
     os.system("clear")
+    res_i()
     clear_c()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
@@ -4941,7 +5196,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frps -c {frps_path}
 Restart=always
-RestartSec=7200
+RestartSec=10,800
 User=root
 
 [Install]
@@ -5180,7 +5435,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frpc_path}
 Restart=always
-RestartSec=7201
+RestartSec=10,801
 User=root
 
 [Install]
@@ -5302,7 +5557,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frpc_path}
 Restart=always
-RestartSec=7201
+RestartSec=10,801
 User=root
 
 [Install]
@@ -5380,7 +5635,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frps -c {frps_path}
 Restart=always
-RestartSec=7200
+RestartSec=10,800
 User=root
 
 [Install]
@@ -5459,7 +5714,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frps -c {frps_path}
 Restart=always
-RestartSec=7200
+RestartSec=10,800
 User=root
 
 [Install]
@@ -5538,3099 +5793,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frps -c {frps_path}
 Restart=always
-RestartSec=7200
-User=root
-
-[Install]
-WantedBy=multi-user.target
-'''
-
-    service_path = "/etc/systemd/system/{}.service".format(service_name)
-
-    with open(service_path, "w") as f:
-        f.write(service_content)
-        
-    display_notification("\033[93mStarting FRP service...\033[0m")
-    os.system("systemctl daemon-reload")
-    os.system("systemctl enable {}".format(service_name))
-    os.system("systemctl restart {}".format(service_name))
-
-    display_checkmark("\033[92mFRP Service Started!\033[0m")
-    
-def i10kharej_2iran():
-    os.system("clear")
-    print('\033[92m ^ ^\033[0m')
-    print('\033[92m(\033[91mO,O\033[92m)\033[0m')
-    print('\033[92m(   ) \033[92m[10]\033[96mKharej \033[92m[2]\033[96mIRAN\033[93m Menu\033[0m')
-    print('\033[92m "-"\033[93m══════════════════════════════════════════\033[0m')
-    print("\033[93m╭───────────────────────────────────────╮\033[0m")
-    print('\033[93mChoose what to do:\033[0m')
-    print('1. \033[92mKHAREJ\033[0m')
-    print('2. \033[93mIRAN\033[0m')
-    print('3. \033[94mBack to the main menu\033[0m')
-    print("\033[93m╰───────────────────────────────────────╯\033[0m")
-    
-    while True:
-        server_type = input('\033[38;5;205mEnter your choice Please: \033[0m')
-        if server_type == '1':
-            i10kharej()
-            break
-        elif server_type == '2':
-            i2iran()
-            break
-        elif server_type == '3':
-            os.system('clear')
-            main_menu()
-            break
-        else:
-            print('Invalid choice.') 
-
-def i2iran():
-    os.system("clear")
-    print('\033[92m ^ ^\033[0m')
-    print('\033[92m(\033[91mO,O\033[92m)\033[0m')
-    print('\033[92m(   )  \033[92m[2]\033[96mIRAN\033[93m Menu\033[0m')
-    print('\033[92m "-"\033[93m══════════════════════════════════════════\033[0m')
-    print("\033[93m╭───────────────────────────────────────╮\033[0m")
-    print('\033[93mChoose what to do:\033[0m')
-    print('1. \033[91mIRAN Server \033[92m[1]\033[0m')
-    print('2. \033[97mIRAN Server \033[92m[2]\033[0m')
-    print('3. \033[94mBack to the previous menu\033[0m')
-    print("\033[93m╰───────────────────────────────────────╯\033[0m")
-    
-    while True:
-        server_type = input('\033[38;5;205mEnter your choice Please: \033[0m')
-        if server_type == '1':
-            i3iran_f()
-            break
-        elif server_type == '2':
-            i3iran_s()
-            break
-        elif server_type == '3':
-            os.system('clear')
-            i10kharej_2iran()
-            break
-        else:
-            print('Invalid choice.') 
-            
-def i10kharej():
-    os.system("clear")
-    print('\033[92m ^ ^\033[0m')
-    print('\033[92m(\033[91mO,O\033[92m)\033[0m')
-    print('\033[92m(   ) \033[92m[10]\033[93mKharej\033[92m [2]\033[93mIRAN Loadbalance Menu\033[0m')
-    print('\033[92m "-"\033[93m══════════════════════════════════════════\033[0m')
-    print("\033[93m╭───────────────────────────────────────╮\033[0m")
-    print('\033[93mChoose what to do:\033[0m')
-    print('1. \033[96mMethod 1 [IPV6]\033[0m')
-    print('2. \033[97mMethod 2 [LocalIP]\033[0m')
-    print('3. \033[94mBack to the previous menu\033[0m')
-    print("\033[93m╰───────────────────────────────────────╯\033[0m")
-    
-    while True:
-        server_type = input('\033[38;5;205mEnter your choice Please: \033[0m')
-        if server_type == '1':
-            i10kharej_ipv6()
-            break
-        elif server_type == '2':
-            i10kharej_local()
-            break
-        elif server_type == '3':
-            os.system('clear')
-            i10kharej_2iran()
-            break
-        else:
-            print('Invalid choice.')  
-
-   
-
-def i10kharej_ipv6():
-    os.system("clear")
-    print('\033[92m ^ ^\033[0m')
-    print('\033[92m(\033[91mO,O\033[92m)\033[0m')
-    print('\033[92m(   ) \033[93m Kharej Method\033[92m [1]\033[97m Loadbalance\033[93m Menu\033[0m')
-    print('\033[92m "-"\033[93m══════════════════════════════════════════\033[0m')
-    print("\033[93m╭───────────────────────────────────────╮\033[0m")
-    print('\033[93mChoose what to do:\033[0m')
-    print('1. \033[91mKharej\033[92m [1]\033[0m')
-    print('2. \033[93mKharej\033[92m [2]\033[0m')
-    print('3. \033[96mKharej\033[92m [3]\033[0m')
-    print('4. \033[97mKharej\033[92m [4]\033[0m')
-    print('5. \033[93mKharej\033[92m [5]\033[0m')
-    print('6. \033[91mKharej\033[92m [6]\033[0m')
-    print('7. \033[93mKharej\033[92m [7]\033[0m')
-    print('8. \033[96mKharej\033[92m [8]\033[0m')
-    print('9. \033[97mKharej\033[92m [9]\033[0m')
-    print('10.\033[93mKharej\033[92m [10]\033[0m')
-    print('0. \033[94mBack to the previous menu\033[0m')
-    print("\033[93m╰───────────────────────────────────────╯\033[0m")
-    
-    while True:
-        server_type = input('\033[38;5;205mEnter your choice Please: \033[0m')
-        if server_type == '1':
-            i10kharej_p61()
-            break
-        elif server_type == '2':
-            i10kharej_p62()
-            break
-        elif server_type == '3':
-            i10kharej_p63()
-            break
-        elif server_type == '4':
-            i10kharej_p64()
-            break
-        elif server_type == '5':
-            i10kharej_p65()
-            break
-        elif server_type == '6':
-            i10kharej_p66()
-            break
-        elif server_type == '7':
-            i10kharej_p67()
-            break
-        elif server_type == '8':
-            i10kharej_p68()
-            break
-        elif server_type == '9':
-            i10kharej_p69()
-            break
-        elif server_type == '10':
-            i10kharej_p70()
-            break
-        elif server_type == '0':
-            os.system('clear')
-            i10kharej()
-            break
-        else:
-            print('Invalid choice.')             
-
-def i10kharej_p61():
-    os.system("clear")
-    clear_c()
-    print('\033[92m ^ ^\033[0m')
-    print('\033[92m(\033[91mO,O\033[92m)\033[0m')
-    print('\033[92m(   ) \033[96mKharej \033[92m[1]\033[93m IPV6\033[93m Method \033[0m')
-    print('\033[92m "-"\033[93m══════════════════════════\033[0m')
-    display_logo2()
-    print("\033[93m╭─────────────────────────────────────────────────────────────────────────────────────────────────────╮")
-    print("\033[96m  Since we are using Loadblance, you should specify how many loadbalance group you want")
-    print("\033[97m  For example : if you have 2 config with different port, you create 2 loadbalance groups")
-    print("\033[92m  Then you should specify how many IRAN server you have")
-    print("\033[93m  Then based on that, you should enter Local & Remote port for each IRAN server")
-    print("\033[96m  For example : i have 2 iran servers. i also have 2 configs with different ports on the kharej server")
-    print("\033[93m  I create 2 loadbalance groups and for each loadbalance group, i specify local and remote ports")
-    print("\033[92m  I also need to do the same thing for the next iran server since i have 2 iran servers.")
-    print("\033[96m  For each loadbalance group, i also sepcify one or two IPV6 address")
-    print("\033[93m╰─────────────────────────────────────────────────────────────────────────────────────────────────────╯\033[0m")
-    display_notification("\033[93mConfiguring \033[96mKharej \033[92m[1]\033[93m...\033[0m")
-    print("\033[93m╭───────────────────────────────────────────────────────────────────────────────────────────╮") 
-    num_groups = int(input("\033[93mEnter the number of \033[92mloadbalance groups\033[96m [For each different port, there should be a group\033[92m]: \033[0m"))
-    print("\033[93m───────────────────────────────────────────────────────────────────────────────────────\033[0m")
-    num_groups = int(input("\033[93mEnter the number of \033[92mloadbalance groups\033[96m [For each different port, there should be a group\033[92m]: \033[0m"))
-    print("\033[93m───────────────────────────────────────────────────────────────────────────────────────\033[0m")
-    num_iran_servers = int(input("\033[93mEnter the number of \033[92mIRAN\033[93m servers \033[96m[Max : 2]\033[93m:\033[0m "))
-    starting_v2ray_number = int(input("\033[93mEnter the Starting \033[92mV2Ray number\033[93m:\033[0m "))
-	
-    groups = []
-    for i in range(num_groups):
-        group_name = "Loadbalance Group {}".format(starting_v2ray_number + i)
-        group = {"name": group_name}
-        groups.append(group)
-
-    time.sleep(1)
-
-    for server_num in range(1, num_iran_servers + 1):
-        frpc_path = "frp/frpc{}.toml".format(server_num)
-        if os.path.exists(frpc_path):
-            os.remove(frpc_path)
-
-    frpc1_path = "frp/frpc1.toml"
-    if not os.path.exists(frpc1_path):
-        with open(frpc1_path, "w") as f:
-            f.write("[common]\n")
-            f.write("server_addr = SERVER_IP\n")
-            server_port = input("\033[93mEnter \033[92mTunnel port\033[93m (default 443): \033[0m")
-            if not server_port:
-                server_port = "443"
-            f.write("server_port = {}\n".format(server_port))
-            f.write("vhost_https_port = 8443\n")
-            f.write("transport.tls.disable_custom_tls_first_byte = false\n")
-            f.write("token = azumi\n")
-
-    for server_num in range(2, num_iran_servers + 1):
-        frpc_path = "frp/frpc{}.toml".format(server_num)
-        shutil.copyfile(frpc1_path, frpc_path)
-
-    for server_num in range(1, num_iran_servers + 1):
-        iran_ipv6 = input("\033[93mEnter \033[92mIRAN IPv6 \033[93maddress for Server \033[92m{}:\033[0m ".format(server_num))
-
-        frpc_path = "frp/frpc{}.toml".format(server_num)
-
-        with open(frpc_path, "w") as f:
-            f.write("[common]\n")
-            f.write("server_addr = {}\n".format(iran_ipv6))
-            f.write("server_port = {}\n".format(server_port))
-            f.write("vhost_https_port = 8443\n")
-            f.write("transport.tls.disable_custom_tls_first_byte = false\n")
-            f.write("token = azumi\n")
-
-        for group_index, group in enumerate(groups):
-            group_name = group["name"]
-            ipv6_count = int(input("\033[93mEnter the number of \033[92mIPv6 addresses\033[93m needed for \033[92m{}\033[93m:\033[0m ".format(group_name)))
-            ipv6_addresses = []
-            for i in range(ipv6_count):
-                ipv6_address = input("\033[93mEnter \033[92mKharej\033[96m IPv6 address {}\033[93m for \033[92m{}\033[93m:\033[0m ".format(i + 1, group_name))
-                ipv6_addresses.append(ipv6_address)
-            local_port = input("\033[93mEnter the \033[92mLocal\033[93m Port for \033[92m{}\033[93m:\033[0m ".format(group_name))
-            remote_port = input("\033[93mEnter the \033[92mRemote\033[93m Port for \033[92m{}\033[93m:\033[0m ".format(group_name))
-            
-            print("\033[93m───────────────────────────────────────────────────────────────────────────────────────\033[0m")
-
-            v2ray_number = starting_v2ray_number + (server_num - 1) * len(groups) + group_index
-
-            with open(frpc_path, "a") as f:
-                f.write("\n")
-                f.write("[v2ray{}]\n".format(v2ray_number))
-                f.write("type = tcp\n")
-                if ipv6_count == 0:
-                    f.write("local_ip = 127.0.0.1\n")
-                else:
-                    f.write("local_ip = {}\n".format(" ".join(ipv6_addresses)))
-                f.write("local_port = {}\n".format(local_port))
-                f.write("remote_port = {}\n".format(remote_port))
-                f.write("group = Azumi{}\n".format(v2ray_number))
-                f.write("group_key = azumichwan\n")
-                f.write("health_check_type = tcp\n")
-                f.write("health_check_timeout_s = 3\n")
-                f.write("health_check_max_failed = 3\n")
-                f.write("health_check_interval_s = 10\n")
-                f.write("use_encryption = true\n")
-                f.write("use_compression = true\n")
-            
-        time.sleep(1)
-        print("Loadbalance port is 8443...")
-
-        service_name = "azumifrpc1{}".format(server_num)
-        frpc_path = "/root/frp/frpc{}.toml".format(server_num)
-
-        service_content = f'''[Unit]
-Description=frpc service
-After=network.target
-
-[Service]
-ExecStart=/root/frp/./frpc -c {frpc_path}
-Restart=always
-RestartSec=7200
-User=root
-
-[Install]
-WantedBy=multi-user.target'''
-
-        service_path = "/etc/systemd/system/{}.service".format(service_name)
-
-        with open(service_path, "w") as f:
-            f.write(service_content)
-
-        os.system("systemctl daemon-reload")
-        os.system("systemctl enable {}".format(service_name))
-        os.system("systemctl restart {}".format(service_name))
-        display_checkmark("\033[92mFRP Service Started!\033[0m")
-
-    num_v2ray_instances = num_iran_servers * num_groups
-    
-    last_v2ray_number = starting_v2ray_number + num_v2ray_instances
-
-    print("Use the last V2ray number for configuring the next kharej server.")
-    print("+--------------------------------------------------+")
-    print("|   Number of Load Balance Groups: {}              |".format(num_groups))
-    print("|   Total V2Ray Instances Created: {}              |".format(num_v2ray_instances))
-    print("|   \033[92mLast V2Ray Number: {}\033[0m                          |".format(last_v2ray_number))
-    print("+--------------------------------------------------+")
-        
-def i10kharej_p62():
-    os.system("clear")
-    clear_c()
-    print('\033[92m ^ ^\033[0m')
-    print('\033[92m(\033[91mO,O\033[92m)\033[0m')
-    print('\033[92m(   ) \033[96mKharej \033[92m[2]\033[93m IPV6\033[93m Method \033[0m')
-    print('\033[92m "-"\033[93m══════════════════════════\033[0m')
-    display_logo2()
-    print("\033[93m╭─────────────────────────────────────────────────────────────────────────────────────────────────────╮")
-    print("\033[96m  Since we are using Loadblance, you should specify how many loadbalance group you want")
-    print("\033[97m  For example : if you have 2 config with different port, you create 2 loadbalance groups")
-    print("\033[92m  Then you should specify how many IRAN server you have")
-    print("\033[93m  Then based on that, you should enter Local & Remote port for each IRAN server")
-    print("\033[96m  For example : i have 2 iran servers. i also have 2 configs with different ports on the kharej server")
-    print("\033[93m  I create 2 loadbalance groups and for each loadbalance group, i specify local and remote ports")
-    print("\033[92m  I also need to do the same thing for the next iran server since i have 2 iran servers.")
-    print("\033[96m  For each loadbalance group, i also sepcify one or two IPV6 address")
-    print("\033[93m╰─────────────────────────────────────────────────────────────────────────────────────────────────────╯\033[0m")
-    display_notification("\033[93mConfiguring \033[96mKharej \033[92m[2]\033[93m...\033[0m")
-    print("\033[93m╭───────────────────────────────────────────────────────────────────────────────────────────╮") 
-    num_groups = int(input("\033[93mEnter the number of \033[92mloadbalance groups\033[96m [For each different port, there should be a group\033[92m]: \033[0m"))
-    print("\033[93m───────────────────────────────────────────────────────────────────────────────────────\033[0m")
-    num_groups = int(input("\033[93mEnter the number of \033[92mloadbalance groups\033[96m [For each different port, there should be a group\033[92m]: \033[0m"))
-    print("\033[93m───────────────────────────────────────────────────────────────────────────────────────\033[0m")
-    num_iran_servers = int(input("\033[93mEnter the number of \033[92mIRAN\033[93m servers \033[96m[Max : 2]\033[93m:\033[0m "))
-    starting_v2ray_number = int(input("\033[93mEnter the Starting \033[92mV2Ray number\033[93m:\033[0m "))
-	
-    groups = []
-    for i in range(num_groups):
-        group_name = "Loadbalance Group {}".format(starting_v2ray_number + i)
-        group = {"name": group_name}
-        groups.append(group)
-
-    time.sleep(1)
-
-    for server_num in range(1, num_iran_servers + 1):
-        frpc_path = "frp/frpc{}.toml".format(server_num)
-        if os.path.exists(frpc_path):
-            os.remove(frpc_path)
-
-    frpc1_path = "frp/frpc1.toml"
-    if not os.path.exists(frpc1_path):
-        with open(frpc1_path, "w") as f:
-            f.write("[common]\n")
-            f.write("server_addr = SERVER_IP\n")
-            server_port = input("\033[93mEnter \033[92mTunnel port\033[93m (default 443): \033[0m")
-            if not server_port:
-                server_port = "443"
-            f.write("server_port = {}\n".format(server_port))
-            f.write("vhost_https_port = 8443\n")
-            f.write("transport.tls.disable_custom_tls_first_byte = false\n")
-            f.write("token = azumi\n")
-
-    for server_num in range(2, num_iran_servers + 1):
-        frpc_path = "frp/frpc{}.toml".format(server_num)
-        shutil.copyfile(frpc1_path, frpc_path)
-
-    for server_num in range(1, num_iran_servers + 1):
-        iran_ipv6 = input("\033[93mEnter \033[92mIRAN IPv6 \033[93maddress for Server \033[92m{}:\033[0m ".format(server_num))
-
-        frpc_path = "frp/frpc{}.toml".format(server_num)
-
-        with open(frpc_path, "w") as f:
-            f.write("[common]\n")
-            f.write("server_addr = {}\n".format(iran_ipv6))
-            f.write("server_port = {}\n".format(server_port))
-            f.write("vhost_https_port = 8443\n")
-            f.write("transport.tls.disable_custom_tls_first_byte = false\n")
-            f.write("token = azumi\n")
-
-        for group_index, group in enumerate(groups):
-            group_name = group["name"]
-            ipv6_count = int(input("\033[93mEnter the number of \033[92mIPv6 addresses\033[93m needed for \033[92m{}\033[93m:\033[0m ".format(group_name)))
-            ipv6_addresses = []
-            for i in range(ipv6_count):
-                ipv6_address = input("\033[93mEnter \033[92mKharej\033[96m IPv6 address {}\033[93m for \033[92m{}\033[93m:\033[0m ".format(i + 1, group_name))
-                ipv6_addresses.append(ipv6_address)
-            local_port = input("\033[93mEnter the \033[92mLocal\033[93m Port for \033[92m{}\033[93m:\033[0m ".format(group_name))
-            remote_port = input("\033[93mEnter the \033[92mRemote\033[93m Port for \033[92m{}\033[93m:\033[0m ".format(group_name))
-            
-            print("\033[93m───────────────────────────────────────────────────────────────────────────────────────\033[0m")
-
-            v2ray_number = starting_v2ray_number + (server_num - 1) * len(groups) + group_index
-
-            with open(frpc_path, "a") as f:
-                f.write("\n")
-                f.write("[v2ray{}]\n".format(v2ray_number))
-                f.write("type = tcp\n")
-                if ipv6_count == 0:
-                    f.write("local_ip = 127.0.0.1\n")
-                else:
-                    f.write("local_ip = {}\n".format(" ".join(ipv6_addresses)))
-                f.write("local_port = {}\n".format(local_port))
-                f.write("remote_port = {}\n".format(remote_port))
-                f.write("group = Azumi{}\n".format(v2ray_number))
-                f.write("group_key = azumichwan\n")
-                f.write("health_check_type = tcp\n")
-                f.write("health_check_timeout_s = 3\n")
-                f.write("health_check_max_failed = 3\n")
-                f.write("health_check_interval_s = 10\n")
-                f.write("use_encryption = true\n")
-                f.write("use_compression = true\n")
-            
-        time.sleep(1)
-        print("Loadbalance port is 8443...")
-
-        service_name = "azumifrpc1{}".format(server_num)
-        frpc_path = "/root/frp/frpc{}.toml".format(server_num)
-
-        service_content = f'''[Unit]
-Description=frpc service
-After=network.target
-
-[Service]
-ExecStart=/root/frp/./frpc -c {frpc_path}
-Restart=always
-RestartSec=7200
-User=root
-
-[Install]
-WantedBy=multi-user.target'''
-
-        service_path = "/etc/systemd/system/{}.service".format(service_name)
-
-        with open(service_path, "w") as f:
-            f.write(service_content)
-
-        os.system("systemctl daemon-reload")
-        os.system("systemctl enable {}".format(service_name))
-        os.system("systemctl restart {}".format(service_name))
-        display_checkmark("\033[92mFRP Service Started!\033[0m")
-
-    num_v2ray_instances = num_iran_servers * num_groups
-    
-    last_v2ray_number = starting_v2ray_number + num_v2ray_instances
-
-    print("Use the last V2ray number for configuring the next kharej server.")
-    print("+--------------------------------------------------+")
-    print("|   Number of Load Balance Groups: {}              |".format(num_groups))
-    print("|   Total V2Ray Instances Created: {}              |".format(num_v2ray_instances))
-    print("|   \033[92mLast V2Ray Number: {}\033[0m                          |".format(last_v2ray_number))
-    print("+--------------------------------------------------+")
-        
-def i10kharej_p63():
-    os.system("clear")
-    clear_c()
-    print('\033[92m ^ ^\033[0m')
-    print('\033[92m(\033[91mO,O\033[92m)\033[0m')
-    print('\033[92m(   ) \033[96mKharej \033[92m[3]\033[93m IPV6\033[93m Method \033[0m')
-    print('\033[92m "-"\033[93m══════════════════════════\033[0m')
-    display_logo2()
-    print("\033[93m╭─────────────────────────────────────────────────────────────────────────────────────────────────────╮")
-    print("\033[96m  Since we are using Loadblance, you should specify how many loadbalance group you want")
-    print("\033[97m  For example : if you have 2 config with different port, you create 2 loadbalance groups")
-    print("\033[92m  Then you should specify how many IRAN server you have")
-    print("\033[93m  Then based on that, you should enter Local & Remote port for each IRAN server")
-    print("\033[96m  For example : i have 2 iran servers. i also have 2 configs with different ports on the kharej server")
-    print("\033[93m  I create 2 loadbalance groups and for each loadbalance group, i specify local and remote ports")
-    print("\033[92m  I also need to do the same thing for the next iran server since i have 2 iran servers.")
-    print("\033[96m  For each loadbalance group, i also sepcify one or two IPV6 address")
-    print("\033[93m╰─────────────────────────────────────────────────────────────────────────────────────────────────────╯\033[0m")
-    display_notification("\033[93mConfiguring \033[96mKharej \033[92m[3]\033[93m...\033[0m")
-    print("\033[93m╭───────────────────────────────────────────────────────────────────────────────────────────╮") 
-    num_groups = int(input("\033[93mEnter the number of \033[92mloadbalance groups\033[96m [For each different port, there should be a group\033[92m]: \033[0m"))
-    print("\033[93m───────────────────────────────────────────────────────────────────────────────────────\033[0m")
-    num_groups = int(input("\033[93mEnter the number of \033[92mloadbalance groups\033[96m [For each different port, there should be a group\033[92m]: \033[0m"))
-    print("\033[93m───────────────────────────────────────────────────────────────────────────────────────\033[0m")
-    num_iran_servers = int(input("\033[93mEnter the number of \033[92mIRAN\033[93m servers \033[96m[Max : 2]\033[93m:\033[0m "))
-    starting_v2ray_number = int(input("\033[93mEnter the Starting \033[92mV2Ray number\033[93m:\033[0m "))
-	
-    groups = []
-    for i in range(num_groups):
-        group_name = "Loadbalance Group {}".format(starting_v2ray_number + i)
-        group = {"name": group_name}
-        groups.append(group)
-
-    time.sleep(1)
-
-    for server_num in range(1, num_iran_servers + 1):
-        frpc_path = "frp/frpc{}.toml".format(server_num)
-        if os.path.exists(frpc_path):
-            os.remove(frpc_path)
-
-    frpc1_path = "frp/frpc1.toml"
-    if not os.path.exists(frpc1_path):
-        with open(frpc1_path, "w") as f:
-            f.write("[common]\n")
-            f.write("server_addr = SERVER_IP\n")
-            server_port = input("\033[93mEnter \033[92mTunnel port\033[93m (default 443): \033[0m")
-            if not server_port:
-                server_port = "443"
-            f.write("server_port = {}\n".format(server_port))
-            f.write("vhost_https_port = 8443\n")
-            f.write("transport.tls.disable_custom_tls_first_byte = false\n")
-            f.write("token = azumi\n")
-
-    for server_num in range(2, num_iran_servers + 1):
-        frpc_path = "frp/frpc{}.toml".format(server_num)
-        shutil.copyfile(frpc1_path, frpc_path)
-
-    for server_num in range(1, num_iran_servers + 1):
-        iran_ipv6 = input("\033[93mEnter \033[92mIRAN IPv6 \033[93maddress for Server \033[92m{}:\033[0m ".format(server_num))
-
-        frpc_path = "frp/frpc{}.toml".format(server_num)
-
-        with open(frpc_path, "w") as f:
-            f.write("[common]\n")
-            f.write("server_addr = {}\n".format(iran_ipv6))
-            f.write("server_port = {}\n".format(server_port))
-            f.write("vhost_https_port = 8443\n")
-            f.write("transport.tls.disable_custom_tls_first_byte = false\n")
-            f.write("token = azumi\n")
-
-        for group_index, group in enumerate(groups):
-            group_name = group["name"]
-            ipv6_count = int(input("\033[93mEnter the number of \033[92mIPv6 addresses\033[93m needed for \033[92m{}\033[93m:\033[0m ".format(group_name)))
-            ipv6_addresses = []
-            for i in range(ipv6_count):
-                ipv6_address = input("\033[93mEnter \033[92mKharej\033[96m IPv6 address {}\033[93m for \033[92m{}\033[93m:\033[0m ".format(i + 1, group_name))
-                ipv6_addresses.append(ipv6_address)
-            local_port = input("\033[93mEnter the \033[92mLocal\033[93m Port for \033[92m{}\033[93m:\033[0m ".format(group_name))
-            remote_port = input("\033[93mEnter the \033[92mRemote\033[93m Port for \033[92m{}\033[93m:\033[0m ".format(group_name))
-            
-            print("\033[93m───────────────────────────────────────────────────────────────────────────────────────\033[0m")
-
-            v2ray_number = starting_v2ray_number + (server_num - 1) * len(groups) + group_index
-
-            with open(frpc_path, "a") as f:
-                f.write("\n")
-                f.write("[v2ray{}]\n".format(v2ray_number))
-                f.write("type = tcp\n")
-                if ipv6_count == 0:
-                    f.write("local_ip = 127.0.0.1\n")
-                else:
-                    f.write("local_ip = {}\n".format(" ".join(ipv6_addresses)))
-                f.write("local_port = {}\n".format(local_port))
-                f.write("remote_port = {}\n".format(remote_port))
-                f.write("group = Azumi{}\n".format(v2ray_number))
-                f.write("group_key = azumichwan\n")
-                f.write("health_check_type = tcp\n")
-                f.write("health_check_timeout_s = 3\n")
-                f.write("health_check_max_failed = 3\n")
-                f.write("health_check_interval_s = 10\n")
-                f.write("use_encryption = true\n")
-                f.write("use_compression = true\n")
-            
-        time.sleep(1)
-        print("Loadbalance port is 8443...")
-
-        service_name = "azumifrpc1{}".format(server_num)
-        frpc_path = "/root/frp/frpc{}.toml".format(server_num)
-
-        service_content = f'''[Unit]
-Description=frpc service
-After=network.target
-
-[Service]
-ExecStart=/root/frp/./frpc -c {frpc_path}
-Restart=always
-RestartSec=7201
-User=root
-
-[Install]
-WantedBy=multi-user.target'''
-
-        service_path = "/etc/systemd/system/{}.service".format(service_name)
-
-        with open(service_path, "w") as f:
-            f.write(service_content)
-
-        os.system("systemctl daemon-reload")
-        os.system("systemctl enable {}".format(service_name))
-        os.system("systemctl restart {}".format(service_name))
-        display_checkmark("\033[92mFRP Service Started!\033[0m")
-
-    num_v2ray_instances = num_iran_servers * num_groups
-    
-    last_v2ray_number = starting_v2ray_number + num_v2ray_instances
-
-    print("Use the last V2ray number for configuring the next kharej server.")
-    print("+--------------------------------------------------+")
-    print("|   Number of Load Balance Groups: {}              |".format(num_groups))
-    print("|   Total V2Ray Instances Created: {}              |".format(num_v2ray_instances))
-    print("|   \033[92mLast V2Ray Number: {}\033[0m                          |".format(last_v2ray_number))
-    print("+--------------------------------------------------+")
-        
-def i10kharej_p64():
-    os.system("clear")
-    clear_c()
-    print('\033[92m ^ ^\033[0m')
-    print('\033[92m(\033[91mO,O\033[92m)\033[0m')
-    print('\033[92m(   ) \033[96mKharej \033[92m[4]\033[93m IPV6\033[93m Method \033[0m')
-    print('\033[92m "-"\033[93m══════════════════════════\033[0m')
-    display_logo2()
-    print("\033[93m╭─────────────────────────────────────────────────────────────────────────────────────────────────────╮")
-    print("\033[96m  Since we are using Loadblance, you should specify how many loadbalance group you want")
-    print("\033[97m  For example : if you have 2 config with different port, you create 2 loadbalance groups")
-    print("\033[92m  Then you should specify how many IRAN server you have")
-    print("\033[93m  Then based on that, you should enter Local & Remote port for each IRAN server")
-    print("\033[96m  For example : i have 2 iran servers. i also have 2 configs with different ports on the kharej server")
-    print("\033[93m  I create 2 loadbalance groups and for each loadbalance group, i specify local and remote ports")
-    print("\033[92m  I also need to do the same thing for the next iran server since i have 2 iran servers.")
-    print("\033[96m  For each loadbalance group, i also sepcify one or two IPV6 address")
-    print("\033[93m╰─────────────────────────────────────────────────────────────────────────────────────────────────────╯\033[0m")
-    display_notification("\033[93m\033[93mConfiguring \033[96mKharej \033[92m[4]\033[93m...\033[0m")
-    print("\033[93m╭───────────────────────────────────────────────────────────────────────────────────────────╮") 
-    num_groups = int(input("\033[93mEnter the number of \033[92mloadbalance groups\033[96m [For each different port, there should be a group\033[92m]: \033[0m"))
-    print("\033[93m───────────────────────────────────────────────────────────────────────────────────────\033[0m")
-    num_groups = int(input("\033[93mEnter the number of \033[92mloadbalance groups\033[96m [For each different port, there should be a group\033[92m]: \033[0m"))
-    print("\033[93m───────────────────────────────────────────────────────────────────────────────────────\033[0m")
-    num_iran_servers = int(input("\033[93mEnter the number of \033[92mIRAN\033[93m servers \033[96m[Max : 2]\033[93m:\033[0m "))
-    starting_v2ray_number = int(input("\033[93mEnter the Starting \033[92mV2Ray number\033[93m:\033[0m "))
-	
-    groups = []
-    for i in range(num_groups):
-        group_name = "Loadbalance Group {}".format(starting_v2ray_number + i)
-        group = {"name": group_name}
-        groups.append(group)
-
-    time.sleep(1)
-
-    for server_num in range(1, num_iran_servers + 1):
-        frpc_path = "frp/frpc{}.toml".format(server_num)
-        if os.path.exists(frpc_path):
-            os.remove(frpc_path)
-
-    frpc1_path = "frp/frpc1.toml"
-    if not os.path.exists(frpc1_path):
-        with open(frpc1_path, "w") as f:
-            f.write("[common]\n")
-            f.write("server_addr = SERVER_IP\n")
-            server_port = input("\033[93mEnter \033[92mTunnel port\033[93m (default 443): \033[0m")
-            if not server_port:
-                server_port = "443"
-            f.write("server_port = {}\n".format(server_port))
-            f.write("vhost_https_port = 8443\n")
-            f.write("transport.tls.disable_custom_tls_first_byte = false\n")
-            f.write("token = azumi\n")
-
-    for server_num in range(2, num_iran_servers + 1):
-        frpc_path = "frp/frpc{}.toml".format(server_num)
-        shutil.copyfile(frpc1_path, frpc_path)
-
-    for server_num in range(1, num_iran_servers + 1):
-        iran_ipv6 = input("\033[93mEnter \033[92mIRAN IPv6 \033[93maddress for Server \033[92m{}:\033[0m ".format(server_num))
-
-        frpc_path = "frp/frpc{}.toml".format(server_num)
-
-        with open(frpc_path, "w") as f:
-            f.write("[common]\n")
-            f.write("server_addr = {}\n".format(iran_ipv6))
-            f.write("server_port = {}\n".format(server_port))
-            f.write("vhost_https_port = 8443\n")
-            f.write("transport.tls.disable_custom_tls_first_byte = false\n")
-            f.write("token = azumi\n")
-
-        for group_index, group in enumerate(groups):
-            group_name = group["name"]
-            ipv6_count = int(input("\033[93mEnter the number of \033[92mIPv6 addresses\033[93m needed for \033[92m{}\033[93m:\033[0m ".format(group_name)))
-            ipv6_addresses = []
-            for i in range(ipv6_count):
-                ipv6_address = input("\033[93mEnter \033[92mKharej\033[96m IPv6 address {}\033[93m for \033[92m{}\033[93m:\033[0m ".format(i + 1, group_name))
-                ipv6_addresses.append(ipv6_address)
-            local_port = input("\033[93mEnter the \033[92mLocal\033[93m Port for \033[92m{}\033[93m:\033[0m ".format(group_name))
-            remote_port = input("\033[93mEnter the \033[92mRemote\033[93m Port for \033[92m{}\033[93m:\033[0m ".format(group_name))
-            
-            print("\033[93m───────────────────────────────────────────────────────────────────────────────────────\033[0m")
-
-            v2ray_number = starting_v2ray_number + (server_num - 1) * len(groups) + group_index
-
-            with open(frpc_path, "a") as f:
-                f.write("\n")
-                f.write("[v2ray{}]\n".format(v2ray_number))
-                f.write("type = tcp\n")
-                if ipv6_count == 0:
-                    f.write("local_ip = 127.0.0.1\n")
-                else:
-                    f.write("local_ip = {}\n".format(" ".join(ipv6_addresses)))
-                f.write("local_port = {}\n".format(local_port))
-                f.write("remote_port = {}\n".format(remote_port))
-                f.write("group = Azumi{}\n".format(v2ray_number))
-                f.write("group_key = azumichwan\n")
-                f.write("health_check_type = tcp\n")
-                f.write("health_check_timeout_s = 3\n")
-                f.write("health_check_max_failed = 3\n")
-                f.write("health_check_interval_s = 10\n")
-                f.write("use_encryption = true\n")
-                f.write("use_compression = true\n")
-            
-        time.sleep(1)
-        print("Loadbalance port is 8443...")
-
-        service_name = "azumifrpc1{}".format(server_num)
-        frpc_path = "/root/frp/frpc{}.toml".format(server_num)
-
-        service_content = f'''[Unit]
-Description=frpc service
-After=network.target
-
-[Service]
-ExecStart=/root/frp/./frpc -c {frpc_path}
-Restart=always
-RestartSec=7201
-User=root
-
-[Install]
-WantedBy=multi-user.target'''
-
-        service_path = "/etc/systemd/system/{}.service".format(service_name)
-
-        with open(service_path, "w") as f:
-            f.write(service_content)
-
-        os.system("systemctl daemon-reload")
-        os.system("systemctl enable {}".format(service_name))
-        os.system("systemctl restart {}".format(service_name))
-        display_checkmark("\033[92mFRP Service Started!\033[0m")
-
-    num_v2ray_instances = num_iran_servers * num_groups
-    
-    last_v2ray_number = starting_v2ray_number + num_v2ray_instances
-
-    print("Use the last V2ray number for configuring the next kharej server.")
-    print("+--------------------------------------------------+")
-    print("|   Number of Load Balance Groups: {}              |".format(num_groups))
-    print("|   Total V2Ray Instances Created: {}              |".format(num_v2ray_instances))
-    print("|   \033[92mLast V2Ray Number: {}\033[0m                          |".format(last_v2ray_number))
-    print("+--------------------------------------------------+")
-        
-def i10kharej_p65():
-    os.system("clear")
-    clear_c()
-    print('\033[92m ^ ^\033[0m')
-    print('\033[92m(\033[91mO,O\033[92m)\033[0m')
-    print('\033[92m(   ) \033[96mKharej \033[92m[5]\033[93m IPV6\033[93m Method \033[0m')
-    print('\033[92m "-"\033[93m══════════════════════════\033[0m')
-    display_logo2()
-    print("\033[93m╭─────────────────────────────────────────────────────────────────────────────────────────────────────╮")
-    print("\033[96m  Since we are using Loadblance, you should specify how many loadbalance group you want")
-    print("\033[97m  For example : if you have 2 config with different port, you create 2 loadbalance groups")
-    print("\033[92m  Then you should specify how many IRAN server you have")
-    print("\033[93m  Then based on that, you should enter Local & Remote port for each IRAN server")
-    print("\033[96m  For example : i have 2 iran servers. i also have 2 configs with different ports on the kharej server")
-    print("\033[93m  I create 2 loadbalance groups and for each loadbalance group, i specify local and remote ports")
-    print("\033[92m  I also need to do the same thing for the next iran server since i have 2 iran servers.")
-    print("\033[96m  For each loadbalance group, i also sepcify one or two IPV6 address")
-    print("\033[93m╰─────────────────────────────────────────────────────────────────────────────────────────────────────╯\033[0m")
-    display_notification("\033[93m\033[93mConfiguring \033[96mKharej \033[92m[5]\033[93m...\033[0m")
-    print("\033[93m╭───────────────────────────────────────────────────────────────────────────────────────────╮") 
-    num_groups = int(input("\033[93mEnter the number of \033[92mloadbalance groups\033[96m [For each different port, there should be a group\033[92m]: \033[0m"))
-    print("\033[93m───────────────────────────────────────────────────────────────────────────────────────\033[0m")
-    num_groups = int(input("\033[93mEnter the number of \033[92mloadbalance groups\033[96m [For each different port, there should be a group\033[92m]: \033[0m"))
-    print("\033[93m───────────────────────────────────────────────────────────────────────────────────────\033[0m")
-    num_iran_servers = int(input("\033[93mEnter the number of \033[92mIRAN\033[93m servers \033[96m[Max : 2]\033[93m:\033[0m "))
-    starting_v2ray_number = int(input("\033[93mEnter the Starting \033[92mV2Ray number\033[93m:\033[0m "))
-	
-    groups = []
-    for i in range(num_groups):
-        group_name = "Loadbalance Group {}".format(starting_v2ray_number + i)
-        group = {"name": group_name}
-        groups.append(group)
-
-    time.sleep(1)
-
-    for server_num in range(1, num_iran_servers + 1):
-        frpc_path = "frp/frpc{}.toml".format(server_num)
-        if os.path.exists(frpc_path):
-            os.remove(frpc_path)
-
-    frpc1_path = "frp/frpc1.toml"
-    if not os.path.exists(frpc1_path):
-        with open(frpc1_path, "w") as f:
-            f.write("[common]\n")
-            f.write("server_addr = SERVER_IP\n")
-            server_port = input("\033[93mEnter \033[92mTunnel port\033[93m (default 443): \033[0m")
-            if not server_port:
-                server_port = "443"
-            f.write("server_port = {}\n".format(server_port))
-            f.write("vhost_https_port = 8443\n")
-            f.write("transport.tls.disable_custom_tls_first_byte = false\n")
-            f.write("token = azumi\n")
-
-    for server_num in range(2, num_iran_servers + 1):
-        frpc_path = "frp/frpc{}.toml".format(server_num)
-        shutil.copyfile(frpc1_path, frpc_path)
-
-    for server_num in range(1, num_iran_servers + 1):
-        iran_ipv6 = input("\033[93mEnter \033[92mIRAN IPv6 \033[93maddress for Server \033[92m{}:\033[0m ".format(server_num))
-
-        frpc_path = "frp/frpc{}.toml".format(server_num)
-
-        with open(frpc_path, "w") as f:
-            f.write("[common]\n")
-            f.write("server_addr = {}\n".format(iran_ipv6))
-            f.write("server_port = {}\n".format(server_port))
-            f.write("vhost_https_port = 8443\n")
-            f.write("transport.tls.disable_custom_tls_first_byte = false\n")
-            f.write("token = azumi\n")
-
-        for group_index, group in enumerate(groups):
-            group_name = group["name"]
-            ipv6_count = int(input("\033[93mEnter the number of \033[92mIPv6 addresses\033[93m needed for \033[92m{}\033[93m:\033[0m ".format(group_name)))
-            ipv6_addresses = []
-            for i in range(ipv6_count):
-                ipv6_address = input("\033[93mEnter \033[92mKharej\033[96m IPv6 address {}\033[93m for \033[92m{}\033[93m:\033[0m ".format(i + 1, group_name))
-                ipv6_addresses.append(ipv6_address)
-            local_port = input("\033[93mEnter the \033[92mLocal\033[93m Port for \033[92m{}\033[93m:\033[0m ".format(group_name))
-            remote_port = input("\033[93mEnter the \033[92mRemote\033[93m Port for \033[92m{}\033[93m:\033[0m ".format(group_name))
-            
-            print("\033[93m───────────────────────────────────────────────────────────────────────────────────────\033[0m")
-
-            v2ray_number = starting_v2ray_number + (server_num - 1) * len(groups) + group_index
-
-            with open(frpc_path, "a") as f:
-                f.write("\n")
-                f.write("[v2ray{}]\n".format(v2ray_number))
-                f.write("type = tcp\n")
-                if ipv6_count == 0:
-                    f.write("local_ip = 127.0.0.1\n")
-                else:
-                    f.write("local_ip = {}\n".format(" ".join(ipv6_addresses)))
-                f.write("local_port = {}\n".format(local_port))
-                f.write("remote_port = {}\n".format(remote_port))
-                f.write("group = Azumi{}\n".format(v2ray_number))
-                f.write("group_key = azumichwan\n")
-                f.write("health_check_type = tcp\n")
-                f.write("health_check_timeout_s = 3\n")
-                f.write("health_check_max_failed = 3\n")
-                f.write("health_check_interval_s = 10\n")
-                f.write("use_encryption = true\n")
-                f.write("use_compression = true\n")
-            
-        time.sleep(1)
-        print("Loadbalance port is 8443...")
-
-        service_name = "azumifrpc1{}".format(server_num)
-        frpc_path = "/root/frp/frpc{}.toml".format(server_num)
-
-        service_content = f'''[Unit]
-Description=frpc service
-After=network.target
-
-[Service]
-ExecStart=/root/frp/./frpc -c {frpc_path}
-Restart=always
-RestartSec=7201
-User=root
-
-[Install]
-WantedBy=multi-user.target'''
-
-        service_path = "/etc/systemd/system/{}.service".format(service_name)
-
-        with open(service_path, "w") as f:
-            f.write(service_content)
-
-        os.system("systemctl daemon-reload")
-        os.system("systemctl enable {}".format(service_name))
-        os.system("systemctl restart {}".format(service_name))
-        display_checkmark("\033[92mFRP Service Started!\033[0m")
-
-    num_v2ray_instances = num_iran_servers * num_groups
-    
-    last_v2ray_number = starting_v2ray_number + num_v2ray_instances
-
-    print("Use the last V2ray number for configuring the next kharej server.")
-    print("+--------------------------------------------------+")
-    print("|   Number of Load Balance Groups: {}              |".format(num_groups))
-    print("|   Total V2Ray Instances Created: {}              |".format(num_v2ray_instances))
-    print("|   \033[92mLast V2Ray Number: {}\033[0m                          |".format(last_v2ray_number))
-    print("+--------------------------------------------------+")
-
-def i10kharej_p66():
-    os.system("clear")
-    clear_c()
-    print('\033[92m ^ ^\033[0m')
-    print('\033[92m(\033[91mO,O\033[92m)\033[0m')
-    print('\033[92m(   ) \033[96mKharej \033[92m[6]\033[93m IPV6\033[93m Method \033[0m')
-    print('\033[92m "-"\033[93m══════════════════════════\033[0m')
-    display_logo2()
-    print("\033[93m╭─────────────────────────────────────────────────────────────────────────────────────────────────────╮")
-    print("\033[96m  Since we are using Loadblance, you should specify how many loadbalance group you want")
-    print("\033[97m  For example : if you have 2 config with different port, you create 2 loadbalance groups")
-    print("\033[92m  Then you should specify how many IRAN server you have")
-    print("\033[93m  Then based on that, you should enter Local & Remote port for each IRAN server")
-    print("\033[96m  For example : i have 2 iran servers. i also have 2 configs with different ports on the kharej server")
-    print("\033[93m  I create 2 loadbalance groups and for each loadbalance group, i specify local and remote ports")
-    print("\033[92m  I also need to do the same thing for the next iran server since i have 2 iran servers.")
-    print("\033[96m  For each loadbalance group, i also sepcify one or two IPV6 address")
-    print("\033[93m╰─────────────────────────────────────────────────────────────────────────────────────────────────────╯\033[0m")
-    display_notification("\033[93m\033[93mConfiguring \033[96mKharej \033[92m[6]\033[93m...\033[0m")
-    print("\033[93m╭───────────────────────────────────────────────────────────────────────────────────────────╮") 
-    num_groups = int(input("\033[93mEnter the number of \033[92mloadbalance groups\033[96m [For each different port, there should be a group\033[92m]: \033[0m"))
-    print("\033[93m───────────────────────────────────────────────────────────────────────────────────────\033[0m")
-    num_groups = int(input("\033[93mEnter the number of \033[92mloadbalance groups\033[96m [For each different port, there should be a group\033[92m]: \033[0m"))
-    print("\033[93m───────────────────────────────────────────────────────────────────────────────────────\033[0m")
-    num_iran_servers = int(input("\033[93mEnter the number of \033[92mIRAN\033[93m servers \033[96m[Max : 2]\033[93m:\033[0m "))
-    starting_v2ray_number = int(input("\033[93mEnter the Starting \033[92mV2Ray number\033[93m:\033[0m "))
-	
-    groups = []
-    for i in range(num_groups):
-        group_name = "Loadbalance Group {}".format(starting_v2ray_number + i)
-        group = {"name": group_name}
-        groups.append(group)
-
-    time.sleep(1)
-
-    for server_num in range(1, num_iran_servers + 1):
-        frpc_path = "frp/frpc{}.toml".format(server_num)
-        if os.path.exists(frpc_path):
-            os.remove(frpc_path)
-
-    frpc1_path = "frp/frpc1.toml"
-    if not os.path.exists(frpc1_path):
-        with open(frpc1_path, "w") as f:
-            f.write("[common]\n")
-            f.write("server_addr = SERVER_IP\n")
-            server_port = input("\033[93mEnter \033[92mTunnel port\033[93m (default 443): \033[0m")
-            if not server_port:
-                server_port = "443"
-            f.write("server_port = {}\n".format(server_port))
-            f.write("vhost_https_port = 8443\n")
-            f.write("transport.tls.disable_custom_tls_first_byte = false\n")
-            f.write("token = azumi\n")
-
-    for server_num in range(2, num_iran_servers + 1):
-        frpc_path = "frp/frpc{}.toml".format(server_num)
-        shutil.copyfile(frpc1_path, frpc_path)
-
-    for server_num in range(1, num_iran_servers + 1):
-        iran_ipv6 = input("\033[93mEnter \033[92mIRAN IPv6 \033[93maddress for Server \033[92m{}:\033[0m ".format(server_num))
-
-        frpc_path = "frp/frpc{}.toml".format(server_num)
-
-        with open(frpc_path, "w") as f:
-            f.write("[common]\n")
-            f.write("server_addr = {}\n".format(iran_ipv6))
-            f.write("server_port = {}\n".format(server_port))
-            f.write("vhost_https_port = 8443\n")
-            f.write("transport.tls.disable_custom_tls_first_byte = false\n")
-            f.write("token = azumi\n")
-
-        for group_index, group in enumerate(groups):
-            group_name = group["name"]
-            ipv6_count = int(input("\033[93mEnter the number of \033[92mIPv6 addresses\033[93m needed for \033[92m{}\033[93m:\033[0m ".format(group_name)))
-            ipv6_addresses = []
-            for i in range(ipv6_count):
-                ipv6_address = input("\033[93mEnter \033[92mKharej\033[96m IPv6 address {}\033[93m for \033[92m{}\033[93m:\033[0m ".format(i + 1, group_name))
-                ipv6_addresses.append(ipv6_address)
-            local_port = input("\033[93mEnter the \033[92mLocal\033[93m Port for \033[92m{}\033[93m:\033[0m ".format(group_name))
-            remote_port = input("\033[93mEnter the \033[92mRemote\033[93m Port for \033[92m{}\033[93m:\033[0m ".format(group_name))
-            
-            print("\033[93m───────────────────────────────────────────────────────────────────────────────────────\033[0m")
-
-            v2ray_number = starting_v2ray_number + (server_num - 1) * len(groups) + group_index
-
-            with open(frpc_path, "a") as f:
-                f.write("\n")
-                f.write("[v2ray{}]\n".format(v2ray_number))
-                f.write("type = tcp\n")
-                if ipv6_count == 0:
-                    f.write("local_ip = 127.0.0.1\n")
-                else:
-                    f.write("local_ip = {}\n".format(" ".join(ipv6_addresses)))
-                f.write("local_port = {}\n".format(local_port))
-                f.write("remote_port = {}\n".format(remote_port))
-                f.write("group = Azumi{}\n".format(v2ray_number))
-                f.write("group_key = azumichwan\n")
-                f.write("health_check_type = tcp\n")
-                f.write("health_check_timeout_s = 3\n")
-                f.write("health_check_max_failed = 3\n")
-                f.write("health_check_interval_s = 10\n")
-                f.write("use_encryption = true\n")
-                f.write("use_compression = true\n")
-            
-        time.sleep(1)
-        print("Loadbalance port is 8443...")
-
-        service_name = "azumifrpc1{}".format(server_num)
-        frpc_path = "/root/frp/frpc{}.toml".format(server_num)
-
-        service_content = f'''[Unit]
-Description=frpc service
-After=network.target
-
-[Service]
-ExecStart=/root/frp/./frpc -c {frpc_path}
-Restart=always
-RestartSec=7201
-User=root
-
-[Install]
-WantedBy=multi-user.target'''
-
-        service_path = "/etc/systemd/system/{}.service".format(service_name)
-
-        with open(service_path, "w") as f:
-            f.write(service_content)
-
-        os.system("systemctl daemon-reload")
-        os.system("systemctl enable {}".format(service_name))
-        os.system("systemctl restart {}".format(service_name))
-        display_checkmark("\033[92mFRP Service Started!\033[0m")
-
-    num_v2ray_instances = num_iran_servers * num_groups
-    
-    last_v2ray_number = starting_v2ray_number + num_v2ray_instances
-
-    print("Use the last V2ray number for configuring the next kharej server.")
-    print("+--------------------------------------------------+")
-    print("|   Number of Load Balance Groups: {}              |".format(num_groups))
-    print("|   Total V2Ray Instances Created: {}              |".format(num_v2ray_instances))
-    print("|   \033[92mLast V2Ray Number: {}\033[0m                          |".format(last_v2ray_number))
-    print("+--------------------------------------------------+")
-        
-def i10kharej_p67():
-    os.system("clear")
-    clear_c()
-    print('\033[92m ^ ^\033[0m')
-    print('\033[92m(\033[91mO,O\033[92m)\033[0m')
-    print('\033[92m(   ) \033[96mKharej \033[92m[7]\033[93m IPV6\033[93m Method \033[0m')
-    print('\033[92m "-"\033[93m══════════════════════════\033[0m')
-    display_logo2()
-    print("\033[93m╭─────────────────────────────────────────────────────────────────────────────────────────────────────╮")
-    print("\033[96m  Since we are using Loadblance, you should specify how many loadbalance group you want")
-    print("\033[97m  For example : if you have 2 config with different port, you create 2 loadbalance groups")
-    print("\033[92m  Then you should specify how many IRAN server you have")
-    print("\033[93m  Then based on that, you should enter Local & Remote port for each IRAN server")
-    print("\033[96m  For example : i have 2 iran servers. i also have 2 configs with different ports on the kharej server")
-    print("\033[93m  I create 2 loadbalance groups and for each loadbalance group, i specify local and remote ports")
-    print("\033[92m  I also need to do the same thing for the next iran server since i have 2 iran servers.")
-    print("\033[96m  For each loadbalance group, i also sepcify one or two IPV6 address")
-    print("\033[93m╰─────────────────────────────────────────────────────────────────────────────────────────────────────╯\033[0m")
-    display_notification("\033[93mConfiguring \033[96mKharej \033[92m[7]\033[93m...\033[0m")
-    print("\033[93m╭───────────────────────────────────────────────────────────────────────────────────────────╮") 
-    num_groups = int(input("\033[93mEnter the number of \033[92mloadbalance groups\033[96m [For each different port, there should be a group\033[92m]: \033[0m"))
-    print("\033[93m───────────────────────────────────────────────────────────────────────────────────────\033[0m")
-    num_groups = int(input("\033[93mEnter the number of \033[92mloadbalance groups\033[96m [For each different port, there should be a group\033[92m]: \033[0m"))
-    print("\033[93m───────────────────────────────────────────────────────────────────────────────────────\033[0m")
-    num_iran_servers = int(input("\033[93mEnter the number of \033[92mIRAN\033[93m servers \033[96m[Max : 2]\033[93m:\033[0m "))
-    starting_v2ray_number = int(input("\033[93mEnter the Starting \033[92mV2Ray number\033[93m:\033[0m "))
-	
-    groups = []
-    for i in range(num_groups):
-        group_name = "Loadbalance Group {}".format(starting_v2ray_number + i)
-        group = {"name": group_name}
-        groups.append(group)
-
-    time.sleep(1)
-
-    for server_num in range(1, num_iran_servers + 1):
-        frpc_path = "frp/frpc{}.toml".format(server_num)
-        if os.path.exists(frpc_path):
-            os.remove(frpc_path)
-
-    frpc1_path = "frp/frpc1.toml"
-    if not os.path.exists(frpc1_path):
-        with open(frpc1_path, "w") as f:
-            f.write("[common]\n")
-            f.write("server_addr = SERVER_IP\n")
-            server_port = input("\033[93mEnter \033[92mTunnel port\033[93m (default 443): \033[0m")
-            if not server_port:
-                server_port = "443"
-            f.write("server_port = {}\n".format(server_port))
-            f.write("vhost_https_port = 8443\n")
-            f.write("transport.tls.disable_custom_tls_first_byte = false\n")
-            f.write("token = azumi\n")
-
-    for server_num in range(2, num_iran_servers + 1):
-        frpc_path = "frp/frpc{}.toml".format(server_num)
-        shutil.copyfile(frpc1_path, frpc_path)
-
-    for server_num in range(1, num_iran_servers + 1):
-        iran_ipv6 = input("\033[93mEnter \033[92mIRAN IPv6 \033[93maddress for Server \033[92m{}:\033[0m ".format(server_num))
-
-        frpc_path = "frp/frpc{}.toml".format(server_num)
-
-        with open(frpc_path, "w") as f:
-            f.write("[common]\n")
-            f.write("server_addr = {}\n".format(iran_ipv6))
-            f.write("server_port = {}\n".format(server_port))
-            f.write("vhost_https_port = 8443\n")
-            f.write("transport.tls.disable_custom_tls_first_byte = false\n")
-            f.write("token = azumi\n")
-
-        for group_index, group in enumerate(groups):
-            group_name = group["name"]
-            ipv6_count = int(input("\033[93mEnter the number of \033[92mIPv6 addresses\033[93m needed for \033[92m{}\033[93m:\033[0m ".format(group_name)))
-            ipv6_addresses = []
-            for i in range(ipv6_count):
-                ipv6_address = input("\033[93mEnter \033[92mKharej\033[96m IPv6 address {}\033[93m for \033[92m{}\033[93m:\033[0m ".format(i + 1, group_name))
-                ipv6_addresses.append(ipv6_address)
-            local_port = input("\033[93mEnter the \033[92mLocal\033[93m Port for \033[92m{}\033[93m:\033[0m ".format(group_name))
-            remote_port = input("\033[93mEnter the \033[92mRemote\033[93m Port for \033[92m{}\033[93m:\033[0m ".format(group_name))
-            
-            print("\033[93m───────────────────────────────────────────────────────────────────────────────────────\033[0m")
-
-            v2ray_number = starting_v2ray_number + (server_num - 1) * len(groups) + group_index
-
-            with open(frpc_path, "a") as f:
-                f.write("\n")
-                f.write("[v2ray{}]\n".format(v2ray_number))
-                f.write("type = tcp\n")
-                if ipv6_count == 0:
-                    f.write("local_ip = 127.0.0.1\n")
-                else:
-                    f.write("local_ip = {}\n".format(" ".join(ipv6_addresses)))
-                f.write("local_port = {}\n".format(local_port))
-                f.write("remote_port = {}\n".format(remote_port))
-                f.write("group = Azumi{}\n".format(v2ray_number))
-                f.write("group_key = azumichwan\n")
-                f.write("health_check_type = tcp\n")
-                f.write("health_check_timeout_s = 3\n")
-                f.write("health_check_max_failed = 3\n")
-                f.write("health_check_interval_s = 10\n")
-                f.write("use_encryption = true\n")
-                f.write("use_compression = true\n")
-            
-        time.sleep(1)
-        print("Loadbalance port is 8443...")
-
-        service_name = "azumifrpc1{}".format(server_num)
-        frpc_path = "/root/frp/frpc{}.toml".format(server_num)
-
-        service_content = f'''[Unit]
-Description=frpc service
-After=network.target
-
-[Service]
-ExecStart=/root/frp/./frpc -c {frpc_path}
-Restart=always
-RestartSec=7201
-User=root
-
-[Install]
-WantedBy=multi-user.target'''
-
-        service_path = "/etc/systemd/system/{}.service".format(service_name)
-
-        with open(service_path, "w") as f:
-            f.write(service_content)
-
-        os.system("systemctl daemon-reload")
-        os.system("systemctl enable {}".format(service_name))
-        os.system("systemctl restart {}".format(service_name))
-        display_checkmark("\033[92mFRP Service Started!\033[0m")
-
-    num_v2ray_instances = num_iran_servers * num_groups
-    
-    last_v2ray_number = starting_v2ray_number + num_v2ray_instances
-
-    print("Use the last V2ray number for configuring the next kharej server.")
-    print("+--------------------------------------------------+")
-    print("|   Number of Load Balance Groups: {}              |".format(num_groups))
-    print("|   Total V2Ray Instances Created: {}              |".format(num_v2ray_instances))
-    print("|   \033[92mLast V2Ray Number: {}\033[0m                          |".format(last_v2ray_number))
-    print("+--------------------------------------------------+")  
-
-def i10kharej_p68():
-    os.system("clear")
-    clear_c()
-    print('\033[92m ^ ^\033[0m')
-    print('\033[92m(\033[91mO,O\033[92m)\033[0m')
-    print('\033[92m(   ) \033[96mKharej \033[92m[8]\033[93m IPV6\033[93m Method \033[0m')
-    print('\033[92m "-"\033[93m══════════════════════════\033[0m')
-    display_logo2()
-    print("\033[93m╭─────────────────────────────────────────────────────────────────────────────────────────────────────╮")
-    print("\033[96m  Since we are using Loadblance, you should specify how many loadbalance group you want")
-    print("\033[97m  For example : if you have 2 config with different port, you create 2 loadbalance groups")
-    print("\033[92m  Then you should specify how many IRAN server you have")
-    print("\033[93m  Then based on that, you should enter Local & Remote port for each IRAN server")
-    print("\033[96m  For example : i have 2 iran servers. i also have 2 configs with different ports on the kharej server")
-    print("\033[93m  I create 2 loadbalance groups and for each loadbalance group, i specify local and remote ports")
-    print("\033[92m  I also need to do the same thing for the next iran server since i have 2 iran servers.")
-    print("\033[96m  For each loadbalance group, i also sepcify one or two IPV6 address")
-    print("\033[93m╰─────────────────────────────────────────────────────────────────────────────────────────────────────╯\033[0m")
-    display_notification("\033[93mConfiguring \033[96mKharej \033[92m[8]\033[93m...\033[0m")
-    print("\033[93m╭───────────────────────────────────────────────────────────────────────────────────────────╮") 
-    num_groups = int(input("\033[93mEnter the number of \033[92mloadbalance groups\033[96m [For each different port, there should be a group\033[92m]: \033[0m"))
-    print("\033[93m───────────────────────────────────────────────────────────────────────────────────────\033[0m")
-    num_groups = int(input("\033[93mEnter the number of \033[92mloadbalance groups\033[96m [For each different port, there should be a group\033[92m]: \033[0m"))
-    print("\033[93m───────────────────────────────────────────────────────────────────────────────────────\033[0m")
-    num_iran_servers = int(input("\033[93mEnter the number of \033[92mIRAN\033[93m servers \033[96m[Max : 2]\033[93m:\033[0m "))
-    starting_v2ray_number = int(input("\033[93mEnter the Starting \033[92mV2Ray number\033[93m:\033[0m "))
-	
-    groups = []
-    for i in range(num_groups):
-        group_name = "Loadbalance Group {}".format(starting_v2ray_number + i)
-        group = {"name": group_name}
-        groups.append(group)
-
-    time.sleep(1)
-
-    for server_num in range(1, num_iran_servers + 1):
-        frpc_path = "frp/frpc{}.toml".format(server_num)
-        if os.path.exists(frpc_path):
-            os.remove(frpc_path)
-
-    frpc1_path = "frp/frpc1.toml"
-    if not os.path.exists(frpc1_path):
-        with open(frpc1_path, "w") as f:
-            f.write("[common]\n")
-            f.write("server_addr = SERVER_IP\n")
-            server_port = input("\033[93mEnter \033[92mTunnel port\033[93m (default 443): \033[0m")
-            if not server_port:
-                server_port = "443"
-            f.write("server_port = {}\n".format(server_port))
-            f.write("vhost_https_port = 8443\n")
-            f.write("transport.tls.disable_custom_tls_first_byte = false\n")
-            f.write("token = azumi\n")
-
-    for server_num in range(2, num_iran_servers + 1):
-        frpc_path = "frp/frpc{}.toml".format(server_num)
-        shutil.copyfile(frpc1_path, frpc_path)
-
-    for server_num in range(1, num_iran_servers + 1):
-        iran_ipv6 = input("\033[93mEnter \033[92mIRAN IPv6 \033[93maddress for Server \033[92m{}:\033[0m ".format(server_num))
-
-        frpc_path = "frp/frpc{}.toml".format(server_num)
-
-        with open(frpc_path, "w") as f:
-            f.write("[common]\n")
-            f.write("server_addr = {}\n".format(iran_ipv6))
-            f.write("server_port = {}\n".format(server_port))
-            f.write("vhost_https_port = 8443\n")
-            f.write("transport.tls.disable_custom_tls_first_byte = false\n")
-            f.write("token = azumi\n")
-
-        for group_index, group in enumerate(groups):
-            group_name = group["name"]
-            ipv6_count = int(input("\033[93mEnter the number of \033[92mIPv6 addresses\033[93m needed for \033[92m{}\033[93m:\033[0m ".format(group_name)))
-            ipv6_addresses = []
-            for i in range(ipv6_count):
-                ipv6_address = input("\033[93mEnter \033[92mKharej\033[96m IPv6 address {}\033[93m for \033[92m{}\033[93m:\033[0m ".format(i + 1, group_name))
-                ipv6_addresses.append(ipv6_address)
-            local_port = input("\033[93mEnter the \033[92mLocal\033[93m Port for \033[92m{}\033[93m:\033[0m ".format(group_name))
-            remote_port = input("\033[93mEnter the \033[92mRemote\033[93m Port for \033[92m{}\033[93m:\033[0m ".format(group_name))
-            
-            print("\033[93m───────────────────────────────────────────────────────────────────────────────────────\033[0m")
-
-            v2ray_number = starting_v2ray_number + (server_num - 1) * len(groups) + group_index
-
-            with open(frpc_path, "a") as f:
-                f.write("\n")
-                f.write("[v2ray{}]\n".format(v2ray_number))
-                f.write("type = tcp\n")
-                if ipv6_count == 0:
-                    f.write("local_ip = 127.0.0.1\n")
-                else:
-                    f.write("local_ip = {}\n".format(" ".join(ipv6_addresses)))
-                f.write("local_port = {}\n".format(local_port))
-                f.write("remote_port = {}\n".format(remote_port))
-                f.write("group = Azumi{}\n".format(v2ray_number))
-                f.write("group_key = azumichwan\n")
-                f.write("health_check_type = tcp\n")
-                f.write("health_check_timeout_s = 3\n")
-                f.write("health_check_max_failed = 3\n")
-                f.write("health_check_interval_s = 10\n")
-                f.write("use_encryption = true\n")
-                f.write("use_compression = true\n")
-            
-        time.sleep(1)
-        print("Loadbalance port is 8443...")
-
-        service_name = "azumifrpc1{}".format(server_num)
-        frpc_path = "/root/frp/frpc{}.toml".format(server_num)
-
-        service_content = f'''[Unit]
-Description=frpc service
-After=network.target
-
-[Service]
-ExecStart=/root/frp/./frpc -c {frpc_path}
-Restart=always
-RestartSec=7201
-User=root
-
-[Install]
-WantedBy=multi-user.target'''
-
-        service_path = "/etc/systemd/system/{}.service".format(service_name)
-
-        with open(service_path, "w") as f:
-            f.write(service_content)
-
-        os.system("systemctl daemon-reload")
-        os.system("systemctl enable {}".format(service_name))
-        os.system("systemctl restart {}".format(service_name))
-        display_checkmark("\033[92mFRP Service Started!\033[0m")
-
-    num_v2ray_instances = num_iran_servers * num_groups
-    
-    last_v2ray_number = starting_v2ray_number + num_v2ray_instances
-
-    print("Use the last V2ray number for configuring the next kharej server.")
-    print("+--------------------------------------------------+")
-    print("|   Number of Load Balance Groups: {}              |".format(num_groups))
-    print("|   Total V2Ray Instances Created: {}              |".format(num_v2ray_instances))
-    print("|   \033[92mLast V2Ray Number: {}\033[0m                          |".format(last_v2ray_number))
-    print("+--------------------------------------------------+") 
-
-def i10kharej_p69():
-    os.system("clear")
-    clear_c()
-    print('\033[92m ^ ^\033[0m')
-    print('\033[92m(\033[91mO,O\033[92m)\033[0m')
-    print('\033[92m(   ) \033[96mKharej \033[92m[9]\033[93m IPV6\033[93m Method \033[0m')
-    print('\033[92m "-"\033[93m══════════════════════════\033[0m')
-    display_logo2()
-    print("\033[93m╭─────────────────────────────────────────────────────────────────────────────────────────────────────╮")
-    print("\033[96m  Since we are using Loadblance, you should specify how many loadbalance group you want")
-    print("\033[97m  For example : if you have 2 config with different port, you create 2 loadbalance groups")
-    print("\033[92m  Then you should specify how many IRAN server you have")
-    print("\033[93m  Then based on that, you should enter Local & Remote port for each IRAN server")
-    print("\033[96m  For example : i have 2 iran servers. i also have 2 configs with different ports on the kharej server")
-    print("\033[93m  I create 2 loadbalance groups and for each loadbalance group, i specify local and remote ports")
-    print("\033[92m  I also need to do the same thing for the next iran server since i have 2 iran servers.")
-    print("\033[96m  For each loadbalance group, i also sepcify one or two IPV6 address")
-    print("\033[93m╰─────────────────────────────────────────────────────────────────────────────────────────────────────╯\033[0m")
-    display_notification("\033[93mConfiguring \033[96mKharej \033[92m[9]\033[93m...\033[0m")
-    print("\033[93m╭───────────────────────────────────────────────────────────────────────────────────────────╮") 
-    num_groups = int(input("\033[93mEnter the number of \033[92mloadbalance groups\033[96m [For each different port, there should be a group\033[92m]: \033[0m"))
-    print("\033[93m───────────────────────────────────────────────────────────────────────────────────────\033[0m")
-    num_groups = int(input("\033[93mEnter the number of \033[92mloadbalance groups\033[96m [For each different port, there should be a group\033[92m]: \033[0m"))
-    print("\033[93m───────────────────────────────────────────────────────────────────────────────────────\033[0m")
-    num_iran_servers = int(input("\033[93mEnter the number of \033[92mIRAN\033[93m servers \033[96m[Max : 2]\033[93m:\033[0m "))
-    starting_v2ray_number = int(input("\033[93mEnter the Starting \033[92mV2Ray number\033[93m:\033[0m "))
-	
-    groups = []
-    for i in range(num_groups):
-        group_name = "Loadbalance Group {}".format(starting_v2ray_number + i)
-        group = {"name": group_name}
-        groups.append(group)
-
-    time.sleep(1)
-
-    for server_num in range(1, num_iran_servers + 1):
-        frpc_path = "frp/frpc{}.toml".format(server_num)
-        if os.path.exists(frpc_path):
-            os.remove(frpc_path)
-
-    frpc1_path = "frp/frpc1.toml"
-    if not os.path.exists(frpc1_path):
-        with open(frpc1_path, "w") as f:
-            f.write("[common]\n")
-            f.write("server_addr = SERVER_IP\n")
-            server_port = input("\033[93mEnter \033[92mTunnel port\033[93m (default 443): \033[0m")
-            if not server_port:
-                server_port = "443"
-            f.write("server_port = {}\n".format(server_port))
-            f.write("vhost_https_port = 8443\n")
-            f.write("transport.tls.disable_custom_tls_first_byte = false\n")
-            f.write("token = azumi\n")
-
-    for server_num in range(2, num_iran_servers + 1):
-        frpc_path = "frp/frpc{}.toml".format(server_num)
-        shutil.copyfile(frpc1_path, frpc_path)
-
-    for server_num in range(1, num_iran_servers + 1):
-        iran_ipv6 = input("\033[93mEnter \033[92mIRAN IPv6 \033[93maddress for Server \033[92m{}:\033[0m ".format(server_num))
-
-        frpc_path = "frp/frpc{}.toml".format(server_num)
-
-        with open(frpc_path, "w") as f:
-            f.write("[common]\n")
-            f.write("server_addr = {}\n".format(iran_ipv6))
-            f.write("server_port = {}\n".format(server_port))
-            f.write("vhost_https_port = 8443\n")
-            f.write("transport.tls.disable_custom_tls_first_byte = false\n")
-            f.write("token = azumi\n")
-
-        for group_index, group in enumerate(groups):
-            group_name = group["name"]
-            ipv6_count = int(input("\033[93mEnter the number of \033[92mIPv6 addresses\033[93m needed for \033[92m{}\033[93m:\033[0m ".format(group_name)))
-            ipv6_addresses = []
-            for i in range(ipv6_count):
-                ipv6_address = input("\033[93mEnter \033[92mKharej\033[96m IPv6 address {}\033[93m for \033[92m{}\033[93m:\033[0m ".format(i + 1, group_name))
-                ipv6_addresses.append(ipv6_address)
-            local_port = input("\033[93mEnter the \033[92mLocal\033[93m Port for \033[92m{}\033[93m:\033[0m ".format(group_name))
-            remote_port = input("\033[93mEnter the \033[92mRemote\033[93m Port for \033[92m{}\033[93m:\033[0m ".format(group_name))
-            
-            print("\033[93m───────────────────────────────────────────────────────────────────────────────────────\033[0m")
-
-            v2ray_number = starting_v2ray_number + (server_num - 1) * len(groups) + group_index
-
-            with open(frpc_path, "a") as f:
-                f.write("\n")
-                f.write("[v2ray{}]\n".format(v2ray_number))
-                f.write("type = tcp\n")
-                if ipv6_count == 0:
-                    f.write("local_ip = 127.0.0.1\n")
-                else:
-                    f.write("local_ip = {}\n".format(" ".join(ipv6_addresses)))
-                f.write("local_port = {}\n".format(local_port))
-                f.write("remote_port = {}\n".format(remote_port))
-                f.write("group = Azumi{}\n".format(v2ray_number))
-                f.write("group_key = azumichwan\n")
-                f.write("health_check_type = tcp\n")
-                f.write("health_check_timeout_s = 3\n")
-                f.write("health_check_max_failed = 3\n")
-                f.write("health_check_interval_s = 10\n")
-                f.write("use_encryption = true\n")
-                f.write("use_compression = true\n")
-            
-        time.sleep(1)
-        print("Loadbalance port is 8443...")
-
-        service_name = "azumifrpc1{}".format(server_num)
-        frpc_path = "/root/frp/frpc{}.toml".format(server_num)
-
-        service_content = f'''[Unit]
-Description=frpc service
-After=network.target
-
-[Service]
-ExecStart=/root/frp/./frpc -c {frpc_path}
-Restart=always
-RestartSec=7201
-User=root
-
-[Install]
-WantedBy=multi-user.target'''
-
-        service_path = "/etc/systemd/system/{}.service".format(service_name)
-
-        with open(service_path, "w") as f:
-            f.write(service_content)
-
-        os.system("systemctl daemon-reload")
-        os.system("systemctl enable {}".format(service_name))
-        os.system("systemctl restart {}".format(service_name))
-        display_checkmark("\033[92mFRP Service Started!\033[0m")
-
-    num_v2ray_instances = num_iran_servers * num_groups
-    
-    last_v2ray_number = starting_v2ray_number + num_v2ray_instances
-
-    print("Use the last V2ray number for configuring the next kharej server.")
-    print("+--------------------------------------------------+")
-    print("|   Number of Load Balance Groups: {}              |".format(num_groups))
-    print("|   Total V2Ray Instances Created: {}              |".format(num_v2ray_instances))
-    print("|   \033[92mLast V2Ray Number: {}\033[0m                          |".format(last_v2ray_number))
-    print("+--------------------------------------------------+")
-
-def i10kharej_p70():
-    os.system("clear")
-    clear_c()
-    print('\033[92m ^ ^\033[0m')
-    print('\033[92m(\033[91mO,O\033[92m)\033[0m')
-    print('\033[92m(   ) \033[96mKharej \033[92m[10]\033[93m IPV6\033[93m Method \033[0m')
-    print('\033[92m "-"\033[93m══════════════════════════\033[0m')
-    display_logo2()
-    print("\033[93m╭─────────────────────────────────────────────────────────────────────────────────────────────────────╮")
-    print("\033[96m  Since we are using Loadblance, you should specify how many loadbalance group you want")
-    print("\033[97m  For example : if you have 2 config with different port, you create 2 loadbalance groups")
-    print("\033[92m  Then you should specify how many IRAN server you have")
-    print("\033[93m  Then based on that, you should enter Local & Remote port for each IRAN server")
-    print("\033[96m  For example : i have 2 iran servers. i also have 2 configs with different ports on the kharej server")
-    print("\033[93m  I create 2 loadbalance groups and for each loadbalance group, i specify local and remote ports")
-    print("\033[92m  I also need to do the same thing for the next iran server since i have 2 iran servers.")
-    print("\033[96m  For each loadbalance group, i also sepcify one or two IPV6 address")
-    print("\033[93m╰─────────────────────────────────────────────────────────────────────────────────────────────────────╯\033[0m")
-    display_notification("\033[93mConfiguring \033[96mKharej \033[92m[10]\033[93m...\033[0m")
-    print("\033[93m╭───────────────────────────────────────────────────────────────────────────────────────────╮") 
-    num_groups = int(input("\033[93mEnter the number of \033[92mloadbalance groups\033[96m [For each different port, there should be a group\033[92m]: \033[0m"))
-    print("\033[93m───────────────────────────────────────────────────────────────────────────────────────\033[0m")
-    num_iran_servers = int(input("\033[93mEnter the number of \033[92mIRAN\033[93m servers \033[96m[Max : 2]\033[93m:\033[0m "))
-    starting_v2ray_number = int(input("\033[93mEnter the Starting \033[92mV2Ray number\033[93m:\033[0m "))
-	
-    groups = []
-    for i in range(num_groups):
-        group_name = "Loadbalance Group {}".format(starting_v2ray_number + i)
-        group = {"name": group_name}
-        groups.append(group)
-
-    time.sleep(1)
-
-    for server_num in range(1, num_iran_servers + 1):
-        frpc_path = "frp/frpc{}.toml".format(server_num)
-        if os.path.exists(frpc_path):
-            os.remove(frpc_path)
-
-    frpc1_path = "frp/frpc1.toml"
-    if not os.path.exists(frpc1_path):
-        with open(frpc1_path, "w") as f:
-            f.write("[common]\n")
-            f.write("server_addr = SERVER_IP\n")
-            server_port = input("\033[93mEnter \033[92mTunnel port\033[93m (default 443): \033[0m")
-            if not server_port:
-                server_port = "443"
-            f.write("server_port = {}\n".format(server_port))
-            f.write("vhost_https_port = 8443\n")
-            f.write("transport.tls.disable_custom_tls_first_byte = false\n")
-            f.write("token = azumi\n")
-
-    for server_num in range(2, num_iran_servers + 1):
-        frpc_path = "frp/frpc{}.toml".format(server_num)
-        shutil.copyfile(frpc1_path, frpc_path)
-
-    for server_num in range(1, num_iran_servers + 1):
-        iran_ipv6 = input("\033[93mEnter \033[92mIRAN IPv6 \033[93maddress for Server \033[92m{}:\033[0m ".format(server_num))
-
-        frpc_path = "frp/frpc{}.toml".format(server_num)
-
-        with open(frpc_path, "w") as f:
-            f.write("[common]\n")
-            f.write("server_addr = {}\n".format(iran_ipv6))
-            f.write("server_port = {}\n".format(server_port))
-            f.write("vhost_https_port = 8443\n")
-            f.write("transport.tls.disable_custom_tls_first_byte = false\n")
-            f.write("token = azumi\n")
-
-        for group_index, group in enumerate(groups):
-            group_name = group["name"]
-            ipv6_count = int(input("\033[93mEnter the number of \033[92mIPv6 addresses\033[93m needed for \033[92m{}\033[93m:\033[0m ".format(group_name)))
-            ipv6_addresses = []
-            for i in range(ipv6_count):
-                ipv6_address = input("\033[93mEnter \033[92mKharej\033[96m IPv6 address {}\033[93m for \033[92m{}\033[93m:\033[0m ".format(i + 1, group_name))
-                ipv6_addresses.append(ipv6_address)
-            local_port = input("\033[93mEnter the \033[92mLocal\033[93m Port for \033[92m{}\033[93m:\033[0m ".format(group_name))
-            remote_port = input("\033[93mEnter the \033[92mRemote\033[93m Port for \033[92m{}\033[93m:\033[0m ".format(group_name))
-            
-            print("\033[93m───────────────────────────────────────────────────────────────────────────────────────\033[0m")
-
-            v2ray_number = starting_v2ray_number + (server_num - 1) * len(groups) + group_index
-
-            with open(frpc_path, "a") as f:
-                f.write("\n")
-                f.write("[v2ray{}]\n".format(v2ray_number))
-                f.write("type = tcp\n")
-                if ipv6_count == 0:
-                    f.write("local_ip = 127.0.0.1\n")
-                else:
-                    f.write("local_ip = {}\n".format(" ".join(ipv6_addresses)))
-                f.write("local_port = {}\n".format(local_port))
-                f.write("remote_port = {}\n".format(remote_port))
-                f.write("group = Azumi{}\n".format(v2ray_number))
-                f.write("group_key = azumichwan\n")
-                f.write("health_check_type = tcp\n")
-                f.write("health_check_timeout_s = 3\n")
-                f.write("health_check_max_failed = 3\n")
-                f.write("health_check_interval_s = 10\n")
-                f.write("use_encryption = true\n")
-                f.write("use_compression = true\n")
-            
-        time.sleep(1)
-        print("Loadbalance port is 8443...")
-
-        service_name = "azumifrpc1{}".format(server_num)
-        frpc_path = "/root/frp/frpc{}.toml".format(server_num)
-
-        service_content = f'''[Unit]
-Description=frpc service
-After=network.target
-
-[Service]
-ExecStart=/root/frp/./frpc -c {frpc_path}
-Restart=always
-RestartSec=7201
-User=root
-
-[Install]
-WantedBy=multi-user.target'''
-
-        service_path = "/etc/systemd/system/{}.service".format(service_name)
-
-        with open(service_path, "w") as f:
-            f.write(service_content)
-
-        os.system("systemctl daemon-reload")
-        os.system("systemctl enable {}".format(service_name))
-        os.system("systemctl restart {}".format(service_name))
-        display_checkmark("\033[92mFRP Service Started!\033[0m")
-
-    num_v2ray_instances = num_iran_servers * num_groups
-    
-    last_v2ray_number = starting_v2ray_number + num_v2ray_instances
-
-    print("Use the last V2ray number for configuring the next kharej server.")
-    print("+--------------------------------------------------+")
-    print("|   Number of Load Balance Groups: {}              |".format(num_groups))
-    print("|   Total V2Ray Instances Created: {}              |".format(num_v2ray_instances))
-    print("|   \033[92mLast V2Ray Number: {}\033[0m                          |".format(last_v2ray_number))
-    print("+--------------------------------------------------+")
-
-def i10kharej_local():
-    os.system("clear")
-    print('\033[92m ^ ^\033[0m')
-    print('\033[92m(\033[91mO,O\033[92m)\033[0m')
-    print('\033[92m(   ) \033[93m Kharej Method\033[92m [2]\033[97m Loadbalance\033[93m Menu\033[0m')
-    print('\033[92m "-"\033[93m══════════════════════════════════════════\033[0m')
-    print("\033[93m╭───────────────────────────────────────╮\033[0m")
-    print('\033[93mChoose what to do:\033[0m')
-    print('1. \033[91mKharej\033[92m [1]\033[0m')
-    print('2. \033[93mKharej\033[92m [2]\033[0m')
-    print('3. \033[96mKharej\033[92m [3]\033[0m')
-    print('4. \033[97mKharej\033[92m [4]\033[0m')
-    print('5. \033[93mKharej\033[92m [5]\033[0m')
-    print('6. \033[91mKharej\033[92m [6]\033[0m')
-    print('7. \033[93mKharej\033[92m [7]\033[0m')
-    print('8. \033[96mKharej\033[92m [8]\033[0m')
-    print('9. \033[97mKharej\033[92m [9]\033[0m')
-    print('10.\033[93mKharej\033[92m [10]\033[0m')
-    print('0. \033[94mBack to the previous menu\033[0m')
-    print("\033[93m╰───────────────────────────────────────╯\033[0m")
-    
-    while True:
-        server_type = input('\033[38;5;205mEnter your choice Please: \033[0m')
-        if server_type == '1':
-            i10kharej_l61()
-            break
-        elif server_type == '2':
-            i10kharej_l62()
-            break
-        elif server_type == '3':
-            i10kharej_l63()
-            break
-        elif server_type == '4':
-            i10kharej_l64()
-            break
-        elif server_type == '5':
-            i10kharej_l65()
-            break
-        elif server_type == '6':
-            i10kharej_l66()
-            break
-        elif server_type == '7':
-            i10kharej_l67()
-            break
-        elif server_type == '8':
-            i10kharej_l68()
-            break
-        elif server_type == '9':
-            i10kharej_l69()
-            break
-        elif server_type == '10':
-            i10kharej_l70()
-            break
-        elif server_type == '0':
-            os.system('clear')
-            i10kharej()
-            break
-        else:
-            print('Invalid choice.')  
-            
-def i10kharej_l61():
-    os.system("clear")
-    clear_c()
-    print('\033[92m ^ ^\033[0m')
-    print('\033[92m(\033[91mO,O\033[92m)\033[0m')
-    print('\033[92m(   ) \033[96mKharej \033[92m[1]\033[94m LocalIP\033[93m Method \033[0m')
-    print('\033[92m "-"\033[93m══════════════════════════\033[0m')
-    display_logo2()
-    print("\033[93m╭─────────────────────────────────────────────────────────────────────────────────────────────────────╮")
-    print("\033[96m  Since we are using Loadblance, you should specify how many loadbalance group you want")
-    print("\033[97m  For example : if you have 2 config with different port, you create 2 loadbalance groups")
-    print("\033[92m  Then you should specify how many IRAN server you have")
-    print("\033[93m  Then based on that, you should enter Local & Remote port for each IRAN server")
-    print("\033[96m  For example : i have 2 iran servers. i also have 2 configs with different ports on the kahrej server")
-    print("\033[93m  I create 2 loadbalance groups and for each loadbalance group, i specify local and remote ports")
-    print("\033[92m  I also need to do the same thing for the next iran server since i have 2 iran servers.")
-    print("\033[93m╰─────────────────────────────────────────────────────────────────────────────────────────────────────╯\033[0m")
-    display_notification("\033[93mConfiguring \033[96mKharej \033[92m[1]\033[93m...\033[0m")
-    print("\033[93m╭───────────────────────────────────────────────────────────────────────────────────────────╮") 
-    num_groups = int(input("\033[93mEnter the number of \033[92mloadbalance groups\033[96m [For each different port, there should be a group\033[92m]: \033[0m"))
-    print("\033[93m───────────────────────────────────────────────────────────────────────────────────────\033[0m")
-    num_iran_servers = int(input("\033[93mEnter the number of \033[92mIRAN\033[93m servers \033[96m[Max : 2]\033[93m:\033[0m "))
-    starting_v2ray_number = int(input("\033[93mEnter the Starting \033[92mV2Ray number\033[93m:\033[0m "))
-    groups = []
-    for i in range(num_groups):
-        group_name = "Loadbalance Group {}".format(starting_v2ray_number + i)
-        group = {"name": group_name}
-        groups.append(group)
-
-    time.sleep(1)
-
-    for server_num in range(1, num_iran_servers + 1):
-        frpc_path = "frp/frpc{}.toml".format(server_num)
-        if os.path.exists(frpc_path):
-            os.remove(frpc_path)
-
-    frpc1_path = "frp/frpc1.toml"
-    if not os.path.exists(frpc1_path):
-        with open(frpc1_path, "w") as f:
-            f.write("[common]\n")
-            f.write("server_addr = SERVER_IP\n")
-            server_port = input("\033[93mEnter \033[92mTunnel port\033[93m (default 443): \033[0m")
-            if not server_port:
-                server_port = "443"
-            f.write("server_port = {}\n".format(server_port))
-            f.write("vhost_https_port = 8443\n")
-            f.write("transport.tls.disable_custom_tls_first_byte = false\n")
-            f.write("token = azumi\n")
-
-    for server_num in range(2, num_iran_servers + 1):
-        frpc_path = "frp/frpc{}.toml".format(server_num)
-        shutil.copyfile(frpc1_path, frpc_path)
-
-    for server_num in range(1, num_iran_servers + 1):
-        iran_ipv6 = input("\033[93mEnter \033[92mIRAN IPV4/IPv6 \033[93maddress for Server \033[92m{}:\033[0m ".format(server_num))
-
-        frpc_path = "frp/frpc{}.toml".format(server_num)
-
-        with open(frpc_path, "w") as f:
-            f.write("[common]\n")
-            f.write("server_addr = {}\n".format(iran_ipv6))
-            f.write("server_port = {}\n".format(server_port))
-            f.write("vhost_https_port = 8443\n")
-            f.write("transport.tls.disable_custom_tls_first_byte = false\n")
-            f.write("token = azumi\n")
-
-        for group_index, group in enumerate(groups):
-            group_name = group["name"]
-            local_port = input("\033[93mEnter the \033[92mLocal\033[93m Port for \033[92m{}\033[93m:\033[0m ".format(group_name))
-            remote_port = input("\033[93mEnter the \033[92mRemote\033[93m Port for \033[92m{}\033[93m:\033[0m ".format(group_name))
-            print("\033[93m───────────────────────────────────────────────────────────────────────────────────────\033[0m")
-
-            v2ray_number = starting_v2ray_number + (server_num - 1) * len(groups) + group_index
-
-            with open(frpc_path, "a") as f:
-                f.write("\n")
-                f.write("[v2ray{}]\n".format(v2ray_number))
-                f.write("type = tcp\n")
-                f.write("local_ip = 127.0.0.1\n")
-                f.write("local_port = {}\n".format(local_port))
-                f.write("remote_port = {}\n".format(remote_port))
-                f.write("group = Azumi{}\n".format(v2ray_number))
-                f.write("group_key = azumichwan\n")
-                f.write("health_check_type = tcp\n")
-                f.write("health_check_timeout_s = 3\n")
-                f.write("health_check_max_failed = 3\n")
-                f.write("health_check_interval_s = 10\n")
-                f.write("use_encryption = true\n")
-                f.write("use_compression = true\n")
-            v2ray_number += 1
-        time.sleep(1)
-        print("Loadbalance port is 8443...")
-
-        service_name = "azumifrpc1{}".format(server_num)
-        frpc_path = "/root/frp/frpc{}.toml".format(server_num)
-
-        service_content = f'''[Unit]
-Description=frpc service
-After=network.target
-
-[Service]
-ExecStart=/root/frp/./frpc -c {frpc_path}
-Restart=always
-RestartSec=7201
-User=root
-
-[Install]
-WantedBy=multi-user.target'''
-
-        service_path = "/etc/systemd/system/{}.service".format(service_name)
-
-        with open(service_path, "w") as f:
-            f.write(service_content)
-
-        os.system("systemctl daemon-reload")
-        os.system("systemctl enable {}".format(service_name))
-        os.system("systemctl restart {}".format(service_name))
-        display_checkmark("\033[92mFRP Service Started!\033[0m")
-
-    num_v2ray_instances = num_iran_servers * num_groups
-    
-    last_v2ray_number = starting_v2ray_number + num_v2ray_instances
-
-    print("Use the last V2ray number for configuring the next kharej server.")
-    print("+--------------------------------------------------+")
-    print("|   Number of Load Balance Groups: {}              |".format(num_groups))
-    print("|   Total V2Ray Instances Created: {}              |".format(num_v2ray_instances))
-    print("|   \033[92mLast V2Ray Number: {}\033[0m                          |".format(last_v2ray_number))
-    print("+--------------------------------------------------+")
-
-def i10kharej_l62():
-    os.system("clear")
-    clear_c()
-    print('\033[92m ^ ^\033[0m')
-    print('\033[92m(\033[91mO,O\033[92m)\033[0m')
-    print('\033[92m(   ) \033[96mKharej \033[92m[2]\033[94m LocalIP\033[93m Method \033[0m')
-    print('\033[92m "-"\033[93m══════════════════════════\033[0m')
-    display_logo2()
-    print("\033[93m╭─────────────────────────────────────────────────────────────────────────────────────────────────────╮")
-    print("\033[96m  Since we are using Loadblance, you should specify how many loadbalance group you want")
-    print("\033[97m  For example : if you have 2 config with different port, you create 2 loadbalance groups")
-    print("\033[92m  Then you should specify how many IRAN server you have")
-    print("\033[93m  Then based on that, you should enter Local & Remote port for each IRAN server")
-    print("\033[96m  For example : i have 2 iran servers. i also have 2 configs with different ports on the kahrej server")
-    print("\033[93m  I create 2 loadbalance groups and for each loadbalance group, i specify local and remote ports")
-    print("\033[92m  I also need to do the same thing for the next iran server since i have 2 iran servers.")
-    print("\033[93m╰─────────────────────────────────────────────────────────────────────────────────────────────────────╯\033[0m")
-    display_notification("\033[93mConfiguring \033[96mKharej \033[92m[2]\033[93m...\033[0m")
-    print("\033[93m╭───────────────────────────────────────────────────────────────────────────────────────────╮") 
-    num_groups = int(input("\033[93mEnter the number of \033[92mloadbalance groups\033[96m [For each different port, there should be a group\033[92m]: \033[0m"))
-    print("\033[93m───────────────────────────────────────────────────────────────────────────────────────\033[0m")
-    num_iran_servers = int(input("\033[93mEnter the number of \033[92mIRAN\033[93m servers \033[96m[Max : 2]\033[93m:\033[0m "))
-    starting_v2ray_number = int(input("\033[93mEnter the Starting \033[92mV2Ray number\033[93m:\033[0m "))
-    groups = []
-    for i in range(num_groups):
-        group_name = "Loadbalance Group {}".format(starting_v2ray_number + i)
-        group = {"name": group_name}
-        groups.append(group)
-
-    time.sleep(1)
-
-    for server_num in range(1, num_iran_servers + 1):
-        frpc_path = "frp/frpc{}.toml".format(server_num)
-        if os.path.exists(frpc_path):
-            os.remove(frpc_path)
-
-    frpc1_path = "frp/frpc1.toml"
-    if not os.path.exists(frpc1_path):
-        with open(frpc1_path, "w") as f:
-            f.write("[common]\n")
-            f.write("server_addr = SERVER_IP\n")
-            server_port = input("\033[93mEnter \033[92mTunnel port\033[93m (default 443): \033[0m")
-            if not server_port:
-                server_port = "443"
-            f.write("server_port = {}\n".format(server_port))
-            f.write("vhost_https_port = 8443\n")
-            f.write("transport.tls.disable_custom_tls_first_byte = false\n")
-            f.write("token = azumi\n")
-
-    for server_num in range(2, num_iran_servers + 1):
-        frpc_path = "frp/frpc{}.toml".format(server_num)
-        shutil.copyfile(frpc1_path, frpc_path)
-
-    for server_num in range(1, num_iran_servers + 1):
-        iran_ipv6 = input("\033[93mEnter \033[92mIRAN IPV4/IPv6 \033[93maddress for Server \033[92m{}:\033[0m ".format(server_num))
-
-        frpc_path = "frp/frpc{}.toml".format(server_num)
-
-        with open(frpc_path, "w") as f:
-            f.write("[common]\n")
-            f.write("server_addr = {}\n".format(iran_ipv6))
-            f.write("server_port = {}\n".format(server_port))
-            f.write("vhost_https_port = 8443\n")
-            f.write("transport.tls.disable_custom_tls_first_byte = false\n")
-            f.write("token = azumi\n")
-
-        for group_index, group in enumerate(groups):
-            group_name = group["name"]
-            local_port = input("\033[93mEnter the \033[92mLocal\033[93m Port for \033[92m{}\033[93m:\033[0m ".format(group_name))
-            remote_port = input("\033[93mEnter the \033[92mRemote\033[93m Port for \033[92m{}\033[93m:\033[0m ".format(group_name))
-            print("\033[93m───────────────────────────────────────────────────────────────────────────────────────\033[0m")
-
-            v2ray_number = starting_v2ray_number + (server_num - 1) * len(groups) + group_index
-
-            with open(frpc_path, "a") as f:
-                f.write("\n")
-                f.write("[v2ray{}]\n".format(v2ray_number))
-                f.write("type = tcp\n")
-                f.write("local_ip = 127.0.0.1\n")
-                f.write("local_port = {}\n".format(local_port))
-                f.write("remote_port = {}\n".format(remote_port))
-                f.write("group = Azumi{}\n".format(v2ray_number))
-                f.write("group_key = azumichwan\n")
-                f.write("health_check_type = tcp\n")
-                f.write("health_check_timeout_s = 3\n")
-                f.write("health_check_max_failed = 3\n")
-                f.write("health_check_interval_s = 10\n")
-                f.write("use_encryption = true\n")
-                f.write("use_compression = true\n")
-            
-        time.sleep(1)
-        print("Loadbalance port is 8443...")
-
-        service_name = "azumifrpc1{}".format(server_num)
-        frpc_path = "/root/frp/frpc{}.toml".format(server_num)
-
-        service_content = f'''[Unit]
-Description=frpc service
-After=network.target
-
-[Service]
-ExecStart=/root/frp/./frpc -c {frpc_path}
-Restart=always
-RestartSec=7201
-User=root
-
-[Install]
-WantedBy=multi-user.target'''
-
-        service_path = "/etc/systemd/system/{}.service".format(service_name)
-
-        with open(service_path, "w") as f:
-            f.write(service_content)
-
-        os.system("systemctl daemon-reload")
-        os.system("systemctl enable {}".format(service_name))
-        os.system("systemctl restart {}".format(service_name))
-        display_checkmark("\033[92mFRP Service Started!\033[0m")
-
-    num_v2ray_instances = num_iran_servers * num_groups
-    
-    last_v2ray_number = starting_v2ray_number + num_v2ray_instances
-
-    print("Use the last V2ray number for configuring the next kharej server.")
-    print("+--------------------------------------------------+")
-    print("|   Number of Load Balance Groups: {}              |".format(num_groups))
-    print("|   Total V2Ray Instances Created: {}              |".format(num_v2ray_instances))
-    print("|   \033[92mLast V2Ray Number: {}\033[0m                          |".format(last_v2ray_number))
-    print("+--------------------------------------------------+")
-
-def i10kharej_l63():
-    os.system("clear")
-    clear_c()
-    print('\033[92m ^ ^\033[0m')
-    print('\033[92m(\033[91mO,O\033[92m)\033[0m')
-    print('\033[92m(   ) \033[96mKharej \033[92m[3]\033[94m LocalIP\033[93m Method \033[0m')
-    print('\033[92m "-"\033[93m══════════════════════════\033[0m')
-    display_logo2()
-    print("\033[93m╭─────────────────────────────────────────────────────────────────────────────────────────────────────╮")
-    print("\033[96m  Since we are using Loadblance, you should specify how many loadbalance group you want")
-    print("\033[97m  For example : if you have 2 config with different port, you create 2 loadbalance groups")
-    print("\033[92m  Then you should specify how many IRAN server you have")
-    print("\033[93m  Then based on that, you should enter Local & Remote port for each IRAN server")
-    print("\033[96m  For example : i have 2 iran servers. i also have 2 configs with different ports on the kahrej server")
-    print("\033[93m  I create 2 loadbalance groups and for each loadbalance group, i specify local and remote ports")
-    print("\033[92m  I also need to do the same thing for the next iran server since i have 2 iran servers.")
-    print("\033[93m╰─────────────────────────────────────────────────────────────────────────────────────────────────────╯\033[0m")
-    display_notification("\033[93mConfiguring \033[96mKharej \033[92m[3]\033[93m...\033[0m")
-    print("\033[93m╭───────────────────────────────────────────────────────────────────────────────────────────╮") 
-    num_groups = int(input("\033[93mEnter the number of \033[92mloadbalance groups\033[96m [For each different port, there should be a group\033[92m]: \033[0m"))
-    print("\033[93m───────────────────────────────────────────────────────────────────────────────────────\033[0m")
-    num_iran_servers = int(input("\033[93mEnter the number of \033[92mIRAN\033[93m servers \033[96m[Max : 2]\033[93m:\033[0m "))
-    starting_v2ray_number = int(input("\033[93mEnter the Starting \033[92mV2Ray number\033[93m:\033[0m "))
-    groups = []
-    for i in range(num_groups):
-        group_name = "Loadbalance Group {}".format(starting_v2ray_number + i)
-        group = {"name": group_name}
-        groups.append(group)
-
-    time.sleep(1)
-
-    for server_num in range(1, num_iran_servers + 1):
-        frpc_path = "frp/frpc{}.toml".format(server_num)
-        if os.path.exists(frpc_path):
-            os.remove(frpc_path)
-
-    frpc1_path = "frp/frpc1.toml"
-    if not os.path.exists(frpc1_path):
-        with open(frpc1_path, "w") as f:
-            f.write("[common]\n")
-            f.write("server_addr = SERVER_IP\n")
-            server_port = input("\033[93mEnter \033[92mTunnel port\033[93m (default 443): \033[0m")
-            if not server_port:
-                server_port = "443"
-            f.write("server_port = {}\n".format(server_port))
-            f.write("vhost_https_port = 8443\n")
-            f.write("transport.tls.disable_custom_tls_first_byte = false\n")
-            f.write("token = azumi\n")
-
-    for server_num in range(2, num_iran_servers + 1):
-        frpc_path = "frp/frpc{}.toml".format(server_num)
-        shutil.copyfile(frpc1_path, frpc_path)
-
-    for server_num in range(1, num_iran_servers + 1):
-        iran_ipv6 = input("\033[93mEnter \033[92mIRAN IPV4/IPv6 \033[93maddress for Server \033[92m{}:\033[0m ".format(server_num))
-
-        frpc_path = "frp/frpc{}.toml".format(server_num)
-
-        with open(frpc_path, "w") as f:
-            f.write("[common]\n")
-            f.write("server_addr = {}\n".format(iran_ipv6))
-            f.write("server_port = {}\n".format(server_port))
-            f.write("vhost_https_port = 8443\n")
-            f.write("transport.tls.disable_custom_tls_first_byte = false\n")
-            f.write("token = azumi\n")
-
-        for group_index, group in enumerate(groups):
-            group_name = group["name"]
-            local_port = input("\033[93mEnter the \033[92mLocal\033[93m Port for \033[92m{}\033[93m:\033[0m ".format(group_name))
-            remote_port = input("\033[93mEnter the \033[92mRemote\033[93m Port for \033[92m{}\033[93m:\033[0m ".format(group_name))
-            print("\033[93m───────────────────────────────────────────────────────────────────────────────────────\033[0m")
-
-            v2ray_number = starting_v2ray_number + (server_num - 1) * len(groups) + group_index
-
-            with open(frpc_path, "a") as f:
-                f.write("\n")
-                f.write("[v2ray{}]\n".format(v2ray_number))
-                f.write("type = tcp\n")
-                f.write("local_ip = 127.0.0.1\n")
-                f.write("local_port = {}\n".format(local_port))
-                f.write("remote_port = {}\n".format(remote_port))
-                f.write("group = Azumi{}\n".format(v2ray_number))
-                f.write("group_key = azumichwan\n")
-                f.write("health_check_type = tcp\n")
-                f.write("health_check_timeout_s = 3\n")
-                f.write("health_check_max_failed = 3\n")
-                f.write("health_check_interval_s = 10\n")
-                f.write("use_encryption = true\n")
-                f.write("use_compression = true\n")
-            
-        time.sleep(1)
-        print("Loadbalance port is 8443...")
-
-        service_name = "azumifrpc1{}".format(server_num)
-        frpc_path = "/root/frp/frpc{}.toml".format(server_num)
-
-        service_content = f'''[Unit]
-Description=frpc service
-After=network.target
-
-[Service]
-ExecStart=/root/frp/./frpc -c {frpc_path}
-Restart=always
-RestartSec=7201
-User=root
-
-[Install]
-WantedBy=multi-user.target'''
-
-        service_path = "/etc/systemd/system/{}.service".format(service_name)
-
-        with open(service_path, "w") as f:
-            f.write(service_content)
-
-        os.system("systemctl daemon-reload")
-        os.system("systemctl enable {}".format(service_name))
-        os.system("systemctl restart {}".format(service_name))
-        display_checkmark("\033[92mFRP Service Started!\033[0m")
-
-    num_v2ray_instances = num_iran_servers * num_groups
-    
-    last_v2ray_number = starting_v2ray_number + num_v2ray_instances
-
-    print("Use the last V2ray number for configuring the next kharej server.")
-    print("+--------------------------------------------------+")
-    print("|   Number of Load Balance Groups: {}              |".format(num_groups))
-    print("|   Total V2Ray Instances Created: {}              |".format(num_v2ray_instances))
-    print("|   \033[92mLast V2Ray Number: {}\033[0m                          |".format(last_v2ray_number))
-    print("+--------------------------------------------------+")
-
-def i10kharej_l64():
-    os.system("clear")
-    clear_c()
-    print('\033[92m ^ ^\033[0m')
-    print('\033[92m(\033[91mO,O\033[92m)\033[0m')
-    print('\033[92m(   ) \033[96mKharej \033[92m[4]\033[94m LocalIP\033[93m Method \033[0m')
-    print('\033[92m "-"\033[93m══════════════════════════\033[0m')
-    display_logo2()
-    print("\033[93m╭─────────────────────────────────────────────────────────────────────────────────────────────────────╮")
-    print("\033[96m  Since we are using Loadblance, you should specify how many loadbalance group you want")
-    print("\033[97m  For example : if you have 2 config with different port, you create 2 loadbalance groups")
-    print("\033[92m  Then you should specify how many IRAN server you have")
-    print("\033[93m  Then based on that, you should enter Local & Remote port for each IRAN server")
-    print("\033[96m  For example : i have 2 iran servers. i also have 2 configs with different ports on the kahrej server")
-    print("\033[93m  I create 2 loadbalance groups and for each loadbalance group, i specify local and remote ports")
-    print("\033[92m  I also need to do the same thing for the next iran server since i have 2 iran servers.")
-    print("\033[93m╰─────────────────────────────────────────────────────────────────────────────────────────────────────╯\033[0m")
-    display_notification("\033[93mConfiguring \033[96mKharej \033[92m[4]\033[93m...\033[0m")
-    print("\033[93m╭───────────────────────────────────────────────────────────────────────────────────────────╮") 
-    num_groups = int(input("\033[93mEnter the number of \033[92mloadbalance groups\033[96m [For each different port, there should be a group\033[92m]: \033[0m"))
-    print("\033[93m───────────────────────────────────────────────────────────────────────────────────────\033[0m")
-    num_iran_servers = int(input("\033[93mEnter the number of \033[92mIRAN\033[93m servers \033[96m[Max : 2]\033[93m:\033[0m "))
-    starting_v2ray_number = int(input("\033[93mEnter the Starting \033[92mV2Ray number\033[93m:\033[0m "))
-    groups = []
-    for i in range(num_groups):
-        group_name = "Loadbalance Group {}".format(starting_v2ray_number + i)
-        group = {"name": group_name}
-        groups.append(group)
-
-    time.sleep(1)
-
-    for server_num in range(1, num_iran_servers + 1):
-        frpc_path = "frp/frpc{}.toml".format(server_num)
-        if os.path.exists(frpc_path):
-            os.remove(frpc_path)
-
-    frpc1_path = "frp/frpc1.toml"
-    if not os.path.exists(frpc1_path):
-        with open(frpc1_path, "w") as f:
-            f.write("[common]\n")
-            f.write("server_addr = SERVER_IP\n")
-            server_port = input("\033[93mEnter \033[92mTunnel port\033[93m (default 443): \033[0m")
-            if not server_port:
-                server_port = "443"
-            f.write("server_port = {}\n".format(server_port))
-            f.write("vhost_https_port = 8443\n")
-            f.write("transport.tls.disable_custom_tls_first_byte = false\n")
-            f.write("token = azumi\n")
-
-    for server_num in range(2, num_iran_servers + 1):
-        frpc_path = "frp/frpc{}.toml".format(server_num)
-        shutil.copyfile(frpc1_path, frpc_path)
-
-    for server_num in range(1, num_iran_servers + 1):
-        iran_ipv6 = input("\033[93mEnter \033[92mIRAN IPV4/IPv6 \033[93maddress for Server \033[92m{}:\033[0m ".format(server_num))
-
-        frpc_path = "frp/frpc{}.toml".format(server_num)
-
-        with open(frpc_path, "w") as f:
-            f.write("[common]\n")
-            f.write("server_addr = {}\n".format(iran_ipv6))
-            f.write("server_port = {}\n".format(server_port))
-            f.write("vhost_https_port = 8443\n")
-            f.write("transport.tls.disable_custom_tls_first_byte = false\n")
-            f.write("token = azumi\n")
-
-        for group_index, group in enumerate(groups):
-            group_name = group["name"]
-            local_port = input("\033[93mEnter the \033[92mLocal\033[93m Port for \033[92m{}\033[93m:\033[0m ".format(group_name))
-            remote_port = input("\033[93mEnter the \033[92mRemote\033[93m Port for \033[92m{}\033[93m:\033[0m ".format(group_name))
-            print("\033[93m───────────────────────────────────────────────────────────────────────────────────────\033[0m")
-
-            v2ray_number = starting_v2ray_number + (server_num - 1) * len(groups) + group_index
-
-            with open(frpc_path, "a") as f:
-                f.write("\n")
-                f.write("[v2ray{}]\n".format(v2ray_number))
-                f.write("type = tcp\n")
-                f.write("local_ip = 127.0.0.1\n")
-                f.write("local_port = {}\n".format(local_port))
-                f.write("remote_port = {}\n".format(remote_port))
-                f.write("group = Azumi{}\n".format(v2ray_number))
-                f.write("group_key = azumichwan\n")
-                f.write("health_check_type = tcp\n")
-                f.write("health_check_timeout_s = 3\n")
-                f.write("health_check_max_failed = 3\n")
-                f.write("health_check_interval_s = 10\n")
-                f.write("use_encryption = true\n")
-                f.write("use_compression = true\n")
-            
-        time.sleep(1)
-        print("Loadbalance port is 8443...")
-
-        service_name = "azumifrpc1{}".format(server_num)
-        frpc_path = "/root/frp/frpc{}.toml".format(server_num)
-
-        service_content = f'''[Unit]
-Description=frpc service
-After=network.target
-
-[Service]
-ExecStart=/root/frp/./frpc -c {frpc_path}
-Restart=always
-RestartSec=7201
-User=root
-
-[Install]
-WantedBy=multi-user.target'''
-
-        service_path = "/etc/systemd/system/{}.service".format(service_name)
-
-        with open(service_path, "w") as f:
-            f.write(service_content)
-
-        os.system("systemctl daemon-reload")
-        os.system("systemctl enable {}".format(service_name))
-        os.system("systemctl restart {}".format(service_name))
-        display_checkmark("\033[92mFRP Service Started!\033[0m")
-
-    num_v2ray_instances = num_iran_servers * num_groups
-    
-    last_v2ray_number = starting_v2ray_number + num_v2ray_instances
-
-    print("Use the last V2ray number for configuring the next kharej server.")
-    print("+--------------------------------------------------+")
-    print("|   Number of Load Balance Groups: {}              |".format(num_groups))
-    print("|   Total V2Ray Instances Created: {}              |".format(num_v2ray_instances))
-    print("|   \033[92mLast V2Ray Number: {}\033[0m                          |".format(last_v2ray_number))
-    print("+--------------------------------------------------+")
-
-def i10kharej_l65():
-    os.system("clear")
-    clear_c()
-    print('\033[92m ^ ^\033[0m')
-    print('\033[92m(\033[91mO,O\033[92m)\033[0m')
-    print('\033[92m(   ) \033[96mKharej \033[92m[5]\033[94m LocalIP\033[93m Method \033[0m')
-    print('\033[92m "-"\033[93m══════════════════════════\033[0m')
-    display_logo2()
-    print("\033[93m╭─────────────────────────────────────────────────────────────────────────────────────────────────────╮")
-    print("\033[96m  Since we are using Loadblance, you should specify how many loadbalance group you want")
-    print("\033[97m  For example : if you have 2 config with different port, you create 2 loadbalance groups")
-    print("\033[92m  Then you should specify how many IRAN server you have")
-    print("\033[93m  Then based on that, you should enter Local & Remote port for each IRAN server")
-    print("\033[96m  For example : i have 2 iran servers. i also have 2 configs with different ports on the kahrej server")
-    print("\033[93m  I create 2 loadbalance groups and for each loadbalance group, i specify local and remote ports")
-    print("\033[92m  I also need to do the same thing for the next iran server since i have 2 iran servers.")
-    print("\033[93m╰─────────────────────────────────────────────────────────────────────────────────────────────────────╯\033[0m")
-    display_notification("\033[93mConfiguring \033[96mKharej \033[92m[5]\033[93m...\033[0m")
-    print("\033[93m╭───────────────────────────────────────────────────────────────────────────────────────────╮") 
-    num_groups = int(input("\033[93mEnter the number of \033[92mloadbalance groups\033[96m [For each different port, there should be a group\033[92m]: \033[0m"))
-    print("\033[93m───────────────────────────────────────────────────────────────────────────────────────\033[0m")
-    num_iran_servers = int(input("\033[93mEnter the number of \033[92mIRAN\033[93m servers \033[96m[Max : 2]\033[93m:\033[0m "))
-    starting_v2ray_number = int(input("\033[93mEnter the Starting \033[92mV2Ray number\033[93m:\033[0m "))
-    groups = []
-    for i in range(num_groups):
-        group_name = "Loadbalance Group {}".format(starting_v2ray_number + i)
-        group = {"name": group_name}
-        groups.append(group)
-
-    time.sleep(1)
-
-    for server_num in range(1, num_iran_servers + 1):
-        frpc_path = "frp/frpc{}.toml".format(server_num)
-        if os.path.exists(frpc_path):
-            os.remove(frpc_path)
-
-    frpc1_path = "frp/frpc1.toml"
-    if not os.path.exists(frpc1_path):
-        with open(frpc1_path, "w") as f:
-            f.write("[common]\n")
-            f.write("server_addr = SERVER_IP\n")
-            server_port = input("\033[93mEnter \033[92mTunnel port\033[93m (default 443): \033[0m")
-            if not server_port:
-                server_port = "443"
-            f.write("server_port = {}\n".format(server_port))
-            f.write("vhost_https_port = 8443\n")
-            f.write("transport.tls.disable_custom_tls_first_byte = false\n")
-            f.write("token = azumi\n")
-
-    for server_num in range(2, num_iran_servers + 1):
-        frpc_path = "frp/frpc{}.toml".format(server_num)
-        shutil.copyfile(frpc1_path, frpc_path)
-
-    for server_num in range(1, num_iran_servers + 1):
-        iran_ipv6 = input("\033[93mEnter \033[92mIRAN IPV4/IPv6 \033[93maddress for Server \033[92m{}:\033[0m ".format(server_num))
-
-        frpc_path = "frp/frpc{}.toml".format(server_num)
-
-        with open(frpc_path, "w") as f:
-            f.write("[common]\n")
-            f.write("server_addr = {}\n".format(iran_ipv6))
-            f.write("server_port = {}\n".format(server_port))
-            f.write("vhost_https_port = 8443\n")
-            f.write("transport.tls.disable_custom_tls_first_byte = false\n")
-            f.write("token = azumi\n")
-
-        for group_index, group in enumerate(groups):
-            group_name = group["name"]
-            local_port = input("\033[93mEnter the \033[92mLocal\033[93m Port for \033[92m{}\033[93m:\033[0m ".format(group_name))
-            remote_port = input("\033[93mEnter the \033[92mRemote\033[93m Port for \033[92m{}\033[93m:\033[0m ".format(group_name))
-            print("\033[93m───────────────────────────────────────────────────────────────────────────────────────\033[0m")
-
-            v2ray_number = starting_v2ray_number + (server_num - 1) * len(groups) + group_index
-
-            with open(frpc_path, "a") as f:
-                f.write("\n")
-                f.write("[v2ray{}]\n".format(v2ray_number))
-                f.write("type = tcp\n")
-                f.write("local_ip = 127.0.0.1\n")
-                f.write("local_port = {}\n".format(local_port))
-                f.write("remote_port = {}\n".format(remote_port))
-                f.write("group = Azumi{}\n".format(v2ray_number))
-                f.write("group_key = azumichwan\n")
-                f.write("health_check_type = tcp\n")
-                f.write("health_check_timeout_s = 3\n")
-                f.write("health_check_max_failed = 3\n")
-                f.write("health_check_interval_s = 10\n")
-                f.write("use_encryption = true\n")
-                f.write("use_compression = true\n")
-           
-        time.sleep(1)
-        print("Loadbalance port is 8443...")
-
-        service_name = "azumifrpc1{}".format(server_num)
-        frpc_path = "/root/frp/frpc{}.toml".format(server_num)
-
-        service_content = f'''[Unit]
-Description=frpc service
-After=network.target
-
-[Service]
-ExecStart=/root/frp/./frpc -c {frpc_path}
-Restart=always
-RestartSec=7201
-User=root
-
-[Install]
-WantedBy=multi-user.target'''
-
-        service_path = "/etc/systemd/system/{}.service".format(service_name)
-
-        with open(service_path, "w") as f:
-            f.write(service_content)
-
-        os.system("systemctl daemon-reload")
-        os.system("systemctl enable {}".format(service_name))
-        os.system("systemctl restart {}".format(service_name))
-        display_checkmark("\033[92mFRP Service Started!\033[0m")
-
-    num_v2ray_instances = num_iran_servers * num_groups
-    
-    last_v2ray_number = starting_v2ray_number + num_v2ray_instances
-
-    print("Use the last V2ray number for configuring the next kharej server.")
-    print("+--------------------------------------------------+")
-    print("|   Number of Load Balance Groups: {}              |".format(num_groups))
-    print("|   Total V2Ray Instances Created: {}              |".format(num_v2ray_instances))
-    print("|   \033[92mLast V2Ray Number: {}\033[0m                          |".format(last_v2ray_number))
-    print("+--------------------------------------------------+")
-
-def i10kharej_l66():
-    os.system("clear")
-    clear_c()
-    print('\033[92m ^ ^\033[0m')
-    print('\033[92m(\033[91mO,O\033[92m)\033[0m')
-    print('\033[92m(   ) \033[96mKharej \033[92m[6]\033[94m LocalIP\033[93m Method \033[0m')
-    print('\033[92m "-"\033[93m══════════════════════════\033[0m')
-    display_logo2()
-    print("\033[93m╭─────────────────────────────────────────────────────────────────────────────────────────────────────╮")
-    print("\033[96m  Since we are using Loadblance, you should specify how many loadbalance group you want")
-    print("\033[97m  For example : if you have 2 config with different port, you create 2 loadbalance groups")
-    print("\033[92m  Then you should specify how many IRAN server you have")
-    print("\033[93m  Then based on that, you should enter Local & Remote port for each IRAN server")
-    print("\033[96m  For example : i have 2 iran servers. i also have 2 configs with different ports on the kahrej server")
-    print("\033[93m  I create 2 loadbalance groups and for each loadbalance group, i specify local and remote ports")
-    print("\033[92m  I also need to do the same thing for the next iran server since i have 2 iran servers.")
-    print("\033[93m╰─────────────────────────────────────────────────────────────────────────────────────────────────────╯\033[0m")
-    display_notification("\033[93mConfiguring \033[96mKharej \033[92m[6]\033[93m...\033[0m")
-    print("\033[93m╭───────────────────────────────────────────────────────────────────────────────────────────╮") 
-    num_groups = int(input("\033[93mEnter the number of \033[92mloadbalance groups\033[96m [For each different port, there should be a group\033[92m]: \033[0m"))
-    print("\033[93m───────────────────────────────────────────────────────────────────────────────────────\033[0m")
-    num_iran_servers = int(input("\033[93mEnter the number of \033[92mIRAN\033[93m servers \033[96m[Max : 2]\033[93m:\033[0m "))
-    starting_v2ray_number = int(input("\033[93mEnter the Starting \033[92mV2Ray number\033[93m:\033[0m "))
-    groups = []
-    for i in range(num_groups):
-        group_name = "Loadbalance Group {}".format(starting_v2ray_number + i)
-        group = {"name": group_name}
-        groups.append(group)
-
-    time.sleep(1)
-
-    for server_num in range(1, num_iran_servers + 1):
-        frpc_path = "frp/frpc{}.toml".format(server_num)
-        if os.path.exists(frpc_path):
-            os.remove(frpc_path)
-
-    frpc1_path = "frp/frpc1.toml"
-    if not os.path.exists(frpc1_path):
-        with open(frpc1_path, "w") as f:
-            f.write("[common]\n")
-            f.write("server_addr = SERVER_IP\n")
-            server_port = input("\033[93mEnter \033[92mTunnel port\033[93m (default 443): \033[0m")
-            if not server_port:
-                server_port = "443"
-            f.write("server_port = {}\n".format(server_port))
-            f.write("vhost_https_port = 8443\n")
-            f.write("transport.tls.disable_custom_tls_first_byte = false\n")
-            f.write("token = azumi\n")
-
-    for server_num in range(2, num_iran_servers + 1):
-        frpc_path = "frp/frpc{}.toml".format(server_num)
-        shutil.copyfile(frpc1_path, frpc_path)
-
-    for server_num in range(1, num_iran_servers + 1):
-        iran_ipv6 = input("\033[93mEnter \033[92mIRAN IPV4/IPv6 \033[93maddress for Server \033[92m{}:\033[0m ".format(server_num))
-
-        frpc_path = "frp/frpc{}.toml".format(server_num)
-
-        with open(frpc_path, "w") as f:
-            f.write("[common]\n")
-            f.write("server_addr = {}\n".format(iran_ipv6))
-            f.write("server_port = {}\n".format(server_port))
-            f.write("vhost_https_port = 8443\n")
-            f.write("transport.tls.disable_custom_tls_first_byte = false\n")
-            f.write("token = azumi\n")
-
-        for group_index, group in enumerate(groups):
-            group_name = group["name"]
-            local_port = input("\033[93mEnter the \033[92mLocal\033[93m Port for \033[92m{}\033[93m:\033[0m ".format(group_name))
-            remote_port = input("\033[93mEnter the \033[92mRemote\033[93m Port for \033[92m{}\033[93m:\033[0m ".format(group_name))
-            print("\033[93m───────────────────────────────────────────────────────────────────────────────────────\033[0m")
-
-            v2ray_number = starting_v2ray_number + (server_num - 1) * len(groups) + group_index
-
-            with open(frpc_path, "a") as f:
-                f.write("\n")
-                f.write("[v2ray{}]\n".format(v2ray_number))
-                f.write("type = tcp\n")
-                f.write("local_ip = 127.0.0.1\n")
-                f.write("local_port = {}\n".format(local_port))
-                f.write("remote_port = {}\n".format(remote_port))
-                f.write("group = Azumi{}\n".format(v2ray_number))
-                f.write("group_key = azumichwan\n")
-                f.write("health_check_type = tcp\n")
-                f.write("health_check_timeout_s = 3\n")
-                f.write("health_check_max_failed = 3\n")
-                f.write("health_check_interval_s = 10\n")
-                f.write("use_encryption = true\n")
-                f.write("use_compression = true\n")
-           
-        time.sleep(1)
-        print("Loadbalance port is 8443...")
-
-        service_name = "azumifrpc1{}".format(server_num)
-        frpc_path = "/root/frp/frpc{}.toml".format(server_num)
-
-        service_content = f'''[Unit]
-Description=frpc service
-After=network.target
-
-[Service]
-ExecStart=/root/frp/./frpc -c {frpc_path}
-Restart=always
-RestartSec=7201
-User=root
-
-[Install]
-WantedBy=multi-user.target'''
-
-        service_path = "/etc/systemd/system/{}.service".format(service_name)
-
-        with open(service_path, "w") as f:
-            f.write(service_content)
-
-        os.system("systemctl daemon-reload")
-        os.system("systemctl enable {}".format(service_name))
-        os.system("systemctl restart {}".format(service_name))
-        display_checkmark("\033[92mFRP Service Started!\033[0m")
-
-    num_v2ray_instances = num_iran_servers * num_groups
-    
-    last_v2ray_number = starting_v2ray_number + num_v2ray_instances
-
-    print("Use the last V2ray number for configuring the next kharej server.")
-    print("+--------------------------------------------------+")
-    print("|   Number of Load Balance Groups: {}              |".format(num_groups))
-    print("|   Total V2Ray Instances Created: {}              |".format(num_v2ray_instances))
-    print("|   \033[92mLast V2Ray Number: {}\033[0m                          |".format(last_v2ray_number))
-    print("+--------------------------------------------------+")
-
-def i10kharej_l67():
-    os.system("clear")
-    clear_c()
-    print('\033[92m ^ ^\033[0m')
-    print('\033[92m(\033[91mO,O\033[92m)\033[0m')
-    print('\033[92m(   ) \033[96mKharej \033[92m[7]\033[94m LocalIP\033[93m Method \033[0m')
-    print('\033[92m "-"\033[93m══════════════════════════\033[0m')
-    display_logo2()
-    print("\033[93m╭─────────────────────────────────────────────────────────────────────────────────────────────────────╮")
-    print("\033[96m  Since we are using Loadblance, you should specify how many loadbalance group you want")
-    print("\033[97m  For example : if you have 2 config with different port, you create 2 loadbalance groups")
-    print("\033[92m  Then you should specify how many IRAN server you have")
-    print("\033[93m  Then based on that, you should enter Local & Remote port for each IRAN server")
-    print("\033[96m  For example : i have 2 iran servers. i also have 2 configs with different ports on the kahrej server")
-    print("\033[93m  I create 2 loadbalance groups and for each loadbalance group, i specify local and remote ports")
-    print("\033[92m  I also need to do the same thing for the next iran server since i have 2 iran servers.")
-    print("\033[93m╰─────────────────────────────────────────────────────────────────────────────────────────────────────╯\033[0m")
-    display_notification("\033[93mConfiguring \033[96mKharej \033[92m[7]\033[93m...\033[0m")
-    print("\033[93m╭───────────────────────────────────────────────────────────────────────────────────────────╮") 
-    num_groups = int(input("\033[93mEnter the number of \033[92mloadbalance groups\033[96m [For each different port, there should be a group\033[92m]: \033[0m"))
-    print("\033[93m───────────────────────────────────────────────────────────────────────────────────────\033[0m")
-    num_iran_servers = int(input("\033[93mEnter the number of \033[92mIRAN\033[93m servers \033[96m[Max : 2]\033[93m:\033[0m "))
-    starting_v2ray_number = int(input("\033[93mEnter the Starting \033[92mV2Ray number\033[93m:\033[0m "))
-    groups = []
-    for i in range(num_groups):
-        group_name = "Loadbalance Group {}".format(starting_v2ray_number + i)
-        group = {"name": group_name}
-        groups.append(group)
-
-    time.sleep(1)
-
-    for server_num in range(1, num_iran_servers + 1):
-        frpc_path = "frp/frpc{}.toml".format(server_num)
-        if os.path.exists(frpc_path):
-            os.remove(frpc_path)
-
-    frpc1_path = "frp/frpc1.toml"
-    if not os.path.exists(frpc1_path):
-        with open(frpc1_path, "w") as f:
-            f.write("[common]\n")
-            f.write("server_addr = SERVER_IP\n")
-            server_port = input("\033[93mEnter \033[92mTunnel port\033[93m (default 443): \033[0m")
-            if not server_port:
-                server_port = "443"
-            f.write("server_port = {}\n".format(server_port))
-            f.write("vhost_https_port = 8443\n")
-            f.write("transport.tls.disable_custom_tls_first_byte = false\n")
-            f.write("token = azumi\n")
-
-    for server_num in range(2, num_iran_servers + 1):
-        frpc_path = "frp/frpc{}.toml".format(server_num)
-        shutil.copyfile(frpc1_path, frpc_path)
-
-    for server_num in range(1, num_iran_servers + 1):
-        iran_ipv6 = input("\033[93mEnter \033[92mIRAN IPV4/IPv6 \033[93maddress for Server \033[92m{}:\033[0m ".format(server_num))
-
-        frpc_path = "frp/frpc{}.toml".format(server_num)
-
-        with open(frpc_path, "w") as f:
-            f.write("[common]\n")
-            f.write("server_addr = {}\n".format(iran_ipv6))
-            f.write("server_port = {}\n".format(server_port))
-            f.write("vhost_https_port = 8443\n")
-            f.write("transport.tls.disable_custom_tls_first_byte = false\n")
-            f.write("token = azumi\n")
-
-        for group_index, group in enumerate(groups):
-            group_name = group["name"]
-            local_port = input("\033[93mEnter the \033[92mLocal\033[93m Port for \033[92m{}\033[93m:\033[0m ".format(group_name))
-            remote_port = input("\033[93mEnter the \033[92mRemote\033[93m Port for \033[92m{}\033[93m:\033[0m ".format(group_name))
-            print("\033[93m───────────────────────────────────────────────────────────────────────────────────────\033[0m")
-
-            v2ray_number = starting_v2ray_number + (server_num - 1) * len(groups) + group_index
-
-            with open(frpc_path, "a") as f:
-                f.write("\n")
-                f.write("[v2ray{}]\n".format(v2ray_number))
-                f.write("type = tcp\n")
-                f.write("local_ip = 127.0.0.1\n")
-                f.write("local_port = {}\n".format(local_port))
-                f.write("remote_port = {}\n".format(remote_port))
-                f.write("group = Azumi{}\n".format(v2ray_number))
-                f.write("group_key = azumichwan\n")
-                f.write("health_check_type = tcp\n")
-                f.write("health_check_timeout_s = 3\n")
-                f.write("health_check_max_failed = 3\n")
-                f.write("health_check_interval_s = 10\n")
-                f.write("use_encryption = true\n")
-                f.write("use_compression = true\n")
-           
-        time.sleep(1)
-        print("Loadbalance port is 8443...")
-
-        service_name = "azumifrpc1{}".format(server_num)
-        frpc_path = "/root/frp/frpc{}.toml".format(server_num)
-
-        service_content = f'''[Unit]
-Description=frpc service
-After=network.target
-
-[Service]
-ExecStart=/root/frp/./frpc -c {frpc_path}
-Restart=always
-RestartSec=7201
-User=root
-
-[Install]
-WantedBy=multi-user.target'''
-
-        service_path = "/etc/systemd/system/{}.service".format(service_name)
-
-        with open(service_path, "w") as f:
-            f.write(service_content)
-
-        os.system("systemctl daemon-reload")
-        os.system("systemctl enable {}".format(service_name))
-        os.system("systemctl restart {}".format(service_name))
-        display_checkmark("\033[92mFRP Service Started!\033[0m")
-
-    num_v2ray_instances = num_iran_servers * num_groups
-    
-    last_v2ray_number = starting_v2ray_number + num_v2ray_instances
-
-    print("Use the last V2ray number for configuring the next kharej server.")
-    print("+--------------------------------------------------+")
-    print("|   Number of Load Balance Groups: {}              |".format(num_groups))
-    print("|   Total V2Ray Instances Created: {}              |".format(num_v2ray_instances))
-    print("|   \033[92mLast V2Ray Number: {}\033[0m                          |".format(last_v2ray_number))
-    print("+--------------------------------------------------+")
-
-def i10kharej_l68():
-    os.system("clear")
-    clear_c()
-    print('\033[92m ^ ^\033[0m')
-    print('\033[92m(\033[91mO,O\033[92m)\033[0m')
-    print('\033[92m(   ) \033[96mKharej \033[92m[8]\033[94m LocalIP\033[93m Method \033[0m')
-    print('\033[92m "-"\033[93m══════════════════════════\033[0m')
-    display_logo2()
-    print("\033[93m╭─────────────────────────────────────────────────────────────────────────────────────────────────────╮")
-    print("\033[96m  Since we are using Loadblance, you should specify how many loadbalance group you want")
-    print("\033[97m  For example : if you have 2 config with different port, you create 2 loadbalance groups")
-    print("\033[92m  Then you should specify how many IRAN server you have")
-    print("\033[93m  Then based on that, you should enter Local & Remote port for each IRAN server")
-    print("\033[96m  For example : i have 2 iran servers. i also have 2 configs with different ports on the kahrej server")
-    print("\033[93m  I create 2 loadbalance groups and for each loadbalance group, i specify local and remote ports")
-    print("\033[92m  I also need to do the same thing for the next iran server since i have 2 iran servers.")
-    print("\033[93m╰─────────────────────────────────────────────────────────────────────────────────────────────────────╯\033[0m")
-    display_notification("\033[93mConfiguring \033[96mKharej \033[92m[8]\033[93m...\033[0m")
-    print("\033[93m╭───────────────────────────────────────────────────────────────────────────────────────────╮") 
-    num_groups = int(input("\033[93mEnter the number of \033[92mloadbalance groups\033[96m [For each different port, there should be a group\033[92m]: \033[0m"))
-    print("\033[93m───────────────────────────────────────────────────────────────────────────────────────\033[0m")
-    num_iran_servers = int(input("\033[93mEnter the number of \033[92mIRAN\033[93m servers \033[96m[Max : 2]\033[93m:\033[0m "))
-    starting_v2ray_number = int(input("\033[93mEnter the Starting \033[92mV2Ray number\033[93m:\033[0m "))
-    groups = []
-    for i in range(num_groups):
-        group_name = "Loadbalance Group {}".format(starting_v2ray_number + i)
-        group = {"name": group_name}
-        groups.append(group)
-
-    time.sleep(1)
-
-    for server_num in range(1, num_iran_servers + 1):
-        frpc_path = "frp/frpc{}.toml".format(server_num)
-        if os.path.exists(frpc_path):
-            os.remove(frpc_path)
-
-    frpc1_path = "frp/frpc1.toml"
-    if not os.path.exists(frpc1_path):
-        with open(frpc1_path, "w") as f:
-            f.write("[common]\n")
-            f.write("server_addr = SERVER_IP\n")
-            server_port = input("\033[93mEnter \033[92mTunnel port\033[93m (default 443): \033[0m")
-            if not server_port:
-                server_port = "443"
-            f.write("server_port = {}\n".format(server_port))
-            f.write("vhost_https_port = 8443\n")
-            f.write("transport.tls.disable_custom_tls_first_byte = false\n")
-            f.write("token = azumi\n")
-
-    for server_num in range(2, num_iran_servers + 1):
-        frpc_path = "frp/frpc{}.toml".format(server_num)
-        shutil.copyfile(frpc1_path, frpc_path)
-
-    for server_num in range(1, num_iran_servers + 1):
-        iran_ipv6 = input("\033[93mEnter \033[92mIRAN IPV4/IPv6 \033[93maddress for Server \033[92m{}:\033[0m ".format(server_num))
-
-        frpc_path = "frp/frpc{}.toml".format(server_num)
-
-        with open(frpc_path, "w") as f:
-            f.write("[common]\n")
-            f.write("server_addr = {}\n".format(iran_ipv6))
-            f.write("server_port = {}\n".format(server_port))
-            f.write("vhost_https_port = 8443\n")
-            f.write("transport.tls.disable_custom_tls_first_byte = false\n")
-            f.write("token = azumi\n")
-
-        for group_index, group in enumerate(groups):
-            group_name = group["name"]
-            local_port = input("\033[93mEnter the \033[92mLocal\033[93m Port for \033[92m{}\033[93m:\033[0m ".format(group_name))
-            remote_port = input("\033[93mEnter the \033[92mRemote\033[93m Port for \033[92m{}\033[93m:\033[0m ".format(group_name))
-            print("\033[93m───────────────────────────────────────────────────────────────────────────────────────\033[0m")
-
-            v2ray_number = starting_v2ray_number + (server_num - 1) * len(groups) + group_index
-
-            with open(frpc_path, "a") as f:
-                f.write("\n")
-                f.write("[v2ray{}]\n".format(v2ray_number))
-                f.write("type = tcp\n")
-                f.write("local_ip = 127.0.0.1\n")
-                f.write("local_port = {}\n".format(local_port))
-                f.write("remote_port = {}\n".format(remote_port))
-                f.write("group = Azumi{}\n".format(v2ray_number))
-                f.write("group_key = azumichwan\n")
-                f.write("health_check_type = tcp\n")
-                f.write("health_check_timeout_s = 3\n")
-                f.write("health_check_max_failed = 3\n")
-                f.write("health_check_interval_s = 10\n")
-                f.write("use_encryption = true\n")
-                f.write("use_compression = true\n")
-            
-        time.sleep(1)
-        print("Loadbalance port is 8443...")
-
-        service_name = "azumifrpc1{}".format(server_num)
-        frpc_path = "/root/frp/frpc{}.toml".format(server_num)
-
-        service_content = f'''[Unit]
-Description=frpc service
-After=network.target
-
-[Service]
-ExecStart=/root/frp/./frpc -c {frpc_path}
-Restart=always
-RestartSec=7201
-User=root
-
-[Install]
-WantedBy=multi-user.target'''
-
-        service_path = "/etc/systemd/system/{}.service".format(service_name)
-
-        with open(service_path, "w") as f:
-            f.write(service_content)
-
-        os.system("systemctl daemon-reload")
-        os.system("systemctl enable {}".format(service_name))
-        os.system("systemctl restart {}".format(service_name))
-        display_checkmark("\033[92mFRP Service Started!\033[0m")
-
-    num_v2ray_instances = num_iran_servers * num_groups
-    
-    last_v2ray_number = starting_v2ray_number + num_v2ray_instances
-
-    print("Use the last V2ray number for configuring the next kharej server.")
-    print("+--------------------------------------------------+")
-    print("|   Number of Load Balance Groups: {}              |".format(num_groups))
-    print("|   Total V2Ray Instances Created: {}              |".format(num_v2ray_instances))
-    print("|   \033[92mLast V2Ray Number: {}\033[0m                          |".format(last_v2ray_number))
-    print("+--------------------------------------------------+")
-
-def i10kharej_l69():
-    os.system("clear")
-    clear_c()
-    print('\033[92m ^ ^\033[0m')
-    print('\033[92m(\033[91mO,O\033[92m)\033[0m')
-    print('\033[92m(   ) \033[96mKharej \033[92m[9]\033[94m LocalIP\033[93m Method \033[0m')
-    print('\033[92m "-"\033[93m══════════════════════════\033[0m')
-    display_logo2()
-    print("\033[93m╭─────────────────────────────────────────────────────────────────────────────────────────────────────╮")
-    print("\033[96m  Since we are using Loadblance, you should specify how many loadbalance group you want")
-    print("\033[97m  For example : if you have 2 config with different port, you create 2 loadbalance groups")
-    print("\033[92m  Then you should specify how many IRAN server you have")
-    print("\033[93m  Then based on that, you should enter Local & Remote port for each IRAN server")
-    print("\033[96m  For example : i have 2 iran servers. i also have 2 configs with different ports on the kahrej server")
-    print("\033[93m  I create 2 loadbalance groups and for each loadbalance group, i specify local and remote ports")
-    print("\033[92m  I also need to do the same thing for the next iran server since i have 2 iran servers.")
-    print("\033[93m╰─────────────────────────────────────────────────────────────────────────────────────────────────────╯\033[0m")
-    display_notification("\033[93mConfiguring \033[96mKharej \033[92m[9]\033[93m...\033[0m")
-    print("\033[93m╭───────────────────────────────────────────────────────────────────────────────────────────╮") 
-    num_groups = int(input("\033[93mEnter the number of \033[92mloadbalance groups\033[96m [For each different port, there should be a group\033[92m]: \033[0m"))
-    print("\033[93m───────────────────────────────────────────────────────────────────────────────────────\033[0m")
-    num_iran_servers = int(input("\033[93mEnter the number of \033[92mIRAN\033[93m servers \033[96m[Max : 2]\033[93m:\033[0m "))
-    starting_v2ray_number = int(input("\033[93mEnter the Starting \033[92mV2Ray number\033[93m:\033[0m "))
-    groups = []
-    for i in range(num_groups):
-        group_name = "Loadbalance Group {}".format(starting_v2ray_number + i)
-        group = {"name": group_name}
-        groups.append(group)
-
-    time.sleep(1)
-
-    for server_num in range(1, num_iran_servers + 1):
-        frpc_path = "frp/frpc{}.toml".format(server_num)
-        if os.path.exists(frpc_path):
-            os.remove(frpc_path)
-
-    frpc1_path = "frp/frpc1.toml"
-    if not os.path.exists(frpc1_path):
-        with open(frpc1_path, "w") as f:
-            f.write("[common]\n")
-            f.write("server_addr = SERVER_IP\n")
-            server_port = input("\033[93mEnter \033[92mTunnel port\033[93m (default 443): \033[0m")
-            if not server_port:
-                server_port = "443"
-            f.write("server_port = {}\n".format(server_port))
-            f.write("vhost_https_port = 8443\n")
-            f.write("transport.tls.disable_custom_tls_first_byte = false\n")
-            f.write("token = azumi\n")
-
-    for server_num in range(2, num_iran_servers + 1):
-        frpc_path = "frp/frpc{}.toml".format(server_num)
-        shutil.copyfile(frpc1_path, frpc_path)
-
-    for server_num in range(1, num_iran_servers + 1):
-        iran_ipv6 = input("\033[93mEnter \033[92mIRAN IPV4/IPv6 \033[93maddress for Server \033[92m{}:\033[0m ".format(server_num))
-
-        frpc_path = "frp/frpc{}.toml".format(server_num)
-
-        with open(frpc_path, "w") as f:
-            f.write("[common]\n")
-            f.write("server_addr = {}\n".format(iran_ipv6))
-            f.write("server_port = {}\n".format(server_port))
-            f.write("vhost_https_port = 8443\n")
-            f.write("transport.tls.disable_custom_tls_first_byte = false\n")
-            f.write("token = azumi\n")
-
-        for group_index, group in enumerate(groups):
-            group_name = group["name"]
-            local_port = input("\033[93mEnter the \033[92mLocal\033[93m Port for \033[92m{}\033[93m:\033[0m ".format(group_name))
-            remote_port = input("\033[93mEnter the \033[92mRemote\033[93m Port for \033[92m{}\033[93m:\033[0m ".format(group_name))
-            print("\033[93m───────────────────────────────────────────────────────────────────────────────────────\033[0m")
-
-            v2ray_number = starting_v2ray_number + (server_num - 1) * len(groups) + group_index
-
-            with open(frpc_path, "a") as f:
-                f.write("\n")
-                f.write("[v2ray{}]\n".format(v2ray_number))
-                f.write("type = tcp\n")
-                f.write("local_ip = 127.0.0.1\n")
-                f.write("local_port = {}\n".format(local_port))
-                f.write("remote_port = {}\n".format(remote_port))
-                f.write("group = Azumi{}\n".format(v2ray_number))
-                f.write("group_key = azumichwan\n")
-                f.write("health_check_type = tcp\n")
-                f.write("health_check_timeout_s = 3\n")
-                f.write("health_check_max_failed = 3\n")
-                f.write("health_check_interval_s = 10\n")
-                f.write("use_encryption = true\n")
-                f.write("use_compression = true\n")
-          
-        time.sleep(1)
-        print("Loadbalance port is 8443...")
-
-        service_name = "azumifrpc1{}".format(server_num)
-        frpc_path = "/root/frp/frpc{}.toml".format(server_num)
-
-        service_content = f'''[Unit]
-Description=frpc service
-After=network.target
-
-[Service]
-ExecStart=/root/frp/./frpc -c {frpc_path}
-Restart=always
-RestartSec=7201
-User=root
-
-[Install]
-WantedBy=multi-user.target'''
-
-        service_path = "/etc/systemd/system/{}.service".format(service_name)
-
-        with open(service_path, "w") as f:
-            f.write(service_content)
-
-        os.system("systemctl daemon-reload")
-        os.system("systemctl enable {}".format(service_name))
-        os.system("systemctl restart {}".format(service_name))
-        display_checkmark("\033[92mFRP Service Started!\033[0m")
-
-    num_v2ray_instances = num_iran_servers * num_groups
-    
-    last_v2ray_number = starting_v2ray_number + num_v2ray_instances
-
-    print("Use the last V2ray number for configuring the next kharej server.")
-    print("+--------------------------------------------------+")
-    print("|   Number of Load Balance Groups: {}              |".format(num_groups))
-    print("|   Total V2Ray Instances Created: {}              |".format(num_v2ray_instances))
-    print("|   \033[92mLast V2Ray Number: {}\033[0m                          |".format(last_v2ray_number))
-    print("+--------------------------------------------------+")
-
-def i10kharej_l70():
-    os.system("clear")
-    clear_c()
-    print('\033[92m ^ ^\033[0m')
-    print('\033[92m(\033[91mO,O\033[92m)\033[0m')
-    print('\033[92m(   ) \033[96mKharej \033[92m[10]\033[94m LocalIP\033[93m Method \033[0m')
-    print('\033[92m "-"\033[93m══════════════════════════\033[0m')
-    display_logo2()
-    print("\033[93m╭─────────────────────────────────────────────────────────────────────────────────────────────────────╮")
-    print("\033[96m  Since we are using Loadblance, you should specify how many loadbalance group you want")
-    print("\033[97m  For example : if you have 2 config with different port, you create 2 loadbalance groups")
-    print("\033[92m  Then you should specify how many IRAN server you have")
-    print("\033[93m  Then based on that, you should enter Local & Remote port for each IRAN server")
-    print("\033[96m  For example : i have 2 iran servers. i also have 2 configs with different ports on the kahrej server")
-    print("\033[93m  I create 2 loadbalance groups and for each loadbalance group, i specify local and remote ports")
-    print("\033[92m  I also need to do the same thing for the next iran server since i have 2 iran servers.")
-    print("\033[93m╰─────────────────────────────────────────────────────────────────────────────────────────────────────╯\033[0m")
-    display_notification("\033[93mConfiguring \033[96mKharej \033[92m[10]\033[93m...\033[0m")
-    print("\033[93m╭───────────────────────────────────────────────────────────────────────────────────────────╮") 
-    num_groups = int(input("\033[93mEnter the number of \033[92mloadbalance groups\033[96m [For each different port, there should be a group\033[92m]: \033[0m"))
-    print("\033[93m───────────────────────────────────────────────────────────────────────────────────────\033[0m")
-    num_iran_servers = int(input("\033[93mEnter the number of \033[92mIRAN\033[93m servers \033[96m[Max : 2]\033[93m:\033[0m "))
-    starting_v2ray_number = int(input("\033[93mEnter the Starting \033[92mV2Ray number\033[93m:\033[0m "))
-    groups = []
-    for i in range(num_groups):
-        group_name = "Loadbalance Group {}".format(starting_v2ray_number + i)
-        group = {"name": group_name}
-        groups.append(group)
-
-    time.sleep(1)
-
-    for server_num in range(1, num_iran_servers + 1):
-        frpc_path = "frp/frpc{}.toml".format(server_num)
-        if os.path.exists(frpc_path):
-            os.remove(frpc_path)
-
-    frpc1_path = "frp/frpc1.toml"
-    if not os.path.exists(frpc1_path):
-        with open(frpc1_path, "w") as f:
-            f.write("[common]\n")
-            f.write("server_addr = SERVER_IP\n")
-            server_port = input("\033[93mEnter \033[92mTunnel port\033[93m (default 443): \033[0m")
-            if not server_port:
-                server_port = "443"
-            f.write("server_port = {}\n".format(server_port))
-            f.write("vhost_https_port = 8443\n")
-            f.write("transport.tls.disable_custom_tls_first_byte = false\n")
-            f.write("token = azumi\n")
-
-    for server_num in range(2, num_iran_servers + 1):
-        frpc_path = "frp/frpc{}.toml".format(server_num)
-        shutil.copyfile(frpc1_path, frpc_path)
-
-    for server_num in range(1, num_iran_servers + 1):
-        iran_ipv6 = input("\033[93mEnter \033[92mIRAN IPV4/IPv6 \033[93maddress for Server \033[92m{}:\033[0m ".format(server_num))
-
-        frpc_path = "frp/frpc{}.toml".format(server_num)
-
-        with open(frpc_path, "w") as f:
-            f.write("[common]\n")
-            f.write("server_addr = {}\n".format(iran_ipv6))
-            f.write("server_port = {}\n".format(server_port))
-            f.write("vhost_https_port = 8443\n")
-            f.write("transport.tls.disable_custom_tls_first_byte = false\n")
-            f.write("token = azumi\n")
-
-        for group_index, group in enumerate(groups):
-            group_name = group["name"]
-            local_port = input("\033[93mEnter the \033[92mLocal\033[93m Port for \033[92m{}\033[93m:\033[0m ".format(group_name))
-            remote_port = input("\033[93mEnter the \033[92mRemote\033[93m Port for \033[92m{}\033[93m:\033[0m ".format(group_name))
-            print("\033[93m───────────────────────────────────────────────────────────────────────────────────────\033[0m")
-
-            v2ray_number = starting_v2ray_number + (server_num - 1) * len(groups) + group_index
-
-            with open(frpc_path, "a") as f:
-                f.write("\n")
-                f.write("[v2ray{}]\n".format(v2ray_number))
-                f.write("type = tcp\n")
-                f.write("local_ip = 127.0.0.1\n")
-                f.write("local_port = {}\n".format(local_port))
-                f.write("remote_port = {}\n".format(remote_port))
-                f.write("group = Azumi{}\n".format(v2ray_number))
-                f.write("group_key = azumichwan\n")
-                f.write("health_check_type = tcp\n")
-                f.write("health_check_timeout_s = 3\n")
-                f.write("health_check_max_failed = 3\n")
-                f.write("health_check_interval_s = 10\n")
-                f.write("use_encryption = true\n")
-                f.write("use_compression = true\n")
-          
-        time.sleep(1)
-        print("Loadbalance port is 8443...")
-
-        service_name = "azumifrpc1{}".format(server_num)
-        frpc_path = "/root/frp/frpc{}.toml".format(server_num)
-
-        service_content = f'''[Unit]
-Description=frpc service
-After=network.target
-
-[Service]
-ExecStart=/root/frp/./frpc -c {frpc_path}
-Restart=always
-RestartSec=7201
-User=root
-
-[Install]
-WantedBy=multi-user.target'''
-
-        service_path = "/etc/systemd/system/{}.service".format(service_name)
-
-        with open(service_path, "w") as f:
-            f.write(service_content)
-
-        os.system("systemctl daemon-reload")
-        os.system("systemctl enable {}".format(service_name))
-        os.system("systemctl restart {}".format(service_name))
-        display_checkmark("\033[92mFRP Service Started!\033[0m")
-
-    num_v2ray_instances = num_iran_servers * num_groups
-    
-    last_v2ray_number = starting_v2ray_number + num_v2ray_instances
-
-    print("Use the last V2ray number for configuring the next kharej server.")
-    print("+--------------------------------------------------+")
-    print("|   Number of Load Balance Groups: {}              |".format(num_groups))
-    print("|   Total V2Ray Instances Created: {}              |".format(num_v2ray_instances))
-    print("|   \033[92mLast V2Ray Number: {}\033[0m                          |".format(last_v2ray_number))
-    print("+--------------------------------------------------+")
-        
-def i3iran_f():
-    os.system("clear")
-    clear_c()
-    print('\033[92m ^ ^\033[0m')
-    print('\033[92m(\033[91mO,O\033[92m)\033[0m')
-    print('\033[92m(   ) \033[92mIRAN \033[93mServer \033[92m[1] \033[0m')
-    print('\033[92m "-"\033[93m══════════════════════════\033[0m')
-    display_logo2()
-    print("\033[93m╭───────────────────────────────────────────────────────────────────────────────────────────────────╮")
-    print("\033[92m  Configure IRAN server first and then Kharej server")
-    print("\033[93m  If you have different ports on Kharej server, Specify Port range for local and remot inputs")
-    print("\033[96m  For example, if you have 2 configs with 8080 and 8081 ports, you specify 8080,8081 for local/remote ")
-    print("\033[93m╰───────────────────────────────────────────────────────────────────────────────────────────────────╯\033[0m")
-    display_notification("\033[93mConfiguring...\033[0m")
-    print("\033[93m╭───────────────────────────────────────────────────────────────────────────────────────────╮") 
-    local_ports = input("\033[93mEnter the \033[92mlocal\033[93m ports (\033[0mcomma-separated\033[93m): \033[0m")
-    remote_ports = input("\033[93mEnter the \033[92mremote\033[93m ports (\033[0mcomma-separated\033[93m): \033[0m")
-
-    local_ports_list = local_ports.replace(" ", ",").split(",")
-    remote_ports_list = remote_ports.replace(" ", ",").split(",")
-    print("\033[93m╰───────────────────────────────────────────────────────────────────────────────────────────╯\033[0m")
-
-    local_ports_list = [port.strip() for port in local_ports_list]
-    remote_ports_list = [port.strip() for port in remote_ports_list]
-
-    num_instances = len(local_ports_list)
-
-    if os.path.exists("frp/frps.toml"):
-        os.remove("frp/frps.toml")
-
-    with open("frp/frps.toml", "w") as f:
-        f.write("[common]\n")
-        bind_port = input("\033[93mEnter \033[92mTunnel Port\033[93m (default 443): \033[0m")
-        if not bind_port:
-            bind_port = "443"
-        f.write("bind_port = {}\n".format(bind_port))
-        f.write("vhost_https_port = 8443\n")
-        f.write("transport.tls.disable_custom_tls_first_byte = false\n")
-        f.write("token = azumi\n")
-        f.write("\n")
-        f.write("[v2ray]\n") 
-        f.write("type = tcp\n")
-        f.write("local_port = {}\n".format(",".join(local_ports_list)))
-        f.write("remote_port = {}\n".format(",".join(remote_ports_list)))
-        f.write("use_encryption = true\n")
-        f.write("use_compression = true\n")
-
-    display_checkmark("\033[92mIRAN configuration generated. Yours Truly, Azumi.\033[0m")
-
-
-    service_name = "azumifrps4"
-    frps_path = "/root/frp/frps.toml"
-
-    service_content = f'''[Unit]
-Description=frps service
-After=network.target
-
-[Service]
-ExecStart=/root/frp/./frps -c {frps_path}
-Restart=always
-RestartSec=7200
-User=root
-
-[Install]
-WantedBy=multi-user.target
-'''
-
-    service_path = "/etc/systemd/system/{}.service".format(service_name)
-
-    with open(service_path, "w") as f:
-        f.write(service_content)
-        
-    display_notification("\033[93mStarting FRP service...\033[0m")
-    os.system("systemctl daemon-reload")
-    os.system("systemctl enable {}".format(service_name))
-    os.system("systemctl restart {}".format(service_name))
-
-    display_checkmark("\033[92mFRP Service Started!\033[0m")
-    
-def i3iran_s():
-    os.system("clear")
-    clear_c()
-    print('\033[92m ^ ^\033[0m')
-    print('\033[92m(\033[91mO,O\033[92m)\033[0m')
-    print('\033[92m(   ) \033[92mIRAN \033[93mServer \033[92m[2] \033[0m')
-    print('\033[92m "-"\033[93m══════════════════════════\033[0m')
-    display_logo2()
-    print("\033[93m╭───────────────────────────────────────────────────────────────────────────────────────────────────╮")
-    print("\033[92m  Configure IRAN server first and then Kharej server")
-    print("\033[93m  If you have different ports on Kharej server, Specify Port range for local and remot inputs")
-    print("\033[96m  For example, if you have 2 configs with 8080 and 8081 ports, you specify 8080,8081 for local/remote ")
-    print("\033[93m╰───────────────────────────────────────────────────────────────────────────────────────────────────╯\033[0m")
-    display_notification("\033[93mConfiguring...\033[0m")
-    print("\033[93m╭───────────────────────────────────────────────────────────────────────────────────────────╮") 
-    local_ports = input("\033[93mEnter the \033[92mlocal\033[93m ports (\033[0mcomma-separated\033[93m): \033[0m")
-    remote_ports = input("\033[93mEnter the \033[92mremote\033[93m ports (\033[0mcomma-separated\033[93m): \033[0m")
-
-    local_ports_list = local_ports.replace(" ", ",").split(",")
-    remote_ports_list = remote_ports.replace(" ", ",").split(",")
-    print("\033[93m╰───────────────────────────────────────────────────────────────────────────────────────────╯\033[0m")
-
-    local_ports_list = [port.strip() for port in local_ports_list]
-    remote_ports_list = [port.strip() for port in remote_ports_list]
-
-    num_instances = len(local_ports_list)
-
-    if os.path.exists("frp/frps.toml"):
-        os.remove("frp/frps.toml")
-
-    with open("frp/frps.toml", "w") as f:
-        f.write("[common]\n")
-        bind_port = input("\033[93mEnter \033[92mTunnel Port\033[93m (default 443): \033[0m")
-        if not bind_port:
-            bind_port = "443"
-        f.write("bind_port = {}\n".format(bind_port))
-        f.write("vhost_https_port = 8443\n")
-        f.write("transport.tls.disable_custom_tls_first_byte = false\n")
-        f.write("token = azumi\n")
-        f.write("\n")
-        f.write("[v2ray]\n") 
-        f.write("type = tcp\n")
-        f.write("local_port = {}\n".format(",".join(local_ports_list)))
-        f.write("remote_port = {}\n".format(",".join(remote_ports_list)))
-        f.write("use_encryption = true\n")
-        f.write("use_compression = true\n")
-
-    display_checkmark("\033[92mIRAN configuration generated. Yours Truly, Azumi.\033[0m")
-
-
-    service_name = "azumifrps4"
-    frps_path = "/root/frp/frps.toml"
-
-    service_content = f'''[Unit]
-Description=frps service
-After=network.target
-
-[Service]
-ExecStart=/root/frp/./frps -c {frps_path}
-Restart=always
-RestartSec=7200
+RestartSec=10,800
 User=root
 
 [Install]
