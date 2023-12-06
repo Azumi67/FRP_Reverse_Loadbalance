@@ -172,31 +172,18 @@ def main_menu():
     except KeyboardInterrupt:
         display_error("\033[91m\nProgram interrupted. Exiting...\033[0m")
         sys.exit()
+	    
 def clear_c():
     script_path = '/etc/clear.sh'
     command = 'sync; echo 1 > /proc/sys/vm/drop_caches'
     script_content = f'#!/bin/sh\n{command}'
 
-    with open(script_path, 'w') as file:
-        file.write(script_content)
+    with open(script_path, 'w') as f:
+        f.write(script_content)
 
-    os.chmod(script_path, 0o755)
-
-    cron_command = script_path
-    cron_schedule = '0 */2 * * *'  # Executes every 2 hours
-
-    with open('/var/spool/cron/crontabs/root', 'r') as file:
-        existing_crontab = file.readlines()
-
-    filtered_crontab = [
-        line for line in existing_crontab if not line.endswith(cron_command + '\n')
-    ]
-
-    with open('/var/spool/cron/crontabs/root', 'w') as file:
-        file.writelines(filtered_crontab)
-
-    with open('/var/spool/cron/crontabs/root', 'a') as file:
-        file.write(f'{cron_schedule} {cron_command}\n')
+    cron_command = f'0 */2 * * * sh {script_path}'
+    os.system(f'(crontab -l | grep -v "{script_path}") | crontab -')
+    os.system(f'(crontab -l 2>/dev/null; echo "{cron_command}") | crontab -')
         
 def start_menu():
     os.system("clear")
