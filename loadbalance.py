@@ -2417,7 +2417,7 @@ WantedBy=multi-user.target
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
     num_v2ray_instances = len(groups)
-    last_v2ray_number = starting_v2ray_number + num_v2ray_instances 
+    last_v2ray_number = starting_v2ray_number + num_v2ray_instances -1
 
     print("Use the last V2ray number for configuring the next kharej server.")
     print("+--------------------------------------------------+")
@@ -2532,7 +2532,7 @@ WantedBy=multi-user.target
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
     num_v2ray_instances = len(groups)
-    last_v2ray_number = starting_v2ray_number + num_v2ray_instances 
+    last_v2ray_number = starting_v2ray_number + num_v2ray_instances -1
 
     print("Use the last V2ray number for configuring the next kharej server.")
     print("+--------------------------------------------------+")
@@ -2646,7 +2646,7 @@ WantedBy=multi-user.target
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
     num_v2ray_instances = len(groups)
-    last_v2ray_number = starting_v2ray_number + num_v2ray_instances 
+    last_v2ray_number = starting_v2ray_number + num_v2ray_instances -1
 
     print("Use the last V2ray number for configuring the next kharej server.")
     print("+--------------------------------------------------+")
@@ -2760,7 +2760,7 @@ WantedBy=multi-user.target
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
     num_v2ray_instances = len(groups)
-    last_v2ray_number = starting_v2ray_number + num_v2ray_instances 
+    last_v2ray_number = starting_v2ray_number + num_v2ray_instances -1
 
     print("Use the last V2ray number for configuring the next kharej server.")
     print("+--------------------------------------------------+")
@@ -2874,7 +2874,7 @@ WantedBy=multi-user.target
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
     num_v2ray_instances = len(groups)
-    last_v2ray_number = starting_v2ray_number + num_v2ray_instances 
+    last_v2ray_number = starting_v2ray_number + num_v2ray_instances -1
 
     print("Use the last V2ray number for configuring the next kharej server.")
     print("+--------------------------------------------------+")
@@ -2988,7 +2988,7 @@ WantedBy=multi-user.target
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
     num_v2ray_instances = len(groups)
-    last_v2ray_number = starting_v2ray_number + num_v2ray_instances 
+    last_v2ray_number = starting_v2ray_number + num_v2ray_instances -1
 
     print("Use the last V2ray number for configuring the next kharej server.")
     print("+--------------------------------------------------+")
@@ -3102,7 +3102,7 @@ WantedBy=multi-user.target
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
     num_v2ray_instances = len(groups)
-    last_v2ray_number = starting_v2ray_number + num_v2ray_instances 
+    last_v2ray_number = starting_v2ray_number + num_v2ray_instances -1
 
     print("Use the last V2ray number for configuring the next kharej server.")
     print("+--------------------------------------------------+")
@@ -3216,7 +3216,7 @@ WantedBy=multi-user.target
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
     num_v2ray_instances = len(groups)
-    last_v2ray_number = starting_v2ray_number + num_v2ray_instances 
+    last_v2ray_number = starting_v2ray_number + num_v2ray_instances -1
 
     print("Use the last V2ray number for configuring the next kharej server.")
     print("+--------------------------------------------------+")
@@ -3330,7 +3330,7 @@ WantedBy=multi-user.target
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
     num_v2ray_instances = len(groups)
-    last_v2ray_number = starting_v2ray_number + num_v2ray_instances 
+    last_v2ray_number = starting_v2ray_number + num_v2ray_instances -1
 
     print("Use the last V2ray number for configuring the next kharej server.")
     print("+--------------------------------------------------+")
@@ -3444,7 +3444,7 @@ WantedBy=multi-user.target
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
     num_v2ray_instances = len(groups)
-    last_v2ray_number = starting_v2ray_number + num_v2ray_instances 
+    last_v2ray_number = starting_v2ray_number + num_v2ray_instances -1
 
     print("Use the last V2ray number for configuring the next kharej server.")
     print("+--------------------------------------------------+")
@@ -3579,8 +3579,8 @@ def kharej1():
             kharej_ipv6 = input("\033[93mEnter \033[92mKharej\033[93m IPv6 address \033[92m{}\033[93m for \033[92m{}\033[93m: \033[0m".format(i, group_name))
             group["ipv6_addresses"].append(kharej_ipv6)
 
-        local_port = input("\033[93mEnter the \033[92mLocal\033[93m Port for \033[92m{}\033[93m: ".format(group_name))
-        remote_port = input("\033[93mEnter the \033[92mRemote\033[93m Port for \033[92m{}\033[93m: ".format(group_name))
+        local_port = input("\033[93mEnter the \033[92mLocal\033[93m Port for \033[92m{}\033[93m:\033[0m ".format(group_name))
+        remote_port = input("\033[93mEnter the \033[92mRemote\033[93m Port for \033[92m{}\033[93m:\033[0m ".format(group_name))
         print("\033[93m───────────────────────────────────────────────────────────────────────────────────────\033[0m")
 
         for i, kharej_ipv6 in enumerate(group["ipv6_addresses"]):
@@ -3635,7 +3635,7 @@ WantedBy=multi-user.target
 
 	
     num_v2ray_instances = len(groups)
-    last_v2ray_number = starting_v2ray_number + num_v2ray_instances 
+    last_v2ray_number = starting_v2ray_number + num_v2ray_instances -1
 
     print("Use the last V2ray number for configuring the next kharej server.")
     print("+--------------------------------------------------+")
@@ -3757,7 +3757,7 @@ WantedBy=multi-user.target
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
     num_v2ray_instances = len(groups)
-    last_v2ray_number = starting_v2ray_number + num_v2ray_instances 
+    last_v2ray_number = starting_v2ray_number + num_v2ray_instances -1
 
     print("Use the last V2ray number for configuring the next kharej server.")
     print("+--------------------------------------------------+")
@@ -3824,8 +3824,8 @@ def kharej3():
             kharej_ipv6 = input("\033[93mEnter \033[92mKharej\033[93m IPv6 address \033[92m{}\033[93m for \033[92m{}\033[93m: \033[0m".format(i, group_name))
             group["ipv6_addresses"].append(kharej_ipv6)
 
-        local_port = input("\033[93mEnter the \033[92mLocal\033[93m Port for \033[92m{}\033[93m: ".format(group_name))
-        remote_port = input("\033[93mEnter the \033[92mRemote\033[93m Port for \033[92m{}\033[93m: ".format(group_name))
+        local_port = input("\033[93mEnter the \033[92mLocal\033[93m Port for \033[92m{}\033[93m:\033[0m ".format(group_name))
+        remote_port = input("\033[93mEnter the \033[92mRemote\033[93m Port for \033[92m{}\033[93m:\033[0m ".format(group_name))
         print("\033[93m───────────────────────────────────────────────────────────────────────────────────────\033[0m")
 
         for i, kharej_ipv6 in enumerate(group["ipv6_addresses"]):
@@ -3879,7 +3879,7 @@ WantedBy=multi-user.target
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
     num_v2ray_instances = len(groups)
-    last_v2ray_number = starting_v2ray_number + num_v2ray_instances 
+    last_v2ray_number = starting_v2ray_number + num_v2ray_instances -1
 
     print("Use the last V2ray number for configuring the next kharej server.")
     print("+--------------------------------------------------+")
@@ -3946,8 +3946,8 @@ def kharej4():
             kharej_ipv6 = input("\033[93mEnter \033[92mKharej\033[93m IPv6 address \033[92m{}\033[93m for \033[92m{}\033[93m: \033[0m".format(i, group_name))
             group["ipv6_addresses"].append(kharej_ipv6)
 
-        local_port = input("\033[93mEnter the \033[92mLocal\033[93m Port for \033[92m{}\033[93m: ".format(group_name))
-        remote_port = input("\033[93mEnter the \033[92mRemote\033[93m Port for \033[92m{}\033[93m: ".format(group_name))
+        local_port = input("\033[93mEnter the \033[92mLocal\033[93m Port for \033[92m{}\033[93m:\033[0m ".format(group_name))
+        remote_port = input("\033[93mEnter the \033[92mRemote\033[93m Port for \033[92m{}\033[93m:\033[0m ".format(group_name))
         print("\033[93m───────────────────────────────────────────────────────────────────────────────────────\033[0m")
 
         for i, kharej_ipv6 in enumerate(group["ipv6_addresses"]):
@@ -4001,7 +4001,7 @@ WantedBy=multi-user.target
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
     num_v2ray_instances = len(groups)
-    last_v2ray_number = starting_v2ray_number + num_v2ray_instances 
+    last_v2ray_number = starting_v2ray_number + num_v2ray_instances -1
 
     print("Use the last V2ray number for configuring the next kharej server.")
     print("+--------------------------------------------------+")
@@ -4068,8 +4068,8 @@ def kharej5():
             kharej_ipv6 = input("\033[93mEnter \033[92mKharej\033[93m IPv6 address \033[92m{}\033[93m for \033[92m{}\033[93m: \033[0m".format(i, group_name))
             group["ipv6_addresses"].append(kharej_ipv6)
 
-        local_port = input("\033[93mEnter the \033[92mLocal\033[93m Port for \033[92m{}\033[93m: ".format(group_name))
-        remote_port = input("\033[93mEnter the \033[92mRemote\033[93m Port for \033[92m{}\033[93m: ".format(group_name))
+        local_port = input("\033[93mEnter the \033[92mLocal\033[93m Port for \033[92m{}\033[93m:\033[0m ".format(group_name))
+        remote_port = input("\033[93mEnter the \033[92mRemote\033[93m Port for \033[92m{}\033[93m:\033[0m ".format(group_name))
         print("\033[93m───────────────────────────────────────────────────────────────────────────────────────\033[0m")
 
         for i, kharej_ipv6 in enumerate(group["ipv6_addresses"]):
@@ -4123,7 +4123,7 @@ WantedBy=multi-user.target
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
     num_v2ray_instances = len(groups)
-    last_v2ray_number = starting_v2ray_number + num_v2ray_instances 
+    last_v2ray_number = starting_v2ray_number + num_v2ray_instances -1
 
     print("Use the last V2ray number for configuring the next kharej server.")
     print("+--------------------------------------------------+")
@@ -4190,8 +4190,8 @@ def kharej6():
             kharej_ipv6 = input("\033[93mEnter \033[92mKharej\033[93m IPv6 address \033[92m{}\033[93m for \033[92m{}\033[93m: \033[0m".format(i, group_name))
             group["ipv6_addresses"].append(kharej_ipv6)
 
-        local_port = input("\033[93mEnter the \033[92mLocal\033[93m Port for \033[92m{}\033[93m: ".format(group_name))
-        remote_port = input("\033[93mEnter the \033[92mRemote\033[93m Port for \033[92m{}\033[93m: ".format(group_name))
+        local_port = input("\033[93mEnter the \033[92mLocal\033[93m Port for \033[92m{}\033[93m:\033[0m ".format(group_name))
+        remote_port = input("\033[93mEnter the \033[92mRemote\033[93m Port for \033[92m{}\033[93m:\033[0m ".format(group_name))
         print("\033[93m───────────────────────────────────────────────────────────────────────────────────────\033[0m")
 
         for i, kharej_ipv6 in enumerate(group["ipv6_addresses"]):
@@ -4246,7 +4246,7 @@ WantedBy=multi-user.target
 
 	
     num_v2ray_instances = len(groups)
-    last_v2ray_number = starting_v2ray_number + num_v2ray_instances 
+    last_v2ray_number = starting_v2ray_number + num_v2ray_instances -1
 
     print("Use the last V2ray number for configuring the next kharej server.")
     print("+--------------------------------------------------+")
@@ -4313,8 +4313,8 @@ def kharej7():
             kharej_ipv6 = input("\033[93mEnter \033[92mKharej\033[93m IPv6 address \033[92m{}\033[93m for \033[92m{}\033[93m: \033[0m".format(i, group_name))
             group["ipv6_addresses"].append(kharej_ipv6)
 
-        local_port = input("\033[93mEnter the \033[92mLocal\033[93m Port for \033[92m{}\033[93m: ".format(group_name))
-        remote_port = input("\033[93mEnter the \033[92mRemote\033[93m Port for \033[92m{}\033[93m: ".format(group_name))
+        local_port = input("\033[93mEnter the \033[92mLocal\033[93m Port for \033[92m{}\033[93m:\033[0m ".format(group_name))
+        remote_port = input("\033[93mEnter the \033[92mRemote\033[93m Port for \033[92m{}\033[93m:\033[0m ".format(group_name))
         print("\033[93m───────────────────────────────────────────────────────────────────────────────────────\033[0m")
 
         for i, kharej_ipv6 in enumerate(group["ipv6_addresses"]):
@@ -4368,7 +4368,7 @@ WantedBy=multi-user.target
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
     num_v2ray_instances = len(groups)
-    last_v2ray_number = starting_v2ray_number + num_v2ray_instances 
+    last_v2ray_number = starting_v2ray_number + num_v2ray_instances -1
 
     print("Use the last V2ray number for configuring the next kharej server.")
     print("+--------------------------------------------------+")
@@ -4435,8 +4435,8 @@ def kharej8():
             kharej_ipv6 = input("\033[93mEnter \033[92mKharej\033[93m IPv6 address \033[92m{}\033[93m for \033[92m{}\033[93m: \033[0m".format(i, group_name))
             group["ipv6_addresses"].append(kharej_ipv6)
 
-        local_port = input("\033[93mEnter the \033[92mLocal\033[93m Port for \033[92m{}\033[93m: ".format(group_name))
-        remote_port = input("\033[93mEnter the \033[92mRemote\033[93m Port for \033[92m{}\033[93m: ".format(group_name))
+        local_port = input("\033[93mEnter the \033[92mLocal\033[93m Port for \033[92m{}\033[93m:\033[0m ".format(group_name))
+        remote_port = input("\033[93mEnter the \033[92mRemote\033[93m Port for \033[92m{}\033[93m:\033[0m ".format(group_name))
         print("\033[93m───────────────────────────────────────────────────────────────────────────────────────\033[0m")
 
         for i, kharej_ipv6 in enumerate(group["ipv6_addresses"]):
@@ -4490,7 +4490,7 @@ WantedBy=multi-user.target
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
     num_v2ray_instances = len(groups)
-    last_v2ray_number = starting_v2ray_number + num_v2ray_instances 
+    last_v2ray_number = starting_v2ray_number + num_v2ray_instances -1 
 
     print("Use the last V2ray number for configuring the next kharej server.")
     print("+--------------------------------------------------+")
@@ -4557,8 +4557,8 @@ def kharej9():
             kharej_ipv6 = input("\033[93mEnter \033[92mKharej\033[93m IPv6 address \033[92m{}\033[93m for \033[92m{}\033[93m: \033[0m".format(i, group_name))
             group["ipv6_addresses"].append(kharej_ipv6)
 
-        local_port = input("\033[93mEnter the \033[92mLocal\033[93m Port for \033[92m{}\033[93m: ".format(group_name))
-        remote_port = input("\033[93mEnter the \033[92mRemote\033[93m Port for \033[92m{}\033[93m: ".format(group_name))
+        local_port = input("\033[93mEnter the \033[92mLocal\033[93m Port for \033[92m{}\033[93m:\033[0m ".format(group_name))
+        remote_port = input("\033[93mEnter the \033[92mRemote\033[93m Port for \033[92m{}\033[93m:\033[0m ".format(group_name))
         print("\033[93m───────────────────────────────────────────────────────────────────────────────────────\033[0m")
 
         for i, kharej_ipv6 in enumerate(group["ipv6_addresses"]):
@@ -4612,7 +4612,7 @@ WantedBy=multi-user.target
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
     num_v2ray_instances = len(groups)
-    last_v2ray_number = starting_v2ray_number + num_v2ray_instances 
+    last_v2ray_number = starting_v2ray_number + num_v2ray_instances -1
 
     print("Use the last V2ray number for configuring the next kharej server.")
     print("+--------------------------------------------------+")
@@ -4679,8 +4679,8 @@ def kharej10():
             kharej_ipv6 = input("\033[93mEnter \033[92mKharej\033[93m IPv6 address \033[92m{}\033[93m for \033[92m{}\033[93m: \033[0m".format(i, group_name))
             group["ipv6_addresses"].append(kharej_ipv6)
 
-        local_port = input("\033[93mEnter the \033[92mLocal\033[93m Port for \033[92m{}\033[93m: ".format(group_name))
-        remote_port = input("\033[93mEnter the \033[92mRemote\033[93m Port for \033[92m{}\033[93m: ".format(group_name))
+        local_port = input("\033[93mEnter the \033[92mLocal\033[93m Port for \033[92m{}\033[93m:\033[0m ".format(group_name))
+        remote_port = input("\033[93mEnter the \033[92mRemote\033[93m Port for \033[92m{}\033[93m:\033[0m ".format(group_name))
         print("\033[93m───────────────────────────────────────────────────────────────────────────────────────\033[0m")
 
         for i, kharej_ipv6 in enumerate(group["ipv6_addresses"]):
@@ -4734,7 +4734,7 @@ WantedBy=multi-user.target
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
     num_v2ray_instances = len(groups)
-    last_v2ray_number = starting_v2ray_number + num_v2ray_instances 
+    last_v2ray_number = starting_v2ray_number + num_v2ray_instances -1 
 
     print("Use the last V2ray number for configuring the next kharej server.")
     print("+--------------------------------------------------+")
@@ -5835,7 +5835,7 @@ WantedBy=multi-user.target'''
         os.system("systemctl restart {}".format(service_name))
         display_checkmark("\033[92mFRP Service Started!\033[0m")
 
-    num_v2ray_instances = len(groups)
+    num_v2ray_instances = num_iran_servers * num_groups
     
     last_v2ray_number = starting_v2ray_number + num_v2ray_instances
 
@@ -5978,7 +5978,7 @@ WantedBy=multi-user.target'''
         os.system("systemctl restart {}".format(service_name))
         display_checkmark("\033[92mFRP Service Started!\033[0m")
 
-    num_v2ray_instances = len(groups)
+    num_v2ray_instances = num_iran_servers * num_groups
     
     last_v2ray_number = starting_v2ray_number + num_v2ray_instances
 
@@ -6121,7 +6121,7 @@ WantedBy=multi-user.target'''
         os.system("systemctl restart {}".format(service_name))
         display_checkmark("\033[92mFRP Service Started!\033[0m")
 
-    num_v2ray_instances = len(groups)
+    num_v2ray_instances = num_iran_servers * num_groups
     
     last_v2ray_number = starting_v2ray_number + num_v2ray_instances
 
@@ -6264,7 +6264,7 @@ WantedBy=multi-user.target'''
         os.system("systemctl restart {}".format(service_name))
         display_checkmark("\033[92mFRP Service Started!\033[0m")
 
-    num_v2ray_instances = len(groups)
+    num_v2ray_instances = num_iran_servers * num_groups
     
     last_v2ray_number = starting_v2ray_number + num_v2ray_instances
 
@@ -6407,7 +6407,7 @@ WantedBy=multi-user.target'''
         os.system("systemctl restart {}".format(service_name))
         display_checkmark("\033[92mFRP Service Started!\033[0m")
 
-    num_v2ray_instances = len(groups)
+    num_v2ray_instances = num_iran_servers * num_groups
     
     last_v2ray_number = starting_v2ray_number + num_v2ray_instances
 
@@ -6550,7 +6550,7 @@ WantedBy=multi-user.target'''
         os.system("systemctl restart {}".format(service_name))
         display_checkmark("\033[92mFRP Service Started!\033[0m")
 
-    num_v2ray_instances = len(groups)
+    num_v2ray_instances = num_iran_servers * num_groups
     
     last_v2ray_number = starting_v2ray_number + num_v2ray_instances
 
@@ -6693,7 +6693,7 @@ WantedBy=multi-user.target'''
         os.system("systemctl restart {}".format(service_name))
         display_checkmark("\033[92mFRP Service Started!\033[0m")
 
-    num_v2ray_instances = len(groups)
+    num_v2ray_instances = num_iran_servers * num_groups
     
     last_v2ray_number = starting_v2ray_number + num_v2ray_instances
 
@@ -6836,7 +6836,7 @@ WantedBy=multi-user.target'''
         os.system("systemctl restart {}".format(service_name))
         display_checkmark("\033[92mFRP Service Started!\033[0m")
 
-    num_v2ray_instances = len(groups)
+    num_v2ray_instances = num_iran_servers * num_groups
     
     last_v2ray_number = starting_v2ray_number + num_v2ray_instances
 
@@ -6979,7 +6979,7 @@ WantedBy=multi-user.target'''
         os.system("systemctl restart {}".format(service_name))
         display_checkmark("\033[92mFRP Service Started!\033[0m")
 
-    num_v2ray_instances = len(groups)
+    num_v2ray_instances = num_iran_servers * num_groups
     
     last_v2ray_number = starting_v2ray_number + num_v2ray_instances
 
@@ -7120,7 +7120,7 @@ WantedBy=multi-user.target'''
         os.system("systemctl restart {}".format(service_name))
         display_checkmark("\033[92mFRP Service Started!\033[0m")
 
-    num_v2ray_instances = len(groups)
+    num_v2ray_instances = num_iran_servers * num_groups
     
     last_v2ray_number = starting_v2ray_number + num_v2ray_instances
 
@@ -7310,7 +7310,7 @@ WantedBy=multi-user.target'''
         os.system("systemctl restart {}".format(service_name))
         display_checkmark("\033[92mFRP Service Started!\033[0m")
 
-    num_v2ray_instances = len(groups)
+    num_v2ray_instances = num_iran_servers * num_groups
     
     last_v2ray_number = starting_v2ray_number + num_v2ray_instances
 
@@ -7440,7 +7440,7 @@ WantedBy=multi-user.target'''
         os.system("systemctl restart {}".format(service_name))
         display_checkmark("\033[92mFRP Service Started!\033[0m")
 
-    num_v2ray_instances = len(groups)
+    num_v2ray_instances = num_iran_servers * num_groups
     
     last_v2ray_number = starting_v2ray_number + num_v2ray_instances
 
@@ -7570,7 +7570,7 @@ WantedBy=multi-user.target'''
         os.system("systemctl restart {}".format(service_name))
         display_checkmark("\033[92mFRP Service Started!\033[0m")
 
-    num_v2ray_instances = len(groups)
+    num_v2ray_instances = num_iran_servers * num_groups
     
     last_v2ray_number = starting_v2ray_number + num_v2ray_instances
 
@@ -7700,7 +7700,7 @@ WantedBy=multi-user.target'''
         os.system("systemctl restart {}".format(service_name))
         display_checkmark("\033[92mFRP Service Started!\033[0m")
 
-    num_v2ray_instances = len(groups)
+    num_v2ray_instances = num_iran_servers * num_groups
     
     last_v2ray_number = starting_v2ray_number + num_v2ray_instances
 
@@ -7830,7 +7830,7 @@ WantedBy=multi-user.target'''
         os.system("systemctl restart {}".format(service_name))
         display_checkmark("\033[92mFRP Service Started!\033[0m")
 
-    num_v2ray_instances = len(groups)
+    num_v2ray_instances = num_iran_servers * num_groups
     
     last_v2ray_number = starting_v2ray_number + num_v2ray_instances
 
@@ -7960,7 +7960,7 @@ WantedBy=multi-user.target'''
         os.system("systemctl restart {}".format(service_name))
         display_checkmark("\033[92mFRP Service Started!\033[0m")
 
-    num_v2ray_instances = len(groups)
+    num_v2ray_instances = num_iran_servers * num_groups
     
     last_v2ray_number = starting_v2ray_number + num_v2ray_instances
 
@@ -8090,7 +8090,7 @@ WantedBy=multi-user.target'''
         os.system("systemctl restart {}".format(service_name))
         display_checkmark("\033[92mFRP Service Started!\033[0m")
 
-    num_v2ray_instances = len(groups)
+    num_v2ray_instances = num_iran_servers * num_groups
     
     last_v2ray_number = starting_v2ray_number + num_v2ray_instances
 
@@ -8220,7 +8220,7 @@ WantedBy=multi-user.target'''
         os.system("systemctl restart {}".format(service_name))
         display_checkmark("\033[92mFRP Service Started!\033[0m")
 
-    num_v2ray_instances = len(groups)
+    num_v2ray_instances = num_iran_servers * num_groups
     
     last_v2ray_number = starting_v2ray_number + num_v2ray_instances
 
@@ -8350,7 +8350,7 @@ WantedBy=multi-user.target'''
         os.system("systemctl restart {}".format(service_name))
         display_checkmark("\033[92mFRP Service Started!\033[0m")
 
-    num_v2ray_instances = len(groups)
+    num_v2ray_instances = num_iran_servers * num_groups
     
     last_v2ray_number = starting_v2ray_number + num_v2ray_instances
 
@@ -8480,7 +8480,7 @@ WantedBy=multi-user.target'''
         os.system("systemctl restart {}".format(service_name))
         display_checkmark("\033[92mFRP Service Started!\033[0m")
 
-    num_v2ray_instances = len(groups)
+    num_v2ray_instances = num_iran_servers * num_groups
     
     last_v2ray_number = starting_v2ray_number + num_v2ray_instances
 
