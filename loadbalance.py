@@ -200,7 +200,8 @@ def res_k1():
         f.write("systemctl stop azumifrpc3\n")
         f.write("systemctl start azumifrpc3\n")
 
-
+    subprocess.call("chmod +x /etc/res.sh", shell=True)
+    
     existing_entry = "0 */2 * * * /etc/res.sh"
     existing_crontab = subprocess.check_output("crontab -l", shell=True).decode()
 
@@ -222,7 +223,8 @@ def res_k2():
         f.write("systemctl stop azumifrpc4\n")
         f.write("systemctl start azumifrpc4\n")
 
-
+    subprocess.call("chmod +x /etc/res.sh", shell=True)
+    
     existing_entry = "0 */2 * * * /etc/res.sh"
     existing_crontab = subprocess.check_output("crontab -l", shell=True).decode()
 
@@ -244,7 +246,8 @@ def res_k3():
         f.write("systemctl stop azumifrpc5\n")
         f.write("systemctl start azumifrpc5\n")
 
-
+    subprocess.call("chmod +x /etc/res.sh", shell=True)
+    
     existing_entry = "0 */2 * * * /etc/res.sh"
     existing_crontab = subprocess.check_output("crontab -l", shell=True).decode()
 
@@ -266,7 +269,8 @@ def res_k4():
         f.write("systemctl stop azumifrpc6\n")
         f.write("systemctl start azumifrpc6\n")
 
-
+    subprocess.call("chmod +x /etc/res.sh", shell=True)
+    
     existing_entry = "0 */2 * * * /etc/res.sh"
     existing_crontab = subprocess.check_output("crontab -l", shell=True).decode()
 
@@ -288,7 +292,8 @@ def res_k5():
         f.write("systemctl stop azumifrpc7\n")
         f.write("systemctl start azumifrpc7\n")
 
-
+    subprocess.call("chmod +x /etc/res.sh", shell=True)
+    
     existing_entry = "0 */2 * * * /etc/res.sh"
     existing_crontab = subprocess.check_output("crontab -l", shell=True).decode()
 
@@ -310,7 +315,8 @@ def res_k6():
         f.write("systemctl stop azumifrpc8\n")
         f.write("systemctl start azumifrpc8\n")
 
-
+    subprocess.call("chmod +x /etc/res.sh", shell=True)
+    
     existing_entry = "0 */2 * * * /etc/res.sh"
     existing_crontab = subprocess.check_output("crontab -l", shell=True).decode()
 
@@ -332,7 +338,8 @@ def res_k7():
         f.write("systemctl stop azumifrpc9\n")
         f.write("systemctl start azumifrpc9\n")
 
-
+    subprocess.call("chmod +x /etc/res.sh", shell=True)
+    
     existing_entry = "0 */2 * * * /etc/res.sh"
     existing_crontab = subprocess.check_output("crontab -l", shell=True).decode()
 
@@ -354,7 +361,8 @@ def res_k8():
         f.write("systemctl stop azumifrpc10\n")
         f.write("systemctl start azumifrpc10\n")
 
-
+    subprocess.call("chmod +x /etc/res.sh", shell=True)
+    
     existing_entry = "0 */2 * * * /etc/res.sh"
     existing_crontab = subprocess.check_output("crontab -l", shell=True).decode()
 
@@ -375,7 +383,9 @@ def res_k9():
         f.write("#!/bin/bash\n")
         f.write("systemctl stop azumifrpc11\n")
         f.write("systemctl start azumifrpc11\n")
-
+        
+    subprocess.call("chmod +x /etc/res.sh", shell=True)
+    
     existing_entry = "0 */2 * * * /etc/res.sh"
     existing_crontab = subprocess.check_output("crontab -l", shell=True).decode()
 
@@ -397,7 +407,8 @@ def res_k10():
         f.write("systemctl stop azumifrpc12\n")
         f.write("systemctl start azumifrpc12\n")
 
-
+    subprocess.call("chmod +x /etc/res.sh", shell=True)
+    
     existing_entry = "0 */2 * * * /etc/res.sh"
     existing_crontab = subprocess.check_output("crontab -l", shell=True).decode()
 
@@ -419,7 +430,8 @@ def res_i():
         f.write("systemctl stop azumifrps3\n")
         f.write("systemctl start azumifrps3\n")
 
-
+    subprocess.call("chmod +x /etc/res.sh", shell=True)
+    
     existing_entry = "0 */2 * * * /etc/res.sh"
     existing_crontab = subprocess.check_output("crontab -l", shell=True).decode()
 
@@ -1655,7 +1667,7 @@ def kharej_method1():
         f.write("[Service]\n")
         f.write("ExecStart=/root/frp/./frpc -c /root/frp/frpc.toml\n")
         f.write("Restart=always\n")
-        f.write("RestartSec=10,801\n")    
+        f.write("RestartSec=10801\n")    
         f.write("User=root\n")
         f.write("\n")
         f.write("[Install]\n")
@@ -1730,7 +1742,7 @@ def kharej_method2():
         f.write("[Service]\n")
         f.write("ExecStart=/root/frp/./frpc -c /root/frp/frpc.toml\n")
         f.write("Restart=always\n")
-        f.write("RestartSec=10,801\n")
+        f.write("RestartSec=10801\n")
         f.write("User=root\n")
         f.write("\n")
         f.write("[Install]\n")
@@ -1809,7 +1821,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frps -c {frps_path}
 Restart=always
-RestartSec=10,800
+RestartSec=10800
 User=root
 
 [Install]
@@ -1917,7 +1929,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frps -c {frps_path}
 Restart=always
-RestartSec=10,800
+RestartSec=10800
 User=root
 
 [Install]
@@ -2102,7 +2114,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frps_path}
 Restart=always
-RestartSec=10,801
+RestartSec=10801
 User=root
 
 [Install]
@@ -2215,7 +2227,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frps_path}
 Restart=always
-RestartSec=10,801
+RestartSec=10801
 User=root
 
 [Install]
@@ -2329,7 +2341,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frps -c {frps_path}
 Restart=always
-RestartSec=10,800
+RestartSec=10800
 User=root
 
 [Install]
@@ -2435,7 +2447,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frps -c {frps_path}
 Restart=always
-RestartSec=10,800
+RestartSec=10800
 User=root
 
 [Install]
@@ -2658,7 +2670,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frps_path}
 Restart=always
-RestartSec=10,801
+RestartSec=10801
 User=root
 
 [Install]
@@ -2773,7 +2785,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frps_path}
 Restart=always
-RestartSec=10,801
+RestartSec=10801
 User=root
 
 [Install]
@@ -2888,7 +2900,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frps_path}
 Restart=always
-RestartSec=10,801
+RestartSec=10801
 User=root
 
 [Install]
@@ -3003,7 +3015,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frps_path}
 Restart=always
-RestartSec=10,801
+RestartSec=10801
 User=root
 
 [Install]
@@ -3118,7 +3130,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frps_path}
 Restart=always
-RestartSec=10,801
+RestartSec=10801
 User=root
 
 [Install]
@@ -3233,7 +3245,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frps_path}
 Restart=always
-RestartSec=10,801
+RestartSec=10801
 User=root
 
 [Install]
@@ -3348,7 +3360,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frps_path}
 Restart=always
-RestartSec=10,801
+RestartSec=10801
 User=root
 
 [Install]
@@ -3463,7 +3475,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frps_path}
 Restart=always
-RestartSec=10,801
+RestartSec=10801
 User=root
 
 [Install]
@@ -3578,7 +3590,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frps_path}
 Restart=always
-RestartSec=10,801
+RestartSec=10801
 User=root
 
 [Install]
@@ -3693,7 +3705,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frps_path}
 Restart=always
-RestartSec=10,801
+RestartSec=10801
 User=root
 
 [Install]
@@ -3884,7 +3896,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frps_path}
 Restart=always
-RestartSec=10,801
+RestartSec=10801
 User=root
 
 [Install]
@@ -4008,7 +4020,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frps_path}
 Restart=always
-RestartSec=10,801
+RestartSec=10801
 User=root
 
 [Install]
@@ -4131,7 +4143,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frps_path}
 Restart=always
-RestartSec=10,801
+RestartSec=10801
 User=root
 
 [Install]
@@ -4254,7 +4266,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frps_path}
 Restart=always
-RestartSec=10,801
+RestartSec=10801
 User=root
 
 [Install]
@@ -4377,7 +4389,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frps_path}
 Restart=always
-RestartSec=10,801
+RestartSec=10801
 User=root
 
 [Install]
@@ -4500,7 +4512,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frps_path}
 Restart=always
-RestartSec=10,801
+RestartSec=10801
 User=root
 
 [Install]
@@ -4624,7 +4636,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frps_path}
 Restart=always
-RestartSec=10,801
+RestartSec=10801
 User=root
 
 [Install]
@@ -4747,7 +4759,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frps_path}
 Restart=always
-RestartSec=10,801
+RestartSec=10801
 User=root
 
 [Install]
@@ -4870,7 +4882,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frps_path}
 Restart=always
-RestartSec=10,801
+RestartSec=10801
 User=root
 
 [Install]
@@ -4993,7 +5005,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frps_path}
 Restart=always
-RestartSec=10,801
+RestartSec=10801
 User=root
 
 [Install]
@@ -5112,7 +5124,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frps -c {frps_path}
 Restart=always
-RestartSec=10,800
+RestartSec=10800
 User=root
 
 [Install]
@@ -5221,7 +5233,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frps -c {frps_path}
 Restart=always
-RestartSec=10,800
+RestartSec=10800
 User=root
 
 [Install]
@@ -5460,7 +5472,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frpc_path}
 Restart=always
-RestartSec=10,801
+RestartSec=10801
 User=root
 
 [Install]
@@ -5582,7 +5594,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frpc_path}
 Restart=always
-RestartSec=10,801
+RestartSec=10801
 User=root
 
 [Install]
@@ -5660,7 +5672,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frps -c {frps_path}
 Restart=always
-RestartSec=10,800
+RestartSec=10800
 User=root
 
 [Install]
@@ -5739,7 +5751,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frps -c {frps_path}
 Restart=always
-RestartSec=10,800
+RestartSec=10800
 User=root
 
 [Install]
@@ -5818,7 +5830,7 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frps -c {frps_path}
 Restart=always
-RestartSec=10,800
+RestartSec=10800
 User=root
 
 [Install]
