@@ -197,8 +197,9 @@ def res_k1():
 
     with open("/etc/res.sh", "w") as f:
         f.write("#!/bin/bash\n")
-        f.write("systemctl stop azumifrpc3\n")
-        f.write("systemctl start azumifrpc3\n")
+        f.write("kill -9 $(pgrep frpc)\n")  
+        f.write("systemctl daemon-reload\n")
+        f.write("systemctl restart azumifrpc3\n")
 
     subprocess.call("chmod +x /etc/res.sh", shell=True)
     
@@ -220,8 +221,9 @@ def res_k2():
 
     with open("/etc/res.sh", "w") as f:
         f.write("#!/bin/bash\n")
-        f.write("systemctl stop azumifrpc4\n")
-        f.write("systemctl start azumifrpc4\n")
+        f.write("kill -9 $(pgrep frpc)\n")  
+        f.write("systemctl daemon-reload\n")
+        f.write("systemctl restart azumifrpc4\n")
 
     subprocess.call("chmod +x /etc/res.sh", shell=True)
     
@@ -243,8 +245,9 @@ def res_k3():
 
     with open("/etc/res.sh", "w") as f:
         f.write("#!/bin/bash\n")
-        f.write("systemctl stop azumifrpc5\n")
-        f.write("systemctl start azumifrpc5\n")
+        f.write("kill -9 $(pgrep frpc)\n")  
+        f.write("systemctl daemon-reload\n")
+        f.write("systemctl restart azumifrpc5\n")
 
     subprocess.call("chmod +x /etc/res.sh", shell=True)
     
@@ -266,8 +269,9 @@ def res_k4():
 
     with open("/etc/res.sh", "w") as f:
         f.write("#!/bin/bash\n")
-        f.write("systemctl stop azumifrpc6\n")
-        f.write("systemctl start azumifrpc6\n")
+        f.write("kill -9 $(pgrep frpc)\n")  
+        f.write("systemctl daemon-reload\n")
+        f.write("systemctl restart azumifrpc6\n")
 
     subprocess.call("chmod +x /etc/res.sh", shell=True)
     
@@ -289,8 +293,9 @@ def res_k5():
 
     with open("/etc/res.sh", "w") as f:
         f.write("#!/bin/bash\n")
-        f.write("systemctl stop azumifrpc7\n")
-        f.write("systemctl start azumifrpc7\n")
+        f.write("kill -9 $(pgrep frpc)\n")  
+        f.write("systemctl daemon-reload\n")
+        f.write("systemctl restart azumifrpc7\n")
 
     subprocess.call("chmod +x /etc/res.sh", shell=True)
     
@@ -312,8 +317,9 @@ def res_k6():
 
     with open("/etc/res.sh", "w") as f:
         f.write("#!/bin/bash\n")
-        f.write("systemctl stop azumifrpc8\n")
-        f.write("systemctl start azumifrpc8\n")
+        f.write("kill -9 $(pgrep frpc)\n")  
+        f.write("systemctl daemon-reload\n")
+        f.write("systemctl restart azumifrpc8\n")
 
     subprocess.call("chmod +x /etc/res.sh", shell=True)
     
@@ -335,8 +341,9 @@ def res_k7():
 
     with open("/etc/res.sh", "w") as f:
         f.write("#!/bin/bash\n")
-        f.write("systemctl stop azumifrpc9\n")
-        f.write("systemctl start azumifrpc9\n")
+        f.write("kill -9 $(pgrep frpc)\n")  
+        f.write("systemctl daemon-reload\n")
+        f.write("systemctl restart azumifrpc9\n")
 
     subprocess.call("chmod +x /etc/res.sh", shell=True)
     
@@ -358,8 +365,9 @@ def res_k8():
 
     with open("/etc/res.sh", "w") as f:
         f.write("#!/bin/bash\n")
-        f.write("systemctl stop azumifrpc10\n")
-        f.write("systemctl start azumifrpc10\n")
+        f.write("kill -9 $(pgrep frpc)\n")  
+        f.write("systemctl daemon-reload\n")
+        f.write("systemctl restart azumifrpc10\n")
 
     subprocess.call("chmod +x /etc/res.sh", shell=True)
     
@@ -381,8 +389,9 @@ def res_k9():
 
     with open("/etc/res.sh", "w") as f:
         f.write("#!/bin/bash\n")
-        f.write("systemctl stop azumifrpc11\n")
-        f.write("systemctl start azumifrpc11\n")
+        f.write("kill -9 $(pgrep frpc)\n")  
+        f.write("systemctl daemon-reload\n")
+        f.write("systemctl restart azumifrpc11\n")
         
     subprocess.call("chmod +x /etc/res.sh", shell=True)
     
@@ -404,8 +413,9 @@ def res_k10():
 
     with open("/etc/res.sh", "w") as f:
         f.write("#!/bin/bash\n")
-        f.write("systemctl stop azumifrpc12\n")
-        f.write("systemctl start azumifrpc12\n")
+        f.write("kill -9 $(pgrep frpc)\n")  
+        f.write("systemctl daemon-reload\n")
+        f.write("systemctl restart azumifrpc12\n")
 
     subprocess.call("chmod +x /etc/res.sh", shell=True)
     
@@ -420,18 +430,19 @@ def res_k10():
         display_checkmark("\033[92m2 hour reset timer added!\033[0m")
 
     display_checkmark("\033[92mIT IS DONE.!\033[0m")
-    
+
 def res_i():
     if subprocess.call("test -f /etc/res.sh", shell=True) == 0:
         subprocess.call("rm /etc/res.sh", shell=True)
 
     with open("/etc/res.sh", "w") as f:
         f.write("#!/bin/bash\n")
-        f.write("systemctl stop azumifrps3\n")
-        f.write("systemctl start azumifrps3\n")
+        f.write("kill -9 $(pgrep frps)\n")  
+        f.write("systemctl daemon-reload\n")
+        f.write("systemctl restart azumifrps3\n")
 
     subprocess.call("chmod +x /etc/res.sh", shell=True)
-    
+
     existing_entry = "0 */2 * * * /etc/res.sh"
     existing_crontab = subprocess.check_output("crontab -l", shell=True).decode()
 
@@ -443,6 +454,8 @@ def res_i():
         display_checkmark("\033[92m2 hour reset timer added!\033[0m")
 
     display_checkmark("\033[92mIT IS DONE.!\033[0m")
+    
+
     
 def clear_c():
     script_path = '/etc/clear.sh'
