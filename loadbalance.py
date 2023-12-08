@@ -177,6 +177,12 @@ def rmve_cron():
         "0 */2 * * * /etc/res.sh"
     ]
 
+    if subprocess.call("test -f /etc/res.sh", shell=True) == 0:
+        subprocess.call("rm /etc/res.sh", shell=True)
+        
+    if subprocess.call("test -f /etc/clear.sh", shell=True) == 0:
+        subprocess.call("rm /etc/clear.sh", shell=True)
+
     existing_crontab = subprocess.check_output("crontab -l", shell=True).decode()
     modified_crontab = existing_crontab
 
@@ -186,9 +192,9 @@ def rmve_cron():
 
     if modified_crontab != existing_crontab:
         subprocess.call("echo '{}' | crontab -".format(modified_crontab), shell=True)
-        display_checkmark("\033[92mDone!\033[0m")
+        print("\033[92mDone!\033[0m")
     else:
-        display_error("\033[91m\nIt doesn't exist..\033[0m")
+        print("\033[91m\nIt doesn't exist..\033[0m")
 
 def res_li():
     if subprocess.call("test -f /etc/res.sh", shell=True) == 0:
