@@ -437,14 +437,19 @@ def res_i():
 
     with open("/etc/res.sh", "w") as f:
         f.write("#!/bin/bash\n")
-        f.write("kill -9 $(pgrep frps)\n")  
+        f.write("kill -9 $(pgrep frps)\n")
         f.write("systemctl daemon-reload\n")
         f.write("systemctl restart azumifrps3\n")
 
     subprocess.call("chmod +x /etc/res.sh", shell=True)
 
     existing_entry = "0 */2 * * * /etc/res.sh"
-    existing_crontab = subprocess.check_output("crontab -l", shell=True).decode()
+    existing_crontab = ""
+
+    try:
+        existing_crontab = subprocess.check_output("crontab -l", shell=True).decode()
+    except subprocess.CalledProcessError:
+        print("\033[91mNo existing crontab found.\033[0m")
 
     if existing_entry in existing_crontab:
         print("\033[91mCrontab already exists.\033[0m")
