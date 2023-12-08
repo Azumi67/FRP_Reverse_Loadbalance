@@ -190,7 +190,125 @@ def rmve_cron():
     else:
         display_error("\033[91m\nIt doesn't exist..\033[0m")
 
+def res_li():
+    if subprocess.call("test -f /etc/res.sh", shell=True) == 0:
+        subprocess.call("rm /etc/res.sh", shell=True)
 
+    with open("/etc/res.sh", "w") as f:
+        f.write("#!/bin/bash\n")
+        f.write("kill -9 $(pgrep frps)\n")  
+        f.write("systemctl daemon-reload\n")
+        f.write("systemctl restart azumifrps2\n")
+
+    subprocess.call("chmod +x /etc/res.sh", shell=True)
+    
+    existing_entry = "0 */2 * * * /etc/res.sh"
+    existing_crontab = ""
+
+    try:
+        existing_crontab = subprocess.check_output("crontab -l", shell=True).decode()
+    except subprocess.CalledProcessError:
+        print("\033[91mNo existing crontab found.\033[0m")
+
+    if existing_entry in existing_crontab:
+        print("\033[91mCrontab already exists.\033[0m")
+    else:
+        new_crontab = existing_crontab.strip() + "\n0 */2 * * * /etc/res.sh\n"
+        subprocess.call("echo '{}' | crontab -".format(new_crontab), shell=True)
+        display_checkmark("\033[92m2 hour reset timer added!\033[0m")
+
+    display_checkmark("\033[92mIT IS DONE.!\033[0m")
+    
+def res_lk():
+    if subprocess.call("test -f /etc/res.sh", shell=True) == 0:
+        subprocess.call("rm /etc/res.sh", shell=True)
+
+    with open("/etc/res.sh", "w") as f:
+        f.write("#!/bin/bash\n")
+        f.write("kill -9 $(pgrep frpc)\n")  
+        f.write("systemctl daemon-reload\n")
+        f.write("systemctl restart azumifrpc2\n")
+
+
+    subprocess.call("chmod +x /etc/res.sh", shell=True)
+    
+    existing_entry = "0 */2 * * * /etc/res.sh"
+    existing_crontab = ""
+
+    try:
+        existing_crontab = subprocess.check_output("crontab -l", shell=True).decode()
+    except subprocess.CalledProcessError:
+        print("\033[91mNo existing crontab found.\033[0m")
+
+    if existing_entry in existing_crontab:
+        print("\033[91mCrontab already exists.\033[0m")
+    else:
+        new_crontab = existing_crontab.strip() + "\n0 */2 * * * /etc/res.sh\n"
+        subprocess.call("echo '{}' | crontab -".format(new_crontab), shell=True)
+        display_checkmark("\033[92m2 hour reset timer added!\033[0m")
+
+    display_checkmark("\033[92mIT IS DONE.!\033[0m")
+    
+def res_ii3():
+    if subprocess.call("test -f /etc/res.sh", shell=True) == 0:
+        subprocess.call("rm /etc/res.sh", shell=True)
+
+    with open("/etc/res.sh", "w") as f:
+        f.write("#!/bin/bash\n")
+        f.write("kill -9 $(pgrep frps)\n")  
+        f.write("systemctl daemon-reload\n")
+        f.write("systemctl restart azumifrps4\n")
+
+    subprocess.call("chmod +x /etc/res.sh", shell=True)
+    
+    existing_entry = "0 */2 * * * /etc/res.sh"
+    existing_crontab = ""
+
+    try:
+        existing_crontab = subprocess.check_output("crontab -l", shell=True).decode()
+    except subprocess.CalledProcessError:
+        print("\033[91mNo existing crontab found.\033[0m")
+
+    if existing_entry in existing_crontab:
+        print("\033[91mCrontab already exists.\033[0m")
+    else:
+        new_crontab = existing_crontab.strip() + "\n0 */2 * * * /etc/res.sh\n"
+        subprocess.call("echo '{}' | crontab -".format(new_crontab), shell=True)
+        display_checkmark("\033[92m2 hour reset timer added!\033[0m")
+
+    display_checkmark("\033[92mIT IS DONE.!\033[0m")
+    
+def res_ki3():
+    if subprocess.call("test -f /etc/res.sh", shell=True) == 0:
+        subprocess.call("rm /etc/res.sh", shell=True)
+
+    with open("/etc/res.sh", "w") as f:
+        f.write("#!/bin/bash\n")
+        f.write("kill -9 $(pgrep frpc)\n")  
+        f.write("systemctl daemon-reload\n")
+        f.write("systemctl restart azumifrpc11\n")
+        f.write("systemctl restart azumifrpc12\n")
+        f.write("systemctl restart azumifrpc13\n")
+
+    subprocess.call("chmod +x /etc/res.sh", shell=True)
+    
+    existing_entry = "0 */2 * * * /etc/res.sh"
+    existing_crontab = ""
+
+    try:
+        existing_crontab = subprocess.check_output("crontab -l", shell=True).decode()
+    except subprocess.CalledProcessError:
+        print("\033[91mNo existing crontab found.\033[0m")
+
+    if existing_entry in existing_crontab:
+        print("\033[91mCrontab already exists.\033[0m")
+    else:
+        new_crontab = existing_crontab.strip() + "\n0 */2 * * * /etc/res.sh\n"
+        subprocess.call("echo '{}' | crontab -".format(new_crontab), shell=True)
+        display_checkmark("\033[92m2 hour reset timer added!\033[0m")
+
+    display_checkmark("\033[92mIT IS DONE.!\033[0m")
+    
 def res_k1():
     if subprocess.call("test -f /etc/res.sh", shell=True) == 0:
         subprocess.call("rm /etc/res.sh", shell=True)
@@ -204,7 +322,12 @@ def res_k1():
     subprocess.call("chmod +x /etc/res.sh", shell=True)
     
     existing_entry = "0 */2 * * * /etc/res.sh"
-    existing_crontab = subprocess.check_output("crontab -l", shell=True).decode()
+    existing_crontab = ""
+
+    try:
+        existing_crontab = subprocess.check_output("crontab -l", shell=True).decode()
+    except subprocess.CalledProcessError:
+        print("\033[91mNo existing crontab found.\033[0m")
 
     if existing_entry in existing_crontab:
         print("\033[91mCrontab already exists.\033[0m")
@@ -228,7 +351,12 @@ def res_k2():
     subprocess.call("chmod +x /etc/res.sh", shell=True)
     
     existing_entry = "0 */2 * * * /etc/res.sh"
-    existing_crontab = subprocess.check_output("crontab -l", shell=True).decode()
+    existing_crontab = ""
+
+    try:
+        existing_crontab = subprocess.check_output("crontab -l", shell=True).decode()
+    except subprocess.CalledProcessError:
+        print("\033[91mNo existing crontab found.\033[0m")
 
     if existing_entry in existing_crontab:
         print("\033[91mCrontab already exists.\033[0m")
@@ -252,7 +380,12 @@ def res_k3():
     subprocess.call("chmod +x /etc/res.sh", shell=True)
     
     existing_entry = "0 */2 * * * /etc/res.sh"
-    existing_crontab = subprocess.check_output("crontab -l", shell=True).decode()
+    existing_crontab = ""
+
+    try:
+        existing_crontab = subprocess.check_output("crontab -l", shell=True).decode()
+    except subprocess.CalledProcessError:
+        print("\033[91mNo existing crontab found.\033[0m")
 
     if existing_entry in existing_crontab:
         print("\033[91mCrontab already exists.\033[0m")
@@ -276,7 +409,12 @@ def res_k4():
     subprocess.call("chmod +x /etc/res.sh", shell=True)
     
     existing_entry = "0 */2 * * * /etc/res.sh"
-    existing_crontab = subprocess.check_output("crontab -l", shell=True).decode()
+    existing_crontab = ""
+
+    try:
+        existing_crontab = subprocess.check_output("crontab -l", shell=True).decode()
+    except subprocess.CalledProcessError:
+        print("\033[91mNo existing crontab found.\033[0m")
 
     if existing_entry in existing_crontab:
         print("\033[91mCrontab already exists.\033[0m")
@@ -300,7 +438,12 @@ def res_k5():
     subprocess.call("chmod +x /etc/res.sh", shell=True)
     
     existing_entry = "0 */2 * * * /etc/res.sh"
-    existing_crontab = subprocess.check_output("crontab -l", shell=True).decode()
+    existing_crontab = ""
+
+    try:
+        existing_crontab = subprocess.check_output("crontab -l", shell=True).decode()
+    except subprocess.CalledProcessError:
+        print("\033[91mNo existing crontab found.\033[0m")
 
     if existing_entry in existing_crontab:
         print("\033[91mCrontab already exists.\033[0m")
@@ -324,7 +467,12 @@ def res_k6():
     subprocess.call("chmod +x /etc/res.sh", shell=True)
     
     existing_entry = "0 */2 * * * /etc/res.sh"
-    existing_crontab = subprocess.check_output("crontab -l", shell=True).decode()
+    existing_crontab = ""
+
+    try:
+        existing_crontab = subprocess.check_output("crontab -l", shell=True).decode()
+    except subprocess.CalledProcessError:
+        print("\033[91mNo existing crontab found.\033[0m")
 
     if existing_entry in existing_crontab:
         print("\033[91mCrontab already exists.\033[0m")
@@ -348,7 +496,12 @@ def res_k7():
     subprocess.call("chmod +x /etc/res.sh", shell=True)
     
     existing_entry = "0 */2 * * * /etc/res.sh"
-    existing_crontab = subprocess.check_output("crontab -l", shell=True).decode()
+    existing_crontab = ""
+
+    try:
+        existing_crontab = subprocess.check_output("crontab -l", shell=True).decode()
+    except subprocess.CalledProcessError:
+        print("\033[91mNo existing crontab found.\033[0m")
 
     if existing_entry in existing_crontab:
         print("\033[91mCrontab already exists.\033[0m")
@@ -372,7 +525,12 @@ def res_k8():
     subprocess.call("chmod +x /etc/res.sh", shell=True)
     
     existing_entry = "0 */2 * * * /etc/res.sh"
-    existing_crontab = subprocess.check_output("crontab -l", shell=True).decode()
+    existing_crontab = ""
+
+    try:
+        existing_crontab = subprocess.check_output("crontab -l", shell=True).decode()
+    except subprocess.CalledProcessError:
+        print("\033[91mNo existing crontab found.\033[0m")
 
     if existing_entry in existing_crontab:
         print("\033[91mCrontab already exists.\033[0m")
@@ -396,7 +554,12 @@ def res_k9():
     subprocess.call("chmod +x /etc/res.sh", shell=True)
     
     existing_entry = "0 */2 * * * /etc/res.sh"
-    existing_crontab = subprocess.check_output("crontab -l", shell=True).decode()
+    existing_crontab = ""
+
+    try:
+        existing_crontab = subprocess.check_output("crontab -l", shell=True).decode()
+    except subprocess.CalledProcessError:
+        print("\033[91mNo existing crontab found.\033[0m")
 
     if existing_entry in existing_crontab:
         print("\033[91mCrontab already exists.\033[0m")
@@ -413,14 +576,19 @@ def res_k10():
 
     with open("/etc/res.sh", "w") as f:
         f.write("#!/bin/bash\n")
-        f.write("kill -9 $(pgrep frpc)\n")  
+        f.write("kill -9 $(pgrep frpc)\n")
         f.write("systemctl daemon-reload\n")
         f.write("systemctl restart azumifrpc12\n")
 
     subprocess.call("chmod +x /etc/res.sh", shell=True)
-    
+
     existing_entry = "0 */2 * * * /etc/res.sh"
-    existing_crontab = subprocess.check_output("crontab -l", shell=True).decode()
+    existing_crontab = ""
+
+    try:
+        existing_crontab = subprocess.check_output("crontab -l", shell=True).decode()
+    except subprocess.CalledProcessError:
+        print("\033[91mNo existing crontab found.\033[0m")
 
     if existing_entry in existing_crontab:
         print("\033[91mCrontab already exists.\033[0m")
@@ -473,6 +641,7 @@ def clear_c():
     cron_command = f'0 */2 * * * sh {script_path}'
     os.system(f'(crontab -l | grep -v "{script_path}") | crontab -')
     os.system(f'(crontab -l 2>/dev/null; echo "{cron_command}") | crontab -')
+        
         
 def start_menu():
     os.system("clear")
@@ -2051,7 +2220,6 @@ def kharej_single_load():
             
 def kharej_load_local():
     os.system("clear")
-    clear_c()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
     print('\033[92m(   ) \033[92mKharej \033[93mMethod\033[92m [2]\033[93m Loadbalance \033[0m')
@@ -2063,9 +2231,15 @@ def kharej_load_local():
     print("\033[96m  Based on that input, it will automatically add local_ip for each config | ports")
     print("\033[93m╰───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯\033[0m")
     display_notification("\033[93mConfiguring...\033[0m")
-    print("\033[93m──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────")  
-    num_groups = int(input("\033[93mEnter the number of \033[92mloadbalance groups \033[96m [For each different port, there should be a group\033[92m]: \033[0m"))
+    print("\033[93m╭───────────────────────────────────────────────────────────────────────────────────────────╮")
 
+    while True:
+        try:
+            num_groups = int(input("\033[93mEnter the number of \033[92mload balance groups[\033[96m [For each different port, there should be a group\033[92m]: \033[0m"))
+            break
+        except ValueError:
+            print("\033[91mInvalid input. Please enter a valid number\033[0m")
+            
     groups = []
     for i in range(num_groups):
         group_name = "Loadbalance Group {}".format(i + 1)
@@ -2147,23 +2321,15 @@ WantedBy=multi-user.target
     os.system("systemctl daemon-reload")
     os.system("systemctl enable {}".format(service_name))
     os.system("systemctl restart {}".format(service_name))
-
+    res_lk()
+    clear_c()
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
 
-    num_v2ray_instances = num_groups  
-    last_v2ray_number = starting_v2ray_number + num_v2ray_instances 
-
-    print("+--------------------------------------------------+")
-    print("|   Number of Load Balance Groups: {}               |".format(num_groups))
-    print("|   Total V2Ray Instances Created: {}               |".format(num_v2ray_instances))
-    print("|   \033[92mLast V2Ray Number: {}\033[0m                           |".format(last_v2ray_number))
-    print("+--------------------------------------------------+")
 
 
 def kharej_load_ipv6():
     os.system("clear")
-    clear_c()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
     print('\033[92m(   ) \033[92mKharej \033[93mMethod\033[92m[1]\033[93m Loadbalance \033[0m')
@@ -2174,13 +2340,27 @@ def kharej_load_ipv6():
     print("\033[93m  If you have different configs with different ports, first specify how many loadbalance groups you want")
     print("\033[96m  Then based on that input, you enter different IPV6 for each port")
     print("\033[93m╰───────────────────────────────────────────────────────────────────────────────────────────────────────╯\033[0m")
-    print("\033[93m─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────")
-    num_groups = int(input("\033[93mEnter the number of \033[92mload balance groups[\033[96m [For each different port, there should be a group\033[92m]: \033[0m"))
+    display_notification("\033[93mConfiguring...\033[0m")
+    print("\033[93m╭───────────────────────────────────────────────────────────────────────────────────────────╮")
+
+    while True:
+        try:
+            num_groups = int(input("\033[93mEnter the number of \033[92mload balance groups[\033[96m [For each different port, there should be a group\033[92m]: \033[0m"))
+            break
+        except ValueError:
+            print("\033[91mInvalid input. Please enter a valid number\033[0m")
 
     groups = []
     for i in range(num_groups):
         group_name = "Loadbalance Group {}".format(i + 1)
-        num_ipv6 = int(input("\033[93mEnter the number of \033[92mKharej IPv6 addresses\033[93m needed for \033[92m{}\033[93m: \033[0m".format(group_name)))
+
+        while True:
+            try:
+                num_ipv6 = int(input("\033[93mEnter the number of \033[92mKharej IPv6 addresses\033[93m needed for \033[92m{}\033[93m: \033[0m".format(group_name)))
+                break
+            except ValueError:
+                print("\033[91mInvalid input. Please enter a valid number\033[0m")
+
         group = {"name": group_name, "num_ipv6": num_ipv6, "ipv6_addresses": []}
         groups.append(group)
 
@@ -2260,18 +2440,10 @@ WantedBy=multi-user.target
     os.system("systemctl daemon-reload")
     os.system("systemctl enable {}".format(service_name))
     os.system("systemctl restart {}".format(service_name))
-
+    res_lk()
+    clear_c()
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
-    num_v2ray_instances = sum(group["num_ipv6"] for group in groups)
-    
-    last_v2ray_number = starting_v2ray_number + num_v2ray_instances 
-
-    print("+--------------------------------------------------+")
-    print("|   Number of Load Balance Groups: {}               |".format(num_groups))
-    print("|   Total V2Ray Instances Created: {}               |".format(num_v2ray_instances))
-    print("|   \033[92mLast V2Ray Number: {}\033[0m                           |".format(last_v2ray_number))
-    print("+--------------------------------------------------+")
     
 
 def iran_single_load():
@@ -2304,7 +2476,6 @@ def iran_single_load():
             
 def iran_tcp_no_dashboardd():
     os.system("clear")
-    clear_c()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
     print('\033[92m(   ) \033[92mIRAN \033[93mwithout Dashboard \033[0m')
@@ -2317,8 +2488,8 @@ def iran_tcp_no_dashboardd():
     print("\033[93m╰───────────────────────────────────────────────────────────────────────────────────────╯\033[0m")
     display_notification("\033[93mConfiguring...\033[0m")
     print("\033[93m╭─────────────────────────────────────────────────────────────╮")
-    local_ports = input("\033[93mEnter the \033[92mlocal\033[93m ports (\033[0mcomma-separated\033[93m): \033[0m")
-    remote_ports = input("\033[93mEnter the \033[92mremote\033[93m ports (\033[0mcomma-separated\033[93m): \033[0m")
+    local_ports = input("\033[93mEnter the \033[92mlocal\033[93m ports : \033[0m")
+    remote_ports = input("\033[93mEnter the \033[92mremote\033[93m ports : \033[0m")
 
     local_ports_list = local_ports.replace(" ", "").split(",")
     remote_ports_list = remote_ports.replace(" ", "").split(",")
@@ -2377,7 +2548,8 @@ WantedBy=multi-user.target
     os.system("systemctl daemon-reload")
     os.system("systemctl enable {}".format(service_name))
     os.system("systemctl restart {}".format(service_name))
-
+    res_li()
+    clear_c()
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
     
@@ -2484,7 +2656,8 @@ WantedBy=multi-user.target
         subprocess.run(['systemctl', 'daemon-reload'])
         subprocess.run(['systemctl', 'enable', service_name])
         subprocess.run(['systemctl', 'restart', service_name])
-        
+        res_li()
+        clear_c()
         display_checkmark("\033[92mFRP Service Started!\033[0m")
         
         time.sleep(1)
@@ -2603,8 +2776,6 @@ def i3kharej_1iran_kharej_local():
             
 def kharej1_local():
     os.system("clear")
-    res_k1()
-    clear_c()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
     print('\033[92m(   ) \033[93mKharej Server \033[92m[1]\033[93m \033[0m')
@@ -2619,8 +2790,14 @@ def kharej1_local():
     print("\033[96m  If i don't do that, the connection won't be established")
     print("\033[93m╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯\033[0m")
     display_notification("\033[93mConfiguring...\033[0m")
-    print("\033[93m╭───────────────────────────────────────────────────────────────────────────────────────────╮")  
-    num_groups = int(input("\033[93mEnter the number of \033[92mloadbalance groups\033[96m [For each different port, there should be a group]: \033[0m"))
+    print("\033[93m╭───────────────────────────────────────────────────────────────────────────────────────────╮") 
+    
+    while True:
+        try:
+            num_groups = int(input("\033[93mEnter the number of \033[92mloadbalance groups\033[96m [For each different port, there should be a group\033[92m]: \033[0m"))
+            break
+        except ValueError:
+            print("\033[91mInvalid input! Please enter a valid input!!\033[0m")
 
     groups = []
     for i in range(num_groups):
@@ -2646,7 +2823,12 @@ def kharej1_local():
         f.write("transport.tls.disable_custom_tls_first_byte = false\n")
         f.write("token = azumi\n")
 
-    start_number = int(input("\033[93mEnter the starting v2ray and group number: \033[0m"))
+    while True:
+        try:
+            start_number = int(input("\033[93mEnter the starting v2ray and group number: \033[0m"))
+            break
+        except ValueError:
+            print("\033[91mInvalid input! Please enter a valid input!!\033[0m")
 
     for group_index, group in enumerate(groups):
         group_name = group["name"]
@@ -2703,11 +2885,12 @@ WantedBy=multi-user.target
     os.system("systemctl daemon-reload")
     os.system("systemctl enable {}".format(service_name))
     os.system("systemctl restart {}".format(service_name))
-
+    res_k1()
+    clear_c()
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
     num_v2ray_instances = len(groups)
-    last_v2ray_number = starting_v2ray_number + num_v2ray_instances -1
+    last_v2ray_number = start_number + num_v2ray_instances 
 
     print("Use the last V2ray number for configuring the next kharej server.")
     print("+--------------------------------------------------+")
@@ -2718,8 +2901,6 @@ WantedBy=multi-user.target
             
 def kharej2_local():
     os.system("clear")
-    res_k2()
-    clear_c()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
     print('\033[92m(   ) \033[93mKharej Server \033[92m[2]\033[93m \033[0m')
@@ -2734,8 +2915,14 @@ def kharej2_local():
     print("\033[96m  If i don't do that, the connection won't be established")
     print("\033[93m╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯\033[0m")
     display_notification("\033[93mConfiguring...\033[0m")
-    print("\033[93m╭───────────────────────────────────────────────────────────────────────────────────────────╮")  
-    num_groups = int(input("\033[93mEnter the number of \033[92mloadbalance groups\033[96m [For each different port, there should be a group]: \033[0m"))
+    print("\033[93m╭───────────────────────────────────────────────────────────────────────────────────────────╮") 
+    
+    while True:
+        try:
+            num_groups = int(input("\033[93mEnter the number of \033[92mloadbalance groups\033[96m [For each different port, there should be a group\033[92m]: \033[0m"))
+            break
+        except ValueError:
+            print("\033[91mInvalid input! Please enter a valid input!!\033[0m")
 
     groups = []
     for i in range(num_groups):
@@ -2761,7 +2948,12 @@ def kharej2_local():
         f.write("transport.tls.disable_custom_tls_first_byte = false\n")
         f.write("token = azumi\n")
 
-    start_number = int(input("\033[93mEnter the starting v2ray and group number: \033[0m"))
+    while True:
+        try:
+            start_number = int(input("\033[93mEnter the starting v2ray and group number: \033[0m"))
+            break
+        except ValueError:
+            print("\033[91mInvalid input! Please enter a valid input!!\033[0m")
 
     for group_index, group in enumerate(groups):
         group_name = group["name"]
@@ -2818,11 +3010,12 @@ WantedBy=multi-user.target
     os.system("systemctl daemon-reload")
     os.system("systemctl enable {}".format(service_name))
     os.system("systemctl restart {}".format(service_name))
-
+    res_k2()
+    clear_c()
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
     num_v2ray_instances = len(groups)
-    last_v2ray_number = starting_v2ray_number + num_v2ray_instances -1
+    last_v2ray_number = start_number + num_v2ray_instances
 
     print("Use the last V2ray number for configuring the next kharej server.")
     print("+--------------------------------------------------+")
@@ -2833,8 +3026,6 @@ WantedBy=multi-user.target
     
 def kharej3_local():
     os.system("clear")
-    res_k3()
-    clear_c()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
     print('\033[92m(   ) \033[93mKharej Server \033[92m[3]\033[93m \033[0m')
@@ -2849,8 +3040,14 @@ def kharej3_local():
     print("\033[96m  If i don't do that, the connection won't be established")
     print("\033[93m╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯\033[0m")
     display_notification("\033[93mConfiguring...\033[0m")
-    print("\033[93m╭───────────────────────────────────────────────────────────────────────────────────────────╮")  
-    num_groups = int(input("\033[93mEnter the number of \033[92mloadbalance groups\033[96m [For each different port, there should be a group]: \033[0m"))
+    print("\033[93m╭───────────────────────────────────────────────────────────────────────────────────────────╮") 
+    
+    while True:
+        try:
+            num_groups = int(input("\033[93mEnter the number of \033[92mloadbalance groups\033[96m [For each different port, there should be a group\033[92m]: \033[0m"))
+            break
+        except ValueError:
+            print("\033[91mInvalid input! Please enter a valid input!!\033[0m")
 
     groups = []
     for i in range(num_groups):
@@ -2876,7 +3073,12 @@ def kharej3_local():
         f.write("transport.tls.disable_custom_tls_first_byte = false\n")
         f.write("token = azumi\n")
 
-    start_number = int(input("\033[93mEnter the starting v2ray and group number: \033[0m"))
+    while True:
+        try:
+            start_number = int(input("\033[93mEnter the starting v2ray and group number: \033[0m"))
+            break
+        except ValueError:
+            print("\033[91mInvalid input! Please enter a valid input!!\033[0m")
 
     for group_index, group in enumerate(groups):
         group_name = group["name"]
@@ -2933,11 +3135,12 @@ WantedBy=multi-user.target
     os.system("systemctl daemon-reload")
     os.system("systemctl enable {}".format(service_name))
     os.system("systemctl restart {}".format(service_name))
-
+    res_k3()
+    clear_c()
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
     num_v2ray_instances = len(groups)
-    last_v2ray_number = starting_v2ray_number + num_v2ray_instances -1
+    last_v2ray_number = start_number + num_v2ray_instances
 
     print("Use the last V2ray number for configuring the next kharej server.")
     print("+--------------------------------------------------+")
@@ -2947,9 +3150,7 @@ WantedBy=multi-user.target
     print("+--------------------------------------------------+")
     
 def kharej4_local():
-    clear_c()
     os.system("clear")
-    res_k4()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
     print('\033[92m(   ) \033[93mKharej Server \033[92m[4]\033[93m \033[0m')
@@ -2964,8 +3165,14 @@ def kharej4_local():
     print("\033[96m  If i don't do that, the connection won't be established")
     print("\033[93m╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯\033[0m")
     display_notification("\033[93mConfiguring...\033[0m")
-    print("\033[93m╭───────────────────────────────────────────────────────────────────────────────────────────╮")  
-    num_groups = int(input("\033[93mEnter the number of \033[92mloadbalance groups\033[96m [For each different port, there should be a group]: \033[0m"))
+    print("\033[93m╭───────────────────────────────────────────────────────────────────────────────────────────╮") 
+    
+    while True:
+        try:
+            num_groups = int(input("\033[93mEnter the number of \033[92mloadbalance groups\033[96m [For each different port, there should be a group\033[92m]: \033[0m"))
+            break
+        except ValueError:
+            print("\033[91mInvalid input! Please enter a valid input!!\033[0m")
 
     groups = []
     for i in range(num_groups):
@@ -2991,7 +3198,12 @@ def kharej4_local():
         f.write("transport.tls.disable_custom_tls_first_byte = false\n")
         f.write("token = azumi\n")
 
-    start_number = int(input("\033[93mEnter the starting v2ray and group number: \033[0m"))
+    while True:
+        try:
+            start_number = int(input("\033[93mEnter the starting v2ray and group number: \033[0m"))
+            break
+        except ValueError:
+            print("\033[91mInvalid input! Please enter a valid input!!\033[0m")
 
     for group_index, group in enumerate(groups):
         group_name = group["name"]
@@ -3048,11 +3260,12 @@ WantedBy=multi-user.target
     os.system("systemctl daemon-reload")
     os.system("systemctl enable {}".format(service_name))
     os.system("systemctl restart {}".format(service_name))
-
+    clear_c()
+    res_k4()
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
     num_v2ray_instances = len(groups)
-    last_v2ray_number = starting_v2ray_number + num_v2ray_instances -1
+    last_v2ray_number = start_number + num_v2ray_instances
 
     print("Use the last V2ray number for configuring the next kharej server.")
     print("+--------------------------------------------------+")
@@ -3063,8 +3276,6 @@ WantedBy=multi-user.target
     
 def kharej5_local():
     os.system("clear")
-    res_k5()
-    clear_c()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
     print('\033[92m(   ) \033[93mKharej Server \033[92m[5]\033[93m \033[0m')
@@ -3079,8 +3290,14 @@ def kharej5_local():
     print("\033[96m  If i don't do that, the connection won't be established")
     print("\033[93m╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯\033[0m")
     display_notification("\033[93mConfiguring...\033[0m")
-    print("\033[93m╭───────────────────────────────────────────────────────────────────────────────────────────╮")  
-    num_groups = int(input("\033[93mEnter the number of \033[92mloadbalance groups\033[96m [For each different port, there should be a group]: \033[0m"))
+    print("\033[93m╭───────────────────────────────────────────────────────────────────────────────────────────╮") 
+    
+    while True:
+        try:
+            num_groups = int(input("\033[93mEnter the number of \033[92mloadbalance groups\033[96m [For each different port, there should be a group\033[92m]: \033[0m"))
+            break
+        except ValueError:
+            print("\033[91mInvalid input! Please enter a valid input!!\033[0m")
 
     groups = []
     for i in range(num_groups):
@@ -3106,7 +3323,12 @@ def kharej5_local():
         f.write("transport.tls.disable_custom_tls_first_byte = false\n")
         f.write("token = azumi\n")
 
-    start_number = int(input("\033[93mEnter the starting v2ray and group number: \033[0m"))
+    while True:
+        try:
+            start_number = int(input("\033[93mEnter the starting v2ray and group number: \033[0m"))
+            break
+        except ValueError:
+            print("\033[91mInvalid input! Please enter a valid input!!\033[0m")
 
     for group_index, group in enumerate(groups):
         group_name = group["name"]
@@ -3163,11 +3385,12 @@ WantedBy=multi-user.target
     os.system("systemctl daemon-reload")
     os.system("systemctl enable {}".format(service_name))
     os.system("systemctl restart {}".format(service_name))
-
+    res_k5()
+    clear_c()
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
     num_v2ray_instances = len(groups)
-    last_v2ray_number = starting_v2ray_number + num_v2ray_instances -1
+    last_v2ray_number = start_number + num_v2ray_instances
 
     print("Use the last V2ray number for configuring the next kharej server.")
     print("+--------------------------------------------------+")
@@ -3178,8 +3401,6 @@ WantedBy=multi-user.target
     
 def kharej6_local():
     os.system("clear")
-    res_k6()
-    clear_c()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
     print('\033[92m(   ) \033[93mKharej Server \033[92m[6]\033[93m \033[0m')
@@ -3194,8 +3415,14 @@ def kharej6_local():
     print("\033[96m  If i don't do that, the connection won't be established")
     print("\033[93m╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯\033[0m")
     display_notification("\033[93mConfiguring...\033[0m")
-    print("\033[93m╭───────────────────────────────────────────────────────────────────────────────────────────╮")  
-    num_groups = int(input("\033[93mEnter the number of \033[92mloadbalance groups\033[96m [For each different port, there should be a group]: \033[0m"))
+    print("\033[93m╭───────────────────────────────────────────────────────────────────────────────────────────╮") 
+    
+    while True:
+        try:
+            num_groups = int(input("\033[93mEnter the number of \033[92mloadbalance groups\033[96m [For each different port, there should be a group\033[92m]: \033[0m"))
+            break
+        except ValueError:
+            print("\033[91mInvalid input! Please enter a valid input!!\033[0m")
 
     groups = []
     for i in range(num_groups):
@@ -3221,7 +3448,12 @@ def kharej6_local():
         f.write("transport.tls.disable_custom_tls_first_byte = false\n")
         f.write("token = azumi\n")
 
-    start_number = int(input("\033[93mEnter the starting v2ray and group number: \033[0m"))
+    while True:
+        try:
+            start_number = int(input("\033[93mEnter the starting v2ray and group number: \033[0m"))
+            break
+        except ValueError:
+            print("\033[91mInvalid input! Please enter a valid input!!\033[0m")
 
     for group_index, group in enumerate(groups):
         group_name = group["name"]
@@ -3278,11 +3510,12 @@ WantedBy=multi-user.target
     os.system("systemctl daemon-reload")
     os.system("systemctl enable {}".format(service_name))
     os.system("systemctl restart {}".format(service_name))
-
+    res_k6()
+    clear_c()
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
     num_v2ray_instances = len(groups)
-    last_v2ray_number = starting_v2ray_number + num_v2ray_instances -1
+    llast_v2ray_number = start_number + num_v2ray_instances
 
     print("Use the last V2ray number for configuring the next kharej server.")
     print("+--------------------------------------------------+")
@@ -3293,8 +3526,6 @@ WantedBy=multi-user.target
             
 def kharej7_local():
     os.system("clear")
-    res_k7()
-    clear_c()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
     print('\033[92m(   ) \033[93mKharej Server \033[92m[7]\033[93m \033[0m')
@@ -3309,8 +3540,14 @@ def kharej7_local():
     print("\033[96m  If i don't do that, the connection won't be established")
     print("\033[93m╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯\033[0m")
     display_notification("\033[93mConfiguring...\033[0m")
-    print("\033[93m╭───────────────────────────────────────────────────────────────────────────────────────────╮")  
-    num_groups = int(input("\033[93mEnter the number of \033[92mloadbalance groups\033[96m [For each different port, there should be a group]: \033[0m"))
+    print("\033[93m╭───────────────────────────────────────────────────────────────────────────────────────────╮") 
+    
+    while True:
+        try:
+            num_groups = int(input("\033[93mEnter the number of \033[92mloadbalance groups\033[96m [For each different port, there should be a group\033[92m]: \033[0m"))
+            break
+        except ValueError:
+            print("\033[91mInvalid input! Please enter a valid input!!\033[0m")
 
     groups = []
     for i in range(num_groups):
@@ -3336,8 +3573,12 @@ def kharej7_local():
         f.write("transport.tls.disable_custom_tls_first_byte = false\n")
         f.write("token = azumi\n")
 
-    start_number = int(input("\033[93mEnter the starting v2ray and group number: \033[0m"))
-
+    while True:
+        try:
+            start_number = int(input("\033[93mEnter the starting v2ray and group number: \033[0m"))
+            break
+        except ValueError:
+            print("\033[91mInvalid input! Please enter a valid input!!\033[0m")
     for group_index, group in enumerate(groups):
         group_name = group["name"]
         group_number = start_number + group_index  
@@ -3393,11 +3634,12 @@ WantedBy=multi-user.target
     os.system("systemctl daemon-reload")
     os.system("systemctl enable {}".format(service_name))
     os.system("systemctl restart {}".format(service_name))
-
+    res_k7()
+    clear_c()
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
     num_v2ray_instances = len(groups)
-    last_v2ray_number = starting_v2ray_number + num_v2ray_instances -1
+    last_v2ray_number = start_number + num_v2ray_instances
 
     print("Use the last V2ray number for configuring the next kharej server.")
     print("+--------------------------------------------------+")
@@ -3408,8 +3650,6 @@ WantedBy=multi-user.target
     
 def kharej8_local():
     os.system("clear")
-    res_k8()
-    clear_c()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
     print('\033[92m(   ) \033[93mKharej Server \033[92m[8]\033[93m \033[0m')
@@ -3424,8 +3664,14 @@ def kharej8_local():
     print("\033[96m  If i don't do that, the connection won't be established")
     print("\033[93m╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯\033[0m")
     display_notification("\033[93mConfiguring...\033[0m")
-    print("\033[93m╭───────────────────────────────────────────────────────────────────────────────────────────╮")  
-    num_groups = int(input("\033[93mEnter the number of \033[92mloadbalance groups\033[96m [For each different port, there should be a group]: \033[0m"))
+    print("\033[93m╭───────────────────────────────────────────────────────────────────────────────────────────╮") 
+    
+    while True:
+        try:
+            num_groups = int(input("\033[93mEnter the number of \033[92mloadbalance groups\033[96m [For each different port, there should be a group\033[92m]: \033[0m"))
+            break
+        except ValueError:
+            print("\033[91mInvalid input! Please enter a valid input!!\033[0m")
 
     groups = []
     for i in range(num_groups):
@@ -3451,7 +3697,12 @@ def kharej8_local():
         f.write("transport.tls.disable_custom_tls_first_byte = false\n")
         f.write("token = azumi\n")
 
-    start_number = int(input("\033[93mEnter the starting v2ray and group number: \033[0m"))
+    while True:
+        try:
+            start_number = int(input("\033[93mEnter the starting v2ray and group number: \033[0m"))
+            break
+        except ValueError:
+            print("\033[91mInvalid input! Please enter a valid input!!\033[0m")
 
     for group_index, group in enumerate(groups):
         group_name = group["name"]
@@ -3508,11 +3759,12 @@ WantedBy=multi-user.target
     os.system("systemctl daemon-reload")
     os.system("systemctl enable {}".format(service_name))
     os.system("systemctl restart {}".format(service_name))
-
+    res_k8()
+    clear_c()
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
     num_v2ray_instances = len(groups)
-    last_v2ray_number = starting_v2ray_number + num_v2ray_instances -1
+    last_v2ray_number = start_number + num_v2ray_instances
 
     print("Use the last V2ray number for configuring the next kharej server.")
     print("+--------------------------------------------------+")
@@ -3523,8 +3775,6 @@ WantedBy=multi-user.target
     
 def kharej9_local():
     os.system("clear")
-    res_k9()
-    clear_c()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
     print('\033[92m(   ) \033[93mKharej Server \033[92m[9]\033[93m \033[0m')
@@ -3539,8 +3789,14 @@ def kharej9_local():
     print("\033[96m  If i don't do that, the connection won't be established")
     print("\033[93m╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯\033[0m")
     display_notification("\033[93mConfiguring...\033[0m")
-    print("\033[93m╭───────────────────────────────────────────────────────────────────────────────────────────╮")  
-    num_groups = int(input("\033[93mEnter the number of \033[92mloadbalance groups\033[96m [For each different port, there should be a group]: \033[0m"))
+    print("\033[93m╭───────────────────────────────────────────────────────────────────────────────────────────╮") 
+    
+    while True:
+        try:
+            num_groups = int(input("\033[93mEnter the number of \033[92mloadbalance groups\033[96m [For each different port, there should be a group\033[92m]: \033[0m"))
+            break
+        except ValueError:
+            print("\033[91mInvalid input! Please enter a valid input!!\033[0m")
 
     groups = []
     for i in range(num_groups):
@@ -3566,7 +3822,12 @@ def kharej9_local():
         f.write("transport.tls.disable_custom_tls_first_byte = false\n")
         f.write("token = azumi\n")
 
-    start_number = int(input("\033[93mEnter the starting v2ray and group number: \033[0m"))
+    while True:
+        try:
+            start_number = int(input("\033[93mEnter the starting v2ray and group number: \033[0m"))
+            break
+        except ValueError:
+            print("\033[91mInvalid input! Please enter a valid input!!\033[0m")
 
     for group_index, group in enumerate(groups):
         group_name = group["name"]
@@ -3623,11 +3884,12 @@ WantedBy=multi-user.target
     os.system("systemctl daemon-reload")
     os.system("systemctl enable {}".format(service_name))
     os.system("systemctl restart {}".format(service_name))
-
+    res_k9()
+    clear_c()
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
     num_v2ray_instances = len(groups)
-    last_v2ray_number = starting_v2ray_number + num_v2ray_instances -1
+    last_v2ray_number = start_number + num_v2ray_instances
 
     print("Use the last V2ray number for configuring the next kharej server.")
     print("+--------------------------------------------------+")
@@ -3638,8 +3900,6 @@ WantedBy=multi-user.target
     
 def kharej10_local():
     os.system("clear")
-    res_k10()
-    clear_c()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
     print('\033[92m(   ) \033[93mKharej Server \033[92m[10]\033[93m \033[0m')
@@ -3654,8 +3914,14 @@ def kharej10_local():
     print("\033[96m  If i don't do that, the connection won't be established")
     print("\033[93m╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯\033[0m")
     display_notification("\033[93mConfiguring...\033[0m")
-    print("\033[93m╭───────────────────────────────────────────────────────────────────────────────────────────╮")  
-    num_groups = int(input("\033[93mEnter the number of \033[92mloadbalance groups\033[96m [For each different port, there should be a group]: \033[0m"))
+    print("\033[93m╭───────────────────────────────────────────────────────────────────────────────────────────╮") 
+    
+    while True:
+        try:
+            num_groups = int(input("\033[93mEnter the number of \033[92mloadbalance groups\033[96m [For each different port, there should be a group\033[92m]: \033[0m"))
+            break
+        except ValueError:
+            print("\033[91mInvalid input! Please enter a valid input!!\033[0m")
 
     groups = []
     for i in range(num_groups):
@@ -3681,7 +3947,12 @@ def kharej10_local():
         f.write("transport.tls.disable_custom_tls_first_byte = false\n")
         f.write("token = azumi\n")
 
-    start_number = int(input("\033[93mEnter the starting v2ray and group number: \033[0m"))
+    while True:
+        try:
+            start_number = int(input("\033[93mEnter the starting v2ray and group number: \033[0m"))
+            break
+        except ValueError:
+            print("\033[91mInvalid input! Please enter a valid input!!\033[0m")
 
     for group_index, group in enumerate(groups):
         group_name = group["name"]
@@ -3738,11 +4009,12 @@ WantedBy=multi-user.target
     os.system("systemctl daemon-reload")
     os.system("systemctl enable {}".format(service_name))
     os.system("systemctl restart {}".format(service_name))
-
+    res_k10()
+    clear_c()
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
     num_v2ray_instances = len(groups)
-    last_v2ray_number = starting_v2ray_number + num_v2ray_instances -1
+    last_v2ray_number = start_number + num_v2ray_instances
 
     print("Use the last V2ray number for configuring the next kharej server.")
     print("+--------------------------------------------------+")
@@ -3821,8 +4093,6 @@ def i3kharej_1iran_kharej_ipv6():
 
 def kharej1():
     os.system("clear")
-    res_k1()
-    clear_c()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
     print('\033[92m(   ) \033[92mKharej \033[93mServer \033[92m[1] \033[0m')
@@ -3838,13 +4108,26 @@ def kharej1():
     print("\033[96m  If i don't do that, the connection won't be established")
     print("\033[93m╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯\033[0m")
     display_notification("\033[93mConfiguring...\033[0m")
-    print("\033[93m╭───────────────────────────────────────────────────────────────────────────────────────────╮")  
-    num_groups = int(input("\033[93mEnter the number of \033[92mload balance groups[\033[96m [For each different port, there should be a group\033[92m]: \033[0m"))
+    print("\033[93m╭───────────────────────────────────────────────────────────────────────────────────────────╮")
+
+    while True:
+        try:
+            num_groups = int(input("\033[93mEnter the number of \033[92mload balance groups[\033[96m [For each different port, there should be a group\033[92m]: \033[0m"))
+            break
+        except ValueError:
+            print("\033[91mInvalid input. Please enter a valid number\033[0m")
 
     groups = []
     for i in range(num_groups):
         group_name = "Loadbalance Group {}".format(i + 1)
-        num_ipv6 = int(input("\033[93mEnter the number of \033[92mKharej IPv6 addresses\033[93m needed for \033[92m{}\033[93m: \033[0m".format(group_name)))
+
+        while True:
+            try:
+                num_ipv6 = int(input("\033[93mEnter the number of \033[92mKharej IPv6 addresses\033[93m needed for \033[92m{}\033[93m: \033[0m".format(group_name)))
+                break
+            except ValueError:
+                print("\033[91mInvalid input. Please enter a valid number\033[0m")
+
         group = {"name": group_name, "num_ipv6": num_ipv6, "ipv6_addresses": []}
         groups.append(group)
 
@@ -3866,7 +4149,12 @@ def kharej1():
         f.write("transport.tls.disable_custom_tls_first_byte = false\n")
         f.write("token = azumi\n")
 
-    start_number = int(input("\033[93mEnter the starting v2ray and group number: \033[0m"))
+    while True:
+        try:
+            start_number = int(input("\033[93mEnter the starting v2ray and group number: \033[0m"))
+            break
+        except ValueError:
+            print("\033[91mInvalid input! Please enter a valid input!!\033[0m")
 
     for group_index, group in enumerate(groups):
         group_name = group["name"]
@@ -3929,12 +4217,13 @@ WantedBy=multi-user.target
     os.system("systemctl daemon-reload")
     os.system("systemctl enable {}".format(service_name))
     os.system("systemctl restart {}".format(service_name))
-
+    res_k1()
+    clear_c()
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
 	
-    num_v2ray_instances = len(groups)
-    last_v2ray_number = starting_v2ray_number + num_v2ray_instances -1
+    num_v2ray_instances = sum(group["num_ipv6"] for group in groups)
+    last_v2ray_number = start_number + num_v2ray_instances
 
     print("Use the last V2ray number for configuring the next kharej server.")
     print("+--------------------------------------------------+")
@@ -3945,8 +4234,6 @@ WantedBy=multi-user.target
 
 def kharej2():
     os.system("clear")
-    res_k2()
-    clear_c()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
     print('\033[92m(   ) \033[92mKharej \033[93mServer \033[92m[2] \033[0m')
@@ -3962,13 +4249,26 @@ def kharej2():
     print("\033[96m  If i don't do that, the connection won't be established")
     print("\033[93m╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯\033[0m")
     display_notification("\033[93mConfiguring...\033[0m")
-    print("\033[93m╭───────────────────────────────────────────────────────────────────────────────────────────╮")  
-    num_groups = int(input("\033[93mEnter the number of \033[92mload balance groups[\033[96m [For each different port, there should be a group\033[92m]: \033[0m"))
+    print("\033[93m╭───────────────────────────────────────────────────────────────────────────────────────────╮")
+
+    while True:
+        try:
+            num_groups = int(input("\033[93mEnter the number of \033[92mload balance groups[\033[96m [For each different port, there should be a group\033[92m]: \033[0m"))
+            break
+        except ValueError:
+            print("\033[91mInvalid input. Please enter a valid number\033[0m")
 
     groups = []
     for i in range(num_groups):
         group_name = "Loadbalance Group {}".format(i + 1)
-        num_ipv6 = int(input("\033[93mEnter the number of \033[92mKharej IPv6 addresses\033[93m needed for \033[92m{}\033[93m: \033[0m".format(group_name)))
+
+        while True:
+            try:
+                num_ipv6 = int(input("\033[93mEnter the number of \033[92mKharej IPv6 addresses\033[93m needed for \033[92m{}\033[93m: \033[0m".format(group_name)))
+                break
+            except ValueError:
+                print("\033[91mInvalid input. Please enter a valid number\033[0m")
+
         group = {"name": group_name, "num_ipv6": num_ipv6, "ipv6_addresses": []}
         groups.append(group)
 
@@ -3990,7 +4290,12 @@ def kharej2():
         f.write("transport.tls.disable_custom_tls_first_byte = false\n")
         f.write("token = azumi\n")
 
-    start_number = int(input("\033[93mEnter the starting v2ray and group number: \033[0m"))
+    while True:
+        try:
+            start_number = int(input("\033[93mEnter the starting v2ray and group number: \033[0m"))
+            break
+        except ValueError:
+            print("\033[91mInvalid input! Please enter a valid input!!\033[0m")
 
     for group_index, group in enumerate(groups):
         group_name = group["name"]
@@ -4053,11 +4358,12 @@ WantedBy=multi-user.target
     os.system("systemctl daemon-reload")
     os.system("systemctl enable {}".format(service_name))
     os.system("systemctl restart {}".format(service_name))
-
+    res_k2()
+    clear_c()
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
-    num_v2ray_instances = len(groups)
-    last_v2ray_number = starting_v2ray_number + num_v2ray_instances -1
+    num_v2ray_instances = sum(group["num_ipv6"] for group in groups)
+    last_v2ray_number = start_number + num_v2ray_instances
 
     print("Use the last V2ray number for configuring the next kharej server.")
     print("+--------------------------------------------------+")
@@ -4068,8 +4374,6 @@ WantedBy=multi-user.target
     
 def kharej3():
     os.system("clear")
-    res_k3()
-    clear_c()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
     print('\033[92m(   ) \033[92mKharej \033[93mServer \033[92m[3] \033[0m')
@@ -4085,13 +4389,26 @@ def kharej3():
     print("\033[96m  If i don't do that, the connection won't be established")
     print("\033[93m╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯\033[0m")
     display_notification("\033[93mConfiguring...\033[0m")
-    print("\033[93m╭───────────────────────────────────────────────────────────────────────────────────────────╮")  
-    num_groups = int(input("\033[93mEnter the number of \033[92mload balance groups[\033[96m [For each different port, there should be a group\033[92m]: \033[0m"))
+    print("\033[93m╭───────────────────────────────────────────────────────────────────────────────────────────╮")
+
+    while True:
+        try:
+            num_groups = int(input("\033[93mEnter the number of \033[92mload balance groups[\033[96m [For each different port, there should be a group\033[92m]: \033[0m"))
+            break
+        except ValueError:
+            print("\033[91mInvalid input. Please enter a valid number\033[0m")
 
     groups = []
     for i in range(num_groups):
         group_name = "Loadbalance Group {}".format(i + 1)
-        num_ipv6 = int(input("\033[93mEnter the number of \033[92mKharej IPv6 addresses\033[93m needed for \033[92m{}\033[93m: \033[0m".format(group_name)))
+
+        while True:
+            try:
+                num_ipv6 = int(input("\033[93mEnter the number of \033[92mKharej IPv6 addresses\033[93m needed for \033[92m{}\033[93m: \033[0m".format(group_name)))
+                break
+            except ValueError:
+                print("\033[91mInvalid input. Please enter a valid number\033[0m")
+
         group = {"name": group_name, "num_ipv6": num_ipv6, "ipv6_addresses": []}
         groups.append(group)
 
@@ -4113,7 +4430,12 @@ def kharej3():
         f.write("transport.tls.disable_custom_tls_first_byte = false\n")
         f.write("token = azumi\n")
 
-    start_number = int(input("\033[93mEnter the starting v2ray and group number: \033[0m"))
+    while True:
+        try:
+            start_number = int(input("\033[93mEnter the starting v2ray and group number: \033[0m"))
+            break
+        except ValueError:
+            print("\033[91mInvalid input! Please enter a valid input!!\033[0m")
 
     for group_index, group in enumerate(groups):
         group_name = group["name"]
@@ -4176,11 +4498,12 @@ WantedBy=multi-user.target
     os.system("systemctl daemon-reload")
     os.system("systemctl enable {}".format(service_name))
     os.system("systemctl restart {}".format(service_name))
-
+    res_k3()
+    clear_c()
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
-    num_v2ray_instances = len(groups)
-    last_v2ray_number = starting_v2ray_number + num_v2ray_instances -1
+    num_v2ray_instances = sum(group["num_ipv6"] for group in groups)
+    last_v2ray_number = start_number + num_v2ray_instances
 
     print("Use the last V2ray number for configuring the next kharej server.")
     print("+--------------------------------------------------+")
@@ -4191,8 +4514,6 @@ WantedBy=multi-user.target
 
 def kharej4():
     os.system("clear")
-    res_k4()
-    clear_c()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
     print('\033[92m(   ) \033[92mKharej \033[93mServer \033[92m[4] \033[0m')
@@ -4208,13 +4529,26 @@ def kharej4():
     print("\033[96m  If i don't do that, the connection won't be established")
     print("\033[93m╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯\033[0m")
     display_notification("\033[93mConfiguring...\033[0m")
-    print("\033[93m╭───────────────────────────────────────────────────────────────────────────────────────────╮")  
-    num_groups = int(input("\033[93mEnter the number of \033[92mload balance groups[\033[96m [For each different port, there should be a group\033[92m]: \033[0m"))
+    print("\033[93m╭───────────────────────────────────────────────────────────────────────────────────────────╮")
+
+    while True:
+        try:
+            num_groups = int(input("\033[93mEnter the number of \033[92mload balance groups[\033[96m [For each different port, there should be a group\033[92m]: \033[0m"))
+            break
+        except ValueError:
+            print("\033[91mInvalid input. Please enter a valid number\033[0m")
 
     groups = []
     for i in range(num_groups):
         group_name = "Loadbalance Group {}".format(i + 1)
-        num_ipv6 = int(input("\033[93mEnter the number of \033[92mKharej IPv6 addresses\033[93m needed for \033[92m{}\033[93m: \033[0m".format(group_name)))
+
+        while True:
+            try:
+                num_ipv6 = int(input("\033[93mEnter the number of \033[92mKharej IPv6 addresses\033[93m needed for \033[92m{}\033[93m: \033[0m".format(group_name)))
+                break
+            except ValueError:
+                print("\033[91mInvalid input. Please enter a valid number\033[0m")
+
         group = {"name": group_name, "num_ipv6": num_ipv6, "ipv6_addresses": []}
         groups.append(group)
 
@@ -4236,7 +4570,12 @@ def kharej4():
         f.write("transport.tls.disable_custom_tls_first_byte = false\n")
         f.write("token = azumi\n")
 
-    start_number = int(input("\033[93mEnter the starting v2ray and group number: \033[0m"))
+    while True:
+        try:
+            start_number = int(input("\033[93mEnter the starting v2ray and group number: \033[0m"))
+            break
+        except ValueError:
+            print("\033[91mInvalid input! Please enter a valid input!!\033[0m")
 
     for group_index, group in enumerate(groups):
         group_name = group["name"]
@@ -4299,11 +4638,12 @@ WantedBy=multi-user.target
     os.system("systemctl daemon-reload")
     os.system("systemctl enable {}".format(service_name))
     os.system("systemctl restart {}".format(service_name))
- 
+    res_k4()
+    clear_c()
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
-    num_v2ray_instances = len(groups)
-    last_v2ray_number = starting_v2ray_number + num_v2ray_instances -1
+    num_v2ray_instances = sum(group["num_ipv6"] for group in groups)
+    last_v2ray_number = start_number + num_v2ray_instances
 
     print("Use the last V2ray number for configuring the next kharej server.")
     print("+--------------------------------------------------+")
@@ -4314,8 +4654,6 @@ WantedBy=multi-user.target
 
 def kharej5():
     os.system("clear")
-    res_k5()
-    clear_c()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
     print('\033[92m(   ) \033[92mKharej \033[93mServer \033[92m[5] \033[0m')
@@ -4331,13 +4669,26 @@ def kharej5():
     print("\033[96m  If i don't do that, the connection won't be established")
     print("\033[93m╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯\033[0m")
     display_notification("\033[93mConfiguring...\033[0m")
-    print("\033[93m╭───────────────────────────────────────────────────────────────────────────────────────────╮")  
-    num_groups = int(input("\033[93mEnter the number of \033[92mload balance groups[\033[96m [For each different port, there should be a group\033[92m]: \033[0m"))
+    print("\033[93m╭───────────────────────────────────────────────────────────────────────────────────────────╮")
+
+    while True:
+        try:
+            num_groups = int(input("\033[93mEnter the number of \033[92mload balance groups[\033[96m [For each different port, there should be a group\033[92m]: \033[0m"))
+            break
+        except ValueError:
+            print("\033[91mInvalid input. Please enter a valid number\033[0m")
 
     groups = []
     for i in range(num_groups):
         group_name = "Loadbalance Group {}".format(i + 1)
-        num_ipv6 = int(input("\033[93mEnter the number of \033[92mKharej IPv6 addresses\033[93m needed for \033[92m{}\033[93m: \033[0m".format(group_name)))
+
+        while True:
+            try:
+                num_ipv6 = int(input("\033[93mEnter the number of \033[92mKharej IPv6 addresses\033[93m needed for \033[92m{}\033[93m: \033[0m".format(group_name)))
+                break
+            except ValueError:
+                print("\033[91mInvalid input. Please enter a valid number\033[0m")
+
         group = {"name": group_name, "num_ipv6": num_ipv6, "ipv6_addresses": []}
         groups.append(group)
 
@@ -4359,7 +4710,12 @@ def kharej5():
         f.write("transport.tls.disable_custom_tls_first_byte = false\n")
         f.write("token = azumi\n")
 
-    start_number = int(input("\033[93mEnter the starting v2ray and group number: \033[0m"))
+    while True:
+        try:
+            start_number = int(input("\033[93mEnter the starting v2ray and group number: \033[0m"))
+            break
+        except ValueError:
+            print("\033[91mInvalid input! Please enter a valid input!!\033[0m")
 
     for group_index, group in enumerate(groups):
         group_name = group["name"]
@@ -4422,11 +4778,12 @@ WantedBy=multi-user.target
     os.system("systemctl daemon-reload")
     os.system("systemctl enable {}".format(service_name))
     os.system("systemctl restart {}".format(service_name))
-
+    res_k5()
+    clear_c()
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
-    num_v2ray_instances = len(groups)
-    last_v2ray_number = starting_v2ray_number + num_v2ray_instances -1
+    num_v2ray_instances = sum(group["num_ipv6"] for group in groups)
+    last_v2ray_number = start_number + num_v2ray_instances
 
     print("Use the last V2ray number for configuring the next kharej server.")
     print("+--------------------------------------------------+")
@@ -4437,8 +4794,6 @@ WantedBy=multi-user.target
 
 def kharej6():
     os.system("clear")
-    res_k6()
-    clear_c()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
     print('\033[92m(   ) \033[92mKharej \033[93mServer \033[92m[6] \033[0m')
@@ -4454,13 +4809,26 @@ def kharej6():
     print("\033[96m  If i don't do that, the connection won't be established")
     print("\033[93m╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯\033[0m")
     display_notification("\033[93mConfiguring...\033[0m")
-    print("\033[93m╭───────────────────────────────────────────────────────────────────────────────────────────╮")  
-    num_groups = int(input("\033[93mEnter the number of \033[92mload balance groups[\033[96m [For each different port, there should be a group\033[92m]: \033[0m"))
+    print("\033[93m╭───────────────────────────────────────────────────────────────────────────────────────────╮")
+
+    while True:
+        try:
+            num_groups = int(input("\033[93mEnter the number of \033[92mload balance groups[\033[96m [For each different port, there should be a group\033[92m]: \033[0m"))
+            break
+        except ValueError:
+            print("\033[91mInvalid input. Please enter a valid number\033[0m")
 
     groups = []
     for i in range(num_groups):
         group_name = "Loadbalance Group {}".format(i + 1)
-        num_ipv6 = int(input("\033[93mEnter the number of \033[92mKharej IPv6 addresses\033[93m needed for \033[92m{}\033[93m: \033[0m".format(group_name)))
+
+        while True:
+            try:
+                num_ipv6 = int(input("\033[93mEnter the number of \033[92mKharej IPv6 addresses\033[93m needed for \033[92m{}\033[93m: \033[0m".format(group_name)))
+                break
+            except ValueError:
+                print("\033[91mInvalid input. Please enter a valid number\033[0m")
+
         group = {"name": group_name, "num_ipv6": num_ipv6, "ipv6_addresses": []}
         groups.append(group)
 
@@ -4482,7 +4850,12 @@ def kharej6():
         f.write("transport.tls.disable_custom_tls_first_byte = false\n")
         f.write("token = azumi\n")
 
-    start_number = int(input("\033[93mEnter the starting v2ray and group number: \033[0m"))
+    while True:
+        try:
+            start_number = int(input("\033[93mEnter the starting v2ray and group number: \033[0m"))
+            break
+        except ValueError:
+            print("\033[91mInvalid input! Please enter a valid input!!\033[0m")
 
     for group_index, group in enumerate(groups):
         group_name = group["name"]
@@ -4545,12 +4918,13 @@ WantedBy=multi-user.target
     os.system("systemctl daemon-reload")
     os.system("systemctl enable {}".format(service_name))
     os.system("systemctl restart {}".format(service_name))
-
+    res_k6()
+    clear_c()
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
 	
-    num_v2ray_instances = len(groups)
-    last_v2ray_number = starting_v2ray_number + num_v2ray_instances -1
+    num_v2ray_instances = sum(group["num_ipv6"] for group in groups)
+    last_v2ray_number = start_number + num_v2ray_instances
 
     print("Use the last V2ray number for configuring the next kharej server.")
     print("+--------------------------------------------------+")
@@ -4561,8 +4935,6 @@ WantedBy=multi-user.target
 
 def kharej7():
     os.system("clear")
-    res_k7()
-    clear_c()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
     print('\033[92m(   ) \033[92mKharej \033[93mServer \033[92m[7] \033[0m')
@@ -4578,13 +4950,26 @@ def kharej7():
     print("\033[96m  If i don't do that, the connection won't be established")
     print("\033[93m╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯\033[0m")
     display_notification("\033[93mConfiguring...\033[0m")
-    print("\033[93m╭───────────────────────────────────────────────────────────────────────────────────────────╮")  
-    num_groups = int(input("\033[93mEnter the number of \033[92mload balance groups[\033[96m [For each different port, there should be a group\033[92m]: \033[0m"))
+    print("\033[93m╭───────────────────────────────────────────────────────────────────────────────────────────╮")
+
+    while True:
+        try:
+            num_groups = int(input("\033[93mEnter the number of \033[92mload balance groups[\033[96m [For each different port, there should be a group\033[92m]: \033[0m"))
+            break
+        except ValueError:
+            print("\033[91mInvalid input. Please enter a valid number\033[0m")
 
     groups = []
     for i in range(num_groups):
         group_name = "Loadbalance Group {}".format(i + 1)
-        num_ipv6 = int(input("\033[93mEnter the number of \033[92mKharej IPv6 addresses\033[93m needed for \033[92m{}\033[93m: \033[0m".format(group_name)))
+
+        while True:
+            try:
+                num_ipv6 = int(input("\033[93mEnter the number of \033[92mKharej IPv6 addresses\033[93m needed for \033[92m{}\033[93m: \033[0m".format(group_name)))
+                break
+            except ValueError:
+                print("\033[91mInvalid input. Please enter a valid number\033[0m")
+
         group = {"name": group_name, "num_ipv6": num_ipv6, "ipv6_addresses": []}
         groups.append(group)
 
@@ -4606,7 +4991,12 @@ def kharej7():
         f.write("transport.tls.disable_custom_tls_first_byte = false\n")
         f.write("token = azumi\n")
 
-    start_number = int(input("\033[93mEnter the starting v2ray and group number: \033[0m"))
+    while True:
+        try:
+            start_number = int(input("\033[93mEnter the starting v2ray and group number: \033[0m"))
+            break
+        except ValueError:
+            print("\033[91mInvalid input! Please enter a valid input!!\033[0m")
 
     for group_index, group in enumerate(groups):
         group_name = group["name"]
@@ -4669,11 +5059,12 @@ WantedBy=multi-user.target
     os.system("systemctl daemon-reload")
     os.system("systemctl enable {}".format(service_name))
     os.system("systemctl restart {}".format(service_name))
-
+    res_k7()
+    clear_c()
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
-    num_v2ray_instances = len(groups)
-    last_v2ray_number = starting_v2ray_number + num_v2ray_instances -1
+    num_v2ray_instances = sum(group["num_ipv6"] for group in groups)
+    last_v2ray_number = start_number + num_v2ray_instances
 
     print("Use the last V2ray number for configuring the next kharej server.")
     print("+--------------------------------------------------+")
@@ -4684,8 +5075,6 @@ WantedBy=multi-user.target
     
 def kharej8():
     os.system("clear")
-    res_k8()
-    clear_c()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
     print('\033[92m(   ) \033[92mKharej \033[93mServer \033[92m[8] \033[0m')
@@ -4701,13 +5090,26 @@ def kharej8():
     print("\033[96m  If i don't do that, the connection won't be established")
     print("\033[93m╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯\033[0m")
     display_notification("\033[93mConfiguring...\033[0m")
-    print("\033[93m╭───────────────────────────────────────────────────────────────────────────────────────────╮")  
-    num_groups = int(input("\033[93mEnter the number of \033[92mload balance groups[\033[96m [For each different port, there should be a group\033[92m]: \033[0m"))
+    print("\033[93m╭───────────────────────────────────────────────────────────────────────────────────────────╮")
+
+    while True:
+        try:
+            num_groups = int(input("\033[93mEnter the number of \033[92mload balance groups[\033[96m [For each different port, there should be a group\033[92m]: \033[0m"))
+            break
+        except ValueError:
+            print("\033[91mInvalid input. Please enter a valid number\033[0m")
 
     groups = []
     for i in range(num_groups):
         group_name = "Loadbalance Group {}".format(i + 1)
-        num_ipv6 = int(input("\033[93mEnter the number of \033[92mKharej IPv6 addresses\033[93m needed for \033[92m{}\033[93m: \033[0m".format(group_name)))
+
+        while True:
+            try:
+                num_ipv6 = int(input("\033[93mEnter the number of \033[92mKharej IPv6 addresses\033[93m needed for \033[92m{}\033[93m: \033[0m".format(group_name)))
+                break
+            except ValueError:
+                print("\033[91mInvalid input. Please enter a valid number\033[0m")
+
         group = {"name": group_name, "num_ipv6": num_ipv6, "ipv6_addresses": []}
         groups.append(group)
 
@@ -4729,7 +5131,12 @@ def kharej8():
         f.write("transport.tls.disable_custom_tls_first_byte = false\n")
         f.write("token = azumi\n")
 
-    start_number = int(input("\033[93mEnter the starting v2ray and group number: \033[0m"))
+    while True:
+        try:
+            start_number = int(input("\033[93mEnter the starting v2ray and group number: \033[0m"))
+            break
+        except ValueError:
+            print("\033[91mInvalid input! Please enter a valid input!!\033[0m")
 
     for group_index, group in enumerate(groups):
         group_name = group["name"]
@@ -4792,11 +5199,12 @@ WantedBy=multi-user.target
     os.system("systemctl daemon-reload")
     os.system("systemctl enable {}".format(service_name))
     os.system("systemctl restart {}".format(service_name))
-
+    res_k8()
+    clear_c()
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
-    num_v2ray_instances = len(groups)
-    last_v2ray_number = starting_v2ray_number + num_v2ray_instances -1 
+    num_v2ray_instances = sum(group["num_ipv6"] for group in groups)
+    last_v2ray_number = start_number + num_v2ray_instances
 
     print("Use the last V2ray number for configuring the next kharej server.")
     print("+--------------------------------------------------+")
@@ -4807,8 +5215,6 @@ WantedBy=multi-user.target
 
 def kharej9():
     os.system("clear")
-    res_k9()
-    clear_c()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
     print('\033[92m(   ) \033[92mKharej \033[93mServer \033[92m[9] \033[0m')
@@ -4824,13 +5230,26 @@ def kharej9():
     print("\033[96m  If i don't do that, the connection won't be established")
     print("\033[93m╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯\033[0m")
     display_notification("\033[93mConfiguring...\033[0m")
-    print("\033[93m╭───────────────────────────────────────────────────────────────────────────────────────────╮")  
-    num_groups = int(input("\033[93mEnter the number of \033[92mload balance groups[\033[96m [For each different port, there should be a group\033[92m]: \033[0m"))
+    print("\033[93m╭───────────────────────────────────────────────────────────────────────────────────────────╮")
+
+    while True:
+        try:
+            num_groups = int(input("\033[93mEnter the number of \033[92mload balance groups[\033[96m [For each different port, there should be a group\033[92m]: \033[0m"))
+            break
+        except ValueError:
+            print("\033[91mInvalid input. Please enter a valid number\033[0m")
 
     groups = []
     for i in range(num_groups):
         group_name = "Loadbalance Group {}".format(i + 1)
-        num_ipv6 = int(input("\033[93mEnter the number of \033[92mKharej IPv6 addresses\033[93m needed for \033[92m{}\033[93m: \033[0m".format(group_name)))
+
+        while True:
+            try:
+                num_ipv6 = int(input("\033[93mEnter the number of \033[92mKharej IPv6 addresses\033[93m needed for \033[92m{}\033[93m: \033[0m".format(group_name)))
+                break
+            except ValueError:
+                print("\033[91mInvalid input. Please enter a valid number\033[0m")
+
         group = {"name": group_name, "num_ipv6": num_ipv6, "ipv6_addresses": []}
         groups.append(group)
 
@@ -4852,7 +5271,12 @@ def kharej9():
         f.write("transport.tls.disable_custom_tls_first_byte = false\n")
         f.write("token = azumi\n")
 
-    start_number = int(input("\033[93mEnter the starting v2ray and group number: \033[0m"))
+    while True:
+        try:
+            start_number = int(input("\033[93mEnter the starting v2ray and group number: \033[0m"))
+            break
+        except ValueError:
+            print("\033[91mInvalid input! Please enter a valid input!!\033[0m")
 
     for group_index, group in enumerate(groups):
         group_name = group["name"]
@@ -4915,11 +5339,12 @@ WantedBy=multi-user.target
     os.system("systemctl daemon-reload")
     os.system("systemctl enable {}".format(service_name))
     os.system("systemctl restart {}".format(service_name))
- 
+    res_k9()
+    clear_c()
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
-    num_v2ray_instances = len(groups)
-    last_v2ray_number = starting_v2ray_number + num_v2ray_instances -1
+    num_v2ray_instances = sum(group["num_ipv6"] for group in groups)
+    last_v2ray_number = start_number + num_v2ray_instances
 
     print("Use the last V2ray number for configuring the next kharej server.")
     print("+--------------------------------------------------+")
@@ -4930,8 +5355,6 @@ WantedBy=multi-user.target
 
 def kharej10():
     os.system("clear")
-    res_k10()
-    clear_c()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
     print('\033[92m(   ) \033[92mKharej \033[93mServer \033[92m[10] \033[0m')
@@ -4947,13 +5370,26 @@ def kharej10():
     print("\033[96m  If i don't do that, the connection won't be established")
     print("\033[93m╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯\033[0m")
     display_notification("\033[93mConfiguring...\033[0m")
-    print("\033[93m╭───────────────────────────────────────────────────────────────────────────────────────────╮")  
-    num_groups = int(input("\033[93mEnter the number of \033[92mload balance groups[\033[96m [For each different port, there should be a group\033[92m]: \033[0m"))
+    print("\033[93m╭───────────────────────────────────────────────────────────────────────────────────────────╮")
+
+    while True:
+        try:
+            num_groups = int(input("\033[93mEnter the number of \033[92mload balance groups[\033[96m [For each different port, there should be a group\033[92m]: \033[0m"))
+            break
+        except ValueError:
+            print("\033[91mInvalid input. Please enter a valid number\033[0m")
 
     groups = []
     for i in range(num_groups):
         group_name = "Loadbalance Group {}".format(i + 1)
-        num_ipv6 = int(input("\033[93mEnter the number of \033[92mKharej IPv6 addresses\033[93m needed for \033[92m{}\033[93m: \033[0m".format(group_name)))
+
+        while True:
+            try:
+                num_ipv6 = int(input("\033[93mEnter the number of \033[92mKharej IPv6 addresses\033[93m needed for \033[92m{}\033[93m: \033[0m".format(group_name)))
+                break
+            except ValueError:
+                print("\033[91mInvalid input. Please enter a valid number\033[0m")
+
         group = {"name": group_name, "num_ipv6": num_ipv6, "ipv6_addresses": []}
         groups.append(group)
 
@@ -4975,7 +5411,12 @@ def kharej10():
         f.write("transport.tls.disable_custom_tls_first_byte = false\n")
         f.write("token = azumi\n")
 
-    start_number = int(input("\033[93mEnter the starting v2ray and group number: \033[0m"))
+    while True:
+        try:
+            start_number = int(input("\033[93mEnter the starting v2ray and group number: \033[0m"))
+            break
+        except ValueError:
+            print("\033[91mInvalid input! Please enter a valid input!!\033[0m")
 
     for group_index, group in enumerate(groups):
         group_name = group["name"]
@@ -5038,11 +5479,12 @@ WantedBy=multi-user.target
     os.system("systemctl daemon-reload")
     os.system("systemctl enable {}".format(service_name))
     os.system("systemctl restart {}".format(service_name))
-
+    res_k10()
+    clear_c()
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
-    num_v2ray_instances = len(groups)
-    last_v2ray_number = starting_v2ray_number + num_v2ray_instances -1 
+    num_v2ray_instances = sum(group["num_ipv6"] for group in groups)
+    last_v2ray_number = start_number + num_v2ray_instances
 
     print("Use the last V2ray number for configuring the next kharej server.")
     print("+--------------------------------------------------+")
@@ -5082,8 +5524,6 @@ def i3kharej_1iran_iran():
 	
 def iran_without_dash():
     os.system("clear")
-    res_i()
-    clear_c()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
     print('\033[92m(   ) \033[93mIRAN Menu  \033[0m')
@@ -5098,8 +5538,8 @@ def iran_without_dash():
     display_notification("\033[93mConfiguring...\033[0m")
     print("\033[93m╭─────────────────────────────────────────────────────────────────────────╮") 
 
-    local_ports = input("\033[93mEnter the \033[92mlocal\033[93m ports (\033[0mcomma-separated\033[93m): \033[0m")
-    remote_ports = input("\033[93mEnter the \033[92mremote\033[93m ports (\033[0mcomma-separated\033[93m): \033[0m")
+    local_ports = input("\033[93mEnter the \033[92mlocal\033[93m ports : \033[0m")
+    remote_ports = input("\033[93mEnter the \033[92mremote\033[93m ports : \033[0m")
 
     local_ports_list = local_ports.replace(" ", ",").split(",")
     remote_ports_list = remote_ports.replace(" ", ",").split(",")
@@ -5160,13 +5600,13 @@ WantedBy=multi-user.target
     os.system("systemctl restart {}".format(service_name))
     time.sleep(1)
     os.system("systemctl restart {}".format(service_name))
+    res_i()
+    clear_c()
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
 
 def iran_with_dash():
     os.system("clear")
-    res_i()
-    clear_c()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
     print('\033[92m(   ) \033[93mWith Dashboard\033[0m')
@@ -5270,6 +5710,8 @@ WantedBy=multi-user.target
         subprocess.run(['systemctl', 'daemon-reload'])
         subprocess.run(['systemctl', 'enable', service_name])
         subprocess.run(['systemctl', 'restart', service_name])
+        res_i()
+        clear_c()
         display_checkmark("\033[92mFRP Service Started!\033[0m")
         
         time.sleep(1)
@@ -5379,7 +5821,6 @@ def i3kharej():
 
 def i3kharej_ipv6():
     os.system("clear")
-    clear_c()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
     print('\033[92m(   ) \033[92mKharej IPV6\033[93m Method \033[0m')
@@ -5397,10 +5838,21 @@ def i3kharej_ipv6():
     print("\033[93m╰─────────────────────────────────────────────────────────────────────────────────────────────────────╯\033[0m")
     display_notification("\033[93mConfiguring...\033[0m")
     print("\033[93m╭───────────────────────────────────────────────────────────────────────────────────────────╮") 
-    num_groups = int(input("\033[93mEnter the number of \033[92mloadbalance groups\033[96m [For each different port, there should be a group\033[92m]: \033[0m"))
+    while True:
+        try:
+            num_groups = int(input("\033[93mEnter the number of \033[92mloadbalance groups\033[96m [For each different port, there should be a group\033[92m]: \033[0m"))
+            break
+        except ValueError:
+            print("\033[91mInvalid input! Please enter a valid input!!\033[0m")
+    
     print("\033[93m───────────────────────────────────────────────────────────────────────────────────────\033[0m")
-    num_iran_servers = int(input("\033[93mEnter the number of \033[92mIRAN\033[93m servers:\033[0m "))
-
+    
+    while True:
+        try:
+            num_iran_servers = int(input("\033[93mEnter the number of \033[92mIRAN\033[93m servers:\033[0m "))
+            break
+        except ValueError:
+            print("\033[91mInvalid input! Please enter a valid input!!\033[0m")
     groups = []
     for i in range(num_groups):
         group_name = "Loadbalance Group {}".format(i + 1)
@@ -5505,11 +5957,12 @@ WantedBy=multi-user.target
         os.system("systemctl daemon-reload")
         os.system("systemctl enable {}".format(service_name))
         os.system("systemctl restart {}".format(service_name))
+        res_ki3()
+        clear_c()
         display_checkmark("\033[92mFRP Service Started!\033[0m")
 
 def i3kharej_local():
     os.system("clear")
-    clear_c()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
     print('\033[92m(   ) \033[92mKharej LocalIP\033[93m Method \033[0m')
@@ -5526,9 +5979,21 @@ def i3kharej_local():
     print("\033[93m╰─────────────────────────────────────────────────────────────────────────────────────────────────────╯\033[0m")
     display_notification("\033[93mConfiguring...\033[0m")
     print("\033[93m╭───────────────────────────────────────────────────────────────────────────────────────────╮") 
-    num_groups = int(input("\033[93mEnter the number of \033[92mloadbalance groups\033[96m [For each different port, there should be a group\033[92m]: \033[0m"))
+    while True:
+        try:
+            num_groups = int(input("\033[93mEnter the number of \033[92mloadbalance groups\033[96m [For each different port, there should be a group\033[92m]: \033[0m"))
+            break
+        except ValueError:
+            print("\033[91mInvalid input! Please enter a valid input!!\033[0m")
+    
     print("\033[93m───────────────────────────────────────────────────────────────────────────────────────\033[0m")
-    num_iran_servers = int(input("\033[93mEnter the number of \033[92mIRAN\033[93m servers:\033[0m "))
+    
+    while True:
+        try:
+            num_iran_servers = int(input("\033[93mEnter the number of \033[92mIRAN\033[93m servers:\033[0m "))
+            break
+        except ValueError:
+            print("\033[91mInvalid input! Please enter a valid input!!\033[0m")
 
     groups = []
     for i in range(num_groups):
@@ -5627,12 +6092,13 @@ WantedBy=multi-user.target
         os.system("systemctl daemon-reload")
         os.system("systemctl enable {}".format(service_name))
         os.system("systemctl restart {}".format(service_name))
+        res_ki3()
+        clear_c()
         display_checkmark("\033[92mFRP Service Started!\033[0m")
 
     
 def i3iran_first():
     os.system("clear")
-    clear_c()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
     print('\033[92m(   ) \033[92mIRAN \033[93mServer \033[92m[1] \033[0m')
@@ -5645,8 +6111,8 @@ def i3iran_first():
     print("\033[93m╰───────────────────────────────────────────────────────────────────────────────────────────────────╯\033[0m")
     display_notification("\033[93mConfiguring...\033[0m")
     print("\033[93m╭───────────────────────────────────────────────────────────────────────────────────────────╮") 
-    local_ports = input("\033[93mEnter the \033[92mlocal\033[93m ports (\033[0mcomma-separated\033[93m): \033[0m")
-    remote_ports = input("\033[93mEnter the \033[92mremote\033[93m ports (\033[0mcomma-separated\033[93m): \033[0m")
+    local_ports = input("\033[93mEnter the \033[92mlocal\033[93m ports : \033[0m")
+    remote_ports = input("\033[93mEnter the \033[92mremote\033[93m ports : \033[0m")
 
     local_ports_list = local_ports.replace(" ", ",").split(",")
     remote_ports_list = remote_ports.replace(" ", ",").split(",")
@@ -5706,12 +6172,12 @@ WantedBy=multi-user.target
     os.system("systemctl daemon-reload")
     os.system("systemctl enable {}".format(service_name))
     os.system("systemctl restart {}".format(service_name))
-
+    res_ii3()
+    clear_c()
     display_checkmark("\033[92mFRP Service Started!\033[0m")
     
 def i3iran_second():
     os.system("clear")
-    clear_c()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
     print('\033[92m(   ) \033[92mIRAN \033[93mServer \033[92m[2] \033[0m')
@@ -5724,8 +6190,8 @@ def i3iran_second():
     print("\033[93m╰───────────────────────────────────────────────────────────────────────────────────────────────────╯\033[0m")
     display_notification("\033[93mConfiguring...\033[0m")
     print("\033[93m╭───────────────────────────────────────────────────────────────────────────────────────────╮") 
-    local_ports = input("\033[93mEnter the \033[92mlocal\033[93m ports (\033[0mcomma-separated\033[93m): \033[0m")
-    remote_ports = input("\033[93mEnter the \033[92mremote\033[93m ports (\033[0mcomma-separated\033[93m): \033[0m")
+    local_ports = input("\033[93mEnter the \033[92mlocal\033[93m ports : \033[0m")
+    remote_ports = input("\033[93mEnter the \033[92mremote\033[93m ports : \033[0m")
 
     local_ports_list = local_ports.replace(" ", ",").split(",")
     remote_ports_list = remote_ports.replace(" ", ",").split(",")
@@ -5785,12 +6251,12 @@ WantedBy=multi-user.target
     os.system("systemctl daemon-reload")
     os.system("systemctl enable {}".format(service_name))
     os.system("systemctl restart {}".format(service_name))
-
+    res_ii3()
+    clear_c()
     display_checkmark("\033[92mFRP Service Started!\033[0m")
     
 def i3iran_third():
     os.system("clear")
-    clear_c()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
     print('\033[92m(   ) \033[92mIRAN \033[93mServer \033[92m[3] \033[0m')
@@ -5803,8 +6269,8 @@ def i3iran_third():
     print("\033[93m╰───────────────────────────────────────────────────────────────────────────────────────────────────╯\033[0m")
     display_notification("\033[93mConfiguring...\033[0m")
     print("\033[93m╭───────────────────────────────────────────────────────────────────────────────────────────╮") 
-    local_ports = input("\033[93mEnter the \033[92mlocal\033[93m ports (\033[0mcomma-separated\033[93m): \033[0m")
-    remote_ports = input("\033[93mEnter the \033[92mremote\033[93m ports (\033[0mcomma-separated\033[93m): \033[0m")
+    local_ports = input("\033[93mEnter the \033[92mlocal\033[93m ports : \033[0m")
+    remote_ports = input("\033[93mEnter the \033[92mremote\033[93m ports : \033[0m")
 
     local_ports_list = local_ports.replace(" ", ",").split(",")
     remote_ports_list = remote_ports.replace(" ", ",").split(",")
@@ -5864,7 +6330,8 @@ WantedBy=multi-user.target
     os.system("systemctl daemon-reload")
     os.system("systemctl enable {}".format(service_name))
     os.system("systemctl restart {}".format(service_name))
-
+    res_ii3()
+    clear_c()
     display_checkmark("\033[92mFRP Service Started!\033[0m")
     
 main_menu()
