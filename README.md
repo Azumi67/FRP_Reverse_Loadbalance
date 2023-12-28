@@ -18,6 +18,18 @@
 ![R (5)](https://github.com/Azumi67/V2ray_loadbalance_multipleServers/assets/119934376/d35672ee-00e4-4521-b4ba-6805f42a82f7)**از ماهان اقا ممنونم که وقت گذاشتن و اسکریپت را تست کردن که بتونم اسکریپت را بهتر کنم**
 
 ---------------------------------
+
+![youtube-131994968075841675](https://github.com/Azumi67/FRP-V2ray-Loadbalance/assets/119934376/24202a92-aff2-4079-a6c2-9db14cd0ecd1)
+**ویدیوی آموزش**
+- پارت اول : ویدیوی آموزشی توسط 69 (از ایشان با subscribe کردن، حمایت کنید)
+<div align="right">
+
+[![Video Title](https://img.youtube.com/vi/D5-n79tJkeY/0.jpg)](https://www.youtube.com/watch?v=D5-n79tJkeY)
+
+</div>
+
+-----------------------------------------
+
 ![307981](https://github.com/Azumi67/V2ray_loadbalance_multipleServers/assets/119934376/39b2794b-fd04-4ae5-baea-d4b66138766e)
  **فهرست :**
 
@@ -34,7 +46,7 @@
 **استفاده از IPV4/IPV6 :** 
 - **ریورس تانل بدون لود بالانس** >> **[کلیک](https://github.com/Azumi67/V2ray_loadbalance_multipleServers#%D8%B1%DB%8C%D9%88%D8%B1%D8%B3-%D8%AA%D8%A7%D9%86%D9%84-%D8%A8%D8%AF%D9%88%D9%86-%D9%84%D9%88%D8%AF-%D8%A8%D8%A7%D9%84%D8%A7%D9%86%D8%B3--%D8%AA%DA%A9-%D9%BE%D9%88%D8%B1%D8%AA-%DB%8C%D8%A7-%DA%86%D9%86%D8%AF%DB%8C%D9%86-%D9%BE%D9%88%D8%B1%D8%AA-)**
 -  **ریورس تانل با لود بالانس : تک سرور** >> **[کلیک](https://github.com/Azumi67/V2ray_loadbalance_multipleServers#%D8%B1%DB%8C%D9%88%D8%B1%D8%B3-%D8%AA%D8%A7%D9%86%D9%84-%D8%A8%D8%A7-%D9%84%D9%88%D8%AF-%D8%A8%D8%A7%D9%84%D8%A7%D9%86%D8%B3---%D8%AA%DA%A9-%D8%B3%D8%B1%D9%88%D8%B1--%D8%AA%DA%A9-%D9%BE%D9%88%D8%B1%D8%AA-%DB%8C%D8%A7-%DA%86%D9%86%D8%AF%DB%8C%D9%86-%D9%BE%D9%88%D8%B1%D8%AA-)**
--  **لود بالانس 5 سرور خارج 1 سرور ایران** >> **[کلیک](https://github.com/Azumi67/V2ray_loadbalance_multipleServers#%D8%B1%DB%8C%D9%88%D8%B1%D8%B3-%D8%AA%D8%A7%D9%86%D9%84-%D8%A8%D8%A7-%D9%84%D9%88%D8%AF-%D8%A8%D8%A7%D9%84%D8%A7%D9%86%D8%B3---5-%D8%B3%D8%B1%D9%88%D8%B1-%D8%AE%D8%A7%D8%B1%D8%AC--1-%D8%B3%D8%B1%D9%88%D8%B1-%D8%A7%DB%8C%D8%B1%D8%A7%D9%86--%D8%AA%DA%A9-%D9%BE%D9%88%D8%B1%D8%AA-%DB%8C%D8%A7-%DA%86%D9%86%D8%AF%DB%8C%D9%86-%D9%BE%D9%88%D8%B1%D8%AA-)**
+-  **لود بالانس 10 سرور خارج 1 سرور ایران** >> **[کلیک](https://github.com/Azumi67/V2ray_loadbalance_multipleServers#%D8%B1%DB%8C%D9%88%D8%B1%D8%B3-%D8%AA%D8%A7%D9%86%D9%84-%D8%A8%D8%A7-%D9%84%D9%88%D8%AF-%D8%A8%D8%A7%D9%84%D8%A7%D9%86%D8%B3---5-%D8%B3%D8%B1%D9%88%D8%B1-%D8%AE%D8%A7%D8%B1%D8%AC--1-%D8%B3%D8%B1%D9%88%D8%B1-%D8%A7%DB%8C%D8%B1%D8%A7%D9%86--%D8%AA%DA%A9-%D9%BE%D9%88%D8%B1%D8%AA-%DB%8C%D8%A7-%DA%86%D9%86%D8%AF%DB%8C%D9%86-%D9%BE%D9%88%D8%B1%D8%AA-)**
    - **سرور ایران** >>  **[کلیک](https://github.com/Azumi67/V2ray_loadbalance_multipleServers/blob/main/README.md#-%D8%B3%D8%B1%D9%88%D8%B1-%D8%A7%DB%8C%D8%B1%D8%A7%D9%86)**
    - **سرور خارج اول المان :**  
      - روش ایپی 6 >>    **[کلیک](https://github.com/Azumi67/V2ray_loadbalance_multipleServers/blob/main/README.md#-%D8%B3%D8%B1%D9%88%D8%B1-%D8%AE%D8%A7%D8%B1%D8%AC-%D8%A7%D9%88%D9%84-%D8%A7%D9%84%D9%85%D8%A7%D9%86-%D8%B1%D9%88%D8%B4-%D8%A7%D9%88%D9%84---%D8%A7%D8%B3%D8%AA%D9%81%D8%A7%D8%AF%D9%87-%D8%A7%D8%B2-ipv6)**
@@ -258,13 +270,13 @@
 
 ---------------------------------------
 ![OIP2 (1)](https://github.com/Azumi67/V2ray_loadbalance_multipleServers/assets/119934376/3ec2f05f-3308-4441-8cce-62ab4776f4e2)
-ریورس تانل با لود بالانس - 5 سرور خارج | 1 سرور ایران [ تک پورت یا چندین پورت ]
+ریورس تانل با لود بالانس - 10 سرور خارج | 1 سرور ایران [ تک پورت یا چندین پورت ]
 --------------
 
 
 ![green-dot-clipart-3](https://github.com/Azumi67/6TO4-PrivateIP/assets/119934376/902a2efa-f48f-4048-bc2a-5be12143bef3) **سرور ایران** 
 --
-**مسیر : گزینه 4 [LoadBalancer [5] Kharej [1] IRAN] > سرور ایران > بدون داشبورد**
+**مسیر : گزینه 4 [LoadBalancer [10] Kharej [1] IRAN] > سرور ایران > بدون داشبورد**
 
 <p align="right">
   <img src="https://github.com/Azumi67/V2ray_loadbalance_multipleServers/assets/119934376/e8a667c9-57ee-453e-96f7-65737848f220" alt="Image" />
@@ -289,7 +301,7 @@
 --
 **اگر این روش برای شما سخت است میتوانید از روش دوم که با لوکال ایپی میباشد استفاده نمایید**
 
-**مسیر : گزینه 4 [LoadBalancer [5] Kharej [1] IRAN] > روش ایپی 6 > سرور خارج اول**
+**مسیر : گزینه 4 [LoadBalancer [10] Kharej [1] IRAN] > روش ایپی 6 > سرور خارج اول**
 
 <p align="right">
   <img src="https://github.com/Azumi67/V2ray_loadbalance_multipleServers/assets/119934376/7bb850fe-d0c6-4a58-8c8c-92a6cdd74427" alt="Image" />
@@ -334,7 +346,7 @@
 ![green-dot-clipart-3](https://github.com/Azumi67/V2ray_loadbalance_multipleServers/assets/119934376/ae98a157-9520-46d0-afa6-93525a2f9d0a)**سرور خارج (المان) روش دوم - استفاده از لوکال ایپی**
 --
 
-**مسیر : گزینه 4 [LoadBalancer [5] Kharej [1] IRAN] > روش لوکال ایپی > سرور خارج اول**
+**مسیر : گزینه 4 [LoadBalancer [10] Kharej [1] IRAN] > روش لوکال ایپی > سرور خارج اول**
 
   <p align="right">
   <img src="https://github.com/Azumi67/V2ray_loadbalance_multipleServers/assets/119934376/018d1ccf-d374-49d5-a8af-b666516a7eae" alt="Image" />
@@ -367,7 +379,7 @@
 --
 **اگر این روش برای شما سخت است میتوانید از روش دوم که با لوکال ایپی میباشد استفاده نمایید**
 
-**مسیر : گزینه 4 [LoadBalancer [5] Kharej [1] IRAN] > روش ایپی 6 > سرور خارج دوم**
+**مسیر : گزینه 4 [LoadBalancer [10] Kharej [1] IRAN] > روش ایپی 6 > سرور خارج دوم**
 
 
 <p align="right">
@@ -410,7 +422,7 @@
 ![green-dot-clipart-3](https://github.com/Azumi67/V2ray_loadbalance_multipleServers/assets/119934376/ae98a157-9520-46d0-afa6-93525a2f9d0a)**سرور خارج دوم (ترکیه) روش دوم - استفاده از لوکال ایپی**
 --
 
-**مسیر : گزینه 4 [LoadBalancer [5] Kharej [1] IRAN] > روش لوکال ایپی > سرور خارج دوم**
+**مسیر : گزینه 4 [LoadBalancer [10] Kharej [1] IRAN] > روش لوکال ایپی > سرور خارج دوم**
 
   <p align="right">
   <img src="https://github.com/Azumi67/V2ray_loadbalance_multipleServers/assets/119934376/018d1ccf-d374-49d5-a8af-b666516a7eae" alt="Image" />
@@ -1173,11 +1185,6 @@ python3 <(curl -Ls https://raw.githubusercontent.com/Azumi67/FRP_Reverse_Loadbal
 bash <(curl -s -L https://raw.githubusercontent.com/Azumi67/V2ray_loadbalance_multipleServers/main/managed2.sh)
 ```
 
----------------------------------------------
-![R (7)](https://github.com/Azumi67/PrivateIP-Tunnel/assets/119934376/42c09cbb-2690-4343-963a-5deca12218c1)
-**تلگرام** 
-![R (6)](https://github.com/Azumi67/FRP-V2ray-Loadbalance/assets/119934376/f81bf6e1-cfed-4e24-b944-236f5c0b15d3) [اپیران- OPIRAN](https://t.me/OPIranClubb)
-
 ---------------------------------
 ![R23 (1)](https://github.com/Azumi67/FRP-V2ray-Loadbalance/assets/119934376/18d12405-d354-48ac-9084-fff98d61d91c)
 **سورس ها**
@@ -1194,7 +1201,3 @@ bash <(curl -s -L https://raw.githubusercontent.com/Azumi67/V2ray_loadbalance_mu
 
 -----------------------------------------------------
 
-![youtube-131994968075841675](https://github.com/Azumi67/FRP-V2ray-Loadbalance/assets/119934376/24202a92-aff2-4079-a6c2-9db14cd0ecd1)
-**ویدیوی آموزش**
-
------------------------------------------
