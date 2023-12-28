@@ -1823,7 +1823,7 @@ def kharej_method1():
     time.sleep(1)
     display_notification("\033[93mGenerating...\033[0m")
 
-    iran_ipv6 = input("\033[93mEnter \033[92mIRAN\033[93m IPV4/IPv6 address: \033[0m")
+    iran_ipv6 = input("\033[93mEnter \033[92mIRAN\033[93m IPv6 address: \033[0m")
 
     with open(frpc_ini_path, "w") as f:
         f.write("[common]\n")
@@ -2376,7 +2376,7 @@ def kharej_load_ipv6():
     time.sleep(1)
     print("configuring...")
 
-    iran_ipv6 = input("\033[93mEnter \033[92mIRAN\033[93m IPV4/IPv6 address: \033[0m")
+    iran_ipv6 = input("\033[93mEnter \033[92mIRAN\033[93m IPv6 address: \033[0m")
 
     if os.path.exists("frp/frpc.toml"):
         os.remove("frp/frpc.toml")
@@ -5893,7 +5893,7 @@ def i3kharej_ipv6():
         shutil.copyfile(frpc1_path, frpc_path)
 
     for server_num in range(1, num_iran_servers + 1):
-        iran_ipv6 = input("\033[93mEnter \033[92mIRAN IPV4/IPv6 \033[93maddress for Server \033[92m{}:\033[0m ".format(server_num))
+        iran_ipv6 = input("\033[93mEnter \033[92mIRAN IPv6 \033[93maddress for Server \033[92m{}:\033[0m ".format(server_num))
 
         frpc_path = "frp/frpc{}.toml".format(server_num)
 
