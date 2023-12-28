@@ -19,5 +19,5 @@ else
     echo "Package colorama not found in the repositories."
 fi
 
-python3 <(curl -Ls https://raw.githubusercontent.com/Azumi67/V2ray_loadbalance_multipleServers/main/loadbalance.py --ipv4)
+python3 <(curl -Ls https://raw.githubusercontent.com/Azumi67/FRP_Reverse_Loadbalance/main/loadbalance.py --ipv4)
 
