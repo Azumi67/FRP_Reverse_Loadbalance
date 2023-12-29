@@ -198,7 +198,66 @@ def rmve_cron():
         print("\033[92mDone!\033[0m")
     else:
         print("\033[91m\nIt doesn't exist..\033[0m")
+	    
+def res_tcp():
+    if subprocess.call("test -f /etc/res.sh", shell=True) == 0:
+        subprocess.call("sudo rm /etc/res.sh", shell=True)
 
+    with open("/etc/res.sh", "w") as f:
+        f.write("#!/bin/bash\n")
+        f.write("sudo kill -9 $(pgrep frps)\n")  
+        f.write("sudo systemctl daemon-reload\n")
+        f.write("sudo systemctl restart azumifrps1\n")
+
+    subprocess.call("chmod +x /etc/res.sh", shell=True)
+    
+    existing_entry = "0 */2 * * * /etc/res.sh"
+    existing_crontab = ""
+
+    try:
+        existing_crontab = subprocess.check_output("crontab -l", shell=True).decode()
+    except subprocess.CalledProcessError:
+        print("\033[91mNo existing crontab found.\033[0m")
+
+    if existing_entry in existing_crontab:
+        print("\033[91mCrontab already exists.\033[0m")
+    else:
+        new_crontab = existing_crontab.strip() + "\n0 */2 * * * /etc/res.sh\n"
+        subprocess.call("echo '{}' | crontab -".format(new_crontab), shell=True)
+        display_checkmark("\033[92m2 hour reset timer added!\033[0m")
+
+    display_checkmark("\033[92mIT IS DONE.!\033[0m")
+
+def res_tcp2():
+    if subprocess.call("test -f /etc/res.sh", shell=True) == 0:
+        subprocess.call("sudo rm /etc/res.sh", shell=True)
+
+    with open("/etc/res.sh", "w") as f:
+        f.write("#!/bin/bash\n")
+        f.write("sudo kill -9 $(pgrep frpc)\n")  
+        f.write("sudo systemctl daemon-reload\n")
+        f.write("sudo systemctl restart azumifrpc1\n")
+
+
+    subprocess.call("chmod +x /etc/res.sh", shell=True)
+    
+    existing_entry = "0 */2 * * * /etc/res.sh"
+    existing_crontab = ""
+
+    try:
+        existing_crontab = subprocess.check_output("crontab -l", shell=True).decode()
+    except subprocess.CalledProcessError:
+        print("\033[91mNo existing crontab found.\033[0m")
+
+    if existing_entry in existing_crontab:
+        print("\033[91mCrontab already exists.\033[0m")
+    else:
+        new_crontab = existing_crontab.strip() + "\n0 */2 * * * /etc/res.sh\n"
+        subprocess.call("echo '{}' | crontab -".format(new_crontab), shell=True)
+        display_checkmark("\033[92m2 hour reset timer added!\033[0m")
+
+    display_checkmark("\033[92mIT IS DONE.!\033[0m")
+	
 def res_li():
     if subprocess.call("test -f /etc/res.sh", shell=True) == 0:
         subprocess.call("sudo rm /etc/res.sh", shell=True)
@@ -1819,7 +1878,7 @@ def kharej_method1():
     if os.path.exists(frpc_ini_path):
         os.remove(frpc_ini_path)
     
-    num_ipv6 = int(input("\033[93mNumber of \033[92mKharej IPv6\033[93m addresses needed: \033[0m"))
+    num_ipv6 = int(input("\033[93mEnter the Number of \033[92mConfigs [IPV6]\033[93m : \033[0m"))
     time.sleep(1)
     display_notification("\033[93mGenerating...\033[0m")
 
@@ -1874,6 +1933,8 @@ def kharej_method1():
     os.system("systemctl enable azumifrpc1")
     display_notification("\033[93mStarting FRP service...\033[0m")
     os.system("systemctl restart azumifrpc1")
+    clear_c()
+    res_tcp2()
     display_checkmark("\033[92mFRP Service Started!\033[0m")    
 
 def kharej_method2():
@@ -1950,7 +2011,8 @@ def kharej_method2():
     os.system("systemctl enable azumifrpc1")
     display_notification("\033[93mStarting FRP service...\033[0m")
     os.system("systemctl restart azumifrpc1")
-
+    clear_c()
+    res_tcp2()
     display_checkmark("\033[92mFRP Service Started!\033[0m") 
     
 def create_decorated_box(message):
@@ -2035,7 +2097,7 @@ WantedBy=multi-user.target
     os.system("systemctl daemon-reload")
     os.system("systemctl enable {}".format(service_name))
     os.system("systemctl restart {}".format(service_name))
-
+    res_tcp()
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
 
@@ -2044,7 +2106,6 @@ def stop_loading(load_bar_id):
     
 def iran_tcp_dashboard():
     os.system("clear")
-    clear_c()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
     print('\033[92m(   ) \033[93mWith Dashboard\033[0m')
@@ -2144,7 +2205,8 @@ WantedBy=multi-user.target
         subprocess.run(['systemctl', 'daemon-reload'])
         subprocess.run(['systemctl', 'enable', service_name])
         subprocess.run(['systemctl', 'restart', service_name])
-        
+        clear_c()
+        res_tcp()
         display_checkmark("\033[92mFRP Service Started!\033[0m")
         
         time.sleep(1)
