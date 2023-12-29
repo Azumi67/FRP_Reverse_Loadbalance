@@ -22,6 +22,7 @@
 ![youtube-131994968075841675](https://github.com/Azumi67/FRP-V2ray-Loadbalance/assets/119934376/24202a92-aff2-4079-a6c2-9db14cd0ecd1)
 **ویدیوی آموزش**
 - پارت اول : ویدیوی آموزشی توسط 69 (از ایشان با subscribe کردن، حمایت کنید)
+- **نکته** : **اگر میخواهیید از چندین پورت همزمان استفاده کنید ، اگر 5 تا پورت دارید تعداد ایپی 6 را 5 انتخاب کنید. اینطوری میتونید 5 تا پورت وارد کنید و باگ نیست . من نام اون رو بهتر میکنم که فهمش بهتر بشه**
 <div align="right">
 
 [![Video Title](https://img.youtube.com/vi/D5-n79tJkeY/0.jpg)](https://www.youtube.com/watch?v=D5-n79tJkeY)
