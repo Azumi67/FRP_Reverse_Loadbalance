@@ -1922,7 +1922,8 @@ def kharej_method1():
         f.write("[Service]\n")
         f.write("ExecStart=/root/frp/./frpc -c /root/frp/frpc.toml\n")
         f.write("Restart=always\n")
-        f.write("RestartSec=10\n")    
+        f.write("RestartSec=5\n") 
+        f.write("LimitNOFILE=1048576\n")     
         f.write("User=root\n")
         f.write("\n")
         f.write("[Install]\n")
@@ -1999,7 +2000,8 @@ def kharej_method2():
         f.write("[Service]\n")
         f.write("ExecStart=/root/frp/./frpc -c /root/frp/frpc.toml\n")
         f.write("Restart=always\n")
-        f.write("RestartSec=10\n")
+        f.write("RestartSec=5\n")
+        f.write("LimitNOFILE=1048576\n")
         f.write("User=root\n")
         f.write("\n")
         f.write("[Install]\n")
@@ -2079,7 +2081,8 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frps -c {frps_path}
 Restart=always
-RestartSec=10
+RestartSec=5
+LimitNOFILE=1048576
 User=root
 
 [Install]
@@ -2186,7 +2189,8 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frps -c {frps_path}
 Restart=always
-RestartSec=10
+RestartSec=5
+LimitNOFILE=1048576
 User=root
 
 [Install]
@@ -2377,7 +2381,8 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frps_path}
 Restart=always
-RestartSec=10
+RestartSec=5
+LimitNOFILE=1048576
 User=root
 
 [Install]
@@ -2496,7 +2501,8 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frps_path}
 Restart=always
-RestartSec=10
+RestartSec=5
+LimitNOFILE=1048576
 User=root
 
 [Install]
@@ -2601,7 +2607,8 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frps -c {frps_path}
 Restart=always
-RestartSec=10
+RestartSec=5
+LimitNOFILE=1048576
 User=root
 
 [Install]
@@ -2708,7 +2715,8 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frps -c {frps_path}
 Restart=always
-RestartSec=10
+RestartSec=5
+LimitNOFILE=1048576
 User=root
 
 [Install]
@@ -2941,7 +2949,8 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frps_path}
 Restart=always
-RestartSec=10
+RestartSec=5
+LimitNOFILE=1048576
 User=root
 
 [Install]
@@ -3066,7 +3075,8 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frps_path}
 Restart=always
-RestartSec=10
+RestartSec=5
+LimitNOFILE=1048576
 User=root
 
 [Install]
@@ -3191,7 +3201,8 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frps_path}
 Restart=always
-RestartSec=10
+RestartSec=5
+LimitNOFILE=1048576
 User=root
 
 [Install]
@@ -3316,7 +3327,8 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frps_path}
 Restart=always
-RestartSec=10
+RestartSec=5
+LimitNOFILE=1048576
 User=root
 
 [Install]
@@ -3441,7 +3453,8 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frps_path}
 Restart=always
-RestartSec=10
+RestartSec=5
+LimitNOFILE=1048576
 User=root
 
 [Install]
@@ -3566,7 +3579,8 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frps_path}
 Restart=always
-RestartSec=10
+RestartSec=5
+LimitNOFILE=1048576
 User=root
 
 [Install]
@@ -3690,7 +3704,8 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frps_path}
 Restart=always
-RestartSec=10
+RestartSec=5
+LimitNOFILE=1048576
 User=root
 
 [Install]
@@ -3815,7 +3830,8 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frps_path}
 Restart=always
-RestartSec=10
+RestartSec=5
+LimitNOFILE=1048576
 User=root
 
 [Install]
@@ -3940,7 +3956,8 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frps_path}
 Restart=always
-RestartSec=10
+RestartSec=5
+LimitNOFILE=1048576
 User=root
 
 [Install]
@@ -4065,7 +4082,8 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frps_path}
 Restart=always
-RestartSec=10
+RestartSec=5
+LimitNOFILE=1048576
 User=root
 
 [Install]
@@ -4273,7 +4291,8 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frps_path}
 Restart=always
-RestartSec=10
+RestartSec=5
+LimitNOFILE=1048576
 User=root
 
 [Install]
@@ -4414,7 +4433,8 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frps_path}
 Restart=always
-RestartSec=10
+RestartSec=5
+LimitNOFILE=1048576
 User=root
 
 [Install]
@@ -4554,7 +4574,8 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frps_path}
 Restart=always
-RestartSec=10
+RestartSec=5
+LimitNOFILE=1048576
 User=root
 
 [Install]
@@ -4694,7 +4715,8 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frps_path}
 Restart=always
-RestartSec=10
+RestartSec=5
+LimitNOFILE=1048576
 User=root
 
 [Install]
@@ -4834,7 +4856,8 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frps_path}
 Restart=always
-RestartSec=10
+RestartSec=5
+LimitNOFILE=1048576
 User=root
 
 [Install]
@@ -4974,7 +4997,8 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frps_path}
 Restart=always
-RestartSec=10
+RestartSec=5
+LimitNOFILE=1048576
 User=root
 
 [Install]
@@ -5115,7 +5139,8 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frps_path}
 Restart=always
-RestartSec=10
+RestartSec=5
+LimitNOFILE=1048576
 User=root
 
 [Install]
@@ -5255,7 +5280,8 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frps_path}
 Restart=always
-RestartSec=10
+RestartSec=5
+LimitNOFILE=1048576
 User=root
 
 [Install]
@@ -5395,7 +5421,8 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frps_path}
 Restart=always
-RestartSec=10
+RestartSec=5
+LimitNOFILE=1048576
 User=root
 
 [Install]
@@ -5535,7 +5562,8 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frps_path}
 Restart=always
-RestartSec=10
+RestartSec=5
+LimitNOFILE=1048576
 User=root
 
 [Install]
@@ -5653,7 +5681,8 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frps -c {frps_path}
 Restart=always
-RestartSec=10
+RestartSec=5
+LimitNOFILE=1048576
 User=root
 
 [Install]
@@ -5762,7 +5791,8 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frps -c {frps_path}
 Restart=always
-RestartSec=10
+RestartSec=5
+LimitNOFILE=1048576
 User=root
 
 [Install]
@@ -6013,7 +6043,8 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frpc_path}
 Restart=always
-RestartSec=10
+RestartSec=5
+LimitNOFILE=1048576
 User=root
 
 [Install]
@@ -6148,7 +6179,8 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frpc -c {frpc_path}
 Restart=always
-RestartSec=10
+RestartSec=5
+LimitNOFILE=1048576
 User=root
 
 [Install]
@@ -6227,7 +6259,8 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frps -c {frps_path}
 Restart=always
-RestartSec=10
+RestartSec=5
+LimitNOFILE=1048576
 User=root
 
 [Install]
@@ -6306,7 +6339,8 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frps -c {frps_path}
 Restart=always
-RestartSec=10
+RestartSec=5
+LimitNOFILE=1048576
 User=root
 
 [Install]
@@ -6385,7 +6419,8 @@ After=network.target
 [Service]
 ExecStart=/root/frp/./frps -c {frps_path}
 Restart=always
-RestartSec=10
+RestartSec=5
+LimitNOFILE=1048576
 User=root
 
 [Install]
