@@ -208,6 +208,7 @@ def res_tcp():
         f.write("sudo kill -9 $(pgrep frps)\n")  
         f.write("sudo systemctl daemon-reload\n")
         f.write("sudo systemctl restart azumifrps1\n")
+        f.write("sudo journalctl --vacuum-size=1M\n")  
 
     subprocess.call("chmod +x /etc/res.sh", shell=True)
     
@@ -224,9 +225,9 @@ def res_tcp():
     else:
         new_crontab = existing_crontab.strip() + "\n0 */2 * * * /etc/res.sh\n"
         subprocess.call("echo '{}' | crontab -".format(new_crontab), shell=True)
-        display_checkmark("\033[92m2 hour reset timer added!\033[0m")
+        display_checkmark("\033[92m2-hour reset timer added!\033[0m")
 
-    display_checkmark("\033[92mIT IS DONE.!\033[0m")
+    display_checkmark("\033[92mIT IS DONE!\033[0m")
 
 def res_tcp2():
     if subprocess.call("test -f /etc/res.sh", shell=True) == 0:
@@ -237,6 +238,7 @@ def res_tcp2():
         f.write("sudo kill -9 $(pgrep frpc)\n")  
         f.write("sudo systemctl daemon-reload\n")
         f.write("sudo systemctl restart azumifrpc1\n")
+        f.write("sudo journalctl --vacuum-size=1M\n") 
 
 
     subprocess.call("chmod +x /etc/res.sh", shell=True)
@@ -267,6 +269,7 @@ def res_li():
         f.write("sudo kill -9 $(pgrep frps)\n")  
         f.write("sudo systemctl daemon-reload\n")
         f.write("sudo systemctl restart azumifrps2\n")
+        f.write("sudo journalctl --vacuum-size=1M\n") 
 
     subprocess.call("chmod +x /etc/res.sh", shell=True)
     
@@ -296,6 +299,7 @@ def res_lk():
         f.write("sudo kill -9 $(pgrep frpc)\n")  
         f.write("sudo systemctl daemon-reload\n")
         f.write("sudo systemctl restart azumifrpc2\n")
+        f.write("sudo journalctl --vacuum-size=1M\n") 
 
 
     subprocess.call("chmod +x /etc/res.sh", shell=True)
@@ -326,6 +330,7 @@ def res_ii3():
         f.write("sudo kill -9 $(pgrep frps)\n")  
         f.write("sudo systemctl daemon-reload\n")
         f.write("sudo systemctl restart azumifrps4\n")
+        f.write("sudo journalctl --vacuum-size=1M\n") 
 
     subprocess.call("chmod +x /etc/res.sh", shell=True)
     
@@ -357,6 +362,7 @@ def res_ki3():
         f.write("sudo systemctl restart azumifrpc11\n")
         f.write("sudo systemctl restart azumifrpc12\n")
         f.write("sudo systemctl restart azumifrpc13\n")
+        f.write("sudo journalctl --vacuum-size=1M\n") 
 
     subprocess.call("chmod +x /etc/res.sh", shell=True)
     
@@ -386,6 +392,7 @@ def res_k1():
         f.write("sudo kill -9 $(pgrep frpc)\n")  
         f.write("sudo systemctl daemon-reload\n")
         f.write("sudo systemctl restart azumifrpc3\n")
+        f.write("sudo journalctl --vacuum-size=1M\n") 
 
     subprocess.call("chmod +x /etc/res.sh", shell=True)
     
@@ -415,6 +422,7 @@ def res_k2():
         f.write("sudo kill -9 $(pgrep frpc)\n")  
         f.write("sudo systemctl daemon-reload\n")
         f.write("sudo systemctl restart azumifrpc4\n")
+        f.write("sudo journalctl --vacuum-size=1M\n") 
 
     subprocess.call("chmod +x /etc/res.sh", shell=True)
     
@@ -444,6 +452,7 @@ def res_k3():
         f.write("sudo kill -9 $(pgrep frpc)\n")  
         f.write("sudo systemctl daemon-reload\n")
         f.write("sudo systemctl restart azumifrpc5\n")
+        f.write("sudo journalctl --vacuum-size=1M\n") 
 
     subprocess.call("chmod +x /etc/res.sh", shell=True)
     
@@ -473,6 +482,7 @@ def res_k4():
         f.write("sudo kill -9 $(pgrep frpc)\n")  
         f.write("sudo systemctl daemon-reload\n")
         f.write("sudo systemctl restart azumifrpc6\n")
+        f.write("sudo journalctl --vacuum-size=1M\n") 
 
     subprocess.call("chmod +x /etc/res.sh", shell=True)
     
@@ -502,6 +512,7 @@ def res_k5():
         f.write("sudo kill -9 $(pgrep frpc)\n")  
         f.write("sudo systemctl daemon-reload\n")
         f.write("sudo systemctl restart azumifrpc7\n")
+        f.write("sudo journalctl --vacuum-size=1M\n") 
 
     subprocess.call("chmod +x /etc/res.sh", shell=True)
     
@@ -531,6 +542,7 @@ def res_k6():
         f.write("sudo kill -9 $(pgrep frpc)\n")  
         f.write("sudo systemctl daemon-reload\n")
         f.write("sudo systemctl restart azumifrpc8\n")
+        f.write("sudo journalctl --vacuum-size=1M\n") 
 
     subprocess.call("chmod +x /etc/res.sh", shell=True)
     
@@ -560,6 +572,7 @@ def res_k7():
         f.write("sudo kill -9 $(pgrep frpc)\n")  
         f.write("sudo systemctl daemon-reload\n")
         f.write("sudo systemctl restart azumifrpc9\n")
+        f.write("sudo journalctl --vacuum-size=1M\n")
 
     subprocess.call("chmod +x /etc/res.sh", shell=True)
     
@@ -589,6 +602,7 @@ def res_k8():
         f.write("sudo kill -9 $(pgrep frpc)\n")  
         f.write("sudo systemctl daemon-reload\n")
         f.write("sudo systemctl restart azumifrpc10\n")
+        f.write("sudo journalctl --vacuum-size=1M\n")
 
     subprocess.call("chmod +x /etc/res.sh", shell=True)
     
@@ -618,6 +632,7 @@ def res_k9():
         f.write("sudo kill -9 $(pgrep frpc)\n")  
         f.write("sudo systemctl daemon-reload\n")
         f.write("sudo systemctl restart azumifrpc11\n")
+        f.write("sudo journalctl --vacuum-size=1M\n")
         
     subprocess.call("chmod +x /etc/res.sh", shell=True)
     
@@ -647,6 +662,7 @@ def res_k10():
         f.write("sudo kill -9 $(pgrep frpc)\n")
         f.write("sudo systemctl daemon-reload\n")
         f.write("sudo systemctl restart azumifrpc12\n")
+        f.write("sudo journalctl --vacuum-size=1M\n")
 
     subprocess.call("chmod +x /etc/res.sh", shell=True)
 
@@ -676,6 +692,7 @@ def res_i():
         f.write("sudo kill -9 $(pgrep frps)\n")
         f.write("sudo systemctl daemon-reload\n")
         f.write("sudo systemctl restart azumifrps3\n")
+        f.write("sudo journalctl --vacuum-size=1M\n")
 
     subprocess.call("chmod +x /etc/res.sh", shell=True)
 
