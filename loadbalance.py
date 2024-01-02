@@ -2898,7 +2898,7 @@ def kharej1_local():
         if not server_port:
             server_port = "443"
         f.write("server_port = {}\n".format(server_port))
-        f.write("vhost_https_port = 8443\n")
+        f.write("vhost_https_port = \n")
         f.write("transport.tls.disable_custom_tls_first_byte = false\n")
         f.write("token = azumi\n")
 
@@ -2937,7 +2937,7 @@ def kharej1_local():
             f.write("use_compression = true\n")
 
     time.sleep(1)
-    display_notification("\033[93mLoadbalance port is 8443..\033[0m")
+    display_notification("\033[93mLoadbalance port is 8080..\033[0m")
 
     service_name = "azumifrpc3"
     frps_path = "/root/frp/frpc.toml"
@@ -3024,7 +3024,7 @@ def kharej2_local():
         if not server_port:
             server_port = "443"
         f.write("server_port = {}\n".format(server_port))
-        f.write("vhost_https_port = 8443\n")
+        f.write("vhost_https_port = 8080\n")
         f.write("transport.tls.disable_custom_tls_first_byte = false\n")
         f.write("token = azumi\n")
 
@@ -3063,7 +3063,7 @@ def kharej2_local():
             f.write("use_compression = true\n")
 
     time.sleep(1)
-    display_notification("\033[93mLoadbalance port is 8443..\033[0m")
+    display_notification("\033[93mLoadbalance port is 8080..\033[0m")
 
     service_name = "azumifrpc4"
     frps_path = "/root/frp/frpc.toml"
@@ -3150,7 +3150,7 @@ def kharej3_local():
         if not server_port:
             server_port = "443"
         f.write("server_port = {}\n".format(server_port))
-        f.write("vhost_https_port = 8443\n")
+        f.write("vhost_https_port = 8080\n")
         f.write("transport.tls.disable_custom_tls_first_byte = false\n")
         f.write("token = azumi\n")
 
@@ -3189,7 +3189,7 @@ def kharej3_local():
             f.write("use_compression = true\n")
 
     time.sleep(1)
-    display_notification("\033[93mLoadbalance port is 8443..\033[0m")
+    display_notification("\033[93mLoadbalance port is 8080..\033[0m")
 
     service_name = "azumifrpc5"
     frps_path = "/root/frp/frpc.toml"
@@ -3276,7 +3276,7 @@ def kharej4_local():
         if not server_port:
             server_port = "443"
         f.write("server_port = {}\n".format(server_port))
-        f.write("vhost_https_port = 8443\n")
+        f.write("vhost_https_port = 8080\n")
         f.write("transport.tls.disable_custom_tls_first_byte = false\n")
         f.write("token = azumi\n")
 
@@ -3315,7 +3315,7 @@ def kharej4_local():
             f.write("use_compression = true\n")
 
     time.sleep(1)
-    display_notification("\033[93mLoadbalance port is 8443..\033[0m")
+    display_notification("\033[93mLoadbalance port is 8080..\033[0m")
 
     service_name = "azumifrpc6"
     frps_path = "/root/frp/frpc.toml"
@@ -3402,7 +3402,7 @@ def kharej5_local():
         if not server_port:
             server_port = "443"
         f.write("server_port = {}\n".format(server_port))
-        f.write("vhost_https_port = 8443\n")
+        f.write("vhost_https_port = 8080\n")
         f.write("transport.tls.disable_custom_tls_first_byte = false\n")
         f.write("token = azumi\n")
 
@@ -3441,7 +3441,7 @@ def kharej5_local():
             f.write("use_compression = true\n")
 
     time.sleep(1)
-    display_notification("\033[93mLoadbalance port is 8443..\033[0m")
+    display_notification("\033[93mLoadbalance port is 8080..\033[0m")
 
     service_name = "azumifrpc7"
     frps_path = "/root/frp/frpc.toml"
@@ -3528,7 +3528,7 @@ def kharej6_local():
         if not server_port:
             server_port = "443"
         f.write("server_port = {}\n".format(server_port))
-        f.write("vhost_https_port = 8443\n")
+        f.write("vhost_https_port = 8080\n")
         f.write("transport.tls.disable_custom_tls_first_byte = false\n")
         f.write("token = azumi\n")
 
@@ -3567,7 +3567,7 @@ def kharej6_local():
             f.write("use_compression = true\n")
 
     time.sleep(1)
-    display_notification("\033[93mLoadbalance port is 8443..\033[0m")
+    display_notification("\033[93mLoadbalance port is 8080..\033[0m")
 
     service_name = "azumifrpc8"
     frps_path = "/root/frp/frpc.toml"
@@ -3654,7 +3654,7 @@ def kharej7_local():
         if not server_port:
             server_port = "443"
         f.write("server_port = {}\n".format(server_port))
-        f.write("vhost_https_port = 8443\n")
+        f.write("vhost_https_port = 8080\n")
         f.write("transport.tls.disable_custom_tls_first_byte = false\n")
         f.write("token = azumi\n")
 
@@ -3692,7 +3692,7 @@ def kharej7_local():
             f.write("use_compression = true\n")
 
     time.sleep(1)
-    display_notification("\033[93mLoadbalance port is 8443..\033[0m")
+    display_notification("\033[93mLoadbalance port is 8080..\033[0m")
 
     service_name = "azumifrpc9"
     frps_path = "/root/frp/frpc.toml"
@@ -3779,7 +3779,7 @@ def kharej8_local():
         if not server_port:
             server_port = "443"
         f.write("server_port = {}\n".format(server_port))
-        f.write("vhost_https_port = 8443\n")
+        f.write("vhost_https_port = 8080\n")
         f.write("transport.tls.disable_custom_tls_first_byte = false\n")
         f.write("token = azumi\n")
 
@@ -3818,7 +3818,7 @@ def kharej8_local():
             f.write("use_compression = true\n")
 
     time.sleep(1)
-    display_notification("\033[93mLoadbalance port is 8443..\033[0m")
+    display_notification("\033[93mLoadbalance port is 8080..\033[0m")
 
     service_name = "azumifrpc10"
     frps_path = "/root/frp/frpc.toml"
@@ -3905,7 +3905,7 @@ def kharej9_local():
         if not server_port:
             server_port = "443"
         f.write("server_port = {}\n".format(server_port))
-        f.write("vhost_https_port = 8443\n")
+        f.write("vhost_https_port = 8080\n")
         f.write("transport.tls.disable_custom_tls_first_byte = false\n")
         f.write("token = azumi\n")
 
@@ -3944,7 +3944,7 @@ def kharej9_local():
             f.write("use_compression = true\n")
 
     time.sleep(1)
-    display_notification("\033[93mLoadbalance port is 8443..\033[0m")
+    display_notification("\033[93mLoadbalance port is 8080..\033[0m")
 
     service_name = "azumifrpc11"
     frps_path = "/root/frp/frpc.toml"
@@ -4031,7 +4031,7 @@ def kharej10_local():
         if not server_port:
             server_port = "443"
         f.write("server_port = {}\n".format(server_port))
-        f.write("vhost_https_port = 8443\n")
+        f.write("vhost_https_port = 8080\n")
         f.write("transport.tls.disable_custom_tls_first_byte = false\n")
         f.write("token = azumi\n")
 
@@ -4070,7 +4070,7 @@ def kharej10_local():
             f.write("use_compression = true\n")
 
     time.sleep(1)
-    display_notification("\033[93mLoadbalance port is 8443..\033[0m")
+    display_notification("\033[93mLoadbalance port is 8080..\033[0m")
 
     service_name = "azumifrpc12"
     frps_path = "/root/frp/frpc.toml"
@@ -4234,7 +4234,7 @@ def kharej1():
         if not server_port:
             server_port = "443"
         f.write("server_port = {}\n".format(server_port))
-        f.write("vhost_https_port = 8443\n")
+        f.write("vhost_https_port = 8080\n")
         f.write("transport.tls.disable_custom_tls_first_byte = false\n")
         f.write("token = azumi\n")
 
@@ -4279,7 +4279,7 @@ def kharej1():
                 f.write("use_compression = true\n")
 
     time.sleep(1)
-    display_notification("\033[93mLoadbalance port is 8443..\033[0m")
+    display_notification("\033[93mLoadbalance port is 8080..\033[0m")
 
     service_name = "azumifrpc3"
     frps_path = "/root/frp/frpc.toml"
@@ -4376,7 +4376,7 @@ def kharej2():
         if not server_port:
             server_port = "443"
         f.write("server_port = {}\n".format(server_port))
-        f.write("vhost_https_port = 8443\n")
+        f.write("vhost_https_port = 8080\n")
         f.write("transport.tls.disable_custom_tls_first_byte = false\n")
         f.write("token = azumi\n")
 
@@ -4421,7 +4421,7 @@ def kharej2():
                 f.write("use_compression = true\n")
 
     time.sleep(1)
-    display_notification("\033[93mLoadbalance port is 8443..\033[0m")
+    display_notification("\033[93mLoadbalance port is 8080..\033[0m")
 
     service_name = "azumifrpc4"
     frps_path = "/root/frp/frpc.toml"
@@ -4517,7 +4517,7 @@ def kharej3():
         if not server_port:
             server_port = "443"
         f.write("server_port = {}\n".format(server_port))
-        f.write("vhost_https_port = 8443\n")
+        f.write("vhost_https_port = 8080\n")
         f.write("transport.tls.disable_custom_tls_first_byte = false\n")
         f.write("token = azumi\n")
 
@@ -4562,7 +4562,7 @@ def kharej3():
                 f.write("use_compression = true\n")
 
     time.sleep(1)
-    display_notification("\033[93mLoadbalance port is 8443..\033[0m")
+    display_notification("\033[93mLoadbalance port is 8080..\033[0m")
 
     service_name = "azumifrpc5"
     frps_path = "/root/frp/frpc.toml"
@@ -4658,7 +4658,7 @@ def kharej4():
         if not server_port:
             server_port = "443"
         f.write("server_port = {}\n".format(server_port))
-        f.write("vhost_https_port = 8443\n")
+        f.write("vhost_https_port = 8080\n")
         f.write("transport.tls.disable_custom_tls_first_byte = false\n")
         f.write("token = azumi\n")
 
@@ -4703,7 +4703,7 @@ def kharej4():
                 f.write("use_compression = true\n")
 
     time.sleep(1)
-    display_notification("\033[93mLoadbalance port is 8443..\033[0m")
+    display_notification("\033[93mLoadbalance port is 8080..\033[0m")
 
     service_name = "azumifrpc6"
     frps_path = "/root/frp/frpc.toml"
@@ -4799,7 +4799,7 @@ def kharej5():
         if not server_port:
             server_port = "443"
         f.write("server_port = {}\n".format(server_port))
-        f.write("vhost_https_port = 8443\n")
+        f.write("vhost_https_port = 8080\n")
         f.write("transport.tls.disable_custom_tls_first_byte = false\n")
         f.write("token = azumi\n")
 
@@ -4844,7 +4844,7 @@ def kharej5():
                 f.write("use_compression = true\n")
 
     time.sleep(1)
-    display_notification("\033[93mLoadbalance port is 8443..\033[0m")
+    display_notification("\033[93mLoadbalance port is 8080..\033[0m")
 
     service_name = "azumifrpc7"
     frps_path = "/root/frp/frpc.toml"
@@ -4940,7 +4940,7 @@ def kharej6():
         if not server_port:
             server_port = "443"
         f.write("server_port = {}\n".format(server_port))
-        f.write("vhost_https_port = 8443\n")
+        f.write("vhost_https_port = 8080\n")
         f.write("transport.tls.disable_custom_tls_first_byte = false\n")
         f.write("token = azumi\n")
 
@@ -4985,7 +4985,7 @@ def kharej6():
                 f.write("use_compression = true\n")
 
     time.sleep(1)
-    display_notification("\033[93mLoadbalance port is 8443..\033[0m")
+    display_notification("\033[93mLoadbalance port is 8080..\033[0m")
 
     service_name = "azumifrpc8"
     frps_path = "/root/frp/frpc.toml"
@@ -5082,7 +5082,7 @@ def kharej7():
         if not server_port:
             server_port = "443"
         f.write("server_port = {}\n".format(server_port))
-        f.write("vhost_https_port = 8443\n")
+        f.write("vhost_https_port = 8080\n")
         f.write("transport.tls.disable_custom_tls_first_byte = false\n")
         f.write("token = azumi\n")
 
@@ -5127,7 +5127,7 @@ def kharej7():
                 f.write("use_compression = true\n")
 
     time.sleep(1)
-    display_notification("\033[93mLoadbalance port is 8443..\033[0m")
+    display_notification("\033[93mLoadbalance port is 8080..\033[0m")
 
     service_name = "azumifrpc9"
     frps_path = "/root/frp/frpc.toml"
@@ -5223,7 +5223,7 @@ def kharej8():
         if not server_port:
             server_port = "443"
         f.write("server_port = {}\n".format(server_port))
-        f.write("vhost_https_port = 8443\n")
+        f.write("vhost_https_port = 8080\n")
         f.write("transport.tls.disable_custom_tls_first_byte = false\n")
         f.write("token = azumi\n")
 
@@ -5268,7 +5268,7 @@ def kharej8():
                 f.write("use_compression = true\n")
 
     time.sleep(1)
-    display_notification("\033[93mLoadbalance port is 8443..\033[0m")
+    display_notification("\033[93mLoadbalance port is 8080..\033[0m")
 
     service_name = "azumifrpc10"
     frps_path = "/root/frp/frpc.toml"
@@ -5364,7 +5364,7 @@ def kharej9():
         if not server_port:
             server_port = "443"
         f.write("server_port = {}\n".format(server_port))
-        f.write("vhost_https_port = 8443\n")
+        f.write("vhost_https_port = 8080\n")
         f.write("transport.tls.disable_custom_tls_first_byte = false\n")
         f.write("token = azumi\n")
 
@@ -5409,7 +5409,7 @@ def kharej9():
                 f.write("use_compression = true\n")
 
     time.sleep(1)
-    display_notification("\033[93mLoadbalance port is 8443..\033[0m")
+    display_notification("\033[93mLoadbalance port is 8080..\033[0m")
 
     service_name = "azumifrpc11"
     frps_path = "/root/frp/frpc.toml"
@@ -5505,7 +5505,7 @@ def kharej10():
         if not server_port:
             server_port = "443"
         f.write("server_port = {}\n".format(server_port))
-        f.write("vhost_https_port = 8443\n")
+        f.write("vhost_https_port = 8080\n")
         f.write("transport.tls.disable_custom_tls_first_byte = false\n")
         f.write("token = azumi\n")
 
@@ -5550,7 +5550,7 @@ def kharej10():
                 f.write("use_compression = true\n")
 
     time.sleep(1)
-    display_notification("\033[93mLoadbalance port is 8443..\033[0m")
+    display_notification("\033[93mLoadbalance port is 8080..\033[0m")
 
     service_name = "azumifrpc12"
     frps_path = "/root/frp/frpc.toml"
@@ -5657,7 +5657,7 @@ def iran_without_dash():
         if not bind_port:
             bind_port = "443"
         f.write("bind_port = {}\n".format(bind_port))
-        f.write("vhost_https_port = 8443\n")
+        f.write("vhost_https_port = 8080\n")
         f.write("transport.tls.disable_custom_tls_first_byte = false\n")
         f.write("token = azumi\n")
         f.write("\n")
@@ -5762,7 +5762,7 @@ def iran_with_dash():
         with open('frp/frps.toml', 'w') as frps_ini:
             frps_ini.write(f'''[common]
 bind_port = {bind_port}
-vhost_https_port = 8443
+vhost_https_port = 8080
 transport.tls.disable_custom_tls_first_byte = false
 token = azumi
 dashboard_port = {dashboard_port}
@@ -5976,7 +5976,7 @@ def i3kharej_ipv6():
             if not server_port:
                 server_port = "443"
             f.write("server_port = {}\n".format(server_port))
-            f.write("vhost_https_port = 8443\n")
+            f.write("vhost_https_port = 8080\n")
             f.write("transport.tls.disable_custom_tls_first_byte = false\n")
             f.write("token = azumi\n")
 
@@ -5993,7 +5993,7 @@ def i3kharej_ipv6():
             f.write("[common]\n")
             f.write("server_addr = {}\n".format(iran_ipv6))
             f.write("server_port = {}\n".format(server_port))
-            f.write("vhost_https_port = 8443\n")
+            f.write("vhost_https_port = 8080\n")
             f.write("transport.tls.disable_custom_tls_first_byte = false\n")
             f.write("token = azumi\n")
 
@@ -6030,7 +6030,7 @@ def i3kharej_ipv6():
                 f.write("use_compression = true\n")
 
         time.sleep(1)
-        print("Loadbalance port is 8443...")
+        print("Loadbalance port is 8080...")
 
 
         service_name = "azumifrpc1{}".format(server_num)
@@ -6120,7 +6120,7 @@ def i3kharej_local():
             if not server_port:
                 server_port = "443"
             f.write("server_port = {}\n".format(server_port))
-            f.write("vhost_https_port = 8443\n")
+            f.write("vhost_https_port = 8080\n")
             f.write("transport.tls.disable_custom_tls_first_byte = false\n")
             f.write("token = azumi\n")
 
@@ -6137,7 +6137,7 @@ def i3kharej_local():
             f.write("[common]\n")
             f.write("server_addr = {}\n".format(iran_ipv6))
             f.write("server_port = {}\n".format(server_port))
-            f.write("vhost_https_port = 8443\n")
+            f.write("vhost_https_port = 8080\n")
             f.write("transport.tls.disable_custom_tls_first_byte = false\n")
             f.write("token = azumi\n")
 
@@ -6166,7 +6166,7 @@ def i3kharej_local():
                 f.write("use_compression = true\n")
 
         time.sleep(1)
-        print("Loadbalance port is 8443...")
+        print("Loadbalance port is 8080...")
 
 
         service_name = "azumifrpc1{}".format(server_num)
@@ -6235,7 +6235,7 @@ def i3iran_first():
         if not bind_port:
             bind_port = "443"
         f.write("bind_port = {}\n".format(bind_port))
-        f.write("vhost_https_port = 8443\n")
+        f.write("vhost_https_port = 8080\n")
         f.write("transport.tls.disable_custom_tls_first_byte = false\n")
         f.write("token = azumi\n")
         f.write("\n")
@@ -6315,7 +6315,7 @@ def i3iran_second():
         if not bind_port:
             bind_port = "443"
         f.write("bind_port = {}\n".format(bind_port))
-        f.write("vhost_https_port = 8443\n")
+        f.write("vhost_https_port = 8080\n")
         f.write("transport.tls.disable_custom_tls_first_byte = false\n")
         f.write("token = azumi\n")
         f.write("\n")
@@ -6395,7 +6395,7 @@ def i3iran_third():
         if not bind_port:
             bind_port = "443"
         f.write("bind_port = {}\n".format(bind_port))
-        f.write("vhost_https_port = 8443\n")
+        f.write("vhost_https_port = 8080\n")
         f.write("transport.tls.disable_custom_tls_first_byte = false\n")
         f.write("token = azumi\n")
         f.write("\n")
