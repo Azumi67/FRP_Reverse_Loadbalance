@@ -5,6 +5,7 @@
 ![Exclamation-Mark-PNG-Clipart](https://github.com/Azumi67/FRP_Reverse_Loadbalance/assets/119934376/69acdc18-2163-4134-a376-32985b05cbec)**نکته**
 
 - اگر از ایپی 6 میخواهید استفاده کنید ، باید هر دو طرف سرور(سرور ایران و خارج) ایپی 6 داشته باشند. اگر ایپی 6 ندارید ، ار ایپی 4 و لوکال ایپی استفاده نمایید.
+- همیشه اطمینان پیدا کنید که frp را بر روی سرور خود نصب کرده اید.
 
 ---------------
 ![Update-Note--Arvin61r58](https://github.com/Azumi67/V2ray_loadbalance_multipleServers/assets/119934376/e1bc4187-16f2-40f8-972b-436e79a1ca0e)**اپدیت**
