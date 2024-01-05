@@ -8,7 +8,7 @@
 - همیشه اطمینان پیدا کنید که frp را بر روی سرور خود نصب کرده اید.
 
 ---------------
-![Update-Note--Arvin61r58](https://github.com/Azumi67/V2ray_loadbalance_multipleServers/assets/119934376/e1bc4187-16f2-40f8-972b-436e79a1ca0e)**2 اپدیت**
+![Update-Note--Arvin61r58](https://github.com/Azumi67/V2ray_loadbalance_multipleServers/assets/119934376/e1bc4187-16f2-40f8-972b-436e79a1ca0e)**اپدیت 2**
 
 - تانل frp + KCP اضافه شد.(20 % مصرف دیتای بیشتر - پینگ بهتر)
 - امکان تانل بر روی پنج سرور خارج و یک سرور ایران
