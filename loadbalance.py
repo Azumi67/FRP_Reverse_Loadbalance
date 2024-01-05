@@ -135,11 +135,12 @@ def main_menu():
             print("0. \033[91mSTATUS Menu\033[0m")
             print("1. \033[92mInstallation\033[0m")
             print("2. \033[93mFRP TCP Tunnel\033[0m")
-            print("3. \033[96mLoadBalancer \033[93m[1]\033[36m Kharej \033[93m[1]\033[36m IRAN\033[0m")
-            print("4. \033[93mLoadBalancer \033[92m[10]\033[93m Kharej \033[92m[1]\033[93m IRAN\033[0m")
-            print("5. \033[92mLoadBalancer \033[93m[1]\033[92m Kharej \033[93m[3]\033[92m IRAN\033[0m")
-            print("6. \033[92mStop | Restart Service \033[0m")
-            print("7. \033[91mUninstall\033[0m")
+            print("3. \033[92mFRP KCP Tunnel\033[0m")
+            print("4. \033[96mLoadBalancer \033[93m[1]\033[36m Kharej \033[93m[1]\033[36m IRAN\033[0m")
+            print("5. \033[93mLoadBalancer \033[92m[10]\033[93m Kharej \033[92m[1]\033[93m IRAN\033[0m")
+            print("6. \033[92mLoadBalancer \033[93m[1]\033[92m Kharej \033[93m[3]\033[92m IRAN\033[0m")
+            print("7. \033[92mStop | Restart Service \033[0m")
+            print("8. \033[91mUninstall\033[0m")
             print("q. Exit")
             print("\033[93m╰─────────────────────────────────────────────────────────────────────╯\033[0m")
 
@@ -152,14 +153,16 @@ def main_menu():
             elif choice == '2':
                 tcp_menu()
             elif choice == '3':
-                single_load_menu()
+                kcp_local()
             elif choice == '4':
-                i3kharej_1iran_load()
+                single_load_menu()
             elif choice == '5':
-                i1kharej_3iran()
+                i3kharej_1iran_load()
             elif choice == '6':
-                start_menu()
+                i1kharej_3iran()
             elif choice == '7':
+                start_menu()
+            elif choice == '8':
                 remove_menu()
             elif choice == 'q':
                 print("Exiting...")
@@ -173,7 +176,704 @@ def main_menu():
         display_error("\033[91m\nProgram interrupted. Exiting...\033[0m")
         sys.exit()
         
+def kcp_local():
+    os.system("clear")
+    print('\033[92m ^ ^\033[0m')
+    print('\033[92m(\033[91mO,O\033[92m)\033[0m')
+    print('\033[92m(   ) \033[92m Kharej \033[96m KCP\033[93m Menu\033[0m')
+    print('\033[92m "-"\033[93m══════════════════════════════════════════\033[0m')
+    print("\033[93m╭───────────────────────────────────────╮\033[0m")
+    print('\033[93mChoose what to do:\033[0m')
+    print('1. \033[92mIRAN\033[0m')
+    print('2. \033[91mKharej\033[92m [1]\033[0m')
+    print('3. \033[93mKharej\033[92m [2]\033[0m')
+    print('4. \033[96mKharej\033[92m [3]\033[0m')
+    print('5. \033[97mKharej\033[92m [4]\033[0m')
+    print('6. \033[93mKharej\033[92m [5]\033[0m')
+    print('0. \033[94mBack to the main menu\033[0m')
+    print("\033[93m╰───────────────────────────────────────╯\033[0m")
+    
+    while True:
+        server_type = input('\033[38;5;205mEnter your choice Please: \033[0m')
+        if server_type == '1':
+            iran_kcp()
+            break
+        elif server_type == '2':
+            kharej1_kcp()
+            break
+        elif server_type == '3':
+            kharej2_kcp()
+            break
+        elif server_type == '4':
+            kharej3_kcp()
+            break
+        elif server_type == '5':
+            kharej4_kcp()
+            break
+        elif server_type == '6':
+            kharej5_kcp()
+            break
+        elif server_type == '0':
+            os.system('clear')
+            main_menu()
+            break
+        else:
+            print('Invalid choice.') 
+            
+def iran_kcp():            
+    os.system("clear")
+    print('\033[92m ^ ^\033[0m')
+    print('\033[92m(\033[91mO,O\033[92m)\033[0m')
+    print('\033[92m(   ) \033[93mIRAN Menu  \033[0m')
+    print('\033[92m "-"\033[93m══════════════════════════\033[0m')
+    print("\033[93m───────────────────────────────────────────────────────────────────────────────────────────\033[0m")
+    display_notification("\033[93mConfiguring...\033[0m")
+    print("\033[93m───────────────────────────────────────────────────────────────────────────────────────────\033[0m") 
 
+    local_ports = input("\033[93mEnter the \033[92mlocal\033[93m ports : \033[0m")
+    remote_ports = input("\033[93mEnter the \033[92mremote\033[93m ports : \033[0m")
+
+    local_ports_list = local_ports.replace(" ", ",").split(",")
+    remote_ports_list = remote_ports.replace(" ", ",").split(",")
+
+    local_ports_list = [port.strip() for port in local_ports_list]
+    remote_ports_list = [port.strip() for port in remote_ports_list]
+
+    num_instances = len(local_ports_list)
+
+    if os.path.exists("frp/frps.toml"):
+        os.remove("frp/frps.toml")
+
+    with open("frp/frps.toml", "w") as f:
+        f.write("[common]\n")
+        kcpbind_port = input("\033[93mEnter \033[92mKCP Port\033[93m: \033[0m")
+        f.write("bind_port = {}\n".format(kcpbind_port))
+        f.write("kcpBindPort = {}\n".format(kcpbind_port))
+        f.write("vhost_https_port = 8443\n")
+        f.write("transport.tls.disable_custom_tls_first_byte = false\n")
+        f.write("token = azumichwan\n")
+        f.write("\n")
+        f.write("[v2ray]\n")  
+        f.write("type = tcp\n")
+        f.write("local_port = {}\n".format(",".join(local_ports_list)))
+        f.write("remote_port = {}\n".format(",".join(remote_ports_list)))
+        f.write("use_encryption = true\n")
+
+    display_checkmark("\033[92mIRAN configuration generated. Yours Truly, Azumi.\033[0m")
+
+    
+    service_name = "azumifrps3"
+    frps_path = "/root/frp/frps.toml"
+
+    service_content = f'''[Unit]
+Description=frps service
+After=network.target
+
+[Service]
+ExecStart=/root/frp/./frps -c {frps_path}
+Restart=always
+RestartSec=5
+LimitNOFILE=1048576
+User=root
+
+[Install]
+WantedBy=multi-user.target
+'''
+
+    service_path = "/etc/systemd/system/{}.service".format(service_name)
+
+    with open(service_path, "w") as f:
+        f.write(service_content)
+    display_notification("\033[93mStarting FRP service...\033[0m")
+    time.sleep(1)
+    os.system("systemctl daemon-reload")
+    os.system("systemctl enable {}".format(service_name))
+    os.system("systemctl restart {}".format(service_name))
+    time.sleep(1)
+    os.system("systemctl restart {}".format(service_name))
+    res_i()
+    clear_c()
+    display_checkmark("\033[92mFRP Service Started!\033[0m")
+
+def kharej1_kcp():
+    os.system("clear")
+    print('\033[92m ^ ^\033[0m')
+    print('\033[92m(\033[91mO,O\033[92m)\033[0m')
+    print('\033[92m(   ) \033[93mKharej Server \033[92m[1]\033[93m \033[0m')
+    print('\033[92m "-"\033[93m══════════════════════════\033[0m')
+    print("\033[93m───────────────────────────────────────────────────────────────────────────────────────────\033[0m")
+    display_notification("\033[93mConfiguring...\033[0m")
+    print("\033[93m───────────────────────────────────────────────────────────────────────────────────────────\033[0m")
+    
+    while True:
+        try:
+            num_groups = int(input("\033[93mEnter the number of \033[92mloadbalance groups\033[96m [For each different port, there should be a group\033[92m]: \033[0m"))
+            break
+        except ValueError:
+            print("\033[91mInvalid input! Please enter a valid input!!\033[0m")
+
+    groups = []
+    for i in range(num_groups):
+        group_name = "Loadbalance Group {}".format(i + 1)
+        group = {"name": group_name}
+        groups.append(group)
+
+    time.sleep(1)
+
+    iran_ipv6 = input("\033[93mEnter \033[92mIRAN\033[93m IPV4/IPv6 address: \033[0m")
+
+    if os.path.exists("frp/frpc.toml"):
+        os.remove("frp/frpc.toml")
+
+    with open("frp/frpc.toml", "w") as f:
+        f.write("[common]\n")
+        f.write("server_addr = {}\n".format(iran_ipv6))
+        server_port = input("\033[93mEnter \033[92mKCP port\033[93m : \033[0m")
+        f.write("server_port = {}\n".format(server_port))
+        f.write("vhost_https_port = 8443\n")
+        f.write("transport.tls.disable_custom_tls_first_byte = false\n")
+        f.write("transport.protocol = kcp\n")
+        f.write("token = azumichwan\n")
+
+    while True:
+        try:
+            start_number = int(input("\033[93mEnter the starting v2ray and group number: \033[0m"))
+            break
+        except ValueError:
+            print("\033[91mInvalid input! Please enter a valid input!!\033[0m")
+
+    for group_index, group in enumerate(groups):
+        group_name = group["name"]
+        group_number = start_number + group_index  
+        starting_v2ray_number = start_number + (group_index * 1)
+
+        local_port = input("\033[93mEnter the \033[92mLocal\033[93m Port for \033[92m{}\033[93m: \033[0m".format(group_name))
+        remote_port = input("\033[93mEnter the \033[92mRemote\033[93m Port for \033[92m{}\033[93m: \033[0m".format(group_name))
+        print("\033[93m───────────────────────────────────────────────────────────────────────────────────────\033[0m")
+
+        v2ray_number = starting_v2ray_number
+
+        with open("frp/frpc.toml", "a") as f:
+            f.write("\n")
+            f.write("[v2ray{}]\n".format(v2ray_number))
+            f.write("type = tcp\n")
+            f.write("local_ip = 127.0.0.1\n")
+            f.write("local_port = {}\n".format(local_port))
+            f.write("remote_port = {}\n".format(remote_port))
+            f.write("group = Azumi{}\n".format(group_number))
+            f.write("group_key = azumichwan\n")
+            f.write("health_check_type = tcp\n")
+            f.write("health_check_timeout_s = 3\n")
+            f.write("health_check_max_failed = 3\n")
+            f.write("health_check_interval_s = 10\n")
+            f.write("use_encryption = true\n")
+
+    time.sleep(1)
+    display_notification("\033[93mLoadbalance port is 8443..\033[0m")
+
+    service_name = "azumifrpc3"
+    frps_path = "/root/frp/frpc.toml"
+
+    service_content = f'''[Unit]
+Description=frpc service
+After=network.target
+
+[Service]
+ExecStart=/root/frp/./frpc -c {frps_path}
+Restart=always
+RestartSec=5
+LimitNOFILE=1048576
+User=root
+
+[Install]
+WantedBy=multi-user.target
+'''
+
+    service_path = "/etc/systemd/system/{}.service".format(service_name)
+
+    with open(service_path, "w") as f:
+        f.write(service_content)
+
+    os.system("systemctl daemon-reload")
+    os.system("systemctl enable {}".format(service_name))
+    os.system("systemctl restart {}".format(service_name))
+    res_k1()
+    clear_c()
+    display_checkmark("\033[92mFRP Service Started!\033[0m")
+
+    num_v2ray_instances = len(groups)
+    last_v2ray_number = start_number + num_v2ray_instances 
+
+    print("Use the last V2ray number for configuring the next kharej server.")
+    print("+--------------------------------------------------+")
+    print("|   Number of Load Balance Groups: {}              |".format(num_groups))
+    print("|   Total V2Ray Instances Created: {}              |".format(num_v2ray_instances))
+    print("|   \033[92mLast V2Ray Number: {}\033[0m                          |".format(last_v2ray_number))
+    print("+--------------------------------------------------+")
+
+def kharej2_kcp():
+    os.system("clear")
+    print('\033[92m ^ ^\033[0m')
+    print('\033[92m(\033[91mO,O\033[92m)\033[0m')
+    print('\033[92m(   ) \033[93mKharej Server \033[92m[2]\033[93m \033[0m')
+    print('\033[92m "-"\033[93m══════════════════════════\033[0m')
+    print("\033[93m───────────────────────────────────────────────────────────────────────────────────────────\033[0m")
+    display_notification("\033[93mConfiguring...\033[0m")
+    print("\033[93m───────────────────────────────────────────────────────────────────────────────────────────\033[0m") 
+    
+    while True:
+        try:
+            num_groups = int(input("\033[93mEnter the number of \033[92mloadbalance groups\033[96m [For each different port, there should be a group\033[92m]: \033[0m"))
+            break
+        except ValueError:
+            print("\033[91mInvalid input! Please enter a valid input!!\033[0m")
+
+    groups = []
+    for i in range(num_groups):
+        group_name = "Loadbalance Group {}".format(i + 1)
+        group = {"name": group_name}
+        groups.append(group)
+
+    time.sleep(1)
+
+    iran_ipv6 = input("\033[93mEnter \033[92mIRAN\033[93m IPV4/IPv6 address: \033[0m")
+
+    if os.path.exists("frp/frpc.toml"):
+        os.remove("frp/frpc.toml")
+
+    with open("frp/frpc.toml", "w") as f:
+        f.write("[common]\n")
+        f.write("server_addr = {}\n".format(iran_ipv6))
+        server_port = input("\033[93mEnter \033[92mKCP port\033[93m: \033[0m")
+        f.write("server_port = {}\n".format(server_port))
+        f.write("vhost_https_port = 8443\n")
+        f.write("transport.tls.disable_custom_tls_first_byte = false\n")
+        f.write("transport.protocol = kcp\n")
+        f.write("token = azumi\n")
+
+    while True:
+        try:
+            start_number = int(input("\033[93mEnter the starting v2ray and group number: \033[0m"))
+            break
+        except ValueError:
+            print("\033[91mInvalid input! Please enter a valid input!!\033[0m")
+
+    for group_index, group in enumerate(groups):
+        group_name = group["name"]
+        group_number = start_number + group_index  
+        starting_v2ray_number = start_number + (group_index * 1)
+
+        local_port = input("\033[93mEnter the \033[92mLocal\033[93m Port for \033[92m{}\033[93m: \033[0m".format(group_name))
+        remote_port = input("\033[93mEnter the \033[92mRemote\033[93m Port for \033[92m{}\033[93m: \033[0m".format(group_name))
+        print("\033[93m───────────────────────────────────────────────────────────────────────────────────────\033[0m")
+
+        v2ray_number = starting_v2ray_number
+
+        with open("frp/frpc.toml", "a") as f:
+            f.write("\n")
+            f.write("[v2ray{}]\n".format(v2ray_number))
+            f.write("type = tcp\n")
+            f.write("local_ip = 127.0.0.1\n")
+            f.write("local_port = {}\n".format(local_port))
+            f.write("remote_port = {}\n".format(remote_port))
+            f.write("group = Azumi{}\n".format(group_number))
+            f.write("group_key = azumichwan\n")
+            f.write("health_check_type = tcp\n")
+            f.write("health_check_timeout_s = 3\n")
+            f.write("health_check_max_failed = 3\n")
+            f.write("health_check_interval_s = 10\n")
+            f.write("use_encryption = true\n")
+
+    time.sleep(1)
+    display_notification("\033[93mLoadbalance port is 8443..\033[0m")
+
+    service_name = "azumifrpc3"
+    frps_path = "/root/frp/frpc.toml"
+
+    service_content = f'''[Unit]
+Description=frpc service
+After=network.target
+
+[Service]
+ExecStart=/root/frp/./frpc -c {frps_path}
+Restart=always
+RestartSec=5
+LimitNOFILE=1048576
+User=root
+
+[Install]
+WantedBy=multi-user.target
+'''
+
+    service_path = "/etc/systemd/system/{}.service".format(service_name)
+
+    with open(service_path, "w") as f:
+        f.write(service_content)
+
+    os.system("systemctl daemon-reload")
+    os.system("systemctl enable {}".format(service_name))
+    os.system("systemctl restart {}".format(service_name))
+    res_k1()
+    clear_c()
+    display_checkmark("\033[92mFRP Service Started!\033[0m")
+
+    num_v2ray_instances = len(groups)
+    last_v2ray_number = start_number + num_v2ray_instances 
+
+    print("Use the last V2ray number for configuring the next kharej server.")
+    print("+--------------------------------------------------+")
+    print("|   Number of Load Balance Groups: {}              |".format(num_groups))
+    print("|   Total V2Ray Instances Created: {}              |".format(num_v2ray_instances))
+    print("|   \033[92mLast V2Ray Number: {}\033[0m                          |".format(last_v2ray_number))
+    print("+--------------------------------------------------+")
+	
+def kharej3_kcp():
+    os.system("clear")
+    print('\033[92m ^ ^\033[0m')
+    print('\033[92m(\033[91mO,O\033[92m)\033[0m')
+    print('\033[92m(   ) \033[93mKharej Server \033[92m[3]\033[93m \033[0m')
+    print('\033[92m "-"\033[93m══════════════════════════\033[0m')
+    print("\033[93m───────────────────────────────────────────────────────────────────────────────────────────\033[0m")
+    display_notification("\033[93mConfiguring...\033[0m")
+    print("\033[93m───────────────────────────────────────────────────────────────────────────────────────────\033[0m") 
+    
+    while True:
+        try:
+            num_groups = int(input("\033[93mEnter the number of \033[92mloadbalance groups\033[96m [For each different port, there should be a group\033[92m]: \033[0m"))
+            break
+        except ValueError:
+            print("\033[91mInvalid input! Please enter a valid input!!\033[0m")
+
+    groups = []
+    for i in range(num_groups):
+        group_name = "Loadbalance Group {}".format(i + 1)
+        group = {"name": group_name}
+        groups.append(group)
+
+    time.sleep(1)
+
+    iran_ipv6 = input("\033[93mEnter \033[92mIRAN\033[93m IPV4/IPv6 address: \033[0m")
+
+    if os.path.exists("frp/frpc.toml"):
+        os.remove("frp/frpc.toml")
+
+    with open("frp/frpc.toml", "w") as f:
+        f.write("[common]\n")
+        f.write("server_addr = {}\n".format(iran_ipv6))
+        server_port = input("\033[93mEnter \033[92mKCP port\033[93m: \033[0m")
+        f.write("server_port = {}\n".format(server_port))
+        f.write("vhost_https_port = 8443\n")
+        f.write("transport.tls.disable_custom_tls_first_byte = false\n")
+        f.write("transport.protocol = kcp\n")
+        f.write("token = azumi\n")
+
+    while True:
+        try:
+            start_number = int(input("\033[93mEnter the starting v2ray and group number: \033[0m"))
+            break
+        except ValueError:
+            print("\033[91mInvalid input! Please enter a valid input!!\033[0m")
+
+    for group_index, group in enumerate(groups):
+        group_name = group["name"]
+        group_number = start_number + group_index  
+        starting_v2ray_number = start_number + (group_index * 1)
+
+        local_port = input("\033[93mEnter the \033[92mLocal\033[93m Port for \033[92m{}\033[93m: \033[0m".format(group_name))
+        remote_port = input("\033[93mEnter the \033[92mRemote\033[93m Port for \033[92m{}\033[93m: \033[0m".format(group_name))
+        print("\033[93m───────────────────────────────────────────────────────────────────────────────────────\033[0m")
+
+        v2ray_number = starting_v2ray_number
+
+        with open("frp/frpc.toml", "a") as f:
+            f.write("\n")
+            f.write("[v2ray{}]\n".format(v2ray_number))
+            f.write("type = tcp\n")
+            f.write("local_ip = 127.0.0.1\n")
+            f.write("local_port = {}\n".format(local_port))
+            f.write("remote_port = {}\n".format(remote_port))
+            f.write("group = Azumi{}\n".format(group_number))
+            f.write("group_key = azumichwan\n")
+            f.write("health_check_type = tcp\n")
+            f.write("health_check_timeout_s = 3\n")
+            f.write("health_check_max_failed = 3\n")
+            f.write("health_check_interval_s = 10\n")
+            f.write("use_encryption = true\n")
+
+    time.sleep(1)
+    display_notification("\033[93mLoadbalance port is 8443..\033[0m")
+
+    service_name = "azumifrpc3"
+    frps_path = "/root/frp/frpc.toml"
+
+    service_content = f'''[Unit]
+Description=frpc service
+After=network.target
+
+[Service]
+ExecStart=/root/frp/./frpc -c {frps_path}
+Restart=always
+RestartSec=5
+LimitNOFILE=1048576
+User=root
+
+[Install]
+WantedBy=multi-user.target
+'''
+
+    service_path = "/etc/systemd/system/{}.service".format(service_name)
+
+    with open(service_path, "w") as f:
+        f.write(service_content)
+
+    os.system("systemctl daemon-reload")
+    os.system("systemctl enable {}".format(service_name))
+    os.system("systemctl restart {}".format(service_name))
+    res_k1()
+    clear_c()
+    display_checkmark("\033[92mFRP Service Started!\033[0m")
+
+    num_v2ray_instances = len(groups)
+    last_v2ray_number = start_number + num_v2ray_instances 
+
+    print("Use the last V2ray number for configuring the next kharej server.")
+    print("+--------------------------------------------------+")
+    print("|   Number of Load Balance Groups: {}              |".format(num_groups))
+    print("|   Total V2Ray Instances Created: {}              |".format(num_v2ray_instances))
+    print("|   \033[92mLast V2Ray Number: {}\033[0m                          |".format(last_v2ray_number))
+    print("+--------------------------------------------------+")
+	
+def kharej4_kcp():
+    os.system("clear")
+    print('\033[92m ^ ^\033[0m')
+    print('\033[92m(\033[91mO,O\033[92m)\033[0m')
+    print('\033[92m(   ) \033[93mKharej Server \033[92m[4]\033[93m \033[0m')
+    print('\033[92m "-"\033[93m══════════════════════════\033[0m')
+    print("\033[93m───────────────────────────────────────────────────────────────────────────────────────────\033[0m")
+    display_notification("\033[93mConfiguring...\033[0m")
+    print("\033[93m───────────────────────────────────────────────────────────────────────────────────────────\033[0m") 
+    
+    while True:
+        try:
+            num_groups = int(input("\033[93mEnter the number of \033[92mloadbalance groups\033[96m [For each different port, there should be a group\033[92m]: \033[0m"))
+            break
+        except ValueError:
+            print("\033[91mInvalid input! Please enter a valid input!!\033[0m")
+
+    groups = []
+    for i in range(num_groups):
+        group_name = "Loadbalance Group {}".format(i + 1)
+        group = {"name": group_name}
+        groups.append(group)
+
+    time.sleep(1)
+
+    iran_ipv6 = input("\033[93mEnter \033[92mIRAN\033[93m IPV4/IPv6 address: \033[0m")
+
+    if os.path.exists("frp/frpc.toml"):
+        os.remove("frp/frpc.toml")
+
+    with open("frp/frpc.toml", "w") as f:
+        f.write("[common]\n")
+        f.write("server_addr = {}\n".format(iran_ipv6))
+        server_port = input("\033[93mEnter \033[92mKCP port\033[93m: \033[0m")
+        f.write("server_port = {}\n".format(server_port))
+        f.write("vhost_https_port = 8443\n")
+        f.write("transport.tls.disable_custom_tls_first_byte = false\n")
+        f.write("transport.protocol = kcp\n")
+        f.write("token = azumi\n")
+
+    while True:
+        try:
+            start_number = int(input("\033[93mEnter the starting v2ray and group number: \033[0m"))
+            break
+        except ValueError:
+            print("\033[91mInvalid input! Please enter a valid input!!\033[0m")
+
+    for group_index, group in enumerate(groups):
+        group_name = group["name"]
+        group_number = start_number + group_index  
+        starting_v2ray_number = start_number + (group_index * 1)
+
+        local_port = input("\033[93mEnter the \033[92mLocal\033[93m Port for \033[92m{}\033[93m: \033[0m".format(group_name))
+        remote_port = input("\033[93mEnter the \033[92mRemote\033[93m Port for \033[92m{}\033[93m: \033[0m".format(group_name))
+        print("\033[93m───────────────────────────────────────────────────────────────────────────────────────\033[0m")
+
+        v2ray_number = starting_v2ray_number
+
+        with open("frp/frpc.toml", "a") as f:
+            f.write("\n")
+            f.write("[v2ray{}]\n".format(v2ray_number))
+            f.write("type = tcp\n")
+            f.write("local_ip = 127.0.0.1\n")
+            f.write("local_port = {}\n".format(local_port))
+            f.write("remote_port = {}\n".format(remote_port))
+            f.write("group = Azumi{}\n".format(group_number))
+            f.write("group_key = azumichwan\n")
+            f.write("health_check_type = tcp\n")
+            f.write("health_check_timeout_s = 3\n")
+            f.write("health_check_max_failed = 3\n")
+            f.write("health_check_interval_s = 10\n")
+            f.write("use_encryption = true\n")
+
+    time.sleep(1)
+    display_notification("\033[93mLoadbalance port is 8443..\033[0m")
+
+    service_name = "azumifrpc3"
+    frps_path = "/root/frp/frpc.toml"
+
+    service_content = f'''[Unit]
+Description=frpc service
+After=network.target
+
+[Service]
+ExecStart=/root/frp/./frpc -c {frps_path}
+Restart=always
+RestartSec=5
+LimitNOFILE=1048576
+User=root
+
+[Install]
+WantedBy=multi-user.target
+'''
+
+    service_path = "/etc/systemd/system/{}.service".format(service_name)
+
+    with open(service_path, "w") as f:
+        f.write(service_content)
+
+    os.system("systemctl daemon-reload")
+    os.system("systemctl enable {}".format(service_name))
+    os.system("systemctl restart {}".format(service_name))
+    res_k1()
+    clear_c()
+    display_checkmark("\033[92mFRP Service Started!\033[0m")
+
+    num_v2ray_instances = len(groups)
+    last_v2ray_number = start_number + num_v2ray_instances 
+
+    print("Use the last V2ray number for configuring the next kharej server.")
+    print("+--------------------------------------------------+")
+    print("|   Number of Load Balance Groups: {}              |".format(num_groups))
+    print("|   Total V2Ray Instances Created: {}              |".format(num_v2ray_instances))
+    print("|   \033[92mLast V2Ray Number: {}\033[0m                          |".format(last_v2ray_number))
+    print("+--------------------------------------------------+")
+	
+def kharej5_kcp():
+    os.system("clear")
+    print('\033[92m ^ ^\033[0m')
+    print('\033[92m(\033[91mO,O\033[92m)\033[0m')
+    print('\033[92m(   ) \033[93mKharej Server \033[92m[5]\033[93m \033[0m')
+    print('\033[92m "-"\033[93m══════════════════════════\033[0m')
+    print("\033[93m───────────────────────────────────────────────────────────────────────────────────────────\033[0m")
+    display_notification("\033[93mConfiguring...\033[0m")
+    print("\033[93m───────────────────────────────────────────────────────────────────────────────────────────\033[0m") 
+    while True:
+        try:
+            num_groups = int(input("\033[93mEnter the number of \033[92mloadbalance groups\033[96m [For each different port, there should be a group\033[92m]: \033[0m"))
+            break
+        except ValueError:
+            print("\033[91mInvalid input! Please enter a valid input!!\033[0m")
+
+    groups = []
+    for i in range(num_groups):
+        group_name = "Loadbalance Group {}".format(i + 1)
+        group = {"name": group_name}
+        groups.append(group)
+
+    time.sleep(1)
+
+    iran_ipv6 = input("\033[93mEnter \033[92mIRAN\033[93m IPV4/IPv6 address: \033[0m")
+
+    if os.path.exists("frp/frpc.toml"):
+        os.remove("frp/frpc.toml")
+
+    with open("frp/frpc.toml", "w") as f:
+        f.write("[common]\n")
+        f.write("server_addr = {}\n".format(iran_ipv6))
+        server_port = input("\033[93mEnter \033[92mKCP port\033[93m: \033[0m")
+        f.write("server_port = {}\n".format(server_port))
+        f.write("vhost_https_port = 8443\n")
+        f.write("transport.tls.disable_custom_tls_first_byte = false\n")
+        f.write("transport.protocol = kcp\n")
+        f.write("token = azumi\n")
+
+    while True:
+        try:
+            start_number = int(input("\033[93mEnter the starting v2ray and group number: \033[0m"))
+            break
+        except ValueError:
+            print("\033[91mInvalid input! Please enter a valid input!!\033[0m")
+
+    for group_index, group in enumerate(groups):
+        group_name = group["name"]
+        group_number = start_number + group_index  
+        starting_v2ray_number = start_number + (group_index * 1)
+
+        local_port = input("\033[93mEnter the \033[92mLocal\033[93m Port for \033[92m{}\033[93m: \033[0m".format(group_name))
+        remote_port = input("\033[93mEnter the \033[92mRemote\033[93m Port for \033[92m{}\033[93m: \033[0m".format(group_name))
+        print("\033[93m───────────────────────────────────────────────────────────────────────────────────────\033[0m")
+
+        v2ray_number = starting_v2ray_number
+
+        with open("frp/frpc.toml", "a") as f:
+            f.write("\n")
+            f.write("[v2ray{}]\n".format(v2ray_number))
+            f.write("type = tcp\n")
+            f.write("local_ip = 127.0.0.1\n")
+            f.write("local_port = {}\n".format(local_port))
+            f.write("remote_port = {}\n".format(remote_port))
+            f.write("group = Azumi{}\n".format(group_number))
+            f.write("group_key = azumichwan\n")
+            f.write("health_check_type = tcp\n")
+            f.write("health_check_timeout_s = 3\n")
+            f.write("health_check_max_failed = 3\n")
+            f.write("health_check_interval_s = 10\n")
+            f.write("use_encryption = true\n")
+
+    time.sleep(1)
+    display_notification("\033[93mLoadbalance port is 8443..\033[0m")
+
+    service_name = "azumifrpc3"
+    frps_path = "/root/frp/frpc.toml"
+
+    service_content = f'''[Unit]
+Description=frpc service
+After=network.target
+
+[Service]
+ExecStart=/root/frp/./frpc -c {frps_path}
+Restart=always
+RestartSec=5
+LimitNOFILE=1048576
+User=root
+
+[Install]
+WantedBy=multi-user.target
+'''
+
+    service_path = "/etc/systemd/system/{}.service".format(service_name)
+
+    with open(service_path, "w") as f:
+        f.write(service_content)
+
+    os.system("systemctl daemon-reload")
+    os.system("systemctl enable {}".format(service_name))
+    os.system("systemctl restart {}".format(service_name))
+    res_k1()
+    clear_c()
+    display_checkmark("\033[92mFRP Service Started!\033[0m")
+
+    num_v2ray_instances = len(groups)
+    last_v2ray_number = start_number + num_v2ray_instances 
+
+    print("Use the last V2ray number for configuring the next kharej server.")
+    print("+--------------------------------------------------+")
+    print("|   Number of Load Balance Groups: {}              |".format(num_groups))
+    print("|   Total V2Ray Instances Created: {}              |".format(num_v2ray_instances))
+    print("|   \033[92mLast V2Ray Number: {}\033[0m                          |".format(last_v2ray_number))
+    print("+--------------------------------------------------+")
+    
 def rmve_cron():
     entries_to_remove = [
         "0 */2 * * * sh /etc/clear.sh",
@@ -737,10 +1437,11 @@ def start_menu():
     print("\033[93m╭───────────────────────────────────────╮\033[0m")
     print('\033[93mChoose what to do:\033[0m')
     print('1. \033[92mTCP Tunnel SERVICE \033[0m')
-    print('2. \033[93mLoadBalance Single Server SERVICE \033[0m')
-    print('3. \033[96mLoadBalance [10] Kharej [1] IRAN SERVICE \033[0m')
-    print('4. \033[97mLoadBalance [1] Kharej [3] IRAN SERVICE  \033[0m')
-    print('5. \033[94mBack to the main menu\033[0m')
+    print('2. \033[92mKCP Tunnel SERVICE \033[0m')
+    print('3. \033[93mLoadBalance Single Server SERVICE \033[0m')
+    print('4. \033[96mLoadBalance [10] Kharej [1] IRAN SERVICE \033[0m')
+    print('5. \033[97mLoadBalance [1] Kharej [3] IRAN SERVICE  \033[0m')
+    print('6. \033[94mBack to the main menu\033[0m')
     print("\033[93m╰───────────────────────────────────────╯\033[0m")
 
     while True:
@@ -749,15 +1450,18 @@ def start_menu():
             start_tcp_tunnel()
             break
         elif server_type == '2':
-            start_single_load()
+            start_kcp_tunnel()
             break
         elif server_type == '3':
-            start_kharej5()
+            start_single_load()
             break
         elif server_type == '4':
-            start_kharej1()
+            start_kharej5()
             break
         elif server_type == '5':
+            start_kharej1()
+            break
+        elif server_type == '6':
             os.system("clear")
             main_menu()
             break
@@ -1231,6 +1935,91 @@ def stop_tcp_tunnel():
     except subprocess.CalledProcessError as e:
         print("Error:", e.output.decode().strip())
 
+def start_kcp_tunnel():
+    os.system("clear")
+    print('\033[92m ^ ^\033[0m')
+    print('\033[92m(\033[91mO,O\033[92m)\033[0m')
+    print('\033[92m(   ) \033[93mKCP Tunnel Service\033[0m')
+    print('\033[92m "-"\033[93m══════════════════════════\033[0m')
+    print("\033[93m╭───────────────────────────────────────╮\033[0m")
+    print('\033[93mChoose what to do:\033[0m')
+    print('1. \033[92mRestart SERVICE \033[0m')
+    print('2. \033[93mStop SERVICE \033[0m')
+    print('5. \033[94mBack to the previous menu\033[0m')
+    print("\033[93m╰───────────────────────────────────────╯\033[0m")
+
+    while True:
+        server_type = input('\033[38;5;205mEnter your choice Please: \033[0m')
+        if server_type == '1':
+            restart_kcp_tunnel()
+            break
+        elif server_type == '2':
+            stop_kcp_tunnel()
+            break
+        elif server_type == '5':
+            os.system("clear")
+            start_menu()
+            break
+        else:
+            print('Invalid choice.')
+
+def restart_kcp_tunnel():
+    os.system("clear")
+    display_notification("\033[93mRestarting KCP Tunnel Service...\033[0m")
+    print("\033[93m╭───────────────────────────────────────╮\033[0m")
+    
+    try:
+        subprocess.run("systemctl daemon-reload", shell=True)
+        subprocess.run("systemctl restart azumifrps3.service > /dev/null 2>&1", shell=True)
+        time.sleep(1)
+        subprocess.run("systemctl restart azumifrpc3.service > /dev/null 2>&1", shell=True)
+        
+        print("Progress: ", end="")
+        
+        frames = ["⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏"]
+        delay = 0.1
+        duration = 1
+        end_time = time.time() + duration
+        
+        while time.time() < end_time:
+            for frame in frames:
+                print("\r[%s] Loading...  " % frame, end="")
+                time.sleep(delay)
+                print("\r[%s]             " % frame, end="")
+                time.sleep(delay)
+        
+        display_checkmark("\033[92mRestart completed!\033[0m")
+    except subprocess.CalledProcessError as e:
+        print("Error:", e.output.decode().strip())
+
+def stop_kcp_tunnel():
+    os.system("clear")
+    display_notification("\033[93mStopping KCP Tunnel Service...\033[0m")
+    print("\033[93m╭───────────────────────────────────────╮\033[0m")
+    
+    try:
+        subprocess.run("systemctl daemon-reload", shell=True)
+        subprocess.run("systemctl stop azumifrps3.service > /dev/null 2>&1", shell=True)
+        time.sleep(1)
+        subprocess.run("systemctl stop azumifrpc3.service > /dev/null 2>&1", shell=True)
+        
+        print("Progress: ", end="")
+        
+        frames = ["⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏"]
+        delay = 0.1
+        duration = 1
+        end_time = time.time() + duration
+        
+        while time.time() < end_time:
+            for frame in frames:
+                print("\r[%s] Loading...  " % frame, end="")
+                time.sleep(delay)
+                print("\r[%s]             " % frame, end="")
+                time.sleep(delay)
+        
+        display_checkmark("\033[92mStop completed!\033[0m")
+    except subprocess.CalledProcessError as e:
+        print("Error:", e.output.decode().strip())
         
 def remove_menu():
     os.system("clear")
@@ -1241,11 +2030,12 @@ def remove_menu():
     print("\033[93m╭───────────────────────────────────────╮\033[0m")
     print('\033[93mChoose what to do:\033[0m')
     print('1. \033[92mTCP Tunnel \033[0m')
-    print('2. \033[93mLoadBalance Single Server \033[0m')
-    print('3. \033[96mLoadBalance [10] Kharej [1] IRAN \033[0m')
-    print('4. \033[93mLoadBalance [10] Kharej [2] IRAN \033[0m')
-    print('5. \033[97mLoadBalance [1] Kharej [3] IRAN  \033[0m')
-    print('6. \033[94mBack to the main menu\033[0m')
+    print('2. \033[92mKCP Tunnel \033[0m')
+    print('3. \033[93mLoadBalance Single Server \033[0m')
+    print('4. \033[96mLoadBalance [10] Kharej [1] IRAN \033[0m')
+    print('5. \033[93mLoadBalance [10] Kharej [2] IRAN \033[0m')
+    print('6. \033[97mLoadBalance [1] Kharej [3] IRAN  \033[0m')
+    print('0. \033[94mBack to the main menu\033[0m')
     print("\033[93m╰───────────────────────────────────────╯\033[0m")
 
     while True:
@@ -1254,18 +2044,21 @@ def remove_menu():
             remove_tcp_tunnel()
             break
         elif server_type == '2':
-            remove_single_load()
+            remove_kcp_tunnel()
             break
         elif server_type == '3':
-            remove_kharej5()
+            remove_single_load()
             break
         elif server_type == '4':
-            remove_kharej10()
+            remove_kharej5()
             break
         elif server_type == '5':
-            remove_kharej1()
+            remove_kharej10()
             break
         elif server_type == '6':
+            remove_kharej1()
+            break
+        elif server_type == '0':
             os.system("clear")
             main_menu()
             break
@@ -1292,6 +2085,47 @@ def remove_tcp_tunnel():
         subprocess.run("systemctl disable azumifrpc1.service > /dev/null 2>&1", shell=True)
         subprocess.run("systemctl stop azumifrpc1.service > /dev/null 2>&1", shell=True)
         subprocess.run("rm /etc/systemd/system/azumifrpc1.service > /dev/null 2>&1", shell=True)
+
+        subprocess.run("systemctl daemon-reload", shell=True)
+
+        print("Progress: ", end="")
+
+        frames = ["⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏"]
+        delay = 0.1
+        duration = 1
+        end_time = time.time() + duration
+
+        while time.time() < end_time:
+            for frame in frames:
+                print("\r[%s] Loading...  " % frame, end="")
+                time.sleep(delay)
+                print("\r[%s]             " % frame, end="")
+                time.sleep(delay)
+
+        display_checkmark("\033[92mUninstall completed!\033[0m")
+    except subprocess.CalledProcessError as e:
+        print("Error:", e.output.decode().strip())
+        
+def remove_kcp_tunnel():
+    os.system("clear")
+    display_notification("\033[93mRemoving KCP Tunnel...\033[0m")
+    rmve_cron()
+    print("\033[93m╭───────────────────────────────────────╮\033[0m")
+
+    try:
+        if subprocess.call("test -f /root/frp/frpc.toml", shell=True) == 0:
+            subprocess.run("rm /root/frp/frpc.toml", shell=True)
+        if subprocess.call("test -f /root/frp/frps.toml", shell=True) == 0:
+            subprocess.run("rm /root/frp/frps.toml", shell=True)
+
+        time.sleep(1)
+        subprocess.run("systemctl disable azumifrps3.service > /dev/null 2>&1", shell=True)
+        subprocess.run("systemctl stop azumifrps3.service > /dev/null 2>&1", shell=True)
+        subprocess.run("rm /etc/systemd/system/azumifrps3.service > /dev/null 2>&1", shell=True)
+        time.sleep(1)
+        subprocess.run("systemctl disable azumifrpc3.service > /dev/null 2>&1", shell=True)
+        subprocess.run("systemctl stop azumifrpc3.service > /dev/null 2>&1", shell=True)
+        subprocess.run("rm /etc/systemd/system/azumifrpc3.service > /dev/null 2>&1", shell=True)
 
         subprocess.run("systemctl daemon-reload", shell=True)
 
@@ -1562,10 +2396,11 @@ def status_menu():
     print("\033[93m╭───────────────────────────────────────╮\033[0m")
     print('\033[93mChoose what to do:\033[0m')
     print('1. \033[92mTCP Tunnel \033[91mSTATUS\033[0m')
-    print('2. \033[93mLoadBalance Single Server \033[91mSTATUS \033[0m')
-    print('3. \033[96mLoadBalance [10] Kharej [1] IRAN \033[91mSTATUS \033[0m')
-    print('4. \033[97mLoadBalance [1] Kharej [3] IRAN \033[91mSTATUS \033[0m')
-    print('5. \033[94mBack to the main menu\033[0m')
+    print('2. \033[92mKCP Tunnel \033[91mSTATUS\033[0m')
+    print('3. \033[93mLoadBalance Single Server \033[91mSTATUS \033[0m')
+    print('4. \033[96mLoadBalance [10] Kharej [1] IRAN \033[91mSTATUS \033[0m')
+    print('5. \033[97mLoadBalance [1] Kharej [3] IRAN \033[91mSTATUS \033[0m')
+    print('0. \033[94mBack to the main menu\033[0m')
     print("\033[93m╰───────────────────────────────────────╯\033[0m")
 
     while True:
@@ -1574,15 +2409,18 @@ def status_menu():
             status1_menu()
             break
         elif server_type == '2':
-            status2_menu()
+            statuskcp_menu()
             break
         elif server_type == '3':
-            status3_menu()
+            status2_menu()
             break
         elif server_type == '4':
-            status4_menu()
+            status3_menu()
             break
         elif server_type == '5':
+            status4_menu()
+            break
+        elif server_type == '0':
             os.system('clear')
             main_menu()
             break
@@ -1607,7 +2445,23 @@ def status1_menu():
     service_name = "azumifrps1.service"
     display_status(service_name)
 	
-	
+def statuskcp_menu():
+    os.system("clear")
+    print('\033[92m ^ ^\033[0m')
+    print('\033[92m(\033[91mO,O\033[92m)\033[0m')
+    print('\033[92m(   ) \033[93mStatus Menu\033[0m')
+    print('\033[92m "-"\033[93m══════════════════════════\033[0m')
+    print("\033[93m───────────────────────────────────────\033[0m")
+    display_notification("\033[93mKCP tunnel - \033[92mKharej\033[0m")
+    print("\033[93m───────────────────────────────────────\033[0m")
+    service_name = "azumifrpc3.service"
+    display_status(service_name)
+    print("\033[93m───────────────────────────────────────\033[0m")
+    display_notification("\033[93mKCP tunnel - \033[92mIRAN\033[0m")
+    print("\033[93m───────────────────────────────────────\033[0m")
+    service_name = "azumifrps3.service"
+    display_status(service_name)
+    
 def status2_menu():
     os.system("clear")
     print('\033[92m ^ ^\033[0m')
