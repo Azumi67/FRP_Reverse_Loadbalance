@@ -33,17 +33,6 @@
 
 ---------------------------------
 
-![youtube-131994968075841675](https://github.com/Azumi67/FRP-V2ray-Loadbalance/assets/119934376/24202a92-aff2-4079-a6c2-9db14cd0ecd1)
-**ویدیوی آموزش**
-- پارت اول : ویدیوی آموزشی توسط 69 (از ایشان با subscribe کردن، حمایت کنید)
-- **نکته** : **اگر میخواهیید از چندین پورت همزمان استفاده کنید ، اگر 5 تا پورت دارید تعداد ایپی 6 را 5 انتخاب کنید. اینطوری میتونید 5 تا پورت وارد کنید و باگ نیست . در حال حاضر نام را به number of configs[ipv6] تغییر دادم.**
-<div align="right">
-
-[![Video Title](https://img.youtube.com/vi/D5-n79tJkeY/0.jpg)](https://www.youtube.com/watch?v=D5-n79tJkeY)
-
-</div>
-
------------------------------------------
 
 ![307981](https://github.com/Azumi67/V2ray_loadbalance_multipleServers/assets/119934376/39b2794b-fd04-4ae5-baea-d4b66138766e)
  **فهرست :**
@@ -95,6 +84,18 @@
   - سرور خارج روش لوکال ایپی >>  **[کلیک](https://github.com/Azumi67/V2ray_loadbalance_multipleServers/blob/main/README.md#%D8%B3%D8%B1%D9%88%D8%B1-%D8%AE%D8%A7%D8%B1%D8%AC-%D8%B1%D9%88%D8%B4-%D8%AF%D9%88%D9%85-%D9%84%D9%88%DA%A9%D8%A7%D9%84-%D8%A7%DB%8C%D9%BE%DB%8C-1)**
 - **سورس ها** >> **[کلیک](https://github.com/Azumi67/V2ray_loadbalance_multipleServers/blob/main/README.md#%D8%B3%D9%88%D8%B1%D8%B3-%D9%87%D8%A7)**
 ----------------------------------
+
+![youtube-131994968075841675](https://github.com/Azumi67/FRP-V2ray-Loadbalance/assets/119934376/24202a92-aff2-4079-a6c2-9db14cd0ecd1)
+**ویدیوی آموزش**
+- پارت اول : ویدیوی آموزشی توسط 69 (از ایشان با subscribe کردن، حمایت کنید)
+- **نکته** : **اگر میخواهیید از چندین پورت همزمان استفاده کنید ، اگر 5 تا پورت دارید تعداد ایپی 6 را 5 انتخاب کنید. اینطوری میتونید 5 تا پورت وارد کنید و باگ نیست . در حال حاضر نام را به number of configs[ipv6] تغییر دادم.**
+<div align="right">
+
+[![Video Title](https://img.youtube.com/vi/D5-n79tJkeY/0.jpg)](https://www.youtube.com/watch?v=D5-n79tJkeY)
+
+</div>
+
+-----------------------------------------
 **توضیح کوتاه:**
 
 ----------------------
@@ -156,7 +157,7 @@
 
 ----------------------
  ![OIP2 (1)](https://github.com/Azumi67/V2ray_loadbalance_multipleServers/assets/119934376/3ec2f05f-3308-4441-8cce-62ab4776f4e2)
-ریورس تانل KCP 5 سرور خارج و یک سرور ایران [ تک پورت یا چندین پورت ]
+ریورس تانل KCP پنج سرور خارج و یک سرور ایران [ تک پورت یا چندین پورت ]
 -----------
 
 ![green-dot-clipart-3](https://github.com/Azumi67/6TO4-PrivateIP/assets/119934376/902a2efa-f48f-4048-bc2a-5be12143bef3) **سرور ایران** 
