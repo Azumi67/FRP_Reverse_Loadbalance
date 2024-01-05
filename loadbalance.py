@@ -251,7 +251,7 @@ def iran_kcp():
         f.write("kcpBindPort = {}\n".format(kcpbind_port))
         f.write("vhost_https_port = 8443\n")
         f.write("transport.tls.disable_custom_tls_first_byte = false\n")
-        f.write("token = azumichwan\n")
+        f.write("token = azumi\n")
         f.write("\n")
         f.write("[v2ray]\n")  
         f.write("type = tcp\n")
@@ -333,7 +333,7 @@ def kharej1_kcp():
         f.write("vhost_https_port = 8443\n")
         f.write("transport.tls.disable_custom_tls_first_byte = false\n")
         f.write("transport.protocol = kcp\n")
-        f.write("token = azumichwan\n")
+        f.write("token = azumi\n")
 
     while True:
         try:
