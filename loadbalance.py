@@ -219,7 +219,66 @@ def kcp_local():
             break
         else:
             print('Invalid choice.') 
-            
+def res_in():
+    if subprocess.call("test -f /etc/res.sh", shell=True) == 0:
+        subprocess.call("sudo rm /etc/res.sh", shell=True)
+
+    with open("/etc/res.sh", "w") as f:
+        f.write("#!/bin/bash\n")
+        f.write("sudo kill -9 $(pgrep frps)\n")
+        f.write("sudo systemctl daemon-reload\n")
+        f.write("sudo systemctl restart azumifrps_KCP\n")
+        f.write("sudo journalctl --vacuum-size=1M\n")
+
+    subprocess.call("chmod +x /etc/res.sh", shell=True)
+
+    existing_entry = "0 */2 * * * /etc/res.sh"
+    existing_crontab = ""
+
+    try:
+        existing_crontab = subprocess.check_output("crontab -l", shell=True).decode()
+    except subprocess.CalledProcessError:
+        print("\033[91mNo existing crontab found.\033[0m")
+
+    if existing_entry in existing_crontab:
+        print("\033[91mCrontab already exists.\033[0m")
+    else:
+        new_crontab = existing_crontab.strip() + "\n0 */2 * * * /etc/res.sh\n"
+        subprocess.call("echo '{}' | crontab -".format(new_crontab), shell=True)
+        display_checkmark("\033[92m2 hour reset timer added!\033[0m")
+
+    display_checkmark("\033[92mIT IS DONE.!\033[0m")
+	
+def res_kn():
+    if subprocess.call("test -f /etc/res.sh", shell=True) == 0:
+        subprocess.call("sudo rm /etc/res.sh", shell=True)
+
+    with open("/etc/res.sh", "w") as f:
+        f.write("#!/bin/bash\n")
+        f.write("sudo kill -9 $(pgrep frpc)\n")  
+        f.write("sudo systemctl daemon-reload\n")
+        f.write("sudo systemctl restart azumifrpc_KCP\n")
+        f.write("sudo journalctl --vacuum-size=1M\n") 
+
+    subprocess.call("chmod +x /etc/res.sh", shell=True)
+    
+    existing_entry = "0 */2 * * * /etc/res.sh"
+    existing_crontab = ""
+
+    try:
+        existing_crontab = subprocess.check_output("crontab -l", shell=True).decode()
+    except subprocess.CalledProcessError:
+        print("\033[91mNo existing crontab found.\033[0m")
+
+    if existing_entry in existing_crontab:
+        print("\033[91mCrontab already exists.\033[0m")
+    else:
+        new_crontab = existing_crontab.strip() + "\n0 */2 * * * /etc/res.sh\n"
+        subprocess.call("echo '{}' | crontab -".format(new_crontab), shell=True)
+        display_checkmark("\033[92m2 hour reset timer added!\033[0m")
+
+    display_checkmark("\033[92mIT IS DONE.!\033[0m")
+	
 def iran_kcp():            
     os.system("clear")
     print('\033[92m ^ ^\033[0m')
@@ -249,7 +308,8 @@ def iran_kcp():
         kcpbind_port = input("\033[93mEnter \033[92mKCP Port\033[93m: \033[0m")
         f.write("bind_port = {}\n".format(kcpbind_port))
         f.write("kcpBindPort = {}\n".format(kcpbind_port))
-        f.write("vhost_https_port = 8443\n")
+        load_port = input("\033[93mEnter \033[92mLoadbalance Port\033[93m: \033[0m")
+        f.write("vhost_https_port = {}\n".format(load_port))
         f.write("transport.tls.disable_custom_tls_first_byte = false\n")
         f.write("token = azumi\n")
         f.write("\n")
@@ -262,7 +322,7 @@ def iran_kcp():
     display_checkmark("\033[92mIRAN configuration generated. Yours Truly, Azumi.\033[0m")
 
     
-    service_name = "azumifrps3"
+    service_name = "azumifrps_KCP"
     frps_path = "/root/frp/frps.toml"
 
     service_content = f'''[Unit]
@@ -291,7 +351,7 @@ WantedBy=multi-user.target
     os.system("systemctl restart {}".format(service_name))
     time.sleep(1)
     os.system("systemctl restart {}".format(service_name))
-    res_i()
+    res_in()
     clear_c()
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
@@ -330,7 +390,8 @@ def kharej1_kcp():
         f.write("server_addr = {}\n".format(iran_ipv6))
         server_port = input("\033[93mEnter \033[92mKCP port\033[93m : \033[0m")
         f.write("server_port = {}\n".format(server_port))
-        f.write("vhost_https_port = 8443\n")
+        load_port = input("\033[93mEnter \033[92mLoadbalance Port\033[93m: \033[0m")
+        f.write("vhost_https_port = {}\n".format(load_port))
         f.write("transport.tls.disable_custom_tls_first_byte = false\n")
         f.write("transport.protocol = kcp\n")
         f.write("token = azumi\n")
@@ -371,7 +432,7 @@ def kharej1_kcp():
     time.sleep(1)
     display_notification("\033[93mLoadbalance port is 8443..\033[0m")
 
-    service_name = "azumifrpc3"
+    service_name = "azumifrpc_KCP"
     frps_path = "/root/frp/frpc.toml"
 
     service_content = f'''[Unit]
@@ -397,7 +458,7 @@ WantedBy=multi-user.target
     os.system("systemctl daemon-reload")
     os.system("systemctl enable {}".format(service_name))
     os.system("systemctl restart {}".format(service_name))
-    res_k1()
+    res_kn()
     clear_c()
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
@@ -446,7 +507,8 @@ def kharej2_kcp():
         f.write("server_addr = {}\n".format(iran_ipv6))
         server_port = input("\033[93mEnter \033[92mKCP port\033[93m: \033[0m")
         f.write("server_port = {}\n".format(server_port))
-        f.write("vhost_https_port = 8443\n")
+        load_port = input("\033[93mEnter \033[92mLoadbalance Port\033[93m: \033[0m")
+        f.write("vhost_https_port = {}\n".format(load_port))
         f.write("transport.tls.disable_custom_tls_first_byte = false\n")
         f.write("transport.protocol = kcp\n")
         f.write("token = azumi\n")
@@ -487,7 +549,7 @@ def kharej2_kcp():
     time.sleep(1)
     display_notification("\033[93mLoadbalance port is 8443..\033[0m")
 
-    service_name = "azumifrpc3"
+    service_name = "azumifrpc_KCP"
     frps_path = "/root/frp/frpc.toml"
 
     service_content = f'''[Unit]
@@ -513,7 +575,7 @@ WantedBy=multi-user.target
     os.system("systemctl daemon-reload")
     os.system("systemctl enable {}".format(service_name))
     os.system("systemctl restart {}".format(service_name))
-    res_k1()
+    res_kn()
     clear_c()
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
@@ -562,7 +624,8 @@ def kharej3_kcp():
         f.write("server_addr = {}\n".format(iran_ipv6))
         server_port = input("\033[93mEnter \033[92mKCP port\033[93m: \033[0m")
         f.write("server_port = {}\n".format(server_port))
-        f.write("vhost_https_port = 8443\n")
+        load_port = input("\033[93mEnter \033[92mLoadbalance Port\033[93m: \033[0m")
+        f.write("vhost_https_port = {}\n".format(load_port))
         f.write("transport.tls.disable_custom_tls_first_byte = false\n")
         f.write("transport.protocol = kcp\n")
         f.write("token = azumi\n")
@@ -603,7 +666,7 @@ def kharej3_kcp():
     time.sleep(1)
     display_notification("\033[93mLoadbalance port is 8443..\033[0m")
 
-    service_name = "azumifrpc3"
+    service_name = "azumifrpc_KCP"
     frps_path = "/root/frp/frpc.toml"
 
     service_content = f'''[Unit]
@@ -629,7 +692,7 @@ WantedBy=multi-user.target
     os.system("systemctl daemon-reload")
     os.system("systemctl enable {}".format(service_name))
     os.system("systemctl restart {}".format(service_name))
-    res_k1()
+    res_kn()
     clear_c()
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
@@ -678,7 +741,8 @@ def kharej4_kcp():
         f.write("server_addr = {}\n".format(iran_ipv6))
         server_port = input("\033[93mEnter \033[92mKCP port\033[93m: \033[0m")
         f.write("server_port = {}\n".format(server_port))
-        f.write("vhost_https_port = 8443\n")
+        load_port = input("\033[93mEnter \033[92mLoadbalance Port\033[93m: \033[0m")
+        f.write("vhost_https_port = {}\n".format(load_port))
         f.write("transport.tls.disable_custom_tls_first_byte = false\n")
         f.write("transport.protocol = kcp\n")
         f.write("token = azumi\n")
@@ -719,7 +783,7 @@ def kharej4_kcp():
     time.sleep(1)
     display_notification("\033[93mLoadbalance port is 8443..\033[0m")
 
-    service_name = "azumifrpc3"
+    service_name = "azumifrpc_KCP"
     frps_path = "/root/frp/frpc.toml"
 
     service_content = f'''[Unit]
@@ -745,7 +809,7 @@ WantedBy=multi-user.target
     os.system("systemctl daemon-reload")
     os.system("systemctl enable {}".format(service_name))
     os.system("systemctl restart {}".format(service_name))
-    res_k1()
+    res_kn()
     clear_c()
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
@@ -793,7 +857,8 @@ def kharej5_kcp():
         f.write("server_addr = {}\n".format(iran_ipv6))
         server_port = input("\033[93mEnter \033[92mKCP port\033[93m: \033[0m")
         f.write("server_port = {}\n".format(server_port))
-        f.write("vhost_https_port = 8443\n")
+        load_port = input("\033[93mEnter \033[92mLoadbalance Port\033[93m: \033[0m")
+        f.write("vhost_https_port = {}\n".format(load_port))
         f.write("transport.tls.disable_custom_tls_first_byte = false\n")
         f.write("transport.protocol = kcp\n")
         f.write("token = azumi\n")
@@ -834,7 +899,7 @@ def kharej5_kcp():
     time.sleep(1)
     display_notification("\033[93mLoadbalance port is 8443..\033[0m")
 
-    service_name = "azumifrpc3"
+    service_name = "azumifrpc_KCP"
     frps_path = "/root/frp/frpc.toml"
 
     service_content = f'''[Unit]
@@ -860,7 +925,7 @@ WantedBy=multi-user.target
     os.system("systemctl daemon-reload")
     os.system("systemctl enable {}".format(service_name))
     os.system("systemctl restart {}".format(service_name))
-    res_k1()
+    res_kn()
     clear_c()
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
@@ -1970,9 +2035,9 @@ def restart_kcp_tunnel():
     
     try:
         subprocess.run("systemctl daemon-reload", shell=True)
-        subprocess.run("systemctl restart azumifrps3.service > /dev/null 2>&1", shell=True)
+        subprocess.run("systemctl restart azumifrps_KCP.service > /dev/null 2>&1", shell=True)
         time.sleep(1)
-        subprocess.run("systemctl restart azumifrpc3.service > /dev/null 2>&1", shell=True)
+        subprocess.run("systemctl restart azumifrpc_KCP.service > /dev/null 2>&1", shell=True)
         
         print("Progress: ", end="")
         
@@ -1999,9 +2064,9 @@ def stop_kcp_tunnel():
     
     try:
         subprocess.run("systemctl daemon-reload", shell=True)
-        subprocess.run("systemctl stop azumifrps3.service > /dev/null 2>&1", shell=True)
+        subprocess.run("systemctl stop azumifrps_KCP.service > /dev/null 2>&1", shell=True)
         time.sleep(1)
-        subprocess.run("systemctl stop azumifrpc3.service > /dev/null 2>&1", shell=True)
+        subprocess.run("systemctl stop azumifrpc_KCP.service > /dev/null 2>&1", shell=True)
         
         print("Progress: ", end="")
         
@@ -2119,13 +2184,13 @@ def remove_kcp_tunnel():
             subprocess.run("rm /root/frp/frps.toml", shell=True)
 
         time.sleep(1)
-        subprocess.run("systemctl disable azumifrps3.service > /dev/null 2>&1", shell=True)
-        subprocess.run("systemctl stop azumifrps3.service > /dev/null 2>&1", shell=True)
-        subprocess.run("rm /etc/systemd/system/azumifrps3.service > /dev/null 2>&1", shell=True)
+        subprocess.run("systemctl disable azumifrps_KCP.service > /dev/null 2>&1", shell=True)
+        subprocess.run("systemctl stop azumifrps_KCP.service > /dev/null 2>&1", shell=True)
+        subprocess.run("rm /etc/systemd/system/azumifrps_KCP.service > /dev/null 2>&1", shell=True)
         time.sleep(1)
-        subprocess.run("systemctl disable azumifrpc3.service > /dev/null 2>&1", shell=True)
-        subprocess.run("systemctl stop azumifrpc3.service > /dev/null 2>&1", shell=True)
-        subprocess.run("rm /etc/systemd/system/azumifrpc3.service > /dev/null 2>&1", shell=True)
+        subprocess.run("systemctl disable azumifrpc_KCP.service > /dev/null 2>&1", shell=True)
+        subprocess.run("systemctl stop azumifrpc_KCP.service > /dev/null 2>&1", shell=True)
+        subprocess.run("rm /etc/systemd/system/azumifrpc_KCP.service > /dev/null 2>&1", shell=True)
 
         subprocess.run("systemctl daemon-reload", shell=True)
 
@@ -2454,12 +2519,12 @@ def statuskcp_menu():
     print("\033[93m───────────────────────────────────────\033[0m")
     display_notification("\033[93mKCP tunnel - \033[92mKharej\033[0m")
     print("\033[93m───────────────────────────────────────\033[0m")
-    service_name = "azumifrpc3.service"
+    service_name = "azumifrpc_KCP.service"
     display_status(service_name)
     print("\033[93m───────────────────────────────────────\033[0m")
     display_notification("\033[93mKCP tunnel - \033[92mIRAN\033[0m")
     print("\033[93m───────────────────────────────────────\033[0m")
-    service_name = "azumifrps3.service"
+    service_name = "azumifrps_KCP.service"
     display_status(service_name)
     
 def status2_menu():
