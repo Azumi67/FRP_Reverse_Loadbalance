@@ -21,7 +21,7 @@
 ----------------
 ![Update-Note--Arvin61r58](https://github.com/Azumi67/V2ray_loadbalance_multipleServers/assets/119934376/e1bc4187-16f2-40f8-972b-436e79a1ca0e)**اپدیت**
 
-- **نام enter the number of ipv6 به enter the number of configs برای فهم بهتر تغییر کرد. FRP TCP > IPV6 Method**
+- **نام  { enter the number of ipv6 } به { enter the number of configs } برای فهم بهتر تغییر کرد. مسیر : FRP TCP > IPV6 Method**
 - **به TCP Tunnel هم سرویس ریست تایم 2 ساعته اضافه شد**
 - **نکته** : **اگر میخواهیید از چندین پورت همزمان استفاده کنید ، اگر 5 تا پورت دارید تعداد ایپی 6 را 5 انتخاب کنید. اینطوری میتونید 5 تا پورت وارد کنید و باگ نیست . در حال حاضر نام را به number of configs[ipv6] تغییر دادم.**
 - به لودبالانس 10 سرور و یک سرور ایران ، دستورات برای kill و ریستارت سرویس اضافه شد.
