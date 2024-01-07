@@ -1227,10 +1227,11 @@ apt install python3 -y && apt install wget -y && sudo apt install python3-pip &&
 ```
 
 - اگر با دستور بالا نتوانستید اسکریپت را اجرا کنید، نخست دستور زیر را اجرا نمایید و سپس دستور اول را دوباره اجرا کنید.
-- 
+- اگر باز هم colorama رو نگرفت پس از اجرای دستور پایین ، همچنین این دستور هم اجرا کنید : pip3 install colorama
 ```
 sudo apt-get install python-pip -y  &&  apt-get install python3 -y && alias python=python3 && python -m pip install colorama && python -m pip install netifaces
 ```
+
 --------------------------------------
  <div dir="rtl">&bull;  دستور زیر برای کسانی هست که پیش نیاز ها را در سرور، نصب شده دارند</div>
  
