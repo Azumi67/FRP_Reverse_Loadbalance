@@ -347,10 +347,10 @@ WantedBy=multi-user.target
     display_notification("\033[93mStarting FRP service...\033[0m")
     time.sleep(1)
     os.system("systemctl daemon-reload")
+    os.system("sudo chmod u+x /etc/systemd/system/{}.service".format(service_name))
     os.system("systemctl enable {}".format(service_name))
     os.system("systemctl restart {}".format(service_name))
     time.sleep(1)
-    os.system("systemctl restart {}".format(service_name))
     res_in()
     clear_c()
     display_checkmark("\033[92mFRP Service Started!\033[0m")
@@ -456,6 +456,7 @@ WantedBy=multi-user.target
         f.write(service_content)
 
     os.system("systemctl daemon-reload")
+    os.system("sudo chmod u+x /etc/systemd/system/{}.service".format(service_name))
     os.system("systemctl enable {}".format(service_name))
     os.system("systemctl restart {}".format(service_name))
     res_kn()
@@ -573,6 +574,7 @@ WantedBy=multi-user.target
         f.write(service_content)
 
     os.system("systemctl daemon-reload")
+    os.system("sudo chmod u+x /etc/systemd/system/{}.service".format(service_name))
     os.system("systemctl enable {}".format(service_name))
     os.system("systemctl restart {}".format(service_name))
     res_kn()
@@ -690,6 +692,7 @@ WantedBy=multi-user.target
         f.write(service_content)
 
     os.system("systemctl daemon-reload")
+    os.system("sudo chmod u+x /etc/systemd/system/{}.service".format(service_name))
     os.system("systemctl enable {}".format(service_name))
     os.system("systemctl restart {}".format(service_name))
     res_kn()
@@ -807,6 +810,7 @@ WantedBy=multi-user.target
         f.write(service_content)
 
     os.system("systemctl daemon-reload")
+    os.system("sudo chmod u+x /etc/systemd/system/{}.service".format(service_name))
     os.system("systemctl enable {}".format(service_name))
     os.system("systemctl restart {}".format(service_name))
     res_kn()
@@ -923,6 +927,7 @@ WantedBy=multi-user.target
         f.write(service_content)
 
     os.system("systemctl daemon-reload")
+    os.system("sudo chmod u+x /etc/systemd/system/{}.service".format(service_name))
     os.system("systemctl enable {}".format(service_name))
     os.system("systemctl restart {}".format(service_name))
     res_kn()
@@ -2867,6 +2872,7 @@ def kharej_method1():
         
     time.sleep(1)
     os.system("systemctl daemon-reload")
+    os.system("sudo chmod u+x /etc/systemd/system/azumifrpc1.service")
     os.system("systemctl enable azumifrpc1")
     display_notification("\033[93mStarting FRP service...\033[0m")
     os.system("systemctl restart azumifrpc1")
@@ -2946,6 +2952,7 @@ def kharej_method2():
 
 
     os.system("systemctl daemon-reload")
+    os.system("sudo chmod u+x /etc/systemd/system/azumifrpc1.service")
     os.system("systemctl enable azumifrpc1")
     display_notification("\033[93mStarting FRP service...\033[0m")
     os.system("systemctl restart azumifrpc1")
@@ -3034,6 +3041,7 @@ WantedBy=multi-user.target
 
     display_notification("\033[93mStarting FRP service...\033[0m")
     os.system("systemctl daemon-reload")
+    os.system("sudo chmod u+x /etc/systemd/system/{}.service".format(service_name))
     os.system("systemctl enable {}".format(service_name))
     os.system("systemctl restart {}".format(service_name))
     res_tcp()
@@ -3141,10 +3149,11 @@ WantedBy=multi-user.target
         display_checkmark("\033[92mIran configuration With Dashboard generated. Yours Truly, Azumi!\033[0m")
         time.sleep(1)
 
-        subprocess.run(['systemctl', 'start', 'nginx'])
-        subprocess.run(['systemctl', 'daemon-reload'])
-        subprocess.run(['systemctl', 'enable', service_name])
-        subprocess.run(['systemctl', 'restart', service_name])
+        subprocess.run(['systemctl', 'start', 'nginx'], check=True)
+        subprocess.run(['systemctl', 'daemon-reload'], check=True)
+        subprocess.run(['sudo', 'chmod', 'u+x', '/etc/systemd/system/{}.service'.format(service_name)], check=True)
+        subprocess.run(['systemctl', 'enable', service_name], check=True)
+        subprocess.run(['systemctl', 'restart', service_name], check=True)
         clear_c()
         res_tcp()
         display_checkmark("\033[92mFRP Service Started!\033[0m")
@@ -3331,6 +3340,7 @@ WantedBy=multi-user.target
         f.write(service_content)
 
     os.system("systemctl daemon-reload")
+    os.system("sudo chmod u+x /etc/systemd/system/{}.service".format(service_name))
     os.system("systemctl enable {}".format(service_name))
     os.system("systemctl restart {}".format(service_name))
     res_lk()
@@ -3451,6 +3461,7 @@ WantedBy=multi-user.target
         f.write(service_content)
 
     os.system("systemctl daemon-reload")
+    os.system("sudo chmod u+x /etc/systemd/system/{}.service".format(service_name))
     os.system("systemctl enable {}".format(service_name))
     os.system("systemctl restart {}".format(service_name))
     res_lk()
@@ -3560,6 +3571,7 @@ WantedBy=multi-user.target
 
     display_notification("\033[93mStarting FRP service...\033[0m")
     os.system("systemctl daemon-reload")
+    os.system("sudo chmod u+x /etc/systemd/system/{}.service".format(service_name))
     os.system("systemctl enable {}".format(service_name))
     os.system("systemctl restart {}".format(service_name))
     res_li()
@@ -3667,10 +3679,11 @@ WantedBy=multi-user.target
         display_checkmark("\033[92mIran configuration With Dashboard generated. Yours Truly, Azumi!\033[0m")
         time.sleep(1)
 
-        subprocess.run(['systemctl', 'start', 'nginx'])
-        subprocess.run(['systemctl', 'daemon-reload'])
-        subprocess.run(['systemctl', 'enable', service_name])
-        subprocess.run(['systemctl', 'restart', service_name])
+        subprocess.run(['systemctl', 'start', 'nginx'], check=True)
+        subprocess.run(['systemctl', 'daemon-reload'], check=True)
+        subprocess.run(['sudo', 'chmod', 'u+x', '/etc/systemd/system/{}.service'.format(service_name)], check=True)
+        subprocess.run(['systemctl', 'enable', service_name], check=True)
+        subprocess.run(['systemctl', 'restart', service_name], check=True)
         res_li()
         clear_c()
         display_checkmark("\033[92mFRP Service Started!\033[0m")
@@ -3899,6 +3912,7 @@ WantedBy=multi-user.target
         f.write(service_content)
 
     os.system("systemctl daemon-reload")
+    os.system("sudo chmod u+x /etc/systemd/system/{}.service".format(service_name))
     os.system("systemctl enable {}".format(service_name))
     os.system("systemctl restart {}".format(service_name))
     res_k1()
@@ -4025,6 +4039,7 @@ WantedBy=multi-user.target
         f.write(service_content)
 
     os.system("systemctl daemon-reload")
+    os.system("sudo chmod u+x /etc/systemd/system/{}.service".format(service_name))
     os.system("systemctl enable {}".format(service_name))
     os.system("systemctl restart {}".format(service_name))
     res_k2()
@@ -4151,6 +4166,7 @@ WantedBy=multi-user.target
         f.write(service_content)
 
     os.system("systemctl daemon-reload")
+    os.system("sudo chmod u+x /etc/systemd/system/{}.service".format(service_name))
     os.system("systemctl enable {}".format(service_name))
     os.system("systemctl restart {}".format(service_name))
     res_k3()
@@ -4277,6 +4293,7 @@ WantedBy=multi-user.target
         f.write(service_content)
 
     os.system("systemctl daemon-reload")
+    os.system("sudo chmod u+x /etc/systemd/system/{}.service".format(service_name))
     os.system("systemctl enable {}".format(service_name))
     os.system("systemctl restart {}".format(service_name))
     clear_c()
@@ -4403,6 +4420,7 @@ WantedBy=multi-user.target
         f.write(service_content)
 
     os.system("systemctl daemon-reload")
+    os.system("sudo chmod u+x /etc/systemd/system/{}.service".format(service_name))
     os.system("systemctl enable {}".format(service_name))
     os.system("systemctl restart {}".format(service_name))
     res_k5()
@@ -4529,6 +4547,7 @@ WantedBy=multi-user.target
         f.write(service_content)
 
     os.system("systemctl daemon-reload")
+    os.system("sudo chmod u+x /etc/systemd/system/{}.service".format(service_name))
     os.system("systemctl enable {}".format(service_name))
     os.system("systemctl restart {}".format(service_name))
     res_k6()
@@ -4654,6 +4673,7 @@ WantedBy=multi-user.target
         f.write(service_content)
 
     os.system("systemctl daemon-reload")
+    os.system("sudo chmod u+x /etc/systemd/system/{}.service".format(service_name))
     os.system("systemctl enable {}".format(service_name))
     os.system("systemctl restart {}".format(service_name))
     res_k7()
@@ -4780,6 +4800,7 @@ WantedBy=multi-user.target
         f.write(service_content)
 
     os.system("systemctl daemon-reload")
+    os.system("sudo chmod u+x /etc/systemd/system/{}.service".format(service_name))
     os.system("systemctl enable {}".format(service_name))
     os.system("systemctl restart {}".format(service_name))
     res_k8()
@@ -4906,6 +4927,7 @@ WantedBy=multi-user.target
         f.write(service_content)
 
     os.system("systemctl daemon-reload")
+    os.system("sudo chmod u+x /etc/systemd/system/{}.service".format(service_name))
     os.system("systemctl enable {}".format(service_name))
     os.system("systemctl restart {}".format(service_name))
     res_k9()
@@ -5032,6 +5054,7 @@ WantedBy=multi-user.target
         f.write(service_content)
 
     os.system("systemctl daemon-reload")
+    os.system("sudo chmod u+x /etc/systemd/system/{}.service".format(service_name))
     os.system("systemctl enable {}".format(service_name))
     os.system("systemctl restart {}".format(service_name))
     res_k10()
@@ -5241,6 +5264,7 @@ WantedBy=multi-user.target
         f.write(service_content)
 
     os.system("systemctl daemon-reload")
+    os.system("sudo chmod u+x /etc/systemd/system/{}.service".format(service_name))
     os.system("systemctl enable {}".format(service_name))
     os.system("systemctl restart {}".format(service_name))
     res_k1()
@@ -5383,6 +5407,7 @@ WantedBy=multi-user.target
         f.write(service_content)
 
     os.system("systemctl daemon-reload")
+    os.system("sudo chmod u+x /etc/systemd/system/{}.service".format(service_name))
     os.system("systemctl enable {}".format(service_name))
     os.system("systemctl restart {}".format(service_name))
     res_k2()
@@ -5524,6 +5549,7 @@ WantedBy=multi-user.target
         f.write(service_content)
 
     os.system("systemctl daemon-reload")
+    os.system("sudo chmod u+x /etc/systemd/system/{}.service".format(service_name))
     os.system("systemctl enable {}".format(service_name))
     os.system("systemctl restart {}".format(service_name))
     res_k3()
@@ -5665,6 +5691,7 @@ WantedBy=multi-user.target
         f.write(service_content)
 
     os.system("systemctl daemon-reload")
+    os.system("sudo chmod u+x /etc/systemd/system/{}.service".format(service_name))
     os.system("systemctl enable {}".format(service_name))
     os.system("systemctl restart {}".format(service_name))
     res_k4()
@@ -5806,6 +5833,7 @@ WantedBy=multi-user.target
         f.write(service_content)
 
     os.system("systemctl daemon-reload")
+    os.system("sudo chmod u+x /etc/systemd/system/{}.service".format(service_name))
     os.system("systemctl enable {}".format(service_name))
     os.system("systemctl restart {}".format(service_name))
     res_k5()
@@ -5947,6 +5975,7 @@ WantedBy=multi-user.target
         f.write(service_content)
 
     os.system("systemctl daemon-reload")
+    os.system("sudo chmod u+x /etc/systemd/system/{}.service".format(service_name))
     os.system("systemctl enable {}".format(service_name))
     os.system("systemctl restart {}".format(service_name))
     res_k6()
@@ -6089,6 +6118,7 @@ WantedBy=multi-user.target
         f.write(service_content)
 
     os.system("systemctl daemon-reload")
+    os.system("sudo chmod u+x /etc/systemd/system/{}.service".format(service_name))
     os.system("systemctl enable {}".format(service_name))
     os.system("systemctl restart {}".format(service_name))
     res_k7()
@@ -6230,6 +6260,7 @@ WantedBy=multi-user.target
         f.write(service_content)
 
     os.system("systemctl daemon-reload")
+    os.system("sudo chmod u+x /etc/systemd/system/{}.service".format(service_name))
     os.system("systemctl enable {}".format(service_name))
     os.system("systemctl restart {}".format(service_name))
     res_k8()
@@ -6371,6 +6402,7 @@ WantedBy=multi-user.target
         f.write(service_content)
 
     os.system("systemctl daemon-reload")
+    os.system("sudo chmod u+x /etc/systemd/system/{}.service".format(service_name))
     os.system("systemctl enable {}".format(service_name))
     os.system("systemctl restart {}".format(service_name))
     res_k9()
@@ -6512,6 +6544,7 @@ WantedBy=multi-user.target
         f.write(service_content)
 
     os.system("systemctl daemon-reload")
+    os.system("sudo chmod u+x /etc/systemd/system/{}.service".format(service_name))
     os.system("systemctl enable {}".format(service_name))
     os.system("systemctl restart {}".format(service_name))
     res_k10()
@@ -6632,10 +6665,10 @@ WantedBy=multi-user.target
     display_notification("\033[93mStarting FRP service...\033[0m")
     time.sleep(1)
     os.system("systemctl daemon-reload")
+    os.system("sudo chmod u+x /etc/systemd/system/{}.service".format(service_name))
     os.system("systemctl enable {}".format(service_name))
     os.system("systemctl restart {}".format(service_name))
     time.sleep(1)
-    os.system("systemctl restart {}".format(service_name))
     res_i()
     clear_c()
     display_checkmark("\033[92mFRP Service Started!\033[0m")
@@ -6743,10 +6776,11 @@ WantedBy=multi-user.target
         display_checkmark("\033[92mIran configuration With Dashboard generated. Yours Truly, Azumi!\033[0m")
         time.sleep(1)
 
-        subprocess.run(['systemctl', 'start', 'nginx'])
-        subprocess.run(['systemctl', 'daemon-reload'])
-        subprocess.run(['systemctl', 'enable', service_name])
-        subprocess.run(['systemctl', 'restart', service_name])
+        subprocess.run(['systemctl', 'start', 'nginx'], check=True)
+        subprocess.run(['systemctl', 'daemon-reload'], check=True)
+        subprocess.run(['sudo', 'chmod', 'u+x', '/etc/systemd/system/{}.service'.format(service_name)], check=True)
+        subprocess.run(['systemctl', 'enable', service_name], check=True)
+        subprocess.run(['systemctl', 'restart', service_name], check=True)
         res_i()
         clear_c()
         display_checkmark("\033[92mFRP Service Started!\033[0m")
@@ -6993,6 +7027,7 @@ WantedBy=multi-user.target
             f.write(service_content)
 
         os.system("systemctl daemon-reload")
+        os.system("sudo chmod u+x /etc/systemd/system/{}.service".format(service_name))
         os.system("systemctl enable {}".format(service_name))
         os.system("systemctl restart {}".format(service_name))
         res_ki3()
@@ -7129,6 +7164,7 @@ WantedBy=multi-user.target
             f.write(service_content)
 
         os.system("systemctl daemon-reload")
+        os.system("sudo chmod u+x /etc/systemd/system/{}.service".format(service_name))
         os.system("systemctl enable {}".format(service_name))
         os.system("systemctl restart {}".format(service_name))
         res_ki3()
@@ -7210,6 +7246,7 @@ WantedBy=multi-user.target
         
     display_notification("\033[93mStarting FRP service...\033[0m")
     os.system("systemctl daemon-reload")
+    os.system("sudo chmod u+x /etc/systemd/system/{}.service".format(service_name))
     os.system("systemctl enable {}".format(service_name))
     os.system("systemctl restart {}".format(service_name))
     res_ii3()
@@ -7290,6 +7327,7 @@ WantedBy=multi-user.target
         
     display_notification("\033[93mStarting FRP service...\033[0m")
     os.system("systemctl daemon-reload")
+    os.system("sudo chmod u+x /etc/systemd/system/{}.service".format(service_name))
     os.system("systemctl enable {}".format(service_name))
     os.system("systemctl restart {}".format(service_name))
     res_ii3()
@@ -7370,6 +7408,7 @@ WantedBy=multi-user.target
         
     display_notification("\033[93mStarting FRP service...\033[0m")
     os.system("systemctl daemon-reload")
+    os.system("sudo chmod u+x /etc/systemd/system/{}.service".format(service_name))
     os.system("systemctl enable {}".format(service_name))
     os.system("systemctl restart {}".format(service_name))
     res_ii3()
