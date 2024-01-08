@@ -18,6 +18,7 @@
 - مشاهده تمامی سرویس ها
 - امکان Start | Stop سرویس ها و حذف آنها در صورت نیاز
 - پشتیبانی از amd64 و arm64
+![blue_dot](https://github.com/Azumi67/FRP_Reverse_Loadbalance/assets/119934376/1fe8dde8-01ff-4db4-b082-fbd4b38c28ea)
 
 --------------------------
   <div align="right">
@@ -136,7 +137,7 @@
 ----------------------
   <div align="right">
   <details>
-    <summary><strong><img src="https://github.com/Azumi67/FRP_Reverse_Loadbalance/assets/119934376/c0b9be76-818b-4ab1-b88d-1c4f9d9e4e40" alt="Image"> ریورس تانل KCP پنج سرور خارج و یک سرور ایران [ تک پورت یا چندین پورت ]</strong></summary>
+    <summary><strong><img src="https://github.com/Azumi67/FRP_Reverse_Loadbalance/assets/119934376/1fe8dde8-01ff-4db4-b082-fbd4b38c28ea" alt="Image"> ریورس تانل KCP پنج سرور خارج و یک سرور ایران [ تک پورت یا چندین پورت ]</strong></summary>
 ------------------------------------ 
    
 ![green-dot-clipart-3](https://github.com/Azumi67/6TO4-PrivateIP/assets/119934376/902a2efa-f48f-4048-bc2a-5be12143bef3) **سرور ایران** 
@@ -177,7 +178,7 @@
 
   <div align="right">
   <details>
-    <summary><strong><img src="https://github.com/Azumi67/FRP_Reverse_Loadbalance/assets/119934376/c0b9be76-818b-4ab1-b88d-1c4f9d9e4e40" alt="Image"> ریورس تانل بدون لود بالانس [ تک پورت یا چندین پورت ]</strong></summary>
+    <summary><strong><img src="https://github.com/Azumi67/FRP_Reverse_Loadbalance/assets/119934376/1fe8dde8-01ff-4db4-b082-fbd4b38c28ea" alt="Image"> ریورس تانل بدون لود بالانس [ تک پورت یا چندین پورت ]</strong></summary>
  
  ------------------------------------ 
    
@@ -247,7 +248,7 @@
 
 <div align="right">
   <details>
-    <summary><strong><img src="https://github.com/Azumi67/FRP_Reverse_Loadbalance/assets/119934376/c0b9be76-818b-4ab1-b88d-1c4f9d9e4e40" alt="Image"> ریورس تانل با لود بالانس - تک سرور [ تک پورت یا چندین پورت ]</strong></summary>
+    <summary><strong><img src="https://github.com/Azumi67/FRP_Reverse_Loadbalance/assets/119934376/1fe8dde8-01ff-4db4-b082-fbd4b38c28ea" alt="Image"> ریورس تانل با لود بالانس - تک سرور [ تک پورت یا چندین پورت ]</strong></summary>
   
 ------------------------------------ 
 
@@ -316,7 +317,7 @@
 
   <div align="right">
   <details>
-    <summary><strong><img src="https://github.com/Azumi67/FRP_Reverse_Loadbalance/assets/119934376/c0b9be76-818b-4ab1-b88d-1c4f9d9e4e40" alt="Image"> ریورس تانل با لود بالانس - 10 سرور خارج | 1 سرور ایران [ تک پورت یا چندین پورت ]</strong></summary>
+    <summary><strong><img src="https://github.com/Azumi67/FRP_Reverse_Loadbalance/assets/119934376/1fe8dde8-01ff-4db4-b082-fbd4b38c28ea" alt="Image"> ریورس تانل با لود بالانس - 10 سرور خارج | 1 سرور ایران [ تک پورت یا چندین پورت ]</strong></summary>
   
 ------------------------------------ 
 <div align="right">
@@ -546,7 +547,7 @@
 
   <div align="right">
   <details>
-    <summary><strong><img src="https://github.com/Azumi67/FRP_Reverse_Loadbalance/assets/119934376/c0b9be76-818b-4ab1-b88d-1c4f9d9e4e40" alt="Image"> ریورس تانل بدون لود بالانس با پرایوت ایپی</strong></summary>
+    <summary><strong><img src="https://github.com/Azumi67/FRP_Reverse_Loadbalance/assets/119934376/1fe8dde8-01ff-4db4-b082-fbd4b38c28ea" alt="Image"> ریورس تانل بدون لود بالانس با پرایوت ایپی</strong></summary>
   
 ------------------------------------ 
 
@@ -587,7 +588,7 @@
 
   <div align="right">
   <details>
-    <summary><strong><img src="https://github.com/Azumi67/FRP_Reverse_Loadbalance/assets/119934376/c0b9be76-818b-4ab1-b88d-1c4f9d9e4e40" alt="Image"> ریورس تانل با لود بالانس - 5 سرور خارج | 1 سرور ایران </strong></summary>
+    <summary><strong><img src="https://github.com/Azumi67/FRP_Reverse_Loadbalance/assets/119934376/1fe8dde8-01ff-4db4-b082-fbd4b38c28ea" alt="Image"> ریورس تانل با لود بالانس - 5 سرور خارج | 1 سرور ایران </strong></summary>
   
 ------------------------------------ 
 
@@ -674,7 +675,7 @@
 
  <div align="right">
   <details>
-    <summary><strong><img src="https://github.com/Azumi67/FRP_Reverse_Loadbalance/assets/119934376/c0b9be76-818b-4ab1-b88d-1c4f9d9e4e40" alt="Image"> ریورس تانل با لود بالانس - 3 سرور ایران | 1 سرور خارج [ تک پورت یا چندین پورت ]</strong></summary>
+    <summary><strong><img src="https://github.com/Azumi67/FRP_Reverse_Loadbalance/assets/119934376/1fe8dde8-01ff-4db4-b082-fbd4b38c28ea" alt="Image"> ریورس تانل با لود بالانس - 3 سرور ایران | 1 سرور خارج [ تک پورت یا چندین پورت ]</strong></summary>
   
 ------------------------------------ 
 
@@ -775,7 +776,7 @@
 **اسکرین شات**
 
 <details>
-  <summary align="right">برای دیدن اسکرین شات کیلک کنید</summary>
+  <summary align="right">برای دیدن اسکرین شات کلیک کنید</summary>
   
   <p align="right">
     <img src="https://github.com/Azumi67/V2ray_loadbalance_multipleServers/assets/119934376/990eefde-f65b-4296-80db-4740aca44b23" alt="menu screen" />
