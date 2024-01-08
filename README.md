@@ -18,7 +18,6 @@
 - مشاهده تمامی سرویس ها
 - امکان Start | Stop سرویس ها و حذف آنها در صورت نیاز
 - پشتیبانی از amd64 و arm64
-![blue_dot](https://github.com/Azumi67/FRP_Reverse_Loadbalance/assets/119934376/1fe8dde8-01ff-4db4-b082-fbd4b38c28ea)
 
 --------------------------
   <div align="right">
