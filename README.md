@@ -772,6 +772,17 @@
 </div>
 
 ---------------------------------
+
+ <div align="right">
+  <details>
+    <summary><strong><img src="https://github.com/Azumi67/FRP_Reverse_Loadbalance/assets/119934376/197dd198-fba3-4501-83f9-b001059e3b61" alt="Image"> </strong></summary>
+  
+
+- از آقا ماهان سپاسگزارم که در تست اسکریپت کمک کردند و باعث بهینه تر شدن آن شدند.
+  </details>
+</div>
+
+------------------------------------ 
 **اسکرین شات**
 
 <details>
