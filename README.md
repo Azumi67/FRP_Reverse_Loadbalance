@@ -778,7 +778,7 @@
   <summary align="right">برای دیدن اسکرین شات کلیک کنید</summary>
   
   <p align="right">
-    <img src="https://github.com/Azumi67/V2ray_loadbalance_multipleServers/assets/119934376/990eefde-f65b-4296-80db-4740aca44b23" alt="menu screen" />
+    <img src="https://github.com/Azumi67/FRP_Reverse_Loadbalance/assets/119934376/dc8113f6-7561-4004-a6ea-b4220a9d0d5c" alt="menu screen" />
   </p>
 </details>
 
