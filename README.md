@@ -20,6 +20,17 @@
 - پشتیبانی از amd64 و arm64
 
 --------------------------
+<div align="right">
+  <details>
+    <summary><strong>چند نکته در مورد لاگ </strong></summary>
+  
+- اگر خطای deadline reached میگیرید به این معنی هست که سرور شما تایم اوت داشته و نتوانسته ازتباطی بین سرور و کلاینت برقرار کند
+- اگر خطای connection refused میگیرید به معنی اختلال در پورت میباشد
+
+  </details>
+</div>
+
+------------------------
   <div align="right">
   <details>
     <summary><strong><img src="https://github.com/Azumi67/FRP_Reverse_Loadbalance/assets/119934376/69acdc18-2163-4134-a376-32985b05cbec" alt="Image"> نکات</strong></summary>
