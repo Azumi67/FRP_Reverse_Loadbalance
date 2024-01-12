@@ -153,8 +153,9 @@ def main_menu():
             print("4. \033[96mLoadBalancer \033[93m[1]\033[36m Kharej \033[93m[1]\033[36m IRAN\033[0m")
             print("5. \033[93mLoadBalancer \033[92m[10]\033[93m Kharej \033[92m[1]\033[93m IRAN\033[0m")
             print("6. \033[92mLoadBalancer \033[93m[1]\033[92m Kharej \033[93m[3]\033[92m IRAN\033[0m")
-            print("7. \033[92mStop | Restart Service \033[0m")
-            print("8. \033[91mUninstall\033[0m")
+            print("7. \033[93mEdit\033[92m ResetTimer \033[0m")
+            print("8. \033[92mStop | Restart Service \033[0m")
+            print("9. \033[91mUninstall\033[0m")
             print("q. Exit")
             print("\033[93m╰─────────────────────────────────────────────────────────────────────╯\033[0m")
 
@@ -175,8 +176,10 @@ def main_menu():
             elif choice == '6':
                 i1kharej_3iran()
             elif choice == '7':
-                start_menu()
+                edit_menu()
             elif choice == '8':
+                start_menu()
+            elif choice == '9':
                 remove_menu()
             elif choice == 'q':
                 print("Exiting...")
@@ -233,6 +236,67 @@ def kcp_local():
             break
         else:
             print('Invalid choice.') 
+            
+def delete_cron():
+    entries_to_delete = [
+        "0 * * * * /etc/res.sh",
+        "0 */2 * * * /etc/res.sh",
+        "0 */3 * * * /etc/res.sh",
+        "0 */4 * * * /etc/res.sh",
+        "0 */5 * * * /etc/res.sh",
+        "0 */6 * * * /etc/res.sh",
+        "0 */7 * * * /etc/res.sh",
+        "0 */8 * * * /etc/res.sh",
+        "0 */9 * * * /etc/res.sh",
+        "0 */10 * * * /etc/res.sh",
+        "0 */11 * * * /etc/res.sh",
+        "0 */12 * * * /etc/res.sh",
+        "0 */13 * * * /etc/res.sh",
+        "0 */14 * * * /etc/res.sh",
+        "0 */15 * * * /etc/res.sh",
+        "0 */16 * * * /etc/res.sh",
+        "0 */17 * * * /etc/res.sh",
+        "0 */18 * * * /etc/res.sh",
+        "0 */19 * * * /etc/res.sh",
+        "0 */20 * * * /etc/res.sh",
+        "0 */21 * * * /etc/res.sh",
+        "0 */22 * * * /etc/res.sh",
+        "0 */23 * * * /etc/res.sh",
+        "0 */24 * * * /etc/res.sh"
+    ]
+
+    existing_crontab = ""
+    try:
+        existing_crontab = subprocess.check_output("crontab -l", shell=True).decode()
+    except subprocess.CalledProcessError:
+        display_error("\033[91mNo existing cron found!\033[0m")
+        return
+
+    new_crontab = existing_crontab
+    for entry in entries_to_delete:
+        if entry in existing_crontab:
+            new_crontab = new_crontab.replace(entry, "")
+
+    if new_crontab != existing_crontab:
+        subprocess.call(f"echo '{new_crontab}' | crontab -", shell=True)
+        display_notification("\033[92mDeleting Previous Crons..\033[0m")
+    else:
+        display_error("\033[91mNothing Found, moving on..!\033[0m") 
+        
+def edit_menu():
+    os.system("clear")
+    print('\033[92m ^ ^\033[0m')
+    print('\033[92m(\033[91mO,O\033[92m)\033[0m')
+    print('\033[92m(   ) \033[92m Reset \033[96m Timer\033[0m')
+    print('\033[92m "-"\033[93m══════════════════════════════════════════\033[0m')
+    delete_cron()
+
+    new_crontab = input("\033[93mEnter the \033[92mreset timer \033[93m[in hours]:\033[0m ")
+    new_entry = f"0 */{new_crontab} * * * /etc/res.sh"
+
+    subprocess.call(f"(crontab -l 2>/dev/null; echo '{new_entry}') | crontab -", shell=True)
+    display_checkmark("\033[92mReset timer added!\033[0m")
+            
 def res_in():
     if subprocess.call("test -f /etc/res.sh", shell=True) == 0:
         subprocess.call("sudo rm /etc/res.sh", shell=True)
