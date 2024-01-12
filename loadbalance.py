@@ -291,9 +291,13 @@ def edit_menu():
     print('\033[92m "-"\033[93m══════════════════════════════════════════\033[0m')
     delete_cron()
 
-    new_crontab = input("\033[93mEnter the \033[92mreset timer \033[93m[in hours]:\033[0m ")
-    new_entry = f"0 */{new_crontab} * * * /etc/res.sh"
-
+    new_crontab = int(input("\033[93mEnter the \033[92mreset timer \033[93m[in hours]:\033[0m "))
+    
+    if new_crontab == 1:
+        new_entry = "0 * * * * /etc/res.sh"
+    else:
+        new_entry = f"0 */{new_crontab} * * * /etc/res.sh"
+    
     subprocess.call(f"(crontab -l 2>/dev/null; echo '{new_entry}') | crontab -", shell=True)
     display_checkmark("\033[92mReset timer added!\033[0m")
             
