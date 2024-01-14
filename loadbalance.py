@@ -262,7 +262,6 @@ def delete_cron():
         "0 */21 * * * /etc/res.sh",
         "0 */22 * * * /etc/res.sh",
         "0 */23 * * * /etc/res.sh",
-        "0 */24 * * * /etc/res.sh"
     ]
 
     existing_crontab = ""
