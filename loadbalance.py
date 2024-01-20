@@ -644,7 +644,6 @@ def kharej1_kcp():
             f.write("use_encryption = true\n")
 
     time.sleep(1)
-    display_notification("\033[93mLoadbalance port is 8443..\033[0m")
 
     service_name = "azumifrpc_KCP"
     frps_path = "/root/frp/frpc.toml"
@@ -761,7 +760,6 @@ def kharej2_kcp():
             f.write("use_encryption = true\n")
 
     time.sleep(1)
-    display_notification("\033[93mLoadbalance port is 8443..\033[0m")
 
     service_name = "azumifrpc_KCP"
     frps_path = "/root/frp/frpc.toml"
@@ -878,7 +876,6 @@ def kharej3_kcp():
             f.write("use_encryption = true\n")
 
     time.sleep(1)
-    display_notification("\033[93mLoadbalance port is 8443..\033[0m")
 
     service_name = "azumifrpc_KCP"
     frps_path = "/root/frp/frpc.toml"
@@ -995,7 +992,6 @@ def kharej4_kcp():
             f.write("use_encryption = true\n")
 
     time.sleep(1)
-    display_notification("\033[93mLoadbalance port is 8443..\033[0m")
 
     service_name = "azumifrpc_KCP"
     frps_path = "/root/frp/frpc.toml"
@@ -1111,7 +1107,6 @@ def kharej5_kcp():
             f.write("use_encryption = true\n")
 
     time.sleep(1)
-    display_notification("\033[93mLoadbalance port is 8443..\033[0m")
 
     service_name = "azumifrpc_KCP"
     frps_path = "/root/frp/frpc.toml"
