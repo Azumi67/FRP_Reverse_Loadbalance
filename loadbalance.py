@@ -567,7 +567,6 @@ WantedBy=multi-user.target
     os.system("systemctl restart {}".format(service_name))
     time.sleep(1)
     res_in()
-    clear_c()
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
 def kharej1_kcp():
@@ -675,7 +674,6 @@ WantedBy=multi-user.target
     os.system("systemctl enable {}".format(service_name))
     os.system("systemctl restart {}".format(service_name))
     res_kn()
-    clear_c()
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
     num_v2ray_instances = len(groups)
@@ -793,7 +791,6 @@ WantedBy=multi-user.target
     os.system("systemctl enable {}".format(service_name))
     os.system("systemctl restart {}".format(service_name))
     res_kn()
-    clear_c()
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
     num_v2ray_instances = len(groups)
@@ -911,7 +908,6 @@ WantedBy=multi-user.target
     os.system("systemctl enable {}".format(service_name))
     os.system("systemctl restart {}".format(service_name))
     res_kn()
-    clear_c()
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
     num_v2ray_instances = len(groups)
@@ -1029,7 +1025,6 @@ WantedBy=multi-user.target
     os.system("systemctl enable {}".format(service_name))
     os.system("systemctl restart {}".format(service_name))
     res_kn()
-    clear_c()
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
     num_v2ray_instances = len(groups)
@@ -1146,7 +1141,6 @@ WantedBy=multi-user.target
     os.system("systemctl enable {}".format(service_name))
     os.system("systemctl restart {}".format(service_name))
     res_kn()
-    clear_c()
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
     num_v2ray_instances = len(groups)
@@ -3091,7 +3085,6 @@ def kharej_method1():
     os.system("systemctl enable azumifrpc1")
     display_notification("\033[93mStarting FRP service...\033[0m")
     os.system("systemctl restart azumifrpc1")
-    clear_c()
     res_tcp2()
     display_checkmark("\033[92mFRP Service Started!\033[0m")    
 
@@ -3171,7 +3164,6 @@ def kharej_method2():
     os.system("systemctl enable azumifrpc1")
     display_notification("\033[93mStarting FRP service...\033[0m")
     os.system("systemctl restart azumifrpc1")
-    clear_c()
     res_tcp2()
     display_checkmark("\033[92mFRP Service Started!\033[0m") 
     
@@ -3183,7 +3175,6 @@ def create_decorated_box(message):
 	
 def iran_tcp_no_dashboard():
     os.system("clear")
-    clear_c()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
     print('\033[92m(   ) \033[92mIRAN \033[93mwithout Dashboard \033[0m')
@@ -3369,7 +3360,6 @@ WantedBy=multi-user.target
         subprocess.run(['sudo', 'chmod', 'u+x', '/etc/systemd/system/{}.service'.format(service_name)], check=True)
         subprocess.run(['systemctl', 'enable', service_name], check=True)
         subprocess.run(['systemctl', 'restart', service_name], check=True)
-        clear_c()
         res_tcp()
         display_checkmark("\033[92mFRP Service Started!\033[0m")
         
@@ -3559,7 +3549,6 @@ WantedBy=multi-user.target
     os.system("systemctl enable {}".format(service_name))
     os.system("systemctl restart {}".format(service_name))
     res_lk()
-    clear_c()
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
 
@@ -3680,7 +3669,6 @@ WantedBy=multi-user.target
     os.system("systemctl enable {}".format(service_name))
     os.system("systemctl restart {}".format(service_name))
     res_lk()
-    clear_c()
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
     
@@ -3790,13 +3778,11 @@ WantedBy=multi-user.target
     os.system("systemctl enable {}".format(service_name))
     os.system("systemctl restart {}".format(service_name))
     res_li()
-    clear_c()
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
     
 def iran_tcp_dashboardd():
     os.system("clear")
-    clear_c()
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
     print('\033[92m(   ) \033[93mWith Dashboard\033[0m')
@@ -3900,7 +3886,6 @@ WantedBy=multi-user.target
         subprocess.run(['systemctl', 'enable', service_name], check=True)
         subprocess.run(['systemctl', 'restart', service_name], check=True)
         res_li()
-        clear_c()
         display_checkmark("\033[92mFRP Service Started!\033[0m")
         
         time.sleep(1)
@@ -4131,7 +4116,6 @@ WantedBy=multi-user.target
     os.system("systemctl enable {}".format(service_name))
     os.system("systemctl restart {}".format(service_name))
     res_k1()
-    clear_c()
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
     num_v2ray_instances = len(groups)
@@ -4258,7 +4242,6 @@ WantedBy=multi-user.target
     os.system("systemctl enable {}".format(service_name))
     os.system("systemctl restart {}".format(service_name))
     res_k2()
-    clear_c()
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
     num_v2ray_instances = len(groups)
@@ -4385,7 +4368,6 @@ WantedBy=multi-user.target
     os.system("systemctl enable {}".format(service_name))
     os.system("systemctl restart {}".format(service_name))
     res_k3()
-    clear_c()
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
     num_v2ray_instances = len(groups)
@@ -4511,7 +4493,6 @@ WantedBy=multi-user.target
     os.system("sudo chmod u+x /etc/systemd/system/{}.service".format(service_name))
     os.system("systemctl enable {}".format(service_name))
     os.system("systemctl restart {}".format(service_name))
-    clear_c()
     res_k4()
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
@@ -4639,7 +4620,6 @@ WantedBy=multi-user.target
     os.system("systemctl enable {}".format(service_name))
     os.system("systemctl restart {}".format(service_name))
     res_k5()
-    clear_c()
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
     num_v2ray_instances = len(groups)
@@ -4766,7 +4746,6 @@ WantedBy=multi-user.target
     os.system("systemctl enable {}".format(service_name))
     os.system("systemctl restart {}".format(service_name))
     res_k6()
-    clear_c()
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
     num_v2ray_instances = len(groups)
@@ -4892,7 +4871,6 @@ WantedBy=multi-user.target
     os.system("systemctl enable {}".format(service_name))
     os.system("systemctl restart {}".format(service_name))
     res_k7()
-    clear_c()
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
     num_v2ray_instances = len(groups)
@@ -5019,7 +4997,6 @@ WantedBy=multi-user.target
     os.system("systemctl enable {}".format(service_name))
     os.system("systemctl restart {}".format(service_name))
     res_k8()
-    clear_c()
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
     num_v2ray_instances = len(groups)
@@ -5146,7 +5123,6 @@ WantedBy=multi-user.target
     os.system("systemctl enable {}".format(service_name))
     os.system("systemctl restart {}".format(service_name))
     res_k9()
-    clear_c()
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
     num_v2ray_instances = len(groups)
@@ -5273,7 +5249,6 @@ WantedBy=multi-user.target
     os.system("systemctl enable {}".format(service_name))
     os.system("systemctl restart {}".format(service_name))
     res_k10()
-    clear_c()
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
     num_v2ray_instances = len(groups)
@@ -5483,7 +5458,6 @@ WantedBy=multi-user.target
     os.system("systemctl enable {}".format(service_name))
     os.system("systemctl restart {}".format(service_name))
     res_k1()
-    clear_c()
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
 	
@@ -5626,7 +5600,6 @@ WantedBy=multi-user.target
     os.system("systemctl enable {}".format(service_name))
     os.system("systemctl restart {}".format(service_name))
     res_k2()
-    clear_c()
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
     num_v2ray_instances = sum(group["num_ipv6"] for group in groups)
@@ -5768,7 +5741,6 @@ WantedBy=multi-user.target
     os.system("systemctl enable {}".format(service_name))
     os.system("systemctl restart {}".format(service_name))
     res_k3()
-    clear_c()
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
     num_v2ray_instances = sum(group["num_ipv6"] for group in groups)
@@ -5910,7 +5882,6 @@ WantedBy=multi-user.target
     os.system("systemctl enable {}".format(service_name))
     os.system("systemctl restart {}".format(service_name))
     res_k4()
-    clear_c()
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
     num_v2ray_instances = sum(group["num_ipv6"] for group in groups)
@@ -6052,7 +6023,6 @@ WantedBy=multi-user.target
     os.system("systemctl enable {}".format(service_name))
     os.system("systemctl restart {}".format(service_name))
     res_k5()
-    clear_c()
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
     num_v2ray_instances = sum(group["num_ipv6"] for group in groups)
@@ -6194,7 +6164,6 @@ WantedBy=multi-user.target
     os.system("systemctl enable {}".format(service_name))
     os.system("systemctl restart {}".format(service_name))
     res_k6()
-    clear_c()
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
 	
@@ -6337,7 +6306,6 @@ WantedBy=multi-user.target
     os.system("systemctl enable {}".format(service_name))
     os.system("systemctl restart {}".format(service_name))
     res_k7()
-    clear_c()
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
     num_v2ray_instances = sum(group["num_ipv6"] for group in groups)
@@ -6479,7 +6447,6 @@ WantedBy=multi-user.target
     os.system("systemctl enable {}".format(service_name))
     os.system("systemctl restart {}".format(service_name))
     res_k8()
-    clear_c()
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
     num_v2ray_instances = sum(group["num_ipv6"] for group in groups)
@@ -6621,7 +6588,6 @@ WantedBy=multi-user.target
     os.system("systemctl enable {}".format(service_name))
     os.system("systemctl restart {}".format(service_name))
     res_k9()
-    clear_c()
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
     num_v2ray_instances = sum(group["num_ipv6"] for group in groups)
@@ -6763,7 +6729,6 @@ WantedBy=multi-user.target
     os.system("systemctl enable {}".format(service_name))
     os.system("systemctl restart {}".format(service_name))
     res_k10()
-    clear_c()
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
     num_v2ray_instances = sum(group["num_ipv6"] for group in groups)
@@ -6885,7 +6850,6 @@ WantedBy=multi-user.target
     os.system("systemctl restart {}".format(service_name))
     time.sleep(1)
     res_i()
-    clear_c()
     display_checkmark("\033[92mFRP Service Started!\033[0m")
 
 
@@ -6997,7 +6961,6 @@ WantedBy=multi-user.target
         subprocess.run(['systemctl', 'enable', service_name], check=True)
         subprocess.run(['systemctl', 'restart', service_name], check=True)
         res_i()
-        clear_c()
         display_checkmark("\033[92mFRP Service Started!\033[0m")
         
         time.sleep(1)
@@ -7246,7 +7209,6 @@ WantedBy=multi-user.target
         os.system("systemctl enable {}".format(service_name))
         os.system("systemctl restart {}".format(service_name))
         res_ki3()
-        clear_c()
         display_checkmark("\033[92mFRP Service Started!\033[0m")
 
 def i3kharej_local():
@@ -7383,7 +7345,6 @@ WantedBy=multi-user.target
         os.system("systemctl enable {}".format(service_name))
         os.system("systemctl restart {}".format(service_name))
         res_ki3()
-        clear_c()
         display_checkmark("\033[92mFRP Service Started!\033[0m")
 
     
@@ -7465,7 +7426,6 @@ WantedBy=multi-user.target
     os.system("systemctl enable {}".format(service_name))
     os.system("systemctl restart {}".format(service_name))
     res_ii3()
-    clear_c()
     display_checkmark("\033[92mFRP Service Started!\033[0m")
     
 def i3iran_second():
@@ -7546,7 +7506,6 @@ WantedBy=multi-user.target
     os.system("systemctl enable {}".format(service_name))
     os.system("systemctl restart {}".format(service_name))
     res_ii3()
-    clear_c()
     display_checkmark("\033[92mFRP Service Started!\033[0m")
     
 def i3iran_third():
@@ -7627,7 +7586,6 @@ WantedBy=multi-user.target
     os.system("systemctl enable {}".format(service_name))
     os.system("systemctl restart {}".format(service_name))
     res_ii3()
-    clear_c()
     display_checkmark("\033[92mFRP Service Started!\033[0m")
     
 main_menu()
