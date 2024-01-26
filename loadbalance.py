@@ -147,15 +147,16 @@ def main_menu():
             print(footer)
             print(border)
             print("0. \033[91mSTATUS Menu\033[0m")
-            print("1. \033[96mEdit\033[93m ResetTimer \033[0m")
+            print("1. \033[96mEdit\033[93m Reset Timer \033[0m")
             print("2. \033[92mInstallation\033[0m")
             print("3. \033[93mFRP TCP Tunnel\033[0m")
             print("4. \033[92mFRP KCP Tunnel\033[0m")
-            print("5. \033[96mLoadBalancer \033[93m[1]\033[36m Kharej \033[93m[1]\033[36m IRAN\033[0m")
-            print("6. \033[93mLoadBalancer \033[92m[10]\033[93m Kharej \033[92m[1]\033[93m IRAN\033[0m")
-            print("7. \033[92mLoadBalancer \033[93m[1]\033[92m Kharej \033[93m[3]\033[92m IRAN\033[0m")        
-            print("8. \033[92mStop | Restart Service \033[0m")
-            print("9. \033[91mUninstall\033[0m")
+            print("5. \033[93mFRP Quic Tunnel\033[0m")
+            print("6. \033[96mLoadBalancer \033[93m[1]\033[36m Kharej \033[93m[1]\033[36m IRAN\033[0m")
+            print("7. \033[93mLoadBalancer \033[92m[10]\033[93m Kharej \033[92m[1]\033[93m IRAN\033[0m")
+            print("8. \033[92mLoadBalancer \033[93m[1]\033[92m Kharej \033[93m[3]\033[92m IRAN\033[0m")        
+            print("9. \033[91mStop\033[93m |\033[92m Restart\033[93m Service \033[0m")
+            print("10. \033[91mUninstall\033[0m")
             print("q. Exit")
             print("\033[93m╰─────────────────────────────────────────────────────────────────────╯\033[0m")
 
@@ -170,16 +171,18 @@ def main_menu():
             elif choice == '4':
                 kcp_local()
             elif choice == '5':
-                single_load_menu()
+                quic_local()
             elif choice == '6':
-                i3kharej_1iran_load()
+                single_load_menu()
             elif choice == '7':
+                i3kharej_1iran_load()
+            elif choice == '8':
                 i1kharej_3iran()
             elif choice == '1':
                 timez()
-            elif choice == '8':
-                start_menu()
             elif choice == '9':
+                start_menu()
+            elif choice == '10':
                 remove_menu()
             elif choice == 'q':
                 print("Exiting...")
@@ -193,6 +196,702 @@ def main_menu():
         display_error("\033[91m\nProgram interrupted. Exiting...\033[0m")
         sys.exit()
         
+def quic_local():
+    os.system("clear")
+    print('\033[92m ^ ^\033[0m')
+    print('\033[92m(\033[91mO,O\033[92m)\033[0m')
+    print('\033[92m(   )  \033[96m Quic\033[93m Menu\033[0m')
+    print('\033[92m "-"\033[93m══════════════════════════════════════════\033[0m')
+    print("\033[93m╭───────────────────────────────────────╮\033[0m")
+    print('\033[93mChoose what to do:\033[0m')
+    print('1. \033[92mIRAN\033[0m')
+    print('2. \033[91mKharej\033[92m [1]\033[0m')
+    print('3. \033[93mKharej\033[92m [2]\033[0m')
+    print('4. \033[96mKharej\033[92m [3]\033[0m')
+    print('5. \033[97mKharej\033[92m [4]\033[0m')
+    print('6. \033[93mKharej\033[92m [5]\033[0m')
+    print('0. \033[94mBack to the main menu\033[0m')
+    print("\033[93m╰───────────────────────────────────────╯\033[0m")
+    
+    while True:
+        server_type = input('\033[38;5;205mEnter your choice Please: \033[0m')
+        if server_type == '1':
+            iran_quic()
+            break
+        elif server_type == '2':
+            kharej1_quic()
+            break
+        elif server_type == '3':
+            kharej2_quic()
+            break
+        elif server_type == '4':
+            kharej3_quic()
+            break
+        elif server_type == '5':
+            kharej4_quic()
+            break
+        elif server_type == '6':
+            kharej5_quic()
+            break
+        elif server_type == '0':
+            os.system('clear')
+            main_menu()
+            break
+        else:
+            print('Invalid choice.') 
+            
+def iran_quic():            
+    os.system("clear")
+    print('\033[92m ^ ^\033[0m')
+    print('\033[92m(\033[91mO,O\033[92m)\033[0m')
+    print('\033[92m(   ) \033[93mIRAN Menu  \033[0m')
+    print('\033[92m "-"\033[93m══════════════════════════\033[0m')
+    print("\033[93m───────────────────────────────────────────────────────────────────────────────────────────\033[0m")
+    display_notification("\033[93mConfiguring IRAN...\033[0m")
+    print("\033[93m───────────────────────────────────────────────────────────────────────────────────────────\033[0m") 
+
+    local_ports = input("\033[93mEnter the \033[92mlocal\033[93m ports : \033[0m")
+    remote_ports = input("\033[93mEnter the \033[92mremote\033[93m ports : \033[0m")
+
+    local_ports_list = local_ports.replace(" ", ",").split(",")
+    remote_ports_list = remote_ports.replace(" ", ",").split(",")
+
+    local_ports_list = [port.strip() for port in local_ports_list]
+    remote_ports_list = [port.strip() for port in remote_ports_list]
+
+    num_instances = len(local_ports_list)
+
+    if os.path.exists("frp/frpsq.toml"):
+        os.remove("frp/frpsq.toml")
+
+    with open("frp/frpsq.toml", "w") as f:
+        f.write("[common]\n")
+        kcpbind_port = input("\033[93mEnter \033[92mQuic Port\033[93m: \033[0m")
+        f.write("bind_port = {}\n".format(kcpbind_port))
+        f.write("quicBindPort = {}\n".format(kcpbind_port))
+        load_port = input("\033[93mEnter \033[92mLoadbalance Port\033[93m: \033[0m")
+        f.write("vhost_https_port = {}\n".format(load_port))
+        f.write("transport.tls.disable_custom_tls_first_byte = false\n")
+        f.write("token = azumi\n")
+        f.write("\n")
+        f.write("[v2ray]\n")  
+        f.write("type = udp\n")
+        f.write("local_port = {}\n".format(",".join(local_ports_list)))
+        f.write("remote_port = {}\n".format(",".join(remote_ports_list)))
+        f.write("use_encryption = true\n")
+
+    display_checkmark("\033[92mIRAN configuration generated. Yours Truly, Azumi.\033[0m")
+
+    
+    service_name = "azumifrps_quic"
+    frps_path = "/root/frp/frpsq.toml"
+
+    service_content = f'''[Unit]
+Description=frps service
+After=network.target
+
+[Service]
+ExecStart=/root/frp/./frps -c {frps_path}
+Restart=always
+RestartSec=5
+LimitNOFILE=1048576
+User=root
+
+[Install]
+WantedBy=multi-user.target
+'''
+
+    service_path = "/etc/systemd/system/{}.service".format(service_name)
+
+    with open(service_path, "w") as f:
+        f.write(service_content)
+    display_notification("\033[93mStarting FRP service...\033[0m")
+    time.sleep(1)
+    os.system("systemctl daemon-reload")
+    os.system("sudo chmod u+x /etc/systemd/system/{}.service".format(service_name))
+    os.system("systemctl enable {}".format(service_name))
+    os.system("systemctl restart {}".format(service_name))
+    time.sleep(1)
+    res_iq()
+    display_checkmark("\033[92mFRP Service Started!\033[0m")
+
+def kharej1_quic():
+    os.system("clear")
+    print('\033[92m ^ ^\033[0m')
+    print('\033[92m(\033[91mO,O\033[92m)\033[0m')
+    print('\033[92m(   ) \033[93mKharej Server \033[92m[1]\033[93m \033[0m')
+    print('\033[92m "-"\033[93m══════════════════════════\033[0m')
+    print("\033[93m───────────────────────────────────────────────────────────────────────────────────────────\033[0m")
+    display_notification("\033[93mConfiguring Kharej[1]...\033[0m")
+    print("\033[93m───────────────────────────────────────────────────────────────────────────────────────────\033[0m")
+    
+    while True:
+        try:
+            num_groups = int(input("\033[93mEnter the number of \033[92mloadbalance groups\033[96m [For each different port, there should be a group\033[92m]: \033[0m"))
+            break
+        except ValueError:
+            print("\033[91mInvalid input! Please enter a valid input!!\033[0m")
+
+    groups = []
+    for i in range(num_groups):
+        group_name = "Loadbalance Group {}".format(i + 1)
+        group = {"name": group_name}
+        groups.append(group)
+
+    time.sleep(1)
+
+    iran_ipv6 = input("\033[93mEnter \033[92mIRAN\033[93m IPV4/IPv6 address: \033[0m")
+
+    if os.path.exists("frp/frpcq.toml"):
+        os.remove("frp/frpcq.toml")
+
+    with open("frp/frpcq.toml", "w") as f:
+        f.write("[common]\n")
+        f.write("server_addr = {}\n".format(iran_ipv6))
+        server_port = input("\033[93mEnter \033[92mQuic port\033[93m : \033[0m")
+        f.write("server_port = {}\n".format(server_port))
+        load_port = input("\033[93mEnter \033[92mLoadbalance Port\033[93m: \033[0m")
+        f.write("vhost_https_port = {}\n".format(load_port))
+        f.write("transport.tls.disable_custom_tls_first_byte = false\n")
+        f.write("transport.protocol = quic\n")
+        f.write("token = azumi\n")
+
+    while True:
+        try:
+            start_number = int(input("\033[93mEnter the starting v2ray and group number: \033[0m"))
+            break
+        except ValueError:
+            print("\033[91mInvalid input! Please enter a valid input!!\033[0m")
+
+    for group_index, group in enumerate(groups):
+        group_name = group["name"]
+        group_number = start_number + group_index  
+        starting_v2ray_number = start_number + (group_index * 1)
+
+        local_port = input("\033[93mEnter the \033[92mLocal\033[93m Port for \033[92m{}\033[93m: \033[0m".format(group_name))
+        remote_port = input("\033[93mEnter the \033[92mRemote\033[93m Port for \033[92m{}\033[93m: \033[0m".format(group_name))
+        print("\033[93m───────────────────────────────────────────────────────────────────────────────────────\033[0m")
+
+        v2ray_number = starting_v2ray_number
+
+        with open("frp/frpcq.toml", "a") as f:
+            f.write("\n")
+            f.write("[v2ray{}]\n".format(v2ray_number))
+            f.write("type = udp\n")
+            f.write("local_ip = 127.0.0.1\n")
+            f.write("local_port = {}\n".format(local_port))
+            f.write("remote_port = {}\n".format(remote_port))
+            f.write("group = Azumi{}\n".format(group_number))
+            f.write("group_key = azumichwan\n")
+            f.write("health_check_type = tcp\n")
+            f.write("health_check_timeout_s = 3\n")
+            f.write("health_check_max_failed = 3\n")
+            f.write("health_check_interval_s = 10\n")
+            f.write("use_encryption = true\n")
+
+    time.sleep(1)
+
+    service_name = "azumifrpc_quic"
+    frps_path = "/root/frp/frpcq.toml"
+
+    service_content = f'''[Unit]
+Description=frpc service
+After=network.target
+
+[Service]
+ExecStart=/root/frp/./frpc -c {frps_path}
+Restart=always
+RestartSec=5
+LimitNOFILE=1048576
+User=root
+
+[Install]
+WantedBy=multi-user.target
+'''
+
+    service_path = "/etc/systemd/system/{}.service".format(service_name)
+
+    with open(service_path, "w") as f:
+        f.write(service_content)
+
+    os.system("systemctl daemon-reload")
+    os.system("sudo chmod u+x /etc/systemd/system/{}.service".format(service_name))
+    os.system("systemctl enable {}".format(service_name))
+    os.system("systemctl restart {}".format(service_name))
+    res_kq()
+    display_checkmark("\033[92mFRP Service Started!\033[0m")
+
+    num_v2ray_instances = len(groups)
+    last_v2ray_number = start_number + num_v2ray_instances 
+
+    print("Use the last V2ray number for configuring the next kharej server.")
+    print("+--------------------------------------------------+")
+    print("|   Number of Load Balance Groups: {}              |".format(num_groups))
+    print("|   Total V2Ray Instances Created: {}              |".format(num_v2ray_instances))
+    print("|   \033[92mLast V2Ray Number: {}\033[0m                          |".format(last_v2ray_number))
+    print("+--------------------------------------------------+")
+
+def kharej2_quic():
+    os.system("clear")
+    print('\033[92m ^ ^\033[0m')
+    print('\033[92m(\033[91mO,O\033[92m)\033[0m')
+    print('\033[92m(   ) \033[93mKharej Server \033[92m[2]\033[93m \033[0m')
+    print('\033[92m "-"\033[93m══════════════════════════\033[0m')
+    print("\033[93m───────────────────────────────────────────────────────────────────────────────────────────\033[0m")
+    display_notification("\033[93mConfiguring Kharej[2]...\033[0m")
+    print("\033[93m───────────────────────────────────────────────────────────────────────────────────────────\033[0m") 
+    
+    while True:
+        try:
+            num_groups = int(input("\033[93mEnter the number of \033[92mloadbalance groups\033[96m [For each different port, there should be a group\033[92m]: \033[0m"))
+            break
+        except ValueError:
+            print("\033[91mInvalid input! Please enter a valid input!!\033[0m")
+
+    groups = []
+    for i in range(num_groups):
+        group_name = "Loadbalance Group {}".format(i + 1)
+        group = {"name": group_name}
+        groups.append(group)
+
+    time.sleep(1)
+
+    iran_ipv6 = input("\033[93mEnter \033[92mIRAN\033[93m IPV4/IPv6 address: \033[0m")
+
+    if os.path.exists("frp/frpcq.toml"):
+        os.remove("frp/frpcq.toml")
+    with open("frp/frpcq.toml", "w") as f:
+        f.write("[common]\n")
+        f.write("server_addr = {}\n".format(iran_ipv6))
+        server_port = input("\033[93mEnter \033[92m/Quic port\033[93m: \033[0m")
+        f.write("server_port = {}\n".format(server_port))
+        load_port = input("\033[93mEnter \033[92mLoadbalance Port\033[93m: \033[0m")
+        f.write("vhost_https_port = {}\n".format(load_port))
+        f.write("transport.tls.disable_custom_tls_first_byte = false\n")
+        f.write("transport.protocol = quic\n")
+        f.write("token = azumi\n")
+
+    while True:
+        try:
+            start_number = int(input("\033[93mEnter the starting v2ray and group number: \033[0m"))
+            break
+        except ValueError:
+            print("\033[91mInvalid input! Please enter a valid input!!\033[0m")
+
+    for group_index, group in enumerate(groups):
+        group_name = group["name"]
+        group_number = start_number + group_index  
+        starting_v2ray_number = start_number + (group_index * 1)
+
+        local_port = input("\033[93mEnter the \033[92mLocal\033[93m Port for \033[92m{}\033[93m: \033[0m".format(group_name))
+        remote_port = input("\033[93mEnter the \033[92mRemote\033[93m Port for \033[92m{}\033[93m: \033[0m".format(group_name))
+        print("\033[93m───────────────────────────────────────────────────────────────────────────────────────\033[0m")
+
+        v2ray_number = starting_v2ray_number
+
+        with open("frp/frpcq.toml", "a") as f:
+            f.write("\n")
+            f.write("[v2ray{}]\n".format(v2ray_number))
+            f.write("type = udp\n")
+            f.write("local_ip = 127.0.0.1\n")
+            f.write("local_port = {}\n".format(local_port))
+            f.write("remote_port = {}\n".format(remote_port))
+            f.write("group = Azumi{}\n".format(group_number))
+            f.write("group_key = azumichwan\n")
+            f.write("health_check_type = tcp\n")
+            f.write("health_check_timeout_s = 3\n")
+            f.write("health_check_max_failed = 3\n")
+            f.write("health_check_interval_s = 10\n")
+            f.write("use_encryption = true\n")
+
+    time.sleep(1)
+
+    service_name = "azumifrpc_quic"
+    frps_path = "/root/frp/frpcq.toml"
+
+    service_content = f'''[Unit]
+Description=frpc service
+After=network.target
+
+[Service]
+ExecStart=/root/frp/./frpc -c {frps_path}
+Restart=always
+RestartSec=5
+LimitNOFILE=1048576
+User=root
+
+[Install]
+WantedBy=multi-user.target
+'''
+
+    service_path = "/etc/systemd/system/{}.service".format(service_name)
+
+    with open(service_path, "w") as f:
+        f.write(service_content)
+
+    os.system("systemctl daemon-reload")
+    os.system("sudo chmod u+x /etc/systemd/system/{}.service".format(service_name))
+    os.system("systemctl enable {}".format(service_name))
+    os.system("systemctl restart {}".format(service_name))
+    res_kq()
+    display_checkmark("\033[92mFRP Service Started!\033[0m")
+
+    num_v2ray_instances = len(groups)
+    last_v2ray_number = start_number + num_v2ray_instances 
+
+    print("Use the last V2ray number for configuring the next kharej server.")
+    print("+--------------------------------------------------+")
+    print("|   Number of Load Balance Groups: {}              |".format(num_groups))
+    print("|   Total V2Ray Instances Created: {}              |".format(num_v2ray_instances))
+    print("|   \033[92mLast V2Ray Number: {}\033[0m                          |".format(last_v2ray_number))
+    print("+--------------------------------------------------+")
+	
+def kharej3_quic():
+    os.system("clear")
+    print('\033[92m ^ ^\033[0m')
+    print('\033[92m(\033[91mO,O\033[92m)\033[0m')
+    print('\033[92m(   ) \033[93mKharej Server \033[92m[3]\033[93m \033[0m')
+    print('\033[92m "-"\033[93m══════════════════════════\033[0m')
+    print("\033[93m───────────────────────────────────────────────────────────────────────────────────────────\033[0m")
+    display_notification("\033[93mConfiguring Kharej[3]...\033[0m")
+    print("\033[93m───────────────────────────────────────────────────────────────────────────────────────────\033[0m") 
+    
+    while True:
+        try:
+            num_groups = int(input("\033[93mEnter the number of \033[92mloadbalance groups\033[96m [For each different port, there should be a group\033[92m]: \033[0m"))
+            break
+        except ValueError:
+            print("\033[91mInvalid input! Please enter a valid input!!\033[0m")
+
+    groups = []
+    for i in range(num_groups):
+        group_name = "Loadbalance Group {}".format(i + 1)
+        group = {"name": group_name}
+        groups.append(group)
+
+    time.sleep(1)
+
+    iran_ipv6 = input("\033[93mEnter \033[92mIRAN\033[93m IPV4/IPv6 address: \033[0m")
+
+    if os.path.exists("frp/frpcq.toml"):
+        os.remove("frp/frpcq.toml")
+
+    with open("frp/frpcq.toml", "w") as f:
+        f.write("[common]\n")
+        f.write("server_addr = {}\n".format(iran_ipv6))
+        server_port = input("\033[93mEnter \033[92mQuic port\033[93m: \033[0m")
+        f.write("server_port = {}\n".format(server_port))
+        load_port = input("\033[93mEnter \033[92mLoadbalance Port\033[93m: \033[0m")
+        f.write("vhost_https_port = {}\n".format(load_port))
+        f.write("transport.tls.disable_custom_tls_first_byte = false\n")
+        f.write("transport.protocol = quic\n")
+        f.write("token = azumi\n")
+
+    while True:
+        try:
+            start_number = int(input("\033[93mEnter the starting v2ray and group number: \033[0m"))
+            break
+        except ValueError:
+            print("\033[91mInvalid input! Please enter a valid input!!\033[0m")
+
+    for group_index, group in enumerate(groups):
+        group_name = group["name"]
+        group_number = start_number + group_index  
+        starting_v2ray_number = start_number + (group_index * 1)
+
+        local_port = input("\033[93mEnter the \033[92mLocal\033[93m Port for \033[92m{}\033[93m: \033[0m".format(group_name))
+        remote_port = input("\033[93mEnter the \033[92mRemote\033[93m Port for \033[92m{}\033[93m: \033[0m".format(group_name))
+        print("\033[93m───────────────────────────────────────────────────────────────────────────────────────\033[0m")
+
+        v2ray_number = starting_v2ray_number
+
+        with open("frp/frpcq.toml", "a") as f:
+            f.write("\n")
+            f.write("[v2ray{}]\n".format(v2ray_number))
+            f.write("type = udp\n")
+            f.write("local_ip = 127.0.0.1\n")
+            f.write("local_port = {}\n".format(local_port))
+            f.write("remote_port = {}\n".format(remote_port))
+            f.write("group = Azumi{}\n".format(group_number))
+            f.write("group_key = azumichwan\n")
+            f.write("health_check_type = tcp\n")
+            f.write("health_check_timeout_s = 3\n")
+            f.write("health_check_max_failed = 3\n")
+            f.write("health_check_interval_s = 10\n")
+            f.write("use_encryption = true\n")
+
+    time.sleep(1)
+
+    service_name = "azumifrpc_quic"
+    frps_path = "/root/frp/frpcq.toml"
+
+    service_content = f'''[Unit]
+Description=frpc service
+After=network.target
+
+[Service]
+ExecStart=/root/frp/./frpc -c {frps_path}
+Restart=always
+RestartSec=5
+LimitNOFILE=1048576
+User=root
+
+[Install]
+WantedBy=multi-user.target
+'''
+
+    service_path = "/etc/systemd/system/{}.service".format(service_name)
+
+    with open(service_path, "w") as f:
+        f.write(service_content)
+
+    os.system("systemctl daemon-reload")
+    os.system("sudo chmod u+x /etc/systemd/system/{}.service".format(service_name))
+    os.system("systemctl enable {}".format(service_name))
+    os.system("systemctl restart {}".format(service_name))
+    res_kq()
+    display_checkmark("\033[92mFRP Service Started!\033[0m")
+
+    num_v2ray_instances = len(groups)
+    last_v2ray_number = start_number + num_v2ray_instances 
+
+    print("Use the last V2ray number for configuring the next kharej server.")
+    print("+--------------------------------------------------+")
+    print("|   Number of Load Balance Groups: {}              |".format(num_groups))
+    print("|   Total V2Ray Instances Created: {}              |".format(num_v2ray_instances))
+    print("|   \033[92mLast V2Ray Number: {}\033[0m                          |".format(last_v2ray_number))
+    print("+--------------------------------------------------+")
+	
+def kharej4_quic():
+    os.system("clear")
+    print('\033[92m ^ ^\033[0m')
+    print('\033[92m(\033[91mO,O\033[92m)\033[0m')
+    print('\033[92m(   ) \033[93mKharej Server \033[92m[4]\033[93m \033[0m')
+    print('\033[92m "-"\033[93m══════════════════════════\033[0m')
+    print("\033[93m───────────────────────────────────────────────────────────────────────────────────────────\033[0m")
+    display_notification("\033[93mConfiguring Kharej[4]...\033[0m")
+    print("\033[93m───────────────────────────────────────────────────────────────────────────────────────────\033[0m") 
+    
+    while True:
+        try:
+            num_groups = int(input("\033[93mEnter the number of \033[92mloadbalance groups\033[96m [For each different port, there should be a group\033[92m]: \033[0m"))
+            break
+        except ValueError:
+            print("\033[91mInvalid input! Please enter a valid input!!\033[0m")
+
+    groups = []
+    for i in range(num_groups):
+        group_name = "Loadbalance Group {}".format(i + 1)
+        group = {"name": group_name}
+        groups.append(group)
+
+    time.sleep(1)
+
+    iran_ipv6 = input("\033[93mEnter \033[92mIRAN\033[93m IPV4/IPv6 address: \033[0m")
+
+    if os.path.exists("frp/frpcq.toml"):
+        os.remove("frp/frpcq.toml")
+
+    with open("frp/frpcq.toml", "w") as f:
+        f.write("[common]\n")
+        f.write("server_addr = {}\n".format(iran_ipv6))
+        server_port = input("\033[93mEnter \033[92m/Quic port\033[93m: \033[0m")
+        f.write("server_port = {}\n".format(server_port))
+        load_port = input("\033[93mEnter \033[92mLoadbalance Port\033[93m: \033[0m")
+        f.write("vhost_https_port = {}\n".format(load_port))
+        f.write("transport.tls.disable_custom_tls_first_byte = false\n")
+        f.write("transport.protocol = quic\n")
+        f.write("token = azumi\n")
+
+    while True:
+        try:
+            start_number = int(input("\033[93mEnter the starting v2ray and group number: \033[0m"))
+            break
+        except ValueError:
+            print("\033[91mInvalid input! Please enter a valid input!!\033[0m")
+
+    for group_index, group in enumerate(groups):
+        group_name = group["name"]
+        group_number = start_number + group_index  
+        starting_v2ray_number = start_number + (group_index * 1)
+
+        local_port = input("\033[93mEnter the \033[92mLocal\033[93m Port for \033[92m{}\033[93m: \033[0m".format(group_name))
+        remote_port = input("\033[93mEnter the \033[92mRemote\033[93m Port for \033[92m{}\033[93m: \033[0m".format(group_name))
+        print("\033[93m───────────────────────────────────────────────────────────────────────────────────────\033[0m")
+
+        v2ray_number = starting_v2ray_number
+
+        with open("frp/frpcq.toml", "a") as f:
+            f.write("\n")
+            f.write("[v2ray{}]\n".format(v2ray_number))
+            f.write("type = udp\n")
+            f.write("local_ip = 127.0.0.1\n")
+            f.write("local_port = {}\n".format(local_port))
+            f.write("remote_port = {}\n".format(remote_port))
+            f.write("group = Azumi{}\n".format(group_number))
+            f.write("group_key = azumichwan\n")
+            f.write("health_check_type = tcp\n")
+            f.write("health_check_timeout_s = 3\n")
+            f.write("health_check_max_failed = 3\n")
+            f.write("health_check_interval_s = 10\n")
+            f.write("use_encryption = true\n")
+
+    time.sleep(1)
+
+    service_name = "azumifrpc_quic"
+    frps_path = "/root/frp/frpcq.toml"
+
+    service_content = f'''[Unit]
+Description=frpc service
+After=network.target
+
+[Service]
+ExecStart=/root/frp/./frpc -c {frps_path}
+Restart=always
+RestartSec=5
+LimitNOFILE=1048576
+User=root
+
+[Install]
+WantedBy=multi-user.target
+'''
+
+    service_path = "/etc/systemd/system/{}.service".format(service_name)
+
+    with open(service_path, "w") as f:
+        f.write(service_content)
+
+    os.system("systemctl daemon-reload")
+    os.system("sudo chmod u+x /etc/systemd/system/{}.service".format(service_name))
+    os.system("systemctl enable {}".format(service_name))
+    os.system("systemctl restart {}".format(service_name))
+    res_kq()
+    display_checkmark("\033[92mFRP Service Started!\033[0m")
+
+    num_v2ray_instances = len(groups)
+    last_v2ray_number = start_number + num_v2ray_instances 
+
+    print("Use the last V2ray number for configuring the next kharej server.")
+    print("+--------------------------------------------------+")
+    print("|   Number of Load Balance Groups: {}              |".format(num_groups))
+    print("|   Total V2Ray Instances Created: {}              |".format(num_v2ray_instances))
+    print("|   \033[92mLast V2Ray Number: {}\033[0m                          |".format(last_v2ray_number))
+    print("+--------------------------------------------------+")
+	
+def kharej5_kcp():
+    os.system("clear")
+    print('\033[92m ^ ^\033[0m')
+    print('\033[92m(\033[91mO,O\033[92m)\033[0m')
+    print('\033[92m(   ) \033[93mKharej Server \033[92m[5]\033[93m \033[0m')
+    print('\033[92m "-"\033[93m══════════════════════════\033[0m')
+    print("\033[93m───────────────────────────────────────────────────────────────────────────────────────────\033[0m")
+    display_notification("\033[93mConfiguring Kharej[5]...\033[0m")
+    print("\033[93m───────────────────────────────────────────────────────────────────────────────────────────\033[0m") 
+    while True:
+        try:
+            num_groups = int(input("\033[93mEnter the number of \033[92mloadbalance groups\033[96m [For each different port, there should be a group\033[92m]: \033[0m"))
+            break
+        except ValueError:
+            print("\033[91mInvalid input! Please enter a valid input!!\033[0m")
+
+    groups = []
+    for i in range(num_groups):
+        group_name = "Loadbalance Group {}".format(i + 1)
+        group = {"name": group_name}
+        groups.append(group)
+
+    time.sleep(1)
+
+    iran_ipv6 = input("\033[93mEnter \033[92mIRAN\033[93m IPV4/IPv6 address: \033[0m")
+
+    if os.path.exists("frp/frpcq.toml"):
+        os.remove("frp/frpcq.toml")
+
+    with open("frp/frpcq.toml", "w") as f:
+        f.write("[common]\n")
+        f.write("server_addr = {}\n".format(iran_ipv6))
+        server_port = input("\033[93mEnter \033[92mQuic port\033[93m: \033[0m")
+        f.write("server_port = {}\n".format(server_port))
+        load_port = input("\033[93mEnter \033[92mLoadbalance Port\033[93m: \033[0m")
+        f.write("vhost_https_port = {}\n".format(load_port))
+        f.write("transport.tls.disable_custom_tls_first_byte = false\n")
+        f.write("transport.protocol = quic\n")
+        f.write("token = azumi\n")
+
+    while True:
+        try:
+            start_number = int(input("\033[93mEnter the starting v2ray and group number: \033[0m"))
+            break
+        except ValueError:
+            print("\033[91mInvalid input! Please enter a valid input!!\033[0m")
+
+    for group_index, group in enumerate(groups):
+        group_name = group["name"]
+        group_number = start_number + group_index  
+        starting_v2ray_number = start_number + (group_index * 1)
+
+        local_port = input("\033[93mEnter the \033[92mLocal\033[93m Port for \033[92m{}\033[93m: \033[0m".format(group_name))
+        remote_port = input("\033[93mEnter the \033[92mRemote\033[93m Port for \033[92m{}\033[93m: \033[0m".format(group_name))
+        print("\033[93m───────────────────────────────────────────────────────────────────────────────────────\033[0m")
+
+        v2ray_number = starting_v2ray_number
+
+        with open("frp/frpcq.toml", "a") as f:
+            f.write("\n")
+            f.write("[v2ray{}]\n".format(v2ray_number))
+            f.write("type = udp\n")
+            f.write("local_ip = 127.0.0.1\n")
+            f.write("local_port = {}\n".format(local_port))
+            f.write("remote_port = {}\n".format(remote_port))
+            f.write("group = Azumi{}\n".format(group_number))
+            f.write("group_key = azumichwan\n")
+            f.write("health_check_type = tcp\n")
+            f.write("health_check_timeout_s = 3\n")
+            f.write("health_check_max_failed = 3\n")
+            f.write("health_check_interval_s = 10\n")
+            f.write("use_encryption = true\n")
+
+    time.sleep(1)
+
+    service_name = "azumifrpc_quic"
+    frps_path = "/root/frp/frpcq.toml"
+
+    service_content = f'''[Unit]
+Description=frpc service
+After=network.target
+
+[Service]
+ExecStart=/root/frp/./frpc -c {frps_path}
+Restart=always
+RestartSec=5
+LimitNOFILE=1048576
+User=root
+
+[Install]
+WantedBy=multi-user.target
+'''
+
+    service_path = "/etc/systemd/system/{}.service".format(service_name)
+
+    with open(service_path, "w") as f:
+        f.write(service_content)
+
+    os.system("systemctl daemon-reload")
+    os.system("sudo chmod u+x /etc/systemd/system/{}.service".format(service_name))
+    os.system("systemctl enable {}".format(service_name))
+    os.system("systemctl restart {}".format(service_name))
+    res_kq()
+    display_checkmark("\033[92mFRP Service Started!\033[0m")
+
+    num_v2ray_instances = len(groups)
+    last_v2ray_number = start_number + num_v2ray_instances 
+
+    print("Use the last V2ray number for configuring the next kharej server.")
+    print("+--------------------------------------------------+")
+    print("|   Number of Load Balance Groups: {}              |".format(num_groups))
+    print("|   Total V2Ray Instances Created: {}              |".format(num_v2ray_instances))
+    print("|   \033[92mLast V2Ray Number: {}\033[0m                          |".format(last_v2ray_number))
+    print("+--------------------------------------------------+")        
 def kcp_local():
     os.system("clear")
     print('\033[92m ^ ^\033[0m')
@@ -237,7 +936,96 @@ def kcp_local():
         else:
             print('Invalid choice.') 
             
-def delete_cron():
+def delete_cron5():
+    entries_to_delete = [
+        "0 * * * * /etc/resq.sh",
+        "0 */2 * * * /etc/resq.sh",
+        "0 */3 * * * /etc/resq.sh",
+        "0 */4 * * * /etc/resq.sh",
+        "0 */5 * * * /etc/resq.sh",
+        "0 */6 * * * /etc/resq.sh",
+        "0 */7 * * * /etc/resq.sh",
+        "0 */8 * * * /etc/resq.sh",
+        "0 */9 * * * /etc/resq.sh",
+        "0 */10 * * * /etc/resq.sh",
+        "0 */11 * * * /etc/resq.sh",
+        "0 */12 * * * /etc/resq.sh",
+        "0 */13 * * * /etc/resq.sh",
+        "0 */14 * * * /etc/resq.sh",
+        "0 */15 * * * /etc/resq.sh",
+        "0 */16 * * * /etc/resq.sh",
+        "0 */17 * * * /etc/resq.sh",
+        "0 */18 * * * /etc/resq.sh",
+        "0 */19 * * * /etc/resq.sh",
+        "0 */20 * * * /etc/resq.sh",
+        "0 */21 * * * /etc/resq.sh",
+        "0 */22 * * * /etc/resq.sh",
+        "0 */23 * * * /etc/resq.sh",
+    ]
+
+    existing_crontab = ""
+    try:
+        existing_crontab = subprocess.check_output("crontab -l", shell=True).decode()
+    except subprocess.CalledProcessError:
+        display_error("\033[91mNo existing cron found!\033[0m")
+        return
+
+    new_crontab = existing_crontab
+    for entry in entries_to_delete:
+        if entry in existing_crontab:
+            new_crontab = new_crontab.replace(entry, "")
+
+    if new_crontab != existing_crontab:
+        subprocess.call(f"echo '{new_crontab}' | crontab -", shell=True)
+        display_notification("\033[92mDeleting Previous Crons..\033[0m")
+    else:
+        print("\033[91mNothing Found, moving on..!\033[0m")  
+        
+def delete_cron3():
+    entries_to_delete = [
+        "0 * * * * /etc/resd.sh",
+        "0 */2 * * * /etc/resd.sh",
+        "0 */3 * * * /etc/resd.sh",
+        "0 */4 * * * /etc/resd.sh",
+        "0 */5 * * * /etc/resd.sh",
+        "0 */6 * * * /etc/resd.sh",
+        "0 */7 * * * /etc/resd.sh",
+        "0 */8 * * * /etc/resd.sh",
+        "0 */9 * * * /etc/resd.sh",
+        "0 */10 * * * /etc/resd.sh",
+        "0 */11 * * * /etc/resd.sh",
+        "0 */12 * * * /etc/resd.sh",
+        "0 */13 * * * /etc/resd.sh",
+        "0 */14 * * * /etc/resd.sh",
+        "0 */15 * * * /etc/resd.sh",
+        "0 */16 * * * /etc/resd.sh",
+        "0 */17 * * * /etc/resd.sh",
+        "0 */18 * * * /etc/resd.sh",
+        "0 */19 * * * /etc/resd.sh",
+        "0 */20 * * * /etc/resd.sh",
+        "0 */21 * * * /etc/resd.sh",
+        "0 */22 * * * /etc/resd.sh",
+        "0 */23 * * * /etc/resd.sh",
+    ]
+
+    existing_crontab = ""
+    try:
+        existing_crontab = subprocess.check_output("crontab -l", shell=True).decode()
+    except subprocess.CalledProcessError:
+        display_error("\033[91mNo existing cron found!\033[0m")
+        return
+
+    new_crontab = existing_crontab
+    for entry in entries_to_delete:
+        if entry in existing_crontab:
+            new_crontab = new_crontab.replace(entry, "")
+
+    if new_crontab != existing_crontab:
+        subprocess.call(f"echo '{new_crontab}' | crontab -", shell=True)
+        display_notification("\033[92mDeleting Previous Crons..\033[0m")
+    else:
+        print("\033[91mNothing Found, moving on..!\033[0m")             
+def delete_cron1():
     entries_to_delete = [
         "0 * * * * /etc/res.sh",
         "0 */2 * * * /etc/res.sh",
@@ -281,6 +1069,7 @@ def delete_cron():
         display_notification("\033[92mDeleting Previous Crons..\033[0m")
     else:
         print("\033[91mNothing Found, moving on..!\033[0m") 
+        
 def timez():
     os.system("clear")
     print('\033[92m ^ ^\033[0m')
@@ -291,7 +1080,6 @@ def timez():
     print('1. \033[93mHour \033[0m')
     print('2. \033[92mMinutes \033[0m')
     print('0. \033[34mBack to main menu \033[0m')
-
     print("\033[93m───────────────────────────────────────\033[0m")
 
     while True:
@@ -308,11 +1096,73 @@ def timez():
             break
         else:
             print('Invalid choice.') 
-            
+
 def hourz():
+    os.system("clear")
+    print('\033[92m ^ ^\033[0m')
+    print('\033[92m(\033[91mO,O\033[92m)\033[0m')
+    print('\033[92m(   ) \033[96mReset Timer based on Hours \033[0m')
+    print('\033[92m "-"\033[93m════════════════════════════════════\033[0m')
+    print("\033[93m───────────────────────────────────────\033[0m")
+    print('1. \033[93mTCP | Loadbalance \033[0m')
+    print('2. \033[96mKCP \033[0m')
+    print('3. \033[92mQuic \033[0m')
+    print('0. \033[34mBack to main menu \033[0m')
+    print("\033[93m───────────────────────────────────────\033[0m")
+
+    while True:
+        server_type = input('\033[38;5;205mEnter your choice Please: \033[0m')
+        if server_type == '1':
+            hourz1()
+            break
+        elif server_type == '2':
+            hourz2()
+            break
+        elif server_type == '3':
+            hourz3()
+            break
+        elif server_type == '0':
+            os.system("clear")
+            timez()
+            break
+        else:
+            print('Invalid choice.') 
+
+def minutes():
+    os.system("clear")
+    print('\033[92m ^ ^\033[0m')
+    print('\033[92m(\033[91mO,O\033[92m)\033[0m')
+    print('\033[92m(   ) \033[96mReset Timer based on minutes \033[0m')
+    print('\033[92m "-"\033[93m════════════════════════════════════\033[0m')
+    print("\033[93m───────────────────────────────────────\033[0m")
+    print('1. \033[93mTCP | Loadbalance \033[0m')
+    print('2. \033[92mKCP \033[0m')
+    print('3. \033[96mQuic \033[0m')
+    print('0. \033[34mBack to main menu \033[0m')
+    print("\033[93m───────────────────────────────────────\033[0m")
+
+    while True:
+        server_type = input('\033[38;5;205mEnter your choice Please: \033[0m')
+        if server_type == '1':
+            minutes1()
+            break
+        elif server_type == '2':
+            minutes2()
+            break
+        elif server_type == '3':
+            minutes3()
+            break
+        elif server_type == '0':
+            os.system("clear")
+            timez()
+            break
+        else:
+            print('Invalid choice.') 
+            
+def hourz1():
    
     hours = int(input("\033[93mEnter the \033[92mReset Timer\033[93m [in hours]:\033[0m "))
-    delete_cron()
+    delete_cron1()
     delete_cron2()
 
     if hours == 1:
@@ -332,9 +1182,55 @@ def hourz():
     except subprocess.CalledProcessError as e:
         display_error(f"Failed to add cron entry. Error: {e}")
 
-def minutes():
+def hourz2():
+   
+    hours = int(input("\033[93mEnter the \033[92mReset Timer\033[93m [in hours]:\033[0m "))
+    delete_cron3()
+    delete_cron4()
+
+    if hours == 1:
+        cron_entry = "0 * * * * /etc/resd.sh"
+    else:
+        cron_entry = f"0 */{hours} * * * /etc/resd.sh"
+
+    try:
+        existing_crontab = subprocess.check_output("crontab -l", shell=True).decode()
+    except subprocess.CalledProcessError:
+        print("\033[91mNo existing cron found!\033[0m")
+
+    new_crontab = f"{existing_crontab.rstrip()}\n{cron_entry}"
+    try:
+        subprocess.check_output(f'echo "{new_crontab}" | crontab -', shell=True)
+        display_checkmark("\033[92mCron entry added successfully!\033[0m")
+    except subprocess.CalledProcessError as e:
+        display_error(f"Failed to add cron entry. Error: {e}")
+        
+def hourz3():
+   
+    hours = int(input("\033[93mEnter the \033[92mReset Timer\033[93m [in hours]:\033[0m "))
+    delete_cron5()
+    delete_cron6()
+
+    if hours == 1:
+        cron_entry = "0 * * * * /etc/resq.sh"
+    else:
+        cron_entry = f"0 */{hours} * * * /etc/resq.sh"
+
+    try:
+        existing_crontab = subprocess.check_output("crontab -l", shell=True).decode()
+    except subprocess.CalledProcessError:
+        print("\033[91mNo existing cron found!\033[0m")
+
+    new_crontab = f"{existing_crontab.rstrip()}\n{cron_entry}"
+    try:
+        subprocess.check_output(f'echo "{new_crontab}" | crontab -', shell=True)
+        display_checkmark("\033[92mCron entry added successfully!\033[0m")
+    except subprocess.CalledProcessError as e:
+        display_error(f"Failed to add cron entry. Error: {e}")   
+        
+def minutes1():
     minutes = int(input("\033[93mEnter the \033[92mReset Timer\033[93m [in minutes]:\033[0m "))
-    delete_cron()
+    delete_cron1()
     delete_cron2()
 
     cron_entry = f"*/{minutes} * * * * /etc/res.sh"
@@ -349,8 +1245,211 @@ def minutes():
         subprocess.check_output(f'echo "{new_crontab}" | crontab -', shell=True)
         display_checkmark("\033[92mCron entry added successfully!\033[0m")
     except subprocess.CalledProcessError as e:
-        display_error(f"Failed to add cron entry. Error: {e}")  
+        display_error(f"Failed to add cron entry. Error: {e}") 
+
+def minutes2():
+    minutes = int(input("\033[93mEnter the \033[92mReset Timer\033[93m [in minutes]:\033[0m "))
+    delete_cron3()
+    delete_cron4()
+
+    cron_entry = f"*/{minutes} * * * * /etc/resd.sh"
+
+    try:
+        existing_crontab = subprocess.check_output("crontab -l", shell=True).decode()
+    except subprocess.CalledProcessError:
+        print("\033[91mNo existing cron found!\033[0m")
+
+    new_crontab = f"{existing_crontab.rstrip()}\n{cron_entry}"
+    try:
+        subprocess.check_output(f'echo "{new_crontab}" | crontab -', shell=True)
+        display_checkmark("\033[92mCron entry added successfully!\033[0m")
+    except subprocess.CalledProcessError as e:
+        display_error(f"Failed to add cron entry. Error: {e}")   
         
+def minutes3():
+    minutes = int(input("\033[93mEnter the \033[92mReset Timer\033[93m [in minutes]:\033[0m "))
+    delete_cron5()
+    delete_cron6()
+
+    cron_entry = f"*/{minutes} * * * * /etc/resq.sh"
+
+    try:
+        existing_crontab = subprocess.check_output("crontab -l", shell=True).decode()
+    except subprocess.CalledProcessError:
+        print("\033[91mNo existing cron found!\033[0m")
+
+    new_crontab = f"{existing_crontab.rstrip()}\n{cron_entry}"
+    try:
+        subprocess.check_output(f'echo "{new_crontab}" | crontab -', shell=True)
+        display_checkmark("\033[92mCron entry added successfully!\033[0m")
+    except subprocess.CalledProcessError as e:
+        display_error(f"Failed to add cron entry. Error: {e}") 
+
+def delete_cron6():
+    entries_to_delete = [
+        "*/1 * * * * /etc/resq.sh",  
+        "*/2 * * * * /etc/resq.sh",  
+        "*/3 * * * * /etc/resq.sh",  
+        "*/4 * * * * /etc/resq.sh",  
+        "*/5 * * * * /etc/resq.sh",  
+        "*/6 * * * * /etc/resq.sh",
+        "*/7 * * * * /etc/resq.sh",
+        "*/8 * * * * /etc/resq.sh",
+        "*/9 * * * * /etc/resq.sh",
+        "*/10 * * * * /etc/resq.sh",  
+        "*/11 * * * * /etc/resq.sh",  
+        "*/12 * * * * /etc/resq.sh", 
+        "*/13 * * * * /etc/resq.sh",
+        "*/14 * * * * /etc/resq.sh",
+        "*/15 * * * * /etc/resq.sh",
+        "*/16 * * * * /etc/resq.sh",
+        "*/17 * * * * /etc/resq.sh",
+        "*/18 * * * * /etc/resq.sh",
+        "*/19 * * * * /etc/resq.sh",
+        "*/20 * * * * /etc/resq.sh",
+        "*/21 * * * * /etc/resq.sh",
+        "*/22 * * * * /etc/resq.sh",
+        "*/23 * * * * /etc/resq.sh",
+        "*/24 * * * * /etc/resq.sh",
+        "*/25 * * * * /etc/resq.sh",
+        "*/26 * * * * /etc/resq.sh",
+        "*/27 * * * * /etc/resq.sh",
+        "*/28 * * * * /etc/resq.sh",
+        "*/29 * * * * /etc/resq.sh",
+        "*/30 * * * * /etc/resq.sh",
+        "*/31 * * * * /etc/resq.sh",
+        "*/32 * * * * /etc/resq.sh",
+        "*/33 * * * * /etc/resq.sh",
+        "*/34 * * * * /etc/resq.sh",
+        "*/35 * * * * /etc/resq.sh",
+        "*/36 * * * * /etc/resq.sh",
+        "*/37 * * * * /etc/resq.sh",
+        "*/38 * * * * /etc/resq.sh",
+        "*/39 * * * * /etc/resq.sh",
+        "*/40 * * * * /etc/resq.sh",
+        "*/41 * * * * /etc/resq.sh",
+        "*/42 * * * * /etc/resq.sh",
+        "*/43 * * * * /etc/resq.sh",
+        "*/44 * * * * /etc/resq.sh",
+        "*/45 * * * * /etc/resq.sh",
+        "*/46 * * * * /etc/resq.sh",
+        "*/47 * * * * /etc/resq.sh",
+        "*/48 * * * * /etc/resq.sh",
+        "*/49 * * * * /etc/resq.sh",
+        "*/50 * * * * /etc/resq.sh",
+        "*/51 * * * * /etc/resq.sh",
+        "*/52 * * * * /etc/resq.sh",
+        "*/53 * * * * /etc/resq.sh",
+        "*/54 * * * * /etc/resq.sh",
+        "*/55 * * * * /etc/resq.sh",
+        "*/56 * * * * /etc/resq.sh",
+        "*/57 * * * * /etc/resq.sh",
+        "*/58 * * * * /etc/resq.sh",
+        "*/59 * * * * /etc/resq.sh",
+        
+        
+    ]
+
+    existing_crontab = ""
+    try:
+        existing_crontab = subprocess.check_output("crontab -l", shell=True).decode()
+    except subprocess.CalledProcessError:
+        print("\033[91mNo existing cron found!\033[0m")
+        return
+
+    new_crontab = existing_crontab
+    for entry in entries_to_delete:
+        if entry in existing_crontab:
+            new_crontab = new_crontab.replace(entry, "")
+
+    if new_crontab != existing_crontab:
+        subprocess.call(f"echo '{new_crontab}' | crontab -", shell=True)
+        display_notification("\033[92mDeleting Previous Crons..\033[0m")
+    else:
+        print("\033[91mCron doesn't exist, moving on..!\033[0m") 
+        
+def delete_cron4():
+    entries_to_delete = [
+        "*/1 * * * * /etc/resd.sh",  
+        "*/2 * * * * /etc/resd.sh",  
+        "*/3 * * * * /etc/resd.sh",  
+        "*/4 * * * * /etc/resd.sh",  
+        "*/5 * * * * /etc/resd.sh",  
+        "*/6 * * * * /etc/resd.sh",
+        "*/7 * * * * /etc/resd.sh",
+        "*/8 * * * * /etc/resd.sh",
+        "*/9 * * * * /etc/resd.sh",
+        "*/10 * * * * /etc/resd.sh",  
+        "*/11 * * * * /etc/resd.sh",  
+        "*/12 * * * * /etc/resd.sh", 
+        "*/13 * * * * /etc/resd.sh",
+        "*/14 * * * * /etc/resd.sh",
+        "*/15 * * * * /etc/resd.sh",
+        "*/16 * * * * /etc/resd.sh",
+        "*/17 * * * * /etc/resd.sh",
+        "*/18 * * * * /etc/resd.sh",
+        "*/19 * * * * /etc/resd.sh",
+        "*/20 * * * * /etc/resd.sh",
+        "*/21 * * * * /etc/resd.sh",
+        "*/22 * * * * /etc/resd.sh",
+        "*/23 * * * * /etc/resd.sh",
+        "*/24 * * * * /etc/resd.sh",
+        "*/25 * * * * /etc/resd.sh",
+        "*/26 * * * * /etc/resd.sh",
+        "*/27 * * * * /etc/resd.sh",
+        "*/28 * * * * /etc/resd.sh",
+        "*/29 * * * * /etc/resd.sh",
+        "*/30 * * * * /etc/resd.sh",
+        "*/31 * * * * /etc/resd.sh",
+        "*/32 * * * * /etc/resd.sh",
+        "*/33 * * * * /etc/resd.sh",
+        "*/34 * * * * /etc/resd.sh",
+        "*/35 * * * * /etc/resd.sh",
+        "*/36 * * * * /etc/resd.sh",
+        "*/37 * * * * /etc/resd.sh",
+        "*/38 * * * * /etc/resd.sh",
+        "*/39 * * * * /etc/resd.sh",
+        "*/40 * * * * /etc/resd.sh",
+        "*/41 * * * * /etc/resd.sh",
+        "*/42 * * * * /etc/resd.sh",
+        "*/43 * * * * /etc/resd.sh",
+        "*/44 * * * * /etc/resd.sh",
+        "*/45 * * * * /etc/resd.sh",
+        "*/46 * * * * /etc/resd.sh",
+        "*/47 * * * * /etc/resd.sh",
+        "*/48 * * * * /etc/resd.sh",
+        "*/49 * * * * /etc/resd.sh",
+        "*/50 * * * * /etc/resd.sh",
+        "*/51 * * * * /etc/resd.sh",
+        "*/52 * * * * /etc/resd.sh",
+        "*/53 * * * * /etc/resd.sh",
+        "*/54 * * * * /etc/resd.sh",
+        "*/55 * * * * /etc/resd.sh",
+        "*/56 * * * * /etc/resd.sh",
+        "*/57 * * * * /etc/resd.sh",
+        "*/58 * * * * /etc/resd.sh",
+        "*/59 * * * * /etc/resd.sh",
+        
+        
+    ]
+
+    existing_crontab = ""
+    try:
+        existing_crontab = subprocess.check_output("crontab -l", shell=True).decode()
+    except subprocess.CalledProcessError:
+        print("\033[91mNo existing cron found!\033[0m")
+        return
+
+    new_crontab = existing_crontab
+    for entry in entries_to_delete:
+        if entry in existing_crontab:
+            new_crontab = new_crontab.replace(entry, "")
+
+    if new_crontab != existing_crontab:
+        subprocess.call(f"echo '{new_crontab}' | crontab -", shell=True)
+        display_notification("\033[92mDeleting Previous Crons..\033[0m")
+    else:
+        print("\033[91mCron doesn't exist, moving on..!\033[0m")            
 def delete_cron2():
     entries_to_delete = [
         "*/1 * * * * /etc/res.sh",  
@@ -433,21 +1532,81 @@ def delete_cron2():
         display_notification("\033[92mDeleting Previous Crons..\033[0m")
     else:
         print("\033[91mCron doesn't exist, moving on..!\033[0m")          
-            
-def res_in():
-    if subprocess.call("test -f /etc/res.sh", shell=True) == 0:
-        subprocess.call("sudo rm /etc/res.sh", shell=True)
 
-    with open("/etc/res.sh", "w") as f:
+def res_iq():
+    if subprocess.call("test -f /etc/resq.sh", shell=True) == 0:
+        subprocess.call("sudo rm /etc/resq.sh", shell=True)
+
+    with open("/etc/resq.sh", "w") as f:
+        f.write("#!/bin/bash\n")
+        f.write("sudo kill -9 $(pgrep frps)\n")
+        f.write("sudo systemctl daemon-reload\n")
+        f.write("sudo systemctl restart azumifrps_quic\n")
+        f.write("sudo journalctl --vacuum-size=1M\n")
+
+    subprocess.call("chmod +x /etc/resq.sh", shell=True)
+
+    existing_entry = "0 * * * * /etc/resq.sh"
+    existing_crontab = ""
+
+    try:
+        existing_crontab = subprocess.check_output("crontab -l", shell=True).decode()
+    except subprocess.CalledProcessError:
+        print("\033[91mNo existing crontab found.\033[0m")
+
+    if existing_entry in existing_crontab:
+        print("\033[91mCrontab already exists.\033[0m")
+    else:
+        new_crontab = existing_crontab.strip() + "\n0 * * * * /etc/resq.sh\n"
+        subprocess.call("echo '{}' | crontab -".format(new_crontab), shell=True)
+        display_checkmark("\033[92m1 hour reset timer added!\033[0m")
+
+    display_checkmark("\033[92mIT IS DONE.!\033[0m")
+	
+def res_kq():
+    if subprocess.call("test -f /etc/resq.sh", shell=True) == 0:
+        subprocess.call("sudo rm /etc/resq.sh", shell=True)
+
+    with open("/etc/resq.sh", "w") as f:
+        f.write("#!/bin/bash\n")
+        f.write("sudo kill -9 $(pgrep frpc)\n")  
+        f.write("sudo systemctl daemon-reload\n")
+        f.write("sudo systemctl restart azumifrpc_quic\n")
+        f.write("sudo journalctl --vacuum-size=1M\n") 
+
+    subprocess.call("chmod +x /etc/resq.sh", shell=True)
+    
+    existing_entry = "0 * * * * /etc/resq.sh"
+    existing_crontab = ""
+
+    try:
+        existing_crontab = subprocess.check_output("crontab -l", shell=True).decode()
+    except subprocess.CalledProcessError:
+        print("\033[91mNo existing crontab found.\033[0m")
+
+    if existing_entry in existing_crontab:
+        print("\033[91mCrontab already exists.\033[0m")
+    else:
+        new_crontab = existing_crontab.strip() + "\n0 * * * * /etc/resq.sh\n"
+        subprocess.call("echo '{}' | crontab -".format(new_crontab), shell=True)
+        display_checkmark("\033[92m2 hour reset timer added!\033[0m")
+
+    display_checkmark("\033[92mIT IS DONE.!\033[0m")
+    
+def res_in():
+    if subprocess.call("test -f /etc/resd.sh", shell=True) == 0:
+        subprocess.call("sudo rm /etc/resd.sh", shell=True)
+
+    with open("/etc/resd.sh", "w") as f:
         f.write("#!/bin/bash\n")
         f.write("sudo kill -9 $(pgrep frps)\n")
         f.write("sudo systemctl daemon-reload\n")
         f.write("sudo systemctl restart azumifrps_KCP\n")
         f.write("sudo journalctl --vacuum-size=1M\n")
 
-    subprocess.call("chmod +x /etc/res.sh", shell=True)
+    subprocess.call("chmod +x /etc/resd.sh", shell=True)
 
-    existing_entry = "0 */2 * * * /etc/res.sh"
+    existing_entry = "0 * * * * /etc/resd.sh"
     existing_crontab = ""
 
     try:
@@ -458,26 +1617,26 @@ def res_in():
     if existing_entry in existing_crontab:
         print("\033[91mCrontab already exists.\033[0m")
     else:
-        new_crontab = existing_crontab.strip() + "\n0 */2 * * * /etc/res.sh\n"
+        new_crontab = existing_crontab.strip() + "\n0 * * * * /etc/resd.sh\n"
         subprocess.call("echo '{}' | crontab -".format(new_crontab), shell=True)
         display_checkmark("\033[92m2 hour reset timer added!\033[0m")
 
     display_checkmark("\033[92mIT IS DONE.!\033[0m")
 	
 def res_kn():
-    if subprocess.call("test -f /etc/res.sh", shell=True) == 0:
-        subprocess.call("sudo rm /etc/res.sh", shell=True)
+    if subprocess.call("test -f /etc/resd.sh", shell=True) == 0:
+        subprocess.call("sudo rm /etc/resd.sh", shell=True)
 
-    with open("/etc/res.sh", "w") as f:
+    with open("/etc/resd.sh", "w") as f:
         f.write("#!/bin/bash\n")
         f.write("sudo kill -9 $(pgrep frpc)\n")  
         f.write("sudo systemctl daemon-reload\n")
         f.write("sudo systemctl restart azumifrpc_KCP\n")
         f.write("sudo journalctl --vacuum-size=1M\n") 
 
-    subprocess.call("chmod +x /etc/res.sh", shell=True)
+    subprocess.call("chmod +x /etc/resd.sh", shell=True)
     
-    existing_entry = "0 */2 * * * /etc/res.sh"
+    existing_entry = "0 * * * * /etc/resd.sh"
     existing_crontab = ""
 
     try:
@@ -488,9 +1647,9 @@ def res_kn():
     if existing_entry in existing_crontab:
         print("\033[91mCrontab already exists.\033[0m")
     else:
-        new_crontab = existing_crontab.strip() + "\n0 */2 * * * /etc/res.sh\n"
+        new_crontab = existing_crontab.strip() + "\n0 * * * * /etc/resd.sh\n"
         subprocess.call("echo '{}' | crontab -".format(new_crontab), shell=True)
-        display_checkmark("\033[92m2 hour reset timer added!\033[0m")
+        display_checkmark("\033[92m1 hour reset timer added!\033[0m")
 
     display_checkmark("\033[92mIT IS DONE.!\033[0m")
 	
@@ -515,10 +1674,10 @@ def iran_kcp():
 
     num_instances = len(local_ports_list)
 
-    if os.path.exists("frp/frps.toml"):
-        os.remove("frp/frps.toml")
+    if os.path.exists("frp/frpsd.toml"):
+        os.remove("frp/frpsd.toml")
 
-    with open("frp/frps.toml", "w") as f:
+    with open("frp/frpsd.toml", "w") as f:
         f.write("[common]\n")
         kcpbind_port = input("\033[93mEnter \033[92mKCP Port\033[93m: \033[0m")
         f.write("bind_port = {}\n".format(kcpbind_port))
@@ -538,7 +1697,7 @@ def iran_kcp():
 
     
     service_name = "azumifrps_KCP"
-    frps_path = "/root/frp/frps.toml"
+    frps_path = "/root/frp/frpsd.toml"
 
     service_content = f'''[Unit]
 Description=frps service
@@ -596,10 +1755,10 @@ def kharej1_kcp():
 
     iran_ipv6 = input("\033[93mEnter \033[92mIRAN\033[93m IPV4/IPv6 address: \033[0m")
 
-    if os.path.exists("frp/frpc.toml"):
-        os.remove("frp/frpc.toml")
+    if os.path.exists("frp/frpcd.toml"):
+        os.remove("frp/frpcd.toml")
 
-    with open("frp/frpc.toml", "w") as f:
+    with open("frp/frpcd.toml", "w") as f:
         f.write("[common]\n")
         f.write("server_addr = {}\n".format(iran_ipv6))
         server_port = input("\033[93mEnter \033[92mKCP port\033[93m : \033[0m")
@@ -628,7 +1787,7 @@ def kharej1_kcp():
 
         v2ray_number = starting_v2ray_number
 
-        with open("frp/frpc.toml", "a") as f:
+        with open("frp/frpcd.toml", "a") as f:
             f.write("\n")
             f.write("[v2ray{}]\n".format(v2ray_number))
             f.write("type = tcp\n")
@@ -646,7 +1805,7 @@ def kharej1_kcp():
     time.sleep(1)
 
     service_name = "azumifrpc_KCP"
-    frps_path = "/root/frp/frpc.toml"
+    frps_path = "/root/frp/frpcd.toml"
 
     service_content = f'''[Unit]
 Description=frpc service
@@ -712,10 +1871,10 @@ def kharej2_kcp():
 
     iran_ipv6 = input("\033[93mEnter \033[92mIRAN\033[93m IPV4/IPv6 address: \033[0m")
 
-    if os.path.exists("frp/frpc.toml"):
-        os.remove("frp/frpc.toml")
+    if os.path.exists("frp/frpcd.toml"):
+        os.remove("frp/frpcd.toml")
 
-    with open("frp/frpc.toml", "w") as f:
+    with open("frp/frpcd.toml", "w") as f:
         f.write("[common]\n")
         f.write("server_addr = {}\n".format(iran_ipv6))
         server_port = input("\033[93mEnter \033[92mKCP port\033[93m: \033[0m")
@@ -744,7 +1903,7 @@ def kharej2_kcp():
 
         v2ray_number = starting_v2ray_number
 
-        with open("frp/frpc.toml", "a") as f:
+        with open("frp/frpcd.toml", "a") as f:
             f.write("\n")
             f.write("[v2ray{}]\n".format(v2ray_number))
             f.write("type = tcp\n")
@@ -762,7 +1921,7 @@ def kharej2_kcp():
     time.sleep(1)
 
     service_name = "azumifrpc_KCP"
-    frps_path = "/root/frp/frpc.toml"
+    frps_path = "/root/frp/frpcd.toml"
 
     service_content = f'''[Unit]
 Description=frpc service
@@ -828,10 +1987,10 @@ def kharej3_kcp():
 
     iran_ipv6 = input("\033[93mEnter \033[92mIRAN\033[93m IPV4/IPv6 address: \033[0m")
 
-    if os.path.exists("frp/frpc.toml"):
-        os.remove("frp/frpc.toml")
+    if os.path.exists("frp/frpcd.toml"):
+        os.remove("frp/frpcd.toml")
 
-    with open("frp/frpc.toml", "w") as f:
+    with open("frp/frpcd.toml", "w") as f:
         f.write("[common]\n")
         f.write("server_addr = {}\n".format(iran_ipv6))
         server_port = input("\033[93mEnter \033[92mKCP port\033[93m: \033[0m")
@@ -860,7 +2019,7 @@ def kharej3_kcp():
 
         v2ray_number = starting_v2ray_number
 
-        with open("frp/frpc.toml", "a") as f:
+        with open("frp/frpcd.toml", "a") as f:
             f.write("\n")
             f.write("[v2ray{}]\n".format(v2ray_number))
             f.write("type = tcp\n")
@@ -878,7 +2037,7 @@ def kharej3_kcp():
     time.sleep(1)
 
     service_name = "azumifrpc_KCP"
-    frps_path = "/root/frp/frpc.toml"
+    frps_path = "/root/frp/frpcd.toml"
 
     service_content = f'''[Unit]
 Description=frpc service
@@ -944,10 +2103,10 @@ def kharej4_kcp():
 
     iran_ipv6 = input("\033[93mEnter \033[92mIRAN\033[93m IPV4/IPv6 address: \033[0m")
 
-    if os.path.exists("frp/frpc.toml"):
-        os.remove("frp/frpc.toml")
+    if os.path.exists("frp/frpcd.toml"):
+        os.remove("frp/frpcd.toml")
 
-    with open("frp/frpc.toml", "w") as f:
+    with open("frp/frpcd.toml", "w") as f:
         f.write("[common]\n")
         f.write("server_addr = {}\n".format(iran_ipv6))
         server_port = input("\033[93mEnter \033[92mKCP port\033[93m: \033[0m")
@@ -976,7 +2135,7 @@ def kharej4_kcp():
 
         v2ray_number = starting_v2ray_number
 
-        with open("frp/frpc.toml", "a") as f:
+        with open("frp/frpcd.toml", "a") as f:
             f.write("\n")
             f.write("[v2ray{}]\n".format(v2ray_number))
             f.write("type = tcp\n")
@@ -994,7 +2153,7 @@ def kharej4_kcp():
     time.sleep(1)
 
     service_name = "azumifrpc_KCP"
-    frps_path = "/root/frp/frpc.toml"
+    frps_path = "/root/frp/frpcd.toml"
 
     service_content = f'''[Unit]
 Description=frpc service
@@ -1059,10 +2218,10 @@ def kharej5_kcp():
 
     iran_ipv6 = input("\033[93mEnter \033[92mIRAN\033[93m IPV4/IPv6 address: \033[0m")
 
-    if os.path.exists("frp/frpc.toml"):
-        os.remove("frp/frpc.toml")
+    if os.path.exists("frp/frpcd.toml"):
+        os.remove("frp/frpcd.toml")
 
-    with open("frp/frpc.toml", "w") as f:
+    with open("frp/frpcd.toml", "w") as f:
         f.write("[common]\n")
         f.write("server_addr = {}\n".format(iran_ipv6))
         server_port = input("\033[93mEnter \033[92mKCP port\033[93m: \033[0m")
@@ -1091,7 +2250,7 @@ def kharej5_kcp():
 
         v2ray_number = starting_v2ray_number
 
-        with open("frp/frpc.toml", "a") as f:
+        with open("frp/frpcd.toml", "a") as f:
             f.write("\n")
             f.write("[v2ray{}]\n".format(v2ray_number))
             f.write("type = tcp\n")
@@ -1109,7 +2268,7 @@ def kharej5_kcp():
     time.sleep(1)
 
     service_name = "azumifrpc_KCP"
-    frps_path = "/root/frp/frpc.toml"
+    frps_path = "/root/frp/frpcd.toml"
 
     service_content = f'''[Unit]
 Description=frpc service
@@ -1186,7 +2345,7 @@ def res_tcp():
 
     subprocess.call("chmod +x /etc/res.sh", shell=True)
     
-    existing_entry = "0 */2 * * * /etc/res.sh"
+    existing_entry = "0 * * * * /etc/res.sh"
     existing_crontab = ""
 
     try:
@@ -1197,9 +2356,9 @@ def res_tcp():
     if existing_entry in existing_crontab:
         print("\033[91mCrontab already exists.\033[0m")
     else:
-        new_crontab = existing_crontab.strip() + "\n0 */2 * * * /etc/res.sh\n"
+        new_crontab = existing_crontab.strip() + "\n0 * * * * /etc/res.sh\n"
         subprocess.call("echo '{}' | crontab -".format(new_crontab), shell=True)
-        display_checkmark("\033[92m2-hour reset timer added!\033[0m")
+        display_checkmark("\033[92m1 hour reset timer added!\033[0m")
 
     display_checkmark("\033[92mIT IS DONE!\033[0m")
 
@@ -1217,7 +2376,7 @@ def res_tcp2():
 
     subprocess.call("chmod +x /etc/res.sh", shell=True)
     
-    existing_entry = "0 */2 * * * /etc/res.sh"
+    existing_entry = "0 * * * * /etc/res.sh"
     existing_crontab = ""
 
     try:
@@ -1228,9 +2387,9 @@ def res_tcp2():
     if existing_entry in existing_crontab:
         print("\033[91mCrontab already exists.\033[0m")
     else:
-        new_crontab = existing_crontab.strip() + "\n0 */2 * * * /etc/res.sh\n"
+        new_crontab = existing_crontab.strip() + "\n0 * * * * /etc/res.sh\n"
         subprocess.call("echo '{}' | crontab -".format(new_crontab), shell=True)
-        display_checkmark("\033[92m2 hour reset timer added!\033[0m")
+        display_checkmark("\033[92m1 hour reset timer added!\033[0m")
 
     display_checkmark("\033[92mIT IS DONE.!\033[0m")
 	
@@ -1247,7 +2406,7 @@ def res_li():
 
     subprocess.call("chmod +x /etc/res.sh", shell=True)
     
-    existing_entry = "0 */2 * * * /etc/res.sh"
+    existing_entry = "0 * * * * /etc/res.sh"
     existing_crontab = ""
 
     try:
@@ -1258,9 +2417,9 @@ def res_li():
     if existing_entry in existing_crontab:
         print("\033[91mCrontab already exists.\033[0m")
     else:
-        new_crontab = existing_crontab.strip() + "\n0 */2 * * * /etc/res.sh\n"
+        new_crontab = existing_crontab.strip() + "\n0 * * * * /etc/res.sh\n"
         subprocess.call("echo '{}' | crontab -".format(new_crontab), shell=True)
-        display_checkmark("\033[92m2 hour reset timer added!\033[0m")
+        display_checkmark("\033[92m1 hour reset timer added!\033[0m")
 
     display_checkmark("\033[92mIT IS DONE.!\033[0m")
     
@@ -1278,7 +2437,7 @@ def res_lk():
 
     subprocess.call("chmod +x /etc/res.sh", shell=True)
     
-    existing_entry = "0 */2 * * * /etc/res.sh"
+    existing_entry = "0 * * * * /etc/res.sh"
     existing_crontab = ""
 
     try:
@@ -1289,9 +2448,9 @@ def res_lk():
     if existing_entry in existing_crontab:
         print("\033[91mCrontab already exists.\033[0m")
     else:
-        new_crontab = existing_crontab.strip() + "\n0 */2 * * * /etc/res.sh\n"
+        new_crontab = existing_crontab.strip() + "\n0 * * * * /etc/res.sh\n"
         subprocess.call("echo '{}' | crontab -".format(new_crontab), shell=True)
-        display_checkmark("\033[92m2 hour reset timer added!\033[0m")
+        display_checkmark("\033[92m1 hour reset timer added!\033[0m")
 
     display_checkmark("\033[92mIT IS DONE.!\033[0m")
     
@@ -1308,7 +2467,7 @@ def res_ii3():
 
     subprocess.call("chmod +x /etc/res.sh", shell=True)
     
-    existing_entry = "0 */2 * * * /etc/res.sh"
+    existing_entry = "0 * * * * /etc/res.sh"
     existing_crontab = ""
 
     try:
@@ -1319,9 +2478,9 @@ def res_ii3():
     if existing_entry in existing_crontab:
         print("\033[91mCrontab already exists.\033[0m")
     else:
-        new_crontab = existing_crontab.strip() + "\n0 */2 * * * /etc/res.sh\n"
+        new_crontab = existing_crontab.strip() + "\n0 * * * * /etc/res.sh\n"
         subprocess.call("echo '{}' | crontab -".format(new_crontab), shell=True)
-        display_checkmark("\033[92m2 hour reset timer added!\033[0m")
+        display_checkmark("\033[92m1 hour reset timer added!\033[0m")
 
     display_checkmark("\033[92mIT IS DONE.!\033[0m")
     
@@ -1340,7 +2499,7 @@ def res_ki3():
 
     subprocess.call("chmod +x /etc/res.sh", shell=True)
     
-    existing_entry = "0 */2 * * * /etc/res.sh"
+    existing_entry = "0 * * * * /etc/res.sh"
     existing_crontab = ""
 
     try:
@@ -1351,9 +2510,9 @@ def res_ki3():
     if existing_entry in existing_crontab:
         print("\033[91mCrontab already exists.\033[0m")
     else:
-        new_crontab = existing_crontab.strip() + "\n0 */2 * * * /etc/res.sh\n"
+        new_crontab = existing_crontab.strip() + "\n0 * * * * /etc/res.sh\n"
         subprocess.call("echo '{}' | crontab -".format(new_crontab), shell=True)
-        display_checkmark("\033[92m2 hour reset timer added!\033[0m")
+        display_checkmark("\033[92m1 hour reset timer added!\033[0m")
 
     display_checkmark("\033[92mIT IS DONE.!\033[0m")
     
@@ -1370,7 +2529,7 @@ def res_k1():
 
     subprocess.call("chmod +x /etc/res.sh", shell=True)
     
-    existing_entry = "0 */2 * * * /etc/res.sh"
+    existing_entry = "0 * * * * /etc/res.sh"
     existing_crontab = ""
 
     try:
@@ -1381,9 +2540,9 @@ def res_k1():
     if existing_entry in existing_crontab:
         print("\033[91mCrontab already exists.\033[0m")
     else:
-        new_crontab = existing_crontab.strip() + "\n0 */2 * * * /etc/res.sh\n"
+        new_crontab = existing_crontab.strip() + "\n0 * * * * /etc/res.sh\n"
         subprocess.call("echo '{}' | crontab -".format(new_crontab), shell=True)
-        display_checkmark("\033[92m2 hour reset timer added!\033[0m")
+        display_checkmark("\033[92m1 hour reset timer added!\033[0m")
 
     display_checkmark("\033[92mIT IS DONE.!\033[0m")
     
@@ -1400,7 +2559,7 @@ def res_k2():
 
     subprocess.call("chmod +x /etc/res.sh", shell=True)
     
-    existing_entry = "0 */2 * * * /etc/res.sh"
+    existing_entry = "0 * * * * /etc/res.sh"
     existing_crontab = ""
 
     try:
@@ -1411,9 +2570,9 @@ def res_k2():
     if existing_entry in existing_crontab:
         print("\033[91mCrontab already exists.\033[0m")
     else:
-        new_crontab = existing_crontab.strip() + "\n0 */2 * * * /etc/res.sh\n"
+        new_crontab = existing_crontab.strip() + "\n0 * * * * /etc/res.sh\n"
         subprocess.call("echo '{}' | crontab -".format(new_crontab), shell=True)
-        display_checkmark("\033[92m2 hour reset timer added!\033[0m")
+        display_checkmark("\033[92m1 hour reset timer added!\033[0m")
 
     display_checkmark("\033[92mIT IS DONE.!\033[0m")
     
@@ -1430,7 +2589,7 @@ def res_k3():
 
     subprocess.call("chmod +x /etc/res.sh", shell=True)
     
-    existing_entry = "0 */2 * * * /etc/res.sh"
+    existing_entry = "0 * * * * /etc/res.sh"
     existing_crontab = ""
 
     try:
@@ -1441,9 +2600,9 @@ def res_k3():
     if existing_entry in existing_crontab:
         print("\033[91mCrontab already exists.\033[0m")
     else:
-        new_crontab = existing_crontab.strip() + "\n0 */2 * * * /etc/res.sh\n"
+        new_crontab = existing_crontab.strip() + "\n0 * * * * /etc/res.sh\n"
         subprocess.call("echo '{}' | crontab -".format(new_crontab), shell=True)
-        display_checkmark("\033[92m2 hour reset timer added!\033[0m")
+        display_checkmark("\033[92m1 hour reset timer added!\033[0m")
 
     display_checkmark("\033[92mIT IS DONE.!\033[0m")
     
@@ -1460,7 +2619,7 @@ def res_k4():
 
     subprocess.call("chmod +x /etc/res.sh", shell=True)
     
-    existing_entry = "0 */2 * * * /etc/res.sh"
+    existing_entry = "0 * * * * /etc/res.sh"
     existing_crontab = ""
 
     try:
@@ -1471,9 +2630,9 @@ def res_k4():
     if existing_entry in existing_crontab:
         print("\033[91mCrontab already exists.\033[0m")
     else:
-        new_crontab = existing_crontab.strip() + "\n0 */2 * * * /etc/res.sh\n"
+        new_crontab = existing_crontab.strip() + "\n0 * * * * /etc/res.sh\n"
         subprocess.call("echo '{}' | crontab -".format(new_crontab), shell=True)
-        display_checkmark("\033[92m2 hour reset timer added!\033[0m")
+        display_checkmark("\033[92m1 hour reset timer added!\033[0m")
 
     display_checkmark("\033[92mIT IS DONE.!\033[0m")
     
@@ -1490,7 +2649,7 @@ def res_k5():
 
     subprocess.call("chmod +x /etc/res.sh", shell=True)
     
-    existing_entry = "0 */2 * * * /etc/res.sh"
+    existing_entry = "0 * * * * /etc/res.sh"
     existing_crontab = ""
 
     try:
@@ -1501,9 +2660,9 @@ def res_k5():
     if existing_entry in existing_crontab:
         print("\033[91mCrontab already exists.\033[0m")
     else:
-        new_crontab = existing_crontab.strip() + "\n0 */2 * * * /etc/res.sh\n"
+        new_crontab = existing_crontab.strip() + "\n0 * * * * /etc/res.sh\n"
         subprocess.call("echo '{}' | crontab -".format(new_crontab), shell=True)
-        display_checkmark("\033[92m2 hour reset timer added!\033[0m")
+        display_checkmark("\033[92m1 hour reset timer added!\033[0m")
 
     display_checkmark("\033[92mIT IS DONE.!\033[0m")
     
@@ -1520,7 +2679,7 @@ def res_k6():
 
     subprocess.call("chmod +x /etc/res.sh", shell=True)
     
-    existing_entry = "0 */2 * * * /etc/res.sh"
+    existing_entry = "0 * * * * /etc/res.sh"
     existing_crontab = ""
 
     try:
@@ -1531,9 +2690,9 @@ def res_k6():
     if existing_entry in existing_crontab:
         print("\033[91mCrontab already exists.\033[0m")
     else:
-        new_crontab = existing_crontab.strip() + "\n0 */2 * * * /etc/res.sh\n"
+        new_crontab = existing_crontab.strip() + "\n0 * * * * /etc/res.sh\n"
         subprocess.call("echo '{}' | crontab -".format(new_crontab), shell=True)
-        display_checkmark("\033[92m2 hour reset timer added!\033[0m")
+        display_checkmark("\033[92m1 hour reset timer added!\033[0m")
 
     display_checkmark("\033[92mIT IS DONE.!\033[0m")
     
@@ -1550,7 +2709,7 @@ def res_k7():
 
     subprocess.call("chmod +x /etc/res.sh", shell=True)
     
-    existing_entry = "0 */2 * * * /etc/res.sh"
+    existing_entry = "0 * * * * /etc/res.sh"
     existing_crontab = ""
 
     try:
@@ -1561,9 +2720,9 @@ def res_k7():
     if existing_entry in existing_crontab:
         print("\033[91mCrontab already exists.\033[0m")
     else:
-        new_crontab = existing_crontab.strip() + "\n0 */2 * * * /etc/res.sh\n"
+        new_crontab = existing_crontab.strip() + "\n0 * * * * /etc/res.sh\n"
         subprocess.call("echo '{}' | crontab -".format(new_crontab), shell=True)
-        display_checkmark("\033[92m2 hour reset timer added!\033[0m")
+        display_checkmark("\033[92m1 hour reset timer added!\033[0m")
 
     display_checkmark("\033[92mIT IS DONE.!\033[0m")
     
@@ -1580,7 +2739,7 @@ def res_k8():
 
     subprocess.call("chmod +x /etc/res.sh", shell=True)
     
-    existing_entry = "0 */2 * * * /etc/res.sh"
+    existing_entry = "0 * * * * /etc/res.sh"
     existing_crontab = ""
 
     try:
@@ -1591,9 +2750,9 @@ def res_k8():
     if existing_entry in existing_crontab:
         print("\033[91mCrontab already exists.\033[0m")
     else:
-        new_crontab = existing_crontab.strip() + "\n0 */2 * * * /etc/res.sh\n"
+        new_crontab = existing_crontab.strip() + "\n0 * * * * /etc/res.sh\n"
         subprocess.call("echo '{}' | crontab -".format(new_crontab), shell=True)
-        display_checkmark("\033[92m2 hour reset timer added!\033[0m")
+        display_checkmark("\033[92m1 hour reset timer added!\033[0m")
 
     display_checkmark("\033[92mIT IS DONE.!\033[0m")
     
@@ -1610,7 +2769,7 @@ def res_k9():
         
     subprocess.call("chmod +x /etc/res.sh", shell=True)
     
-    existing_entry = "0 */2 * * * /etc/res.sh"
+    existing_entry = "0 * * * * /etc/res.sh"
     existing_crontab = ""
 
     try:
@@ -1621,9 +2780,9 @@ def res_k9():
     if existing_entry in existing_crontab:
         print("\033[91mCrontab already exists.\033[0m")
     else:
-        new_crontab = existing_crontab.strip() + "\n0 */2 * * * /etc/res.sh\n"
+        new_crontab = existing_crontab.strip() + "\n0 * * * * /etc/res.sh\n"
         subprocess.call("echo '{}' | crontab -".format(new_crontab), shell=True)
-        display_checkmark("\033[92m2 hour reset timer added!\033[0m")
+        display_checkmark("\033[92m1 hour reset timer added!\033[0m")
 
     display_checkmark("\033[92mIT IS DONE.!\033[0m")
     
@@ -1640,7 +2799,7 @@ def res_k10():
 
     subprocess.call("chmod +x /etc/res.sh", shell=True)
 
-    existing_entry = "0 */2 * * * /etc/res.sh"
+    existing_entry = "0 * * * * /etc/res.sh"
     existing_crontab = ""
 
     try:
@@ -1651,9 +2810,9 @@ def res_k10():
     if existing_entry in existing_crontab:
         print("\033[91mCrontab already exists.\033[0m")
     else:
-        new_crontab = existing_crontab.strip() + "\n0 */2 * * * /etc/res.sh\n"
+        new_crontab = existing_crontab.strip() + "\n0 * * * * /etc/res.sh\n"
         subprocess.call("echo '{}' | crontab -".format(new_crontab), shell=True)
-        display_checkmark("\033[92m2 hour reset timer added!\033[0m")
+        display_checkmark("\033[92m1 hour reset timer added!\033[0m")
 
     display_checkmark("\033[92mIT IS DONE.!\033[0m")
 
@@ -1670,7 +2829,7 @@ def res_i():
 
     subprocess.call("chmod +x /etc/res.sh", shell=True)
 
-    existing_entry = "0 */2 * * * /etc/res.sh"
+    existing_entry = "0 * * * * /etc/res.sh"
     existing_crontab = ""
 
     try:
@@ -1681,9 +2840,9 @@ def res_i():
     if existing_entry in existing_crontab:
         print("\033[91mCrontab already exists.\033[0m")
     else:
-        new_crontab = existing_crontab.strip() + "\n0 */2 * * * /etc/res.sh\n"
+        new_crontab = existing_crontab.strip() + "\n0 * * * * /etc/res.sh\n"
         subprocess.call("echo '{}' | crontab -".format(new_crontab), shell=True)
-        display_checkmark("\033[92m2 hour reset timer added!\033[0m")
+        display_checkmark("\033[92m1 hour reset timer added!\033[0m")
 
     display_checkmark("\033[92mIT IS DONE.!\033[0m")
     
@@ -1697,7 +2856,7 @@ def clear_c():
     with open(script_path, 'w') as f:
         f.write(script_content)
 
-    cron_command = f'0 */2 * * * sh {script_path}'
+    cron_command = f'0 * * * * sh {script_path}'
     os.system(f'(crontab -l | grep -v "{script_path}") | crontab -')
     os.system(f'(crontab -l 2>/dev/null; echo "{cron_command}") | crontab -')
         
@@ -1711,11 +2870,12 @@ def start_menu():
     print("\033[93m╭───────────────────────────────────────╮\033[0m")
     print('\033[93mChoose what to do:\033[0m')
     print('1. \033[92mTCP Tunnel SERVICE \033[0m')
-    print('2. \033[92mKCP Tunnel SERVICE \033[0m')
-    print('3. \033[93mLoadBalance Single Server SERVICE \033[0m')
-    print('4. \033[96mLoadBalance [10] Kharej [1] IRAN SERVICE \033[0m')
-    print('5. \033[97mLoadBalance [1] Kharej [3] IRAN SERVICE  \033[0m')
-    print('6. \033[94mBack to the main menu\033[0m')
+    print('2. \033[93mKCP Tunnel SERVICE \033[0m')
+    print('3. \033[96mQuic Tunnel SERVICE \033[0m')
+    print('4. \033[93mLoadBalance Single Server SERVICE \033[0m')
+    print('5. \033[96mLoadBalance [10] Kharej [1] IRAN SERVICE \033[0m')
+    print('6. \033[97mLoadBalance [1] Kharej [3] IRAN SERVICE  \033[0m')
+    print('0. \033[94mBack to the main menu\033[0m')
     print("\033[93m╰───────────────────────────────────────╯\033[0m")
 
     while True:
@@ -1727,15 +2887,18 @@ def start_menu():
             start_kcp_tunnel()
             break
         elif server_type == '3':
-            start_single_load()
+            start_quic_tunnel()
             break
         elif server_type == '4':
-            start_kharej5()
+            start_single_load()
             break
         elif server_type == '5':
-            start_kharej1()
+            start_kharej5()
             break
         elif server_type == '6':
+            start_kharej1()
+            break
+        elif server_type == '0':
             os.system("clear")
             main_menu()
             break
@@ -2294,6 +3457,92 @@ def stop_kcp_tunnel():
         display_checkmark("\033[92mStop completed!\033[0m")
     except subprocess.CalledProcessError as e:
         print("Error:", e.output.decode().strip())
+
+def start_quic_tunnel():
+    os.system("clear")
+    print('\033[92m ^ ^\033[0m')
+    print('\033[92m(\033[91mO,O\033[92m)\033[0m')
+    print('\033[92m(   ) \033[93mQuic Tunnel Service\033[0m')
+    print('\033[92m "-"\033[93m══════════════════════════\033[0m')
+    print("\033[93m╭───────────────────────────────────────╮\033[0m")
+    print('\033[93mChoose what to do:\033[0m')
+    print('1. \033[92mRestart SERVICE \033[0m')
+    print('2. \033[93mStop SERVICE \033[0m')
+    print('5. \033[94mBack to the previous menu\033[0m')
+    print("\033[93m╰───────────────────────────────────────╯\033[0m")
+
+    while True:
+        server_type = input('\033[38;5;205mEnter your choice Please: \033[0m')
+        if server_type == '1':
+            restart_quic_tunnel()
+            break
+        elif server_type == '2':
+            stop_quic_tunnel()
+            break
+        elif server_type == '5':
+            os.system("clear")
+            start_menu()
+            break
+        else:
+            print('Invalid choice.')
+
+def restart_quic_tunnel():
+    os.system("clear")
+    display_notification("\033[93mRestarting Quic Tunnel Service...\033[0m")
+    print("\033[93m╭───────────────────────────────────────╮\033[0m")
+    
+    try:
+        subprocess.run("systemctl daemon-reload", shell=True)
+        subprocess.run("systemctl restart azumifrps_quic.service > /dev/null 2>&1", shell=True)
+        time.sleep(1)
+        subprocess.run("systemctl restart azumifrpc_quic.service > /dev/null 2>&1", shell=True)
+        
+        print("Progress: ", end="")
+        
+        frames = ["⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏"]
+        delay = 0.1
+        duration = 1
+        end_time = time.time() + duration
+        
+        while time.time() < end_time:
+            for frame in frames:
+                print("\r[%s] Loading...  " % frame, end="")
+                time.sleep(delay)
+                print("\r[%s]             " % frame, end="")
+                time.sleep(delay)
+        
+        display_checkmark("\033[92mRestart completed!\033[0m")
+    except subprocess.CalledProcessError as e:
+        print("Error:", e.output.decode().strip())
+
+def stop_quic_tunnel():
+    os.system("clear")
+    display_notification("\033[93mStopping Quic Tunnel Service...\033[0m")
+    print("\033[93m╭───────────────────────────────────────╮\033[0m")
+    
+    try:
+        subprocess.run("systemctl daemon-reload", shell=True)
+        subprocess.run("systemctl stop azumifrps_quic.service > /dev/null 2>&1", shell=True)
+        time.sleep(1)
+        subprocess.run("systemctl stop azumifrpc_quic.service > /dev/null 2>&1", shell=True)
+        
+        print("Progress: ", end="")
+        
+        frames = ["⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏"]
+        delay = 0.1
+        duration = 1
+        end_time = time.time() + duration
+        
+        while time.time() < end_time:
+            for frame in frames:
+                print("\r[%s] Loading...  " % frame, end="")
+                time.sleep(delay)
+                print("\r[%s]             " % frame, end="")
+                time.sleep(delay)
+        
+        display_checkmark("\033[92mStop completed!\033[0m")
+    except subprocess.CalledProcessError as e:
+        print("Error:", e.output.decode().strip())
         
 def remove_menu():
     os.system("clear")
@@ -2304,10 +3553,10 @@ def remove_menu():
     print("\033[93m╭───────────────────────────────────────╮\033[0m")
     print('\033[93mChoose what to do:\033[0m')
     print('1. \033[92mTCP Tunnel \033[0m')
-    print('2. \033[92mKCP Tunnel \033[0m')
-    print('3. \033[93mLoadBalance Single Server \033[0m')
-    print('4. \033[96mLoadBalance [10] Kharej [1] IRAN \033[0m')
-    print('5. \033[93mLoadBalance [10] Kharej [2] IRAN \033[0m')
+    print('2. \033[93mKCP Tunnel \033[0m')
+    print('3. \033[96mQuic Tunnel \033[0m')
+    print('4. \033[93mLoadBalance Single Server \033[0m')
+    print('5. \033[96mLoadBalance [10] Kharej [1] IRAN \033[0m')
     print('6. \033[97mLoadBalance [1] Kharej [3] IRAN  \033[0m')
     print('0. \033[94mBack to the main menu\033[0m')
     print("\033[93m╰───────────────────────────────────────╯\033[0m")
@@ -2321,13 +3570,13 @@ def remove_menu():
             remove_kcp_tunnel()
             break
         elif server_type == '3':
-            remove_single_load()
+            remove_quic_tunnel()
             break
         elif server_type == '4':
-            remove_kharej5()
+            remove_single_load()
             break
         elif server_type == '5':
-            remove_kharej10()
+            remove_kharej5()
             break
         elif server_type == '6':
             remove_kharej1()
@@ -2342,7 +3591,8 @@ def remove_menu():
 def remove_tcp_tunnel():
     os.system("clear")
     display_notification("\033[93mRemoving TCP Tunnel...\033[0m")
-    rmve_cron()
+    delete_cron1()
+    delete_cron2()
     print("\033[93m╭───────────────────────────────────────╮\033[0m")
 
     try:
@@ -2380,17 +3630,60 @@ def remove_tcp_tunnel():
     except subprocess.CalledProcessError as e:
         print("Error:", e.output.decode().strip())
         
-def remove_kcp_tunnel():
+def remove_quic_tunnel():
     os.system("clear")
-    display_notification("\033[93mRemoving KCP Tunnel...\033[0m")
-    rmve_cron()
+    display_notification("\033[93mRemoving Quic Tunnel...\033[0m")
+    delete_cron5()
+    delete_cron6()
     print("\033[93m╭───────────────────────────────────────╮\033[0m")
 
     try:
-        if subprocess.call("test -f /root/frp/frpc.toml", shell=True) == 0:
-            subprocess.run("rm /root/frp/frpc.toml", shell=True)
-        if subprocess.call("test -f /root/frp/frps.toml", shell=True) == 0:
-            subprocess.run("rm /root/frp/frps.toml", shell=True)
+        if subprocess.call("test -f /root/frp/frpcq.toml", shell=True) == 0:
+            subprocess.run("rm /root/frp/frpcq.toml", shell=True)
+        if subprocess.call("test -f /root/frp/frpsq.toml", shell=True) == 0:
+            subprocess.run("rm /root/frp/frpsq.toml", shell=True)
+
+        time.sleep(1)
+        subprocess.run("systemctl disable azumifrps_quic.service > /dev/null 2>&1", shell=True)
+        subprocess.run("systemctl stop azumifrps_quic.service > /dev/null 2>&1", shell=True)
+        subprocess.run("rm /etc/systemd/system/azumifrps_quic.service > /dev/null 2>&1", shell=True)
+        time.sleep(1)
+        subprocess.run("systemctl disable azumifrpc_quic.service > /dev/null 2>&1", shell=True)
+        subprocess.run("systemctl stop azumifrpc_quic.service > /dev/null 2>&1", shell=True)
+        subprocess.run("rm /etc/systemd/system/azumifrpc_quic.service > /dev/null 2>&1", shell=True)
+
+        subprocess.run("systemctl daemon-reload", shell=True)
+
+        print("Progress: ", end="")
+
+        frames = ["⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏"]
+        delay = 0.1
+        duration = 1
+        end_time = time.time() + duration
+
+        while time.time() < end_time:
+            for frame in frames:
+                print("\r[%s] Loading...  " % frame, end="")
+                time.sleep(delay)
+                print("\r[%s]             " % frame, end="")
+                time.sleep(delay)
+
+        display_checkmark("\033[92mUninstall completed!\033[0m")
+    except subprocess.CalledProcessError as e:
+        print("Error:", e.output.decode().strip())
+        
+def remove_kcp_tunnel():
+    os.system("clear")
+    display_notification("\033[93mRemoving KCP Tunnel...\033[0m")
+    delete_cron3()
+    delete_cron4()
+    print("\033[93m╭───────────────────────────────────────╮\033[0m")
+
+    try:
+        if subprocess.call("test -f /root/frp/frpcd.toml", shell=True) == 0:
+            subprocess.run("rm /root/frp/frpcd.toml", shell=True)
+        if subprocess.call("test -f /root/frp/frpsd.toml", shell=True) == 0:
+            subprocess.run("rm /root/frp/frpsd.toml", shell=True)
 
         time.sleep(1)
         subprocess.run("systemctl disable azumifrps_KCP.service > /dev/null 2>&1", shell=True)
@@ -2424,7 +3717,8 @@ def remove_kcp_tunnel():
 def remove_single_load():
     os.system("clear")
     display_notification("\033[93mRemoving LoadBalance Single Server...\033[0m")
-    rmve_cron()
+    delete_cron1()
+    delete_cron2()
     print("\033[93m╭─────────────────────────────────────────────╮\033[0m")
 
     try:
@@ -2465,7 +3759,8 @@ def remove_single_load():
 def remove_kharej5():
     os.system("clear")
     display_notification("\033[93mRemoving LoadBalance [10] Kharej [1] IRAN...\033[0m")
-    rmve_cron()
+    delete_cron1()
+    delete_cron2()
     print("\033[93m╭─────────────────────────────────────────────╮\033[0m")
 
     try:
@@ -2594,7 +3889,8 @@ def remove_kharej10():
 		
 def remove_kharej1():
     os.system("clear")
-    rmve_cron()
+    delete_cron1()
+    delete_cron2()
     display_notification("\033[93mRemoving LoadBalance [1] Kharej [3] IRAN...\033[0m")
     print("\033[93m╭─────────────────────────────────────────────╮\033[0m")
 
@@ -2651,14 +3947,12 @@ def remove_kharej1():
 def display_status(service_name):
     status_output = os.popen(f"systemctl is-active {service_name}").read().strip()
     if status_output == "active":
-        status = "\033[92m\u2713 Active~\033[0m"
-    else:
-        status = "\033[91m\u2718Inactive\033[0m"
-    print("\033[92m╔════════════════════════════════════╗\033[0m")
-    print("\033[92m║              FRP Status            ║\033[0m")
-    print("\033[92m╠════════════════════════════════════╣\033[0m")
-    print("\033[92m║\033[0m    Service:      |    ", status, " \033[92m ║\033[0m")
-    print("\033[92m╚════════════════════════════════════╝\033[0m")
+        status = "\033[92m\u2713 Active\033[0m"
+        print("\033[92m╔════════════════════════════════════╗\033[0m")
+        print("\033[92m║              FRP Status            ║\033[0m")
+        print("\033[92m╠════════════════════════════════════╣\033[0m")
+        print("\033[92m \033[0m    Service:      |    ", status, " \033[92m \033[0m")
+        print("\033[92m╚════════════════════════════════════╝\033[0m")
 
 
 def status_menu():
@@ -2669,11 +3963,12 @@ def status_menu():
     print('\033[92m "-"\033[93m══════════════════════════\033[0m')
     print("\033[93m╭───────────────────────────────────────╮\033[0m")
     print('\033[93mChoose what to do:\033[0m')
-    print('1. \033[92mTCP Tunnel \033[91mSTATUS\033[0m')
-    print('2. \033[92mKCP Tunnel \033[91mSTATUS\033[0m')
-    print('3. \033[93mLoadBalance Single Server \033[91mSTATUS \033[0m')
-    print('4. \033[96mLoadBalance [10] Kharej [1] IRAN \033[91mSTATUS \033[0m')
-    print('5. \033[97mLoadBalance [1] Kharej [3] IRAN \033[91mSTATUS \033[0m')
+    print('1. \033[92mTCP Tunnel \033[0m')
+    print('2. \033[93mKCP Tunnel\033[0m')
+    print('3. \033[96mQuic Tunnel \033[0m')
+    print('4. \033[93mLoadBalance Single Server \033[0m')
+    print('5. \033[96mLoadBalance [10] Kharej [1] IRAN  \033[0m')
+    print('6. \033[97mLoadBalance [1] Kharej [3] IRAN  \033[0m')
     print('0. \033[94mBack to the main menu\033[0m')
     print("\033[93m╰───────────────────────────────────────╯\033[0m")
 
@@ -2686,12 +3981,15 @@ def status_menu():
             statuskcp_menu()
             break
         elif server_type == '3':
-            status2_menu()
+            statusquic_menu()
             break
         elif server_type == '4':
-            status3_menu()
+            status2_menu()
             break
         elif server_type == '5':
+            status3_menu()
+            break
+        elif server_type == '6':
             status4_menu()
             break
         elif server_type == '0':
@@ -2701,6 +3999,43 @@ def status_menu():
         else:
             print('Invalid choice.')
 
+def status3_menu():
+    os.system("clear")
+    print('\033[92m ^ ^\033[0m')
+    print('\033[92m(\033[91mO,O\033[92m)\033[0m')
+    print('\033[92m(   ) \033[93mStatus Menu\033[0m')
+    print('\033[92m "-"\033[93m══════════════════════════\033[0m')
+
+    services = {
+        'iran': ['azumifrps3'],
+        'kharej': ['azumifrpc3', 'azumifrpc4', 'azumifrpc5', 'azumifrpc6', 'azumifrpc7' , 'azumifrpc8' , 'azumifrpc9' , 'azumifrpc10' , 'azumifrpc11' , 'azumifrpc12' , 'azumifrpc13']
+    }
+
+    print("\033[93m╔════════════════════════════════════════════╗\033[0m")
+    print("\033[93m║                 \033[92mFRP Status\033[93m                 ║\033[0m")
+    print("\033[93m╠════════════════════════════════════════════╣\033[0m")
+
+    for service, service_names in services.items():
+        try:
+            for service_name in service_names:
+                config_service_name = f"{service_name}.service"
+                status_output = os.popen(f"systemctl is-active {config_service_name}").read().strip()
+
+                if status_output == "active":
+                    status = "\033[92m✓ Active     \033[0m"
+                    if service == 'iran':
+                        display_name = '\033[93mIRAN Server   \033[0m'
+                    elif service == 'kharej':
+                        display_name = '\033[93mKharej Service\033[0m'
+                    else:
+                        display_name = service
+                    print(f"\033[93m║\033[0m    {display_name}:   |    {status:<10} \033[93m   ║\033[0m")
+
+        except OSError as e:
+            print(f"Error in retrieving status for {service}: {e}")
+            continue
+
+    print("\033[93m╚════════════════════════════════════════════╝\033[0m")
 
 def status1_menu():
     os.system("clear")
@@ -2708,133 +4043,229 @@ def status1_menu():
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
     print('\033[92m(   ) \033[93mStatus Menu\033[0m')
     print('\033[92m "-"\033[93m══════════════════════════\033[0m')
-    print("\033[93m───────────────────────────────────────\033[0m")
-    display_notification("\033[93mTCP tunnel - \033[92mKharej\033[0m")
-    print("\033[93m───────────────────────────────────────\033[0m")
-    service_name = "azumifrpc1.service"
-    display_status(service_name)
-    print("\033[93m───────────────────────────────────────\033[0m")
-    display_notification("\033[93mTCP tunnel - \033[92mIRAN\033[0m")
-    print("\033[93m───────────────────────────────────────\033[0m")
-    service_name = "azumifrps1.service"
-    display_status(service_name)
-	
+
+    services = {
+        'iran': ['azumifrps1'],
+        'kharej': ['azumifrpc1']
+    }
+
+    print("\033[93m╔════════════════════════════════════════════╗\033[0m")
+    print("\033[93m║                 \033[92mFRP Status\033[93m                 ║\033[0m")
+    print("\033[93m╠════════════════════════════════════════════╣\033[0m")
+
+    for service, service_names in services.items():
+        try:
+            for service_name in service_names:
+                config_service_name = f"{service_name}.service"
+                status_output = os.popen(f"systemctl is-active {config_service_name}").read().strip()
+
+                if status_output == "active":
+                    status = "\033[92m✓ Active     \033[0m"
+                    if service == 'iran':
+                        display_name = '\033[93mIRAN Server   \033[0m'
+                    elif service == 'kharej':
+                        display_name = '\033[93mKharej Service\033[0m'
+                    else:
+                        display_name = service
+                    print(f"\033[93m║\033[0m    {display_name}:   |    {status:<10} \033[93m   ║\033[0m")
+
+        except OSError as e:
+            print(f"Error in retrieving status for {service}: {e}")
+            continue
+
+    print("\033[93m╚════════════════════════════════════════════╝\033[0m")    
+
+def statusquic_menu():
+    os.system("clear")
+    print('\033[92m ^ ^\033[0m')
+    print('\033[92m(\033[91mO,O\033[92m)\033[0m')
+    print('\033[92m(   ) \033[93mStatus Menu\033[0m')
+    print('\033[92m "-"\033[93m══════════════════════════\033[0m')
+
+    services = {
+        'iran': ['azumifrps_quic'],
+        'kharej': ['azumifrpc_quic']
+    }
+
+    print("\033[93m╔════════════════════════════════════════════╗\033[0m")
+    print("\033[93m║                 \033[92mFRP Status\033[93m                 ║\033[0m")
+    print("\033[93m╠════════════════════════════════════════════╣\033[0m")
+
+    for service, service_names in services.items():
+        try:
+            for service_name in service_names:
+                config_service_name = f"{service_name}.service"
+                status_output = os.popen(f"systemctl is-active {config_service_name}").read().strip()
+
+                if status_output == "active":
+                    status = "\033[92m✓ Active     \033[0m"
+                    if service == 'iran':
+                        display_name = '\033[93mIRAN Server   \033[0m'
+                    elif service == 'kharej':
+                        display_name = '\033[93mKharej Service\033[0m'
+                    else:
+                        display_name = service
+                    print(f"\033[93m║\033[0m    {display_name}:   |    {status:<10} \033[93m   ║\033[0m")
+
+        except OSError as e:
+            print(f"Error in retrieving status for {service}: {e}")
+            continue
+
+    print("\033[93m╚════════════════════════════════════════════╝\033[0m")
+    
 def statuskcp_menu():
     os.system("clear")
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
     print('\033[92m(   ) \033[93mStatus Menu\033[0m')
     print('\033[92m "-"\033[93m══════════════════════════\033[0m')
-    print("\033[93m───────────────────────────────────────\033[0m")
-    display_notification("\033[93mKCP tunnel - \033[92mKharej\033[0m")
-    print("\033[93m───────────────────────────────────────\033[0m")
-    service_name = "azumifrpc_KCP.service"
-    display_status(service_name)
-    print("\033[93m───────────────────────────────────────\033[0m")
-    display_notification("\033[93mKCP tunnel - \033[92mIRAN\033[0m")
-    print("\033[93m───────────────────────────────────────\033[0m")
-    service_name = "azumifrps_KCP.service"
-    display_status(service_name)
-    
+
+    services = {
+        'iran': ['azumifrps_KCP'],
+        'kharej': ['azumifrpc_KCP']
+    }
+
+    print("\033[93m╔════════════════════════════════════════════╗\033[0m")
+    print("\033[93m║                 \033[92mFRP Status\033[93m                 ║\033[0m")
+    print("\033[93m╠════════════════════════════════════════════╣\033[0m")
+
+    for service, service_names in services.items():
+        try:
+            for service_name in service_names:
+                config_service_name = f"{service_name}.service"
+                status_output = os.popen(f"systemctl is-active {config_service_name}").read().strip()
+
+                if status_output == "active":
+                    status = "\033[92m✓ Active     \033[0m"
+                    if service == 'iran':
+                        display_name = '\033[93mIRAN Server   \033[0m'
+                    elif service == 'kharej':
+                        display_name = '\033[93mKharej Service\033[0m'
+                    else:
+                        display_name = service
+                    print(f"\033[93m║\033[0m    {display_name}:   |    {status:<10} \033[93m   ║\033[0m")
+
+        except OSError as e:
+            print(f"Error in retrieving status for {service}: {e}")
+            continue
+
+    print("\033[93m╚════════════════════════════════════════════╝\033[0m")
+	
 def status2_menu():
     os.system("clear")
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
     print('\033[92m(   ) \033[93mStatus Menu\033[0m')
     print('\033[92m "-"\033[93m══════════════════════════\033[0m')
-    print("\033[93m───────────────────────────────────────\033[0m")
-    display_notification("\033[93mLoadBalance Single Server - \033[92mKharej\033[0m")
-    print("\033[93m───────────────────────────────────────\033[0m")
-    service_name = "azumifrpc2.service"
-    display_status(service_name)
-    print("\033[93m───────────────────────────────────────\033[0m")
-    display_notification("\033[93mLoadBalance Single Server - \033[92mIRAN\033[0m")
-    print("\033[93m───────────────────────────────────────\033[0m")
-    service_name = "azumifrps2.service"
-    display_status(service_name)
 
+    services = {
+        'iran': ['azumifrps2'],
+        'kharej': ['azumifrpc2']
+    }
 
-def status3_menu():
+    print("\033[93m╔════════════════════════════════════════════╗\033[0m")
+    print("\033[93m║                 \033[92mFRP Status\033[93m                 ║\033[0m")
+    print("\033[93m╠════════════════════════════════════════════╣\033[0m")
+
+    for service, service_names in services.items():
+        try:
+            for service_name in service_names:
+                config_service_name = f"{service_name}.service"
+                status_output = os.popen(f"systemctl is-active {config_service_name}").read().strip()
+
+                if status_output == "active":
+                    status = "\033[92m✓ Active     \033[0m"
+                    if service == 'iran':
+                        display_name = '\033[93mIRAN Server   \033[0m'
+                    elif service == 'kharej':
+                        display_name = '\033[93mKharej Service\033[0m'
+                    else:
+                        display_name = service
+                    print(f"\033[93m║\033[0m    {display_name}:   |    {status:<10} \033[93m   ║\033[0m")
+
+        except OSError as e:
+            print(f"Error in retrieving status for {service}: {e}")
+            continue
+
+    print("\033[93m╚════════════════════════════════════════════╝\033[0m")
+    
+
+def status4_menu():
     os.system("clear")
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
     print('\033[92m(   ) \033[93mStatus Menu\033[0m')
     print('\033[92m "-"\033[93m══════════════════════════\033[0m')
-    print("\033[93m───────────────────────────────────────\033[0m")
-    display_notification("\033[93mLoadBalance STATUS \033[96mkharej\033[0m")
-    print("\033[93m───────────────────────────────────────\033[0m")
-    services = [
-        "azumifrpc3.service",
-        "azumifrpc4.service",
-        "azumifrpc5.service",
-        "azumifrpc6.service",
-        "azumifrpc7.service",
-        "azumifrpc8.service",
-        "azumifrpc9.service",
-        "azumifrpc10.service",
-        "azumifrpc11.service",
-        "azumifrpc12.service",
-    ]
-    for i, service_name in enumerate(services, start=1):
-        print(f"\033[92mKharej \033[91m[{i}]\033[0m :")
-        display_status(service_name)
-    print("\033[93m───────────────────────────────────────\033[0m")
-    display_notification("\033[93mLoadBalance STATUS \033[96mIRAN \033[0m")
-    print("\033[93m───────────────────────────────────────\033[0m")
-    service_name = "azumifrps3.service"
-    print(" \033[93m IRAN \033[92m[1]\033[0m :")
-    display_status(service_name)
-	
-def status4_menu():
-    os.system("clear")
-    print('\033[92m ^ ^\033[0m')
-    print('\033[92m(\033[91mO,O\033[92m)\033[0m')
-    print('\033[92m(   ) \033[93mLoadbalance STATUS Menu\033[0m')
-    print('\033[92m "-"\033[93m══════════════════════════\033[0m')
-    print("\033[93m───────────────────────────────────────\033[0m")
-    display_notification("\033[93mLoadBalance  \033[96mKharej \033[0m")
-    print("\033[93m───────────────────────────────────────\033[0m")
-    services = [
-        "azumifrpc11.service",
-        "azumifrpc12.service",
-        "azumifrpc13.service"
-    ]
-    for i, service_name in enumerate(services, start=1):
-        print(f"\033[92mIRAN Server \033[91m[{i}]\033[0m:")
-        display_status(service_name)
-    
-    print("\033[93m───────────────────────────────────────\033[0m")
-    display_notification("\033[93mLoadBalance \033[96mIRAN \033[0m")
-    print("\033[93m───────────────────────────────────────\033[0m")
-    service_name = "azumifrps4.service"
 
-    print(" \033[93m IRAN :\033[0m ")
-    display_status(service_name)
+    services = {
+        'iran': ['azumifrps4'],
+        'kharej': ['azumifrpc11', 'azumifrpc12', 'azumifrpc13']
+    }
+
+    print("\033[93m╔════════════════════════════════════════════╗\033[0m")
+    print("\033[93m║                 \033[92mFRP Status\033[93m                 ║\033[0m")
+    print("\033[93m╠════════════════════════════════════════════╣\033[0m")
+
+    for service, service_names in services.items():
+        try:
+            for service_name in service_names:
+                config_service_name = f"{service_name}.service"
+                status_output = os.popen(f"systemctl is-active {config_service_name}").read().strip()
+
+                if status_output == "active":
+                    status = "\033[92m✓ Active     \033[0m"
+                    if service == 'iran':
+                        display_name = '\033[93mIRAN Server   \033[0m'
+                    elif service == 'kharej':
+                        display_name = '\033[93mKharej Service\033[0m'
+                    else:
+                        display_name = service
+                    print(f"\033[93m║\033[0m    {display_name}:   |    {status:<10} \033[93m   ║\033[0m")
+
+        except OSError as e:
+            print(f"Error in retrieving status for {service}: {e}")
+            continue
+
+    print("\033[93m╚════════════════════════════════════════════╝\033[0m")
 
 def status6_menu():
     os.system("clear")
     print('\033[92m ^ ^\033[0m')
     print('\033[92m(\033[91mO,O\033[92m)\033[0m')
-    print('\033[92m(   ) \033[93mLoadbalance STATUS Menu\033[0m')
+    print('\033[92m(   ) \033[93mStatus Menu\033[0m')
     print('\033[92m "-"\033[93m══════════════════════════\033[0m')
-    print("\033[93m───────────────────────────────────────\033[0m")
-    display_notification("\033[93mLoadBalance  \033[96mKharej \033[0m")
-    print("\033[93m───────────────────────────────────────\033[0m")
-    services = [
-        "azumifrpc11.service",
-        "azumifrpc12.service",
-    ]
-    for i, service_name in enumerate(services, start=1):
-        print(f"\033[92mIRAN Server \033[91m[{i}]\033[0m:")
-        display_status(service_name)
-    
-    print("\033[93m───────────────────────────────────────\033[0m")
-    display_notification("\033[93mLoadBalance \033[96mIRAN \033[0m")
-    print("\033[93m───────────────────────────────────────\033[0m")
-    service_name = "azumifrps4.service"
 
-    print(" \033[93m IRAN :\033[0m ")
-    display_status(service_name)
+    services = {
+        'iran': ['azumifrps4'],
+        'kharej': ['azumifrpc11', 'azumifrpc12']
+    }
+
+    print("\033[93m╔════════════════════════════════════════════╗\033[0m")
+    print("\033[93m║                 \033[92mFRP Status\033[93m                 ║\033[0m")
+    print("\033[93m╠════════════════════════════════════════════╣\033[0m")
+
+    for service, service_names in services.items():
+        try:
+            for service_name in service_names:
+                config_service_name = f"{service_name}.service"
+                status_output = os.popen(f"systemctl is-active {config_service_name}").read().strip()
+
+                if status_output == "active":
+                    status = "\033[92m✓ Active     \033[0m"
+                    if service == 'iran':
+                        display_name = '\033[93mIRAN Server   \033[0m'
+                    elif service == 'kharej':
+                        display_name = '\033[93mKharej Service\033[0m'
+                    else:
+                        display_name = service
+                    print(f"\033[93m║\033[0m    {display_name}:   |    {status:<10} \033[93m   ║\033[0m")
+
+        except OSError as e:
+            print(f"Error in retrieving status for {service}: {e}")
+            continue
+
+    print("\033[93m╚════════════════════════════════════════════╝\033[0m")
+
     
 def frp_menu():
     def stop_loading():
@@ -4038,11 +5469,14 @@ def kharej1_local():
     with open("frp/frpc.toml", "w") as f:
         f.write("[common]\n")
         f.write("server_addr = {}\n".format(iran_ipv6))
-        server_port = input("\033[93mEnter \033[92mTunnel port\033[93m (default 443): \033[0m")
+        server_port = input("\033[93mEnter \033[92mTunnel port\033[93m : \033[0m")
         if not server_port:
             server_port = "443"
         f.write("server_port = {}\n".format(server_port))
-        f.write("vhost_https_port = 8443\n")
+        load_port = input("\033[93mEnter \033[92mLoadbalance Port\033[93m(default 8443): \033[0m")
+        if not load_port:
+            load_port = "8443"
+        f.write("vhost_https_port = {}\n".format(load_port))
         f.write("transport.tls.disable_custom_tls_first_byte = false\n")
         f.write("token = azumi\n")
 
@@ -4081,7 +5515,6 @@ def kharej1_local():
             f.write("use_compression = true\n")
 
     time.sleep(1)
-    display_notification("\033[93mLoadbalance port is 8443..\033[0m")
 
     service_name = "azumifrpc3"
     frps_path = "/root/frp/frpc.toml"
@@ -4164,11 +5597,14 @@ def kharej2_local():
     with open("frp/frpc.toml", "w") as f:
         f.write("[common]\n")
         f.write("server_addr = {}\n".format(iran_ipv6))
-        server_port = input("\033[93mEnter \033[92mTunnel port\033[93m (default 443): \033[0m")
+        server_port = input("\033[93mEnter \033[92mTunnel port\033[93m : \033[0m")
         if not server_port:
             server_port = "443"
         f.write("server_port = {}\n".format(server_port))
-        f.write("vhost_https_port = 8443\n")
+        load_port = input("\033[93mEnter \033[92mLoadbalance Port\033[93m(default 8443): \033[0m")
+        if not load_port:
+            load_port = "8443"
+        f.write("vhost_https_port = {}\n".format(load_port))
         f.write("transport.tls.disable_custom_tls_first_byte = false\n")
         f.write("token = azumi\n")
 
@@ -4207,7 +5643,6 @@ def kharej2_local():
             f.write("use_compression = true\n")
 
     time.sleep(1)
-    display_notification("\033[93mLoadbalance port is 8443..\033[0m")
 
     service_name = "azumifrpc4"
     frps_path = "/root/frp/frpc.toml"
@@ -4290,11 +5725,14 @@ def kharej3_local():
     with open("frp/frpc.toml", "w") as f:
         f.write("[common]\n")
         f.write("server_addr = {}\n".format(iran_ipv6))
-        server_port = input("\033[93mEnter \033[92mTunnel port\033[93m (default 443): \033[0m")
+        server_port = input("\033[93mEnter \033[92mTunnel port\033[93m : \033[0m")
         if not server_port:
             server_port = "443"
         f.write("server_port = {}\n".format(server_port))
-        f.write("vhost_https_port = 8443\n")
+        load_port = input("\033[93mEnter \033[92mLoadbalance Port\033[93m(default 8443): \033[0m")
+        if not load_port:
+            load_port = "8443"
+        f.write("vhost_https_port = {}\n".format(load_port))
         f.write("transport.tls.disable_custom_tls_first_byte = false\n")
         f.write("token = azumi\n")
 
@@ -4333,7 +5771,6 @@ def kharej3_local():
             f.write("use_compression = true\n")
 
     time.sleep(1)
-    display_notification("\033[93mLoadbalance port is 8443..\033[0m")
 
     service_name = "azumifrpc5"
     frps_path = "/root/frp/frpc.toml"
@@ -4416,11 +5853,14 @@ def kharej4_local():
     with open("frp/frpc.toml", "w") as f:
         f.write("[common]\n")
         f.write("server_addr = {}\n".format(iran_ipv6))
-        server_port = input("\033[93mEnter \033[92mTunnel port\033[93m (default 443): \033[0m")
+        server_port = input("\033[93mEnter \033[92mTunnel port\033[93m : \033[0m")
         if not server_port:
             server_port = "443"
         f.write("server_port = {}\n".format(server_port))
-        f.write("vhost_https_port = 8443\n")
+        load_port = input("\033[93mEnter \033[92mLoadbalance Port\033[93m(default 8443): \033[0m")
+        if not load_port:
+            load_port = "8443"
+        f.write("vhost_https_port = {}\n".format(load_port))
         f.write("transport.tls.disable_custom_tls_first_byte = false\n")
         f.write("token = azumi\n")
 
@@ -4459,7 +5899,6 @@ def kharej4_local():
             f.write("use_compression = true\n")
 
     time.sleep(1)
-    display_notification("\033[93mLoadbalance port is 8443..\033[0m")
 
     service_name = "azumifrpc6"
     frps_path = "/root/frp/frpc.toml"
@@ -4542,11 +5981,14 @@ def kharej5_local():
     with open("frp/frpc.toml", "w") as f:
         f.write("[common]\n")
         f.write("server_addr = {}\n".format(iran_ipv6))
-        server_port = input("\033[93mEnter \033[92mTunnel port\033[93m (default 443): \033[0m")
+        server_port = input("\033[93mEnter \033[92mTunnel port\033[93m : \033[0m")
         if not server_port:
             server_port = "443"
         f.write("server_port = {}\n".format(server_port))
-        f.write("vhost_https_port = 8443\n")
+        load_port = input("\033[93mEnter \033[92mLoadbalance Port\033[93m(default 8443): \033[0m")
+        if not load_port:
+            load_port = "8443"
+        f.write("vhost_https_port = {}\n".format(load_port))
         f.write("transport.tls.disable_custom_tls_first_byte = false\n")
         f.write("token = azumi\n")
 
@@ -4585,7 +6027,6 @@ def kharej5_local():
             f.write("use_compression = true\n")
 
     time.sleep(1)
-    display_notification("\033[93mLoadbalance port is 8443..\033[0m")
 
     service_name = "azumifrpc7"
     frps_path = "/root/frp/frpc.toml"
@@ -4668,11 +6109,14 @@ def kharej6_local():
     with open("frp/frpc.toml", "w") as f:
         f.write("[common]\n")
         f.write("server_addr = {}\n".format(iran_ipv6))
-        server_port = input("\033[93mEnter \033[92mTunnel port\033[93m (default 443): \033[0m")
+        server_port = input("\033[93mEnter \033[92mTunnel port\033[93m: \033[0m")
         if not server_port:
             server_port = "443"
         f.write("server_port = {}\n".format(server_port))
-        f.write("vhost_https_port = 8443\n")
+        load_port = input("\033[93mEnter \033[92mLoadbalance Port\033[93m(default 8443): \033[0m")
+        if not load_port:
+            load_port = "8443"
+        f.write("vhost_https_port = {}\n".format(load_port))
         f.write("transport.tls.disable_custom_tls_first_byte = false\n")
         f.write("token = azumi\n")
 
@@ -4711,7 +6155,6 @@ def kharej6_local():
             f.write("use_compression = true\n")
 
     time.sleep(1)
-    display_notification("\033[93mLoadbalance port is 8443..\033[0m")
 
     service_name = "azumifrpc8"
     frps_path = "/root/frp/frpc.toml"
@@ -4794,11 +6237,14 @@ def kharej7_local():
     with open("frp/frpc.toml", "w") as f:
         f.write("[common]\n")
         f.write("server_addr = {}\n".format(iran_ipv6))
-        server_port = input("\033[93mEnter \033[92mTunnel port\033[93m (default 443): \033[0m")
+        server_port = input("\033[93mEnter \033[92mTunnel port\033[93m : \033[0m")
         if not server_port:
             server_port = "443"
         f.write("server_port = {}\n".format(server_port))
-        f.write("vhost_https_port = 8443\n")
+        load_port = input("\033[93mEnter \033[92mLoadbalance Port\033[93m(default 8443): \033[0m")
+        if not load_port:
+            load_port = "8443"
+        f.write("vhost_https_port = {}\n".format(load_port))
         f.write("transport.tls.disable_custom_tls_first_byte = false\n")
         f.write("token = azumi\n")
 
@@ -4836,7 +6282,6 @@ def kharej7_local():
             f.write("use_compression = true\n")
 
     time.sleep(1)
-    display_notification("\033[93mLoadbalance port is 8443..\033[0m")
 
     service_name = "azumifrpc9"
     frps_path = "/root/frp/frpc.toml"
@@ -4919,11 +6364,14 @@ def kharej8_local():
     with open("frp/frpc.toml", "w") as f:
         f.write("[common]\n")
         f.write("server_addr = {}\n".format(iran_ipv6))
-        server_port = input("\033[93mEnter \033[92mTunnel port\033[93m (default 443): \033[0m")
+        server_port = input("\033[93mEnter \033[92mTunnel port\033[93m : \033[0m")
         if not server_port:
             server_port = "443"
         f.write("server_port = {}\n".format(server_port))
-        f.write("vhost_https_port = 8443\n")
+        load_port = input("\033[93mEnter \033[92mLoadbalance Port\033[93m(default 8443): \033[0m")
+        if not load_port:
+            load_port = "8443"
+        f.write("vhost_https_port = {}\n".format(load_port))
         f.write("transport.tls.disable_custom_tls_first_byte = false\n")
         f.write("token = azumi\n")
 
@@ -4962,7 +6410,6 @@ def kharej8_local():
             f.write("use_compression = true\n")
 
     time.sleep(1)
-    display_notification("\033[93mLoadbalance port is 8443..\033[0m")
 
     service_name = "azumifrpc10"
     frps_path = "/root/frp/frpc.toml"
@@ -5045,11 +6492,14 @@ def kharej9_local():
     with open("frp/frpc.toml", "w") as f:
         f.write("[common]\n")
         f.write("server_addr = {}\n".format(iran_ipv6))
-        server_port = input("\033[93mEnter \033[92mTunnel port\033[93m (default 443): \033[0m")
+        server_port = input("\033[93mEnter \033[92mTunnel port\033[93m : \033[0m")
         if not server_port:
             server_port = "443"
         f.write("server_port = {}\n".format(server_port))
-        f.write("vhost_https_port = 8443\n")
+        load_port = input("\033[93mEnter \033[92mLoadbalance Port\033[93m(default 8443): \033[0m")
+        if not load_port:
+            load_port = "8443"
+        f.write("vhost_https_port = {}\n".format(load_port))
         f.write("transport.tls.disable_custom_tls_first_byte = false\n")
         f.write("token = azumi\n")
 
@@ -5088,7 +6538,6 @@ def kharej9_local():
             f.write("use_compression = true\n")
 
     time.sleep(1)
-    display_notification("\033[93mLoadbalance port is 8443..\033[0m")
 
     service_name = "azumifrpc11"
     frps_path = "/root/frp/frpc.toml"
@@ -5171,11 +6620,14 @@ def kharej10_local():
     with open("frp/frpc.toml", "w") as f:
         f.write("[common]\n")
         f.write("server_addr = {}\n".format(iran_ipv6))
-        server_port = input("\033[93mEnter \033[92mTunnel port\033[93m (default 443): \033[0m")
+        server_port = input("\033[93mEnter \033[92mTunnel port\033[93m : \033[0m")
         if not server_port:
             server_port = "443"
         f.write("server_port = {}\n".format(server_port))
-        f.write("vhost_https_port = 8443\n")
+        load_port = input("\033[93mEnter \033[92mLoadbalance Port\033[93m(default 8443): \033[0m")
+        if not load_port:
+            load_port = "8443"
+        f.write("vhost_https_port = {}\n".format(load_port))
         f.write("transport.tls.disable_custom_tls_first_byte = false\n")
         f.write("token = azumi\n")
 
@@ -5214,7 +6666,6 @@ def kharej10_local():
             f.write("use_compression = true\n")
 
     time.sleep(1)
-    display_notification("\033[93mLoadbalance port is 8443..\033[0m")
 
     service_name = "azumifrpc12"
     frps_path = "/root/frp/frpc.toml"
@@ -5374,11 +6825,14 @@ def kharej1():
     with open("frp/frpc.toml", "w") as f:
         f.write("[common]\n")
         f.write("server_addr = {}\n".format(iran_ipv6))
-        server_port = input("\033[93mEnter \033[92mTunnel port\033[93m (default 443): \033[0m")
+        server_port = input("\033[93mEnter \033[92mTunnel port\033[93m: \033[0m")
         if not server_port:
             server_port = "443"
         f.write("server_port = {}\n".format(server_port))
-        f.write("vhost_https_port = 8443\n")
+        load_port = input("\033[93mEnter \033[92mLoadbalance Port\033[93m(default 8443): \033[0m")
+        if not load_port:
+            load_port = "8443"
+        f.write("vhost_https_port = {}\n".format(load_port))
         f.write("transport.tls.disable_custom_tls_first_byte = false\n")
         f.write("token = azumi\n")
 
@@ -5423,7 +6877,6 @@ def kharej1():
                 f.write("use_compression = true\n")
 
     time.sleep(1)
-    display_notification("\033[93mLoadbalance port is 8443..\033[0m")
 
     service_name = "azumifrpc3"
     frps_path = "/root/frp/frpc.toml"
@@ -5516,11 +6969,14 @@ def kharej2():
     with open("frp/frpc.toml", "w") as f:
         f.write("[common]\n")
         f.write("server_addr = {}\n".format(iran_ipv6))
-        server_port = input("\033[93mEnter \033[92mTunnel port\033[93m (default 443): \033[0m")
+        server_port = input("\033[93mEnter \033[92mTunnel port\033[93m : \033[0m")
         if not server_port:
             server_port = "443"
         f.write("server_port = {}\n".format(server_port))
-        f.write("vhost_https_port = 8443\n")
+        load_port = input("\033[93mEnter \033[92mLoadbalance Port\033[93m(default 8443): \033[0m")
+        if not load_port:
+            load_port = "8443"
+        f.write("vhost_https_port = {}\n".format(load_port))
         f.write("transport.tls.disable_custom_tls_first_byte = false\n")
         f.write("token = azumi\n")
 
@@ -5565,7 +7021,6 @@ def kharej2():
                 f.write("use_compression = true\n")
 
     time.sleep(1)
-    display_notification("\033[93mLoadbalance port is 8443..\033[0m")
 
     service_name = "azumifrpc4"
     frps_path = "/root/frp/frpc.toml"
@@ -5657,11 +7112,14 @@ def kharej3():
     with open("frp/frpc.toml", "w") as f:
         f.write("[common]\n")
         f.write("server_addr = {}\n".format(iran_ipv6))
-        server_port = input("\033[93mEnter \033[92mTunnel port\033[93m (default 443): \033[0m")
+        server_port = input("\033[93mEnter \033[92mTunnel port\033[93m: \033[0m")
         if not server_port:
             server_port = "443"
         f.write("server_port = {}\n".format(server_port))
-        f.write("vhost_https_port = 8443\n")
+        load_port = input("\033[93mEnter \033[92mLoadbalance Port\033[93m(default 8443): \033[0m")
+        if not load_port:
+            load_port = "8443"
+        f.write("vhost_https_port = {}\n".format(load_port))
         f.write("transport.tls.disable_custom_tls_first_byte = false\n")
         f.write("token = azumi\n")
 
@@ -5706,7 +7164,6 @@ def kharej3():
                 f.write("use_compression = true\n")
 
     time.sleep(1)
-    display_notification("\033[93mLoadbalance port is 8443..\033[0m")
 
     service_name = "azumifrpc5"
     frps_path = "/root/frp/frpc.toml"
@@ -5798,11 +7255,14 @@ def kharej4():
     with open("frp/frpc.toml", "w") as f:
         f.write("[common]\n")
         f.write("server_addr = {}\n".format(iran_ipv6))
-        server_port = input("\033[93mEnter \033[92mTunnel port\033[93m (default 443): \033[0m")
+        server_port = input("\033[93mEnter \033[92mTunnel port\033[93m : \033[0m")
         if not server_port:
             server_port = "443"
         f.write("server_port = {}\n".format(server_port))
-        f.write("vhost_https_port = 8443\n")
+        load_port = input("\033[93mEnter \033[92mLoadbalance Port\033[93m(default 8443): \033[0m")
+        if not load_port:
+            load_port = "8443"
+        f.write("vhost_https_port = {}\n".format(load_port))
         f.write("transport.tls.disable_custom_tls_first_byte = false\n")
         f.write("token = azumi\n")
 
@@ -5847,7 +7307,6 @@ def kharej4():
                 f.write("use_compression = true\n")
 
     time.sleep(1)
-    display_notification("\033[93mLoadbalance port is 8443..\033[0m")
 
     service_name = "azumifrpc6"
     frps_path = "/root/frp/frpc.toml"
@@ -5939,11 +7398,14 @@ def kharej5():
     with open("frp/frpc.toml", "w") as f:
         f.write("[common]\n")
         f.write("server_addr = {}\n".format(iran_ipv6))
-        server_port = input("\033[93mEnter \033[92mTunnel port\033[93m (default 443): \033[0m")
+        server_port = input("\033[93mEnter \033[92mTunnel port\033[93m : \033[0m")
         if not server_port:
             server_port = "443"
         f.write("server_port = {}\n".format(server_port))
-        f.write("vhost_https_port = 8443\n")
+        load_port = input("\033[93mEnter \033[92mLoadbalance Port\033[93m(default 8443): \033[0m")
+        if not load_port:
+            load_port = "8443"
+        f.write("vhost_https_port = {}\n".format(load_port))
         f.write("transport.tls.disable_custom_tls_first_byte = false\n")
         f.write("token = azumi\n")
 
@@ -5988,7 +7450,6 @@ def kharej5():
                 f.write("use_compression = true\n")
 
     time.sleep(1)
-    display_notification("\033[93mLoadbalance port is 8443..\033[0m")
 
     service_name = "azumifrpc7"
     frps_path = "/root/frp/frpc.toml"
@@ -6080,11 +7541,14 @@ def kharej6():
     with open("frp/frpc.toml", "w") as f:
         f.write("[common]\n")
         f.write("server_addr = {}\n".format(iran_ipv6))
-        server_port = input("\033[93mEnter \033[92mTunnel port\033[93m (default 443): \033[0m")
+        server_port = input("\033[93mEnter \033[92mTunnel port\033[93m : \033[0m")
         if not server_port:
             server_port = "443"
         f.write("server_port = {}\n".format(server_port))
-        f.write("vhost_https_port = 8443\n")
+        load_port = input("\033[93mEnter \033[92mLoadbalance Port\033[93m(default 8443): \033[0m")
+        if not load_port:
+            load_port = "8443"
+        f.write("vhost_https_port = {}\n".format(load_port))
         f.write("transport.tls.disable_custom_tls_first_byte = false\n")
         f.write("token = azumi\n")
 
@@ -6129,7 +7593,6 @@ def kharej6():
                 f.write("use_compression = true\n")
 
     time.sleep(1)
-    display_notification("\033[93mLoadbalance port is 8443..\033[0m")
 
     service_name = "azumifrpc8"
     frps_path = "/root/frp/frpc.toml"
@@ -6222,11 +7685,14 @@ def kharej7():
     with open("frp/frpc.toml", "w") as f:
         f.write("[common]\n")
         f.write("server_addr = {}\n".format(iran_ipv6))
-        server_port = input("\033[93mEnter \033[92mTunnel port\033[93m (default 443): \033[0m")
+        server_port = input("\033[93mEnter \033[92mTunnel port\033[93m : \033[0m")
         if not server_port:
             server_port = "443"
         f.write("server_port = {}\n".format(server_port))
-        f.write("vhost_https_port = 8443\n")
+        load_port = input("\033[93mEnter \033[92mLoadbalance Port\033[93m(default 8443): \033[0m")
+        if not load_port:
+            load_port = "8443"
+        f.write("vhost_https_port = {}\n".format(load_port))
         f.write("transport.tls.disable_custom_tls_first_byte = false\n")
         f.write("token = azumi\n")
 
@@ -6271,7 +7737,6 @@ def kharej7():
                 f.write("use_compression = true\n")
 
     time.sleep(1)
-    display_notification("\033[93mLoadbalance port is 8443..\033[0m")
 
     service_name = "azumifrpc9"
     frps_path = "/root/frp/frpc.toml"
@@ -6363,11 +7828,14 @@ def kharej8():
     with open("frp/frpc.toml", "w") as f:
         f.write("[common]\n")
         f.write("server_addr = {}\n".format(iran_ipv6))
-        server_port = input("\033[93mEnter \033[92mTunnel port\033[93m (default 443): \033[0m")
+        server_port = input("\033[93mEnter \033[92mTunnel port\033[93m : \033[0m")
         if not server_port:
             server_port = "443"
         f.write("server_port = {}\n".format(server_port))
-        f.write("vhost_https_port = 8443\n")
+        load_port = input("\033[93mEnter \033[92mLoadbalance Port\033[93m(default 8443): \033[0m")
+        if not load_port:
+            load_port = "8443"
+        f.write("vhost_https_port = {}\n".format(load_port))
         f.write("transport.tls.disable_custom_tls_first_byte = false\n")
         f.write("token = azumi\n")
 
@@ -6412,7 +7880,6 @@ def kharej8():
                 f.write("use_compression = true\n")
 
     time.sleep(1)
-    display_notification("\033[93mLoadbalance port is 8443..\033[0m")
 
     service_name = "azumifrpc10"
     frps_path = "/root/frp/frpc.toml"
@@ -6504,11 +7971,14 @@ def kharej9():
     with open("frp/frpc.toml", "w") as f:
         f.write("[common]\n")
         f.write("server_addr = {}\n".format(iran_ipv6))
-        server_port = input("\033[93mEnter \033[92mTunnel port\033[93m (default 443): \033[0m")
+        server_port = input("\033[93mEnter \033[92mTunnel port\033[93m : \033[0m")
         if not server_port:
             server_port = "443"
         f.write("server_port = {}\n".format(server_port))
-        f.write("vhost_https_port = 8443\n")
+        load_port = input("\033[93mEnter \033[92mLoadbalance Port\033[93m(default 8443): \033[0m")
+        if not load_port:
+            load_port = "8443"
+        f.write("vhost_https_port = {}\n".format(load_port))
         f.write("transport.tls.disable_custom_tls_first_byte = false\n")
         f.write("token = azumi\n")
 
@@ -6553,7 +8023,6 @@ def kharej9():
                 f.write("use_compression = true\n")
 
     time.sleep(1)
-    display_notification("\033[93mLoadbalance port is 8443..\033[0m")
 
     service_name = "azumifrpc11"
     frps_path = "/root/frp/frpc.toml"
@@ -6645,11 +8114,14 @@ def kharej10():
     with open("frp/frpc.toml", "w") as f:
         f.write("[common]\n")
         f.write("server_addr = {}\n".format(iran_ipv6))
-        server_port = input("\033[93mEnter \033[92mTunnel port\033[93m (default 443): \033[0m")
+        server_port = input("\033[93mEnter \033[92mTunnel port\033[93m : \033[0m")
         if not server_port:
             server_port = "443"
         f.write("server_port = {}\n".format(server_port))
-        f.write("vhost_https_port = 8443\n")
+        load_port = input("\033[93mEnter \033[92mLoadbalance Port\033[93m(default 8443): \033[0m")
+        if not load_port:
+            load_port = "8443"
+        f.write("vhost_https_port = {}\n".format(load_port))
         f.write("transport.tls.disable_custom_tls_first_byte = false\n")
         f.write("token = azumi\n")
 
@@ -6694,7 +8166,6 @@ def kharej10():
                 f.write("use_compression = true\n")
 
     time.sleep(1)
-    display_notification("\033[93mLoadbalance port is 8443..\033[0m")
 
     service_name = "azumifrpc12"
     frps_path = "/root/frp/frpc.toml"
@@ -6797,11 +8268,14 @@ def iran_without_dash():
 
     with open("frp/frps.toml", "w") as f:
         f.write("[common]\n")
-        bind_port = input("\033[93mEnter \033[92mTunnel Port\033[93m (default 443): \033[0m")
+        bind_port = input("\033[93mEnter \033[92mTunnel Port\033[93m : \033[0m")
         if not bind_port:
             bind_port = "443"
         f.write("bind_port = {}\n".format(bind_port))
-        f.write("vhost_https_port = 8443\n")
+        load_port = input("\033[93mEnter \033[92mLoadbalance Port\033[93m(default 8443): \033[0m")
+        if not load_port:
+            load_port = "8443"
+        f.write("vhost_https_port = {}\n".format(load_port))
         f.write("transport.tls.disable_custom_tls_first_byte = false\n")
         f.write("token = azumi\n")
         f.write("\n")
@@ -6897,15 +8371,19 @@ def iran_with_dash():
         dashboard_user = input("\033[93mEnter the \033[92mDashboard username\033[93m: \033[0m")
         dashboard_pwd = input("\033[93mEnter the \033[92mDashboard password\033[93m: \033[0m")
         dashboard_port = input("\033[93mEnter the \033[92mDashboard port\033[93m: \033[0m")
-        bind_port = input("\033[93mEnter \033[92mTunnel port\033[93m (default 443): \033[0m")
+        bind_port = input("\033[93mEnter \033[92mTunnel port\033[93m : \033[0m")
         if not bind_port:
            bind_port = "443"
+        load_port = input("\033[93mEnter \033[92mLoadbalance Port\033[93m(default 8443): \033[0m")
+        if not load_port:
+            load_port = "8443"
+
         print("\033[93m───────────────────────────────────────────────────────────────────────────────\033[0m")
 
         with open('frp/frps.toml', 'w') as frps_ini:
             frps_ini.write(f'''[common]
 bind_port = {bind_port}
-vhost_https_port = 8443
+vhost_https_port = {load_port}
 transport.tls.disable_custom_tls_first_byte = false
 token = azumi
 dashboard_port = {dashboard_port}
@@ -7115,11 +8593,14 @@ def i3kharej_ipv6():
         with open(frpc1_path, "w") as f:
             f.write("[common]\n")
             f.write("server_addr = SERVER_IP\n")
-            server_port = input("\033[93mEnter \033[92mTunnel port\033[93m (default 443): \033[0m")
+            server_port = input("\033[93mEnter \033[92mTunnel port\033[93m : \033[0m")
             if not server_port:
                 server_port = "443"
             f.write("server_port = {}\n".format(server_port))
-            f.write("vhost_https_port = 8443\n")
+            load_port = input("\033[93mEnter \033[92mLoadbalance Port\033[93m(default 8443): \033[0m")
+            if not load_port:
+                load_port = "8443"
+            f.write("vhost_https_port = {}\n".format(load_port))
             f.write("transport.tls.disable_custom_tls_first_byte = false\n")
             f.write("token = azumi\n")
 
@@ -7173,7 +8654,6 @@ def i3kharej_ipv6():
                 f.write("use_compression = true\n")
 
         time.sleep(1)
-        print("Loadbalance port is 8443...")
 
 
         service_name = "azumifrpc1{}".format(server_num)
@@ -7259,11 +8739,14 @@ def i3kharej_local():
         with open(frpc1_path, "w") as f:
             f.write("[common]\n")
             f.write("server_addr = SERVER_IP\n")
-            server_port = input("\033[93mEnter \033[92mTunnel port\033[93m (default 443): \033[0m")
+            server_port = input("\033[93mEnter \033[92mTunnel port\033[93m : \033[0m")
             if not server_port:
                 server_port = "443"
             f.write("server_port = {}\n".format(server_port))
-            f.write("vhost_https_port = 8443\n")
+            load_port = input("\033[93mEnter \033[92mLoadbalance Port\033[93m(default 8443): \033[0m")
+            if not load_port:
+                load_port = "8443"
+            f.write("vhost_https_port = {}\n".format(load_port))
             f.write("transport.tls.disable_custom_tls_first_byte = false\n")
             f.write("token = azumi\n")
 
@@ -7280,7 +8763,7 @@ def i3kharej_local():
             f.write("[common]\n")
             f.write("server_addr = {}\n".format(iran_ipv6))
             f.write("server_port = {}\n".format(server_port))
-            f.write("vhost_https_port = 8443\n")
+            f.write("vhost_https_port = {}\n".format(load_port))
             f.write("transport.tls.disable_custom_tls_first_byte = false\n")
             f.write("token = azumi\n")
 
@@ -7309,7 +8792,6 @@ def i3kharej_local():
                 f.write("use_compression = true\n")
 
         time.sleep(1)
-        print("Loadbalance port is 8443...")
 
 
         service_name = "azumifrpc1{}".format(server_num)
@@ -7374,11 +8856,14 @@ def i3iran_first():
 
     with open("frp/frps.toml", "w") as f:
         f.write("[common]\n")
-        bind_port = input("\033[93mEnter \033[92mTunnel Port\033[93m (default 443): \033[0m")
+        bind_port = input("\033[93mEnter \033[92mTunnel Port\033[93m : \033[0m")
         if not bind_port:
             bind_port = "443"
         f.write("bind_port = {}\n".format(bind_port))
-        f.write("vhost_https_port = 8443\n")
+        load_port = input("\033[93mEnter \033[92mLoadbalance Port\033[93m(default 8443): \033[0m")
+        if not load_port:
+            load_port = "8443"
+        f.write("vhost_https_port = {}\n".format(load_port))
         f.write("transport.tls.disable_custom_tls_first_byte = false\n")
         f.write("token = azumi\n")
         f.write("\n")
@@ -7534,11 +9019,14 @@ def i3iran_third():
 
     with open("frp/frps.toml", "w") as f:
         f.write("[common]\n")
-        bind_port = input("\033[93mEnter \033[92mTunnel Port\033[93m (default 443): \033[0m")
+        bind_port = input("\033[93mEnter \033[92mTunnel Port\033[93m : \033[0m")
         if not bind_port:
             bind_port = "443"
         f.write("bind_port = {}\n".format(bind_port))
-        f.write("vhost_https_port = 8443\n")
+        load_port = input("\033[93mEnter \033[92mLoadbalance Port\033[93m(default 8443): \033[0m")
+        if not load_port:
+            load_port = "8443"
+        f.write("vhost_https_port = {}\n".format(load_port))
         f.write("transport.tls.disable_custom_tls_first_byte = false\n")
         f.write("token = azumi\n")
         f.write("\n")
