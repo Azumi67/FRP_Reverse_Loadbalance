@@ -69,7 +69,391 @@ def display_loading():
             print('\r[' + frame + ']             ', end='')
             time.sleep(delay)
 
-    
+def delete_cron7():
+    entries_to_delete = [
+        "0 * * * * /etc/res.sh",
+        "0 */2 * * * /etc/res.sh",
+        "0 */3 * * * /etc/res.sh",
+        "0 */4 * * * /etc/res.sh",
+        "0 */5 * * * /etc/res.sh",
+        "0 */6 * * * /etc/res.sh",
+        "0 */7 * * * /etc/res.sh",
+        "0 */8 * * * /etc/res.sh",
+        "0 */9 * * * /etc/res.sh",
+        "0 */10 * * * /etc/res.sh",
+        "0 */11 * * * /etc/res.sh",
+        "0 */12 * * * /etc/res.sh",
+        "0 */13 * * * /etc/res.sh",
+        "0 */14 * * * /etc/res.sh",
+        "0 */15 * * * /etc/res.sh",
+        "0 */16 * * * /etc/res.sh",
+        "0 */17 * * * /etc/res.sh",
+        "0 */18 * * * /etc/res.sh",
+        "0 */19 * * * /etc/res.sh",
+        "0 */20 * * * /etc/res.sh",
+        "0 */21 * * * /etc/res.sh",
+        "0 */22 * * * /etc/res.sh",
+        "0 */23 * * * /etc/res.sh",
+    ]
+
+    existing_crontab = ""
+    try:
+        existing_crontab = subprocess.check_output("crontab -l", shell=True).decode()
+    except subprocess.CalledProcessError:
+        display_error("\033[91mNo existing cron found!\033[0m")
+        return
+
+    new_crontab = existing_crontab
+    for entry in entries_to_delete:
+        if entry in existing_crontab:
+            new_crontab = new_crontab.replace(entry, "")
+
+    if new_crontab != existing_crontab:
+        subprocess.call(f"echo '{new_crontab}' | crontab -", shell=True)
+        display_notification("\033[92mDeleting Previous Crons..\033[0m")
+    else:
+        print("\033[91mNothing Found, moving on..!\033[0m") 
+
+def delete_cron8():
+    entries_to_delete = [
+        "*/1 * * * * /etc/res.sh",  
+        "*/2 * * * * /etc/res.sh",  
+        "*/3 * * * * /etc/res.sh",  
+        "*/4 * * * * /etc/res.sh",  
+        "*/5 * * * * /etc/res.sh",  
+        "*/6 * * * * /etc/res.sh",
+        "*/7 * * * * /etc/res.sh",
+        "*/8 * * * * /etc/res.sh",
+        "*/9 * * * * /etc/res.sh",
+        "*/10 * * * * /etc/res.sh",  
+        "*/11 * * * * /etc/res.sh",  
+        "*/12 * * * * /etc/res.sh", 
+        "*/13 * * * * /etc/res.sh",
+        "*/14 * * * * /etc/res.sh",
+        "*/15 * * * * /etc/res.sh",
+        "*/16 * * * * /etc/res.sh",
+        "*/17 * * * * /etc/res.sh",
+        "*/18 * * * * /etc/res.sh",
+        "*/19 * * * * /etc/res.sh",
+        "*/20 * * * * /etc/res.sh",
+        "*/21 * * * * /etc/res.sh",
+        "*/22 * * * * /etc/res.sh",
+        "*/23 * * * * /etc/res.sh",
+        "*/24 * * * * /etc/res.sh",
+        "*/25 * * * * /etc/res.sh",
+        "*/26 * * * * /etc/res.sh",
+        "*/27 * * * * /etc/res.sh",
+        "*/28 * * * * /etc/res.sh",
+        "*/29 * * * * /etc/res.sh",
+        "*/30 * * * * /etc/res.sh",
+        "*/31 * * * * /etc/res.sh",
+        "*/32 * * * * /etc/res.sh",
+        "*/33 * * * * /etc/res.sh",
+        "*/34 * * * * /etc/res.sh",
+        "*/35 * * * * /etc/res.sh",
+        "*/36 * * * * /etc/res.sh",
+        "*/37 * * * * /etc/res.sh",
+        "*/38 * * * * /etc/res.sh",
+        "*/39 * * * * /etc/res.sh",
+        "*/40 * * * * /etc/res.sh",
+        "*/41 * * * * /etc/res.sh",
+        "*/42 * * * * /etc/res.sh",
+        "*/43 * * * * /etc/res.sh",
+        "*/44 * * * * /etc/res.sh",
+        "*/45 * * * * /etc/res.sh",
+        "*/46 * * * * /etc/res.sh",
+        "*/47 * * * * /etc/res.sh",
+        "*/48 * * * * /etc/res.sh",
+        "*/49 * * * * /etc/res.sh",
+        "*/50 * * * * /etc/res.sh",
+        "*/51 * * * * /etc/res.sh",
+        "*/52 * * * * /etc/res.sh",
+        "*/53 * * * * /etc/res.sh",
+        "*/54 * * * * /etc/res.sh",
+        "*/55 * * * * /etc/res.sh",
+        "*/56 * * * * /etc/res.sh",
+        "*/57 * * * * /etc/res.sh",
+        "*/58 * * * * /etc/res.sh",
+        "*/59 * * * * /etc/res.sh",
+        
+        
+    ]
+
+    existing_crontab = ""
+    try:
+        existing_crontab = subprocess.check_output("crontab -l", shell=True).decode()
+    except subprocess.CalledProcessError:
+        print("\033[91mNo existing cron found!\033[0m")
+        return
+
+    new_crontab = existing_crontab
+    for entry in entries_to_delete:
+        if entry in existing_crontab:
+            new_crontab = new_crontab.replace(entry, "")
+
+    if new_crontab != existing_crontab:
+        subprocess.call(f"echo '{new_crontab}' | crontab -", shell=True)
+        display_notification("\033[92mDeleting Previous Crons..\033[0m")
+    else:
+        print("\033[91mCron doesn't exist, moving on..!\033[0m")        
+	
+def delete_cron9():
+    entries_to_delete = [
+        "0 * * * * /etc/resd.sh",
+        "0 */2 * * * /etc/resd.sh",
+        "0 */3 * * * /etc/resd.sh",
+        "0 */4 * * * /etc/resd.sh",
+        "0 */5 * * * /etc/resd.sh",
+        "0 */6 * * * /etc/resd.sh",
+        "0 */7 * * * /etc/resd.sh",
+        "0 */8 * * * /etc/resd.sh",
+        "0 */9 * * * /etc/resd.sh",
+        "0 */10 * * * /etc/resd.sh",
+        "0 */11 * * * /etc/resd.sh",
+        "0 */12 * * * /etc/resd.sh",
+        "0 */13 * * * /etc/resd.sh",
+        "0 */14 * * * /etc/resd.sh",
+        "0 */15 * * * /etc/resd.sh",
+        "0 */16 * * * /etc/resd.sh",
+        "0 */17 * * * /etc/resd.sh",
+        "0 */18 * * * /etc/resd.sh",
+        "0 */19 * * * /etc/resd.sh",
+        "0 */20 * * * /etc/resd.sh",
+        "0 */21 * * * /etc/resd.sh",
+        "0 */22 * * * /etc/resd.sh",
+        "0 */23 * * * /etc/resd.sh",
+    ]
+
+    existing_crontab = ""
+    try:
+        existing_crontab = subprocess.check_output("crontab -l", shell=True).decode()
+    except subprocess.CalledProcessError:
+        display_error("\033[91mNo existing cron found!\033[0m")
+        return
+
+    new_crontab = existing_crontab
+    for entry in entries_to_delete:
+        if entry in existing_crontab:
+            new_crontab = new_crontab.replace(entry, "")
+
+    if new_crontab != existing_crontab:
+        subprocess.call(f"echo '{new_crontab}' | crontab -", shell=True)
+        display_notification("\033[92mDeleting Previous Crons..\033[0m")
+    else:
+        print("\033[91mNothing Found, moving on..!\033[0m") 
+
+def delete_cron10():
+    entries_to_delete = [
+        "*/1 * * * * /etc/resd.sh",  
+        "*/2 * * * * /etc/resd.sh",  
+        "*/3 * * * * /etc/resd.sh",  
+        "*/4 * * * * /etc/resd.sh",  
+        "*/5 * * * * /etc/resd.sh",  
+        "*/6 * * * * /etc/resd.sh",
+        "*/7 * * * * /etc/resd.sh",
+        "*/8 * * * * /etc/resd.sh",
+        "*/9 * * * * /etc/resd.sh",
+        "*/10 * * * * /etc/resd.sh",  
+        "*/11 * * * * /etc/resd.sh",  
+        "*/12 * * * * /etc/resd.sh", 
+        "*/13 * * * * /etc/resd.sh",
+        "*/14 * * * * /etc/resd.sh",
+        "*/15 * * * * /etc/resd.sh",
+        "*/16 * * * * /etc/resd.sh",
+        "*/17 * * * * /etc/resd.sh",
+        "*/18 * * * * /etc/resd.sh",
+        "*/19 * * * * /etc/resd.sh",
+        "*/20 * * * * /etc/resd.sh",
+        "*/21 * * * * /etc/resd.sh",
+        "*/22 * * * * /etc/resd.sh",
+        "*/23 * * * * /etc/resd.sh",
+        "*/24 * * * * /etc/resd.sh",
+        "*/25 * * * * /etc/resd.sh",
+        "*/26 * * * * /etc/resd.sh",
+        "*/27 * * * * /etc/resd.sh",
+        "*/28 * * * * /etc/resd.sh",
+        "*/29 * * * * /etc/resd.sh",
+        "*/30 * * * * /etc/resd.sh",
+        "*/31 * * * * /etc/resd.sh",
+        "*/32 * * * * /etc/resd.sh",
+        "*/33 * * * * /etc/resd.sh",
+        "*/34 * * * * /etc/resd.sh",
+        "*/35 * * * * /etc/resd.sh",
+        "*/36 * * * * /etc/resd.sh",
+        "*/37 * * * * /etc/resd.sh",
+        "*/38 * * * * /etc/resd.sh",
+        "*/39 * * * * /etc/resd.sh",
+        "*/40 * * * * /etc/resd.sh",
+        "*/41 * * * * /etc/resd.sh",
+        "*/42 * * * * /etc/resd.sh",
+        "*/43 * * * * /etc/resd.sh",
+        "*/44 * * * * /etc/resd.sh",
+        "*/45 * * * * /etc/resd.sh",
+        "*/46 * * * * /etc/resd.sh",
+        "*/47 * * * * /etc/resd.sh",
+        "*/48 * * * * /etc/resd.sh",
+        "*/49 * * * * /etc/resd.sh",
+        "*/50 * * * * /etc/resd.sh",
+        "*/51 * * * * /etc/resd.sh",
+        "*/52 * * * * /etc/resd.sh",
+        "*/53 * * * * /etc/resd.sh",
+        "*/54 * * * * /etc/resd.sh",
+        "*/55 * * * * /etc/resd.sh",
+        "*/56 * * * * /etc/resd.sh",
+        "*/57 * * * * /etc/resd.sh",
+        "*/58 * * * * /etc/resd.sh",
+        "*/59 * * * * /etc/resd.sh",
+        
+        
+    ]
+
+    existing_crontab = ""
+    try:
+        existing_crontab = subprocess.check_output("crontab -l", shell=True).decode()
+    except subprocess.CalledProcessError:
+        print("\033[91mNo existing cron found!\033[0m")
+        return
+
+    new_crontab = existing_crontab
+    for entry in entries_to_delete:
+        if entry in existing_crontab:
+            new_crontab = new_crontab.replace(entry, "")
+
+    if new_crontab != existing_crontab:
+        subprocess.call(f"echo '{new_crontab}' | crontab -", shell=True)
+        display_notification("\033[92mDeleting Previous Crons..\033[0m")
+    else:
+        print("\033[91mCron doesn't exist, moving on..!\033[0m")            
+
+
+def delete_cron11():
+    entries_to_delete = [
+        "0 * * * * /etc/resq.sh",
+        "0 */2 * * * /etc/resq.sh",
+        "0 */3 * * * /etc/resq.sh",
+        "0 */4 * * * /etc/resq.sh",
+        "0 */5 * * * /etc/resq.sh",
+        "0 */6 * * * /etc/resq.sh",
+        "0 */7 * * * /etc/resq.sh",
+        "0 */8 * * * /etc/resq.sh",
+        "0 */9 * * * /etc/resq.sh",
+        "0 */10 * * * /etc/resq.sh",
+        "0 */11 * * * /etc/resq.sh",
+        "0 */12 * * * /etc/resq.sh",
+        "0 */13 * * * /etc/resq.sh",
+        "0 */14 * * * /etc/resq.sh",
+        "0 */15 * * * /etc/resq.sh",
+        "0 */16 * * * /etc/resq.sh",
+        "0 */17 * * * /etc/resq.sh",
+        "0 */18 * * * /etc/resq.sh",
+        "0 */19 * * * /etc/resq.sh",
+        "0 */20 * * * /etc/resq.sh",
+        "0 */21 * * * /etc/resq.sh",
+        "0 */22 * * * /etc/resq.sh",
+        "0 */23 * * * /etc/resq.sh",
+    ]
+
+    existing_crontab = ""
+    try:
+        existing_crontab = subprocess.check_output("crontab -l", shell=True).decode()
+    except subprocess.CalledProcessError:
+        display_error("\033[91mNo existing cron found!\033[0m")
+        return
+
+    new_crontab = existing_crontab
+    for entry in entries_to_delete:
+        if entry in existing_crontab:
+            new_crontab = new_crontab.replace(entry, "")
+
+    if new_crontab != existing_crontab:
+        subprocess.call(f"echo '{new_crontab}' | crontab -", shell=True)
+        display_notification("\033[92mDeleting Previous Crons..\033[0m")
+    else:
+        print("\033[91mNothing Found, moving on..!\033[0m")  
+		
+def delete_cron12():
+    entries_to_delete = [
+        "*/1 * * * * /etc/resq.sh",  
+        "*/2 * * * * /etc/resq.sh",  
+        "*/3 * * * * /etc/resq.sh",  
+        "*/4 * * * * /etc/resq.sh",  
+        "*/5 * * * * /etc/resq.sh",  
+        "*/6 * * * * /etc/resq.sh",
+        "*/7 * * * * /etc/resq.sh",
+        "*/8 * * * * /etc/resq.sh",
+        "*/9 * * * * /etc/resq.sh",
+        "*/10 * * * * /etc/resq.sh",  
+        "*/11 * * * * /etc/resq.sh",  
+        "*/12 * * * * /etc/resq.sh", 
+        "*/13 * * * * /etc/resq.sh",
+        "*/14 * * * * /etc/resq.sh",
+        "*/15 * * * * /etc/resq.sh",
+        "*/16 * * * * /etc/resq.sh",
+        "*/17 * * * * /etc/resq.sh",
+        "*/18 * * * * /etc/resq.sh",
+        "*/19 * * * * /etc/resq.sh",
+        "*/20 * * * * /etc/resq.sh",
+        "*/21 * * * * /etc/resq.sh",
+        "*/22 * * * * /etc/resq.sh",
+        "*/23 * * * * /etc/resq.sh",
+        "*/24 * * * * /etc/resq.sh",
+        "*/25 * * * * /etc/resq.sh",
+        "*/26 * * * * /etc/resq.sh",
+        "*/27 * * * * /etc/resq.sh",
+        "*/28 * * * * /etc/resq.sh",
+        "*/29 * * * * /etc/resq.sh",
+        "*/30 * * * * /etc/resq.sh",
+        "*/31 * * * * /etc/resq.sh",
+        "*/32 * * * * /etc/resq.sh",
+        "*/33 * * * * /etc/resq.sh",
+        "*/34 * * * * /etc/resq.sh",
+        "*/35 * * * * /etc/resq.sh",
+        "*/36 * * * * /etc/resq.sh",
+        "*/37 * * * * /etc/resq.sh",
+        "*/38 * * * * /etc/resq.sh",
+        "*/39 * * * * /etc/resq.sh",
+        "*/40 * * * * /etc/resq.sh",
+        "*/41 * * * * /etc/resq.sh",
+        "*/42 * * * * /etc/resq.sh",
+        "*/43 * * * * /etc/resq.sh",
+        "*/44 * * * * /etc/resq.sh",
+        "*/45 * * * * /etc/resq.sh",
+        "*/46 * * * * /etc/resq.sh",
+        "*/47 * * * * /etc/resq.sh",
+        "*/48 * * * * /etc/resq.sh",
+        "*/49 * * * * /etc/resq.sh",
+        "*/50 * * * * /etc/resq.sh",
+        "*/51 * * * * /etc/resq.sh",
+        "*/52 * * * * /etc/resq.sh",
+        "*/53 * * * * /etc/resq.sh",
+        "*/54 * * * * /etc/resq.sh",
+        "*/55 * * * * /etc/resq.sh",
+        "*/56 * * * * /etc/resq.sh",
+        "*/57 * * * * /etc/resq.sh",
+        "*/58 * * * * /etc/resq.sh",
+        "*/59 * * * * /etc/resq.sh",
+        
+        
+    ]
+
+    existing_crontab = ""
+    try:
+        existing_crontab = subprocess.check_output("crontab -l", shell=True).decode()
+    except subprocess.CalledProcessError:
+        print("\033[91mNo existing cron found!\033[0m")
+        return
+
+    new_crontab = existing_crontab
+    for entry in entries_to_delete:
+        if entry in existing_crontab:
+            new_crontab = new_crontab.replace(entry, "")
+
+    if new_crontab != existing_crontab:
+        subprocess.call(f"echo '{new_crontab}' | crontab -", shell=True)
+        display_notification("\033[92mDeleting Previous Crons..\033[0m")
+    else:
+        print("\033[91mCron doesn't exist, moving on..!\033[0m") 
+              
 def display_logo2():
     colorama.init()
     logo2 = colorama.Style.BRIGHT + colorama.Fore.GREEN + """
@@ -938,29 +1322,29 @@ def kcp_local():
             
 def delete_cron5():
     entries_to_delete = [
-        "0 * * * * /etc/resq.sh",
-        "0 */2 * * * /etc/resq.sh",
-        "0 */3 * * * /etc/resq.sh",
-        "0 */4 * * * /etc/resq.sh",
-        "0 */5 * * * /etc/resq.sh",
-        "0 */6 * * * /etc/resq.sh",
-        "0 */7 * * * /etc/resq.sh",
-        "0 */8 * * * /etc/resq.sh",
-        "0 */9 * * * /etc/resq.sh",
-        "0 */10 * * * /etc/resq.sh",
-        "0 */11 * * * /etc/resq.sh",
-        "0 */12 * * * /etc/resq.sh",
-        "0 */13 * * * /etc/resq.sh",
-        "0 */14 * * * /etc/resq.sh",
-        "0 */15 * * * /etc/resq.sh",
-        "0 */16 * * * /etc/resq.sh",
-        "0 */17 * * * /etc/resq.sh",
-        "0 */18 * * * /etc/resq.sh",
-        "0 */19 * * * /etc/resq.sh",
-        "0 */20 * * * /etc/resq.sh",
-        "0 */21 * * * /etc/resq.sh",
-        "0 */22 * * * /etc/resq.sh",
-        "0 */23 * * * /etc/resq.sh",
+        "0 * * * * /bin/bash /etc/resq.sh",
+        "0 */2 * * * /bin/bash /etc/resq.sh",
+        "0 */3 * * * /bin/bash /etc/resq.sh",
+        "0 */4 * * * /bin/bash /etc/resq.sh",
+        "0 */5 * * * /bin/bash /etc/resq.sh",
+        "0 */6 * * * /bin/bash /etc/resq.sh",
+        "0 */7 * * * /bin/bash /etc/resq.sh",
+        "0 */8 * * * /bin/bash /etc/resq.sh",
+        "0 */9 * * * /bin/bash /etc/resq.sh",
+        "0 */10 * * * /bin/bash /etc/resq.sh",
+        "0 */11 * * * /bin/bash /etc/resq.sh",
+        "0 */12 * * * /bin/bash /etc/resq.sh",
+        "0 */13 * * * /bin/bash /etc/resq.sh",
+        "0 */14 * * * /bin/bash /etc/resq.sh",
+        "0 */15 * * * /bin/bash /etc/resq.sh",
+        "0 */16 * * * /bin/bash /etc/resq.sh",
+        "0 */17 * * * /bin/bash /etc/resq.sh",
+        "0 */18 * * * /bin/bash /etc/resq.sh",
+        "0 */19 * * * /bin/bash /etc/resq.sh",
+        "0 */20 * * * /bin/bash /etc/resq.sh",
+        "0 */21 * * * /bin/bash /etc/resq.sh",
+        "0 */22 * * * /bin/bash /etc/resq.sh",
+        "0 */23 * * * /bin/bash /etc/resq.sh",
     ]
 
     existing_crontab = ""
@@ -983,29 +1367,29 @@ def delete_cron5():
         
 def delete_cron3():
     entries_to_delete = [
-        "0 * * * * /etc/resd.sh",
-        "0 */2 * * * /etc/resd.sh",
-        "0 */3 * * * /etc/resd.sh",
-        "0 */4 * * * /etc/resd.sh",
-        "0 */5 * * * /etc/resd.sh",
-        "0 */6 * * * /etc/resd.sh",
-        "0 */7 * * * /etc/resd.sh",
-        "0 */8 * * * /etc/resd.sh",
-        "0 */9 * * * /etc/resd.sh",
-        "0 */10 * * * /etc/resd.sh",
-        "0 */11 * * * /etc/resd.sh",
-        "0 */12 * * * /etc/resd.sh",
-        "0 */13 * * * /etc/resd.sh",
-        "0 */14 * * * /etc/resd.sh",
-        "0 */15 * * * /etc/resd.sh",
-        "0 */16 * * * /etc/resd.sh",
-        "0 */17 * * * /etc/resd.sh",
-        "0 */18 * * * /etc/resd.sh",
-        "0 */19 * * * /etc/resd.sh",
-        "0 */20 * * * /etc/resd.sh",
-        "0 */21 * * * /etc/resd.sh",
-        "0 */22 * * * /etc/resd.sh",
-        "0 */23 * * * /etc/resd.sh",
+        "0 * * * * /bin/bash /etc/resd.sh",
+        "0 */2 * * * /bin/bash /etc/resd.sh",
+        "0 */3 * * * /bin/bash /etc/resd.sh",
+        "0 */4 * * * /bin/bash /etc/resd.sh",
+        "0 */5 * * * /bin/bash /etc/resd.sh",
+        "0 */6 * * * /bin/bash /etc/resd.sh",
+        "0 */7 * * * /bin/bash /etc/resd.sh",
+        "0 */8 * * * /bin/bash /etc/resd.sh",
+        "0 */9 * * * /bin/bash /etc/resd.sh",
+        "0 */10 * * * /bin/bash /etc/resd.sh",
+        "0 */11 * * * /bin/bash /etc/resd.sh",
+        "0 */12 * * * /bin/bash /etc/resd.sh",
+        "0 */13 * * * /bin/bash /etc/resd.sh",
+        "0 */14 * * * /bin/bash /etc/resd.sh",
+        "0 */15 * * * /bin/bash /etc/resd.sh",
+        "0 */16 * * * /bin/bash /etc/resd.sh",
+        "0 */17 * * * /bin/bash /etc/resd.sh",
+        "0 */18 * * * /bin/bash /etc/resd.sh",
+        "0 */19 * * * /bin/bash /etc/resd.sh",
+        "0 */20 * * * /bin/bash /etc/resd.sh",
+        "0 */21 * * * /bin/bash /etc/resd.sh",
+        "0 */22 * * * /bin/bash /etc/resd.sh",
+        "0 */23 * * * /bin/bash /etc/resd.sh",
     ]
 
     existing_crontab = ""
@@ -1027,29 +1411,29 @@ def delete_cron3():
         print("\033[91mNothing Found, moving on..!\033[0m")             
 def delete_cron1():
     entries_to_delete = [
-        "0 * * * * /etc/res.sh",
-        "0 */2 * * * /etc/res.sh",
-        "0 */3 * * * /etc/res.sh",
-        "0 */4 * * * /etc/res.sh",
-        "0 */5 * * * /etc/res.sh",
-        "0 */6 * * * /etc/res.sh",
-        "0 */7 * * * /etc/res.sh",
-        "0 */8 * * * /etc/res.sh",
-        "0 */9 * * * /etc/res.sh",
-        "0 */10 * * * /etc/res.sh",
-        "0 */11 * * * /etc/res.sh",
-        "0 */12 * * * /etc/res.sh",
-        "0 */13 * * * /etc/res.sh",
-        "0 */14 * * * /etc/res.sh",
-        "0 */15 * * * /etc/res.sh",
-        "0 */16 * * * /etc/res.sh",
-        "0 */17 * * * /etc/res.sh",
-        "0 */18 * * * /etc/res.sh",
-        "0 */19 * * * /etc/res.sh",
-        "0 */20 * * * /etc/res.sh",
-        "0 */21 * * * /etc/res.sh",
-        "0 */22 * * * /etc/res.sh",
-        "0 */23 * * * /etc/res.sh",
+        "0 * * * * /bin/bash /etc/res.sh",
+        "0 */2 * * * /bin/bash /etc/res.sh",
+        "0 */3 * * * /bin/bash /etc/res.sh",
+        "0 */4 * * * /bin/bash /etc/res.sh",
+        "0 */5 * * * /bin/bash /etc/res.sh",
+        "0 */6 * * * /bin/bash /etc/res.sh",
+        "0 */7 * * * /bin/bash /etc/res.sh",
+        "0 */8 * * * /bin/bash /etc/res.sh",
+        "0 */9 * * * /bin/bash /etc/res.sh",
+        "0 */10 * * * /bin/bash /etc/res.sh",
+        "0 */11 * * * /bin/bash /etc/res.sh",
+        "0 */12 * * * /bin/bash /etc/res.sh",
+        "0 */13 * * * /bin/bash /etc/res.sh",
+        "0 */14 * * * /bin/bash /etc/res.sh",
+        "0 */15 * * * /bin/bash /etc/res.sh",
+        "0 */16 * * * /bin/bash /etc/res.sh",
+        "0 */17 * * * /bin/bash /etc/res.sh",
+        "0 */18 * * * /bin/bash /etc/res.sh",
+        "0 */19 * * * /bin/bash /etc/res.sh",
+        "0 */20 * * * /bin/bash /etc/res.sh",
+        "0 */21 * * * /bin/bash /etc/res.sh",
+        "0 */22 * * * /bin/bash /etc/res.sh",
+        "0 */23 * * * /bin/bash /etc/res.sh",
     ]
 
     existing_crontab = ""
@@ -1166,9 +1550,9 @@ def hourz1():
     delete_cron2()
 
     if hours == 1:
-        cron_entry = "0 * * * * /etc/res.sh"
+        cron_entry = "0 * * * * /bin/bash /etc/res.sh"
     else:
-        cron_entry = f"0 */{hours} * * * /etc/res.sh"
+        cron_entry = f"0 */{hours} * * * /bin/bash /etc/res.sh"
 
     try:
         existing_crontab = subprocess.check_output("crontab -l", shell=True).decode()
@@ -1189,9 +1573,9 @@ def hourz2():
     delete_cron4()
 
     if hours == 1:
-        cron_entry = "0 * * * * /etc/resd.sh"
+        cron_entry = "0 * * * * /bin/bash /etc/resd.sh"
     else:
-        cron_entry = f"0 */{hours} * * * /etc/resd.sh"
+        cron_entry = f"0 */{hours} * * * /bin/bash /etc/resd.sh"
 
     try:
         existing_crontab = subprocess.check_output("crontab -l", shell=True).decode()
@@ -1212,9 +1596,9 @@ def hourz3():
     delete_cron6()
 
     if hours == 1:
-        cron_entry = "0 * * * * /etc/resq.sh"
+        cron_entry = "0 * * * * /bin/bash /etc/resq.sh"
     else:
-        cron_entry = f"0 */{hours} * * * /etc/resq.sh"
+        cron_entry = f"0 */{hours} * * * /bin/bash /etc/resq.sh"
 
     try:
         existing_crontab = subprocess.check_output("crontab -l", shell=True).decode()
@@ -1233,7 +1617,7 @@ def minutes1():
     delete_cron1()
     delete_cron2()
 
-    cron_entry = f"*/{minutes} * * * * /etc/res.sh"
+    cron_entry = f"*/{minutes} * * * * /bin/bash /etc/res.sh"
 
     try:
         existing_crontab = subprocess.check_output("crontab -l", shell=True).decode()
@@ -1252,7 +1636,7 @@ def minutes2():
     delete_cron3()
     delete_cron4()
 
-    cron_entry = f"*/{minutes} * * * * /etc/resd.sh"
+    cron_entry = f"*/{minutes} * * * * /bin/bash /etc/resd.sh"
 
     try:
         existing_crontab = subprocess.check_output("crontab -l", shell=True).decode()
@@ -1271,7 +1655,7 @@ def minutes3():
     delete_cron5()
     delete_cron6()
 
-    cron_entry = f"*/{minutes} * * * * /etc/resq.sh"
+    cron_entry = f"*/{minutes} * * * * /bin/bash /etc/resq.sh"
 
     try:
         existing_crontab = subprocess.check_output("crontab -l", shell=True).decode()
@@ -1287,65 +1671,65 @@ def minutes3():
 
 def delete_cron6():
     entries_to_delete = [
-        "*/1 * * * * /etc/resq.sh",  
-        "*/2 * * * * /etc/resq.sh",  
-        "*/3 * * * * /etc/resq.sh",  
-        "*/4 * * * * /etc/resq.sh",  
-        "*/5 * * * * /etc/resq.sh",  
-        "*/6 * * * * /etc/resq.sh",
-        "*/7 * * * * /etc/resq.sh",
-        "*/8 * * * * /etc/resq.sh",
-        "*/9 * * * * /etc/resq.sh",
-        "*/10 * * * * /etc/resq.sh",  
-        "*/11 * * * * /etc/resq.sh",  
-        "*/12 * * * * /etc/resq.sh", 
-        "*/13 * * * * /etc/resq.sh",
-        "*/14 * * * * /etc/resq.sh",
-        "*/15 * * * * /etc/resq.sh",
-        "*/16 * * * * /etc/resq.sh",
-        "*/17 * * * * /etc/resq.sh",
-        "*/18 * * * * /etc/resq.sh",
-        "*/19 * * * * /etc/resq.sh",
-        "*/20 * * * * /etc/resq.sh",
-        "*/21 * * * * /etc/resq.sh",
-        "*/22 * * * * /etc/resq.sh",
-        "*/23 * * * * /etc/resq.sh",
-        "*/24 * * * * /etc/resq.sh",
-        "*/25 * * * * /etc/resq.sh",
-        "*/26 * * * * /etc/resq.sh",
-        "*/27 * * * * /etc/resq.sh",
-        "*/28 * * * * /etc/resq.sh",
-        "*/29 * * * * /etc/resq.sh",
-        "*/30 * * * * /etc/resq.sh",
-        "*/31 * * * * /etc/resq.sh",
-        "*/32 * * * * /etc/resq.sh",
-        "*/33 * * * * /etc/resq.sh",
-        "*/34 * * * * /etc/resq.sh",
-        "*/35 * * * * /etc/resq.sh",
-        "*/36 * * * * /etc/resq.sh",
-        "*/37 * * * * /etc/resq.sh",
-        "*/38 * * * * /etc/resq.sh",
-        "*/39 * * * * /etc/resq.sh",
-        "*/40 * * * * /etc/resq.sh",
-        "*/41 * * * * /etc/resq.sh",
-        "*/42 * * * * /etc/resq.sh",
-        "*/43 * * * * /etc/resq.sh",
-        "*/44 * * * * /etc/resq.sh",
-        "*/45 * * * * /etc/resq.sh",
-        "*/46 * * * * /etc/resq.sh",
-        "*/47 * * * * /etc/resq.sh",
-        "*/48 * * * * /etc/resq.sh",
-        "*/49 * * * * /etc/resq.sh",
-        "*/50 * * * * /etc/resq.sh",
-        "*/51 * * * * /etc/resq.sh",
-        "*/52 * * * * /etc/resq.sh",
-        "*/53 * * * * /etc/resq.sh",
-        "*/54 * * * * /etc/resq.sh",
-        "*/55 * * * * /etc/resq.sh",
-        "*/56 * * * * /etc/resq.sh",
-        "*/57 * * * * /etc/resq.sh",
-        "*/58 * * * * /etc/resq.sh",
-        "*/59 * * * * /etc/resq.sh",
+        "*/1 * * * * /bin/bash /etc/resq.sh",  
+        "*/2 * * * * /bin/bash /etc/resq.sh",  
+        "*/3 * * * * /bin/bash /etc/resq.sh",  
+        "*/4 * * * * /bin/bash /etc/resq.sh",  
+        "*/5 * * * * /bin/bash /etc/resq.sh",  
+        "*/6 * * * * /bin/bash /etc/resq.sh",
+        "*/7 * * * * /bin/bash /etc/resq.sh",
+        "*/8 * * * * /bin/bash /etc/resq.sh",
+        "*/9 * * * * /bin/bash /etc/resq.sh",
+        "*/10 * * * * /bin/bash /etc/resq.sh",  
+        "*/11 * * * * /bin/bash /etc/resq.sh",  
+        "*/12 * * * * /bin/bash /etc/resq.sh", 
+        "*/13 * * * * /bin/bash /etc/resq.sh",
+        "*/14 * * * * /bin/bash /etc/resq.sh",
+        "*/15 * * * * /bin/bash /etc/resq.sh",
+        "*/16 * * * * /bin/bash /etc/resq.sh",
+        "*/17 * * * * /bin/bash /etc/resq.sh",
+        "*/18 * * * * /bin/bash /etc/resq.sh",
+        "*/19 * * * * /bin/bash /etc/resq.sh",
+        "*/20 * * * * /bin/bash /etc/resq.sh",
+        "*/21 * * * * /bin/bash /etc/resq.sh",
+        "*/22 * * * * /bin/bash /etc/resq.sh",
+        "*/23 * * * * /bin/bash /etc/resq.sh",
+        "*/24 * * * * /bin/bash /etc/resq.sh",
+        "*/25 * * * * /bin/bash /etc/resq.sh",
+        "*/26 * * * * /bin/bash /etc/resq.sh",
+        "*/27 * * * * /bin/bash /etc/resq.sh",
+        "*/28 * * * * /bin/bash /etc/resq.sh",
+        "*/29 * * * * /bin/bash /etc/resq.sh",
+        "*/30 * * * * /bin/bash /etc/resq.sh",
+        "*/31 * * * * /bin/bash /etc/resq.sh",
+        "*/32 * * * * /bin/bash /etc/resq.sh",
+        "*/33 * * * * /bin/bash /etc/resq.sh",
+        "*/34 * * * * /bin/bash /etc/resq.sh",
+        "*/35 * * * * /bin/bash /etc/resq.sh",
+        "*/36 * * * * /bin/bash /etc/resq.sh",
+        "*/37 * * * * /bin/bash /etc/resq.sh",
+        "*/38 * * * * /bin/bash /etc/resq.sh",
+        "*/39 * * * * /bin/bash /etc/resq.sh",
+        "*/40 * * * * /bin/bash /etc/resq.sh",
+        "*/41 * * * * /bin/bash /etc/resq.sh",
+        "*/42 * * * * /bin/bash /etc/resq.sh",
+        "*/43 * * * * /bin/bash /etc/resq.sh",
+        "*/44 * * * * /bin/bash /etc/resq.sh",
+        "*/45 * * * * /bin/bash /etc/resq.sh",
+        "*/46 * * * * /bin/bash /etc/resq.sh",
+        "*/47 * * * * /bin/bash /etc/resq.sh",
+        "*/48 * * * * /bin/bash /etc/resq.sh",
+        "*/49 * * * * /bin/bash /etc/resq.sh",
+        "*/50 * * * * /bin/bash /etc/resq.sh",
+        "*/51 * * * * /bin/bash /etc/resq.sh",
+        "*/52 * * * * /bin/bash /etc/resq.sh",
+        "*/53 * * * * /bin/bash /etc/resq.sh",
+        "*/54 * * * * /bin/bash /etc/resq.sh",
+        "*/55 * * * * /bin/bash /etc/resq.sh",
+        "*/56 * * * * /bin/bash /etc/resq.sh",
+        "*/57 * * * * /bin/bash /etc/resq.sh",
+        "*/58 * * * * /bin/bash /etc/resq.sh",
+        "*/59 * * * * /bin/bash /etc/resq.sh",
         
         
     ]
@@ -1370,65 +1754,65 @@ def delete_cron6():
         
 def delete_cron4():
     entries_to_delete = [
-        "*/1 * * * * /etc/resd.sh",  
-        "*/2 * * * * /etc/resd.sh",  
-        "*/3 * * * * /etc/resd.sh",  
-        "*/4 * * * * /etc/resd.sh",  
-        "*/5 * * * * /etc/resd.sh",  
-        "*/6 * * * * /etc/resd.sh",
-        "*/7 * * * * /etc/resd.sh",
-        "*/8 * * * * /etc/resd.sh",
-        "*/9 * * * * /etc/resd.sh",
-        "*/10 * * * * /etc/resd.sh",  
-        "*/11 * * * * /etc/resd.sh",  
-        "*/12 * * * * /etc/resd.sh", 
-        "*/13 * * * * /etc/resd.sh",
-        "*/14 * * * * /etc/resd.sh",
-        "*/15 * * * * /etc/resd.sh",
-        "*/16 * * * * /etc/resd.sh",
-        "*/17 * * * * /etc/resd.sh",
-        "*/18 * * * * /etc/resd.sh",
-        "*/19 * * * * /etc/resd.sh",
-        "*/20 * * * * /etc/resd.sh",
-        "*/21 * * * * /etc/resd.sh",
-        "*/22 * * * * /etc/resd.sh",
-        "*/23 * * * * /etc/resd.sh",
-        "*/24 * * * * /etc/resd.sh",
-        "*/25 * * * * /etc/resd.sh",
-        "*/26 * * * * /etc/resd.sh",
-        "*/27 * * * * /etc/resd.sh",
-        "*/28 * * * * /etc/resd.sh",
-        "*/29 * * * * /etc/resd.sh",
-        "*/30 * * * * /etc/resd.sh",
-        "*/31 * * * * /etc/resd.sh",
-        "*/32 * * * * /etc/resd.sh",
-        "*/33 * * * * /etc/resd.sh",
-        "*/34 * * * * /etc/resd.sh",
-        "*/35 * * * * /etc/resd.sh",
-        "*/36 * * * * /etc/resd.sh",
-        "*/37 * * * * /etc/resd.sh",
-        "*/38 * * * * /etc/resd.sh",
-        "*/39 * * * * /etc/resd.sh",
-        "*/40 * * * * /etc/resd.sh",
-        "*/41 * * * * /etc/resd.sh",
-        "*/42 * * * * /etc/resd.sh",
-        "*/43 * * * * /etc/resd.sh",
-        "*/44 * * * * /etc/resd.sh",
-        "*/45 * * * * /etc/resd.sh",
-        "*/46 * * * * /etc/resd.sh",
-        "*/47 * * * * /etc/resd.sh",
-        "*/48 * * * * /etc/resd.sh",
-        "*/49 * * * * /etc/resd.sh",
-        "*/50 * * * * /etc/resd.sh",
-        "*/51 * * * * /etc/resd.sh",
-        "*/52 * * * * /etc/resd.sh",
-        "*/53 * * * * /etc/resd.sh",
-        "*/54 * * * * /etc/resd.sh",
-        "*/55 * * * * /etc/resd.sh",
-        "*/56 * * * * /etc/resd.sh",
-        "*/57 * * * * /etc/resd.sh",
-        "*/58 * * * * /etc/resd.sh",
-        "*/59 * * * * /etc/resd.sh",
+        "*/1 * * * * /bin/bash /etc/resd.sh",  
+        "*/2 * * * * /bin/bash /etc/resd.sh",  
+        "*/3 * * * * /bin/bash /etc/resd.sh",  
+        "*/4 * * * * /bin/bash /etc/resd.sh",  
+        "*/5 * * * * /bin/bash /etc/resd.sh",  
+        "*/6 * * * * /bin/bash /etc/resd.sh",
+        "*/7 * * * * /bin/bash /etc/resd.sh",
+        "*/8 * * * * /bin/bash /etc/resd.sh",
+        "*/9 * * * * /bin/bash /etc/resd.sh",
+        "*/10 * * * * /bin/bash /etc/resd.sh",  
+        "*/11 * * * * /bin/bash /etc/resd.sh",  
+        "*/12 * * * * /bin/bash /etc/resd.sh", 
+        "*/13 * * * * /bin/bash /etc/resd.sh",
+        "*/14 * * * * /bin/bash /etc/resd.sh",
+        "*/15 * * * * /bin/bash /etc/resd.sh",
+        "*/16 * * * * /bin/bash /etc/resd.sh",
+        "*/17 * * * * /bin/bash /etc/resd.sh",
+        "*/18 * * * * /bin/bash /etc/resd.sh",
+        "*/19 * * * * /bin/bash /etc/resd.sh",
+        "*/20 * * * * /bin/bash /etc/resd.sh",
+        "*/21 * * * * /bin/bash /etc/resd.sh",
+        "*/22 * * * * /bin/bash /etc/resd.sh",
+        "*/23 * * * * /bin/bash /etc/resd.sh",
+        "*/24 * * * * /bin/bash /etc/resd.sh",
+        "*/25 * * * * /bin/bash /etc/resd.sh",
+        "*/26 * * * * /bin/bash /etc/resd.sh",
+        "*/27 * * * * /bin/bash /etc/resd.sh",
+        "*/28 * * * * /bin/bash /etc/resd.sh",
+        "*/29 * * * * /bin/bash /etc/resd.sh",
+        "*/30 * * * * /bin/bash /etc/resd.sh",
+        "*/31 * * * * /bin/bash /etc/resd.sh",
+        "*/32 * * * * /bin/bash /etc/resd.sh",
+        "*/33 * * * * /bin/bash /etc/resd.sh",
+        "*/34 * * * * /bin/bash /etc/resd.sh",
+        "*/35 * * * * /bin/bash /etc/resd.sh",
+        "*/36 * * * * /bin/bash /etc/resd.sh",
+        "*/37 * * * * /bin/bash /etc/resd.sh",
+        "*/38 * * * * /bin/bash /etc/resd.sh",
+        "*/39 * * * * /bin/bash /etc/resd.sh",
+        "*/40 * * * * /bin/bash /etc/resd.sh",
+        "*/41 * * * * /bin/bash /etc/resd.sh",
+        "*/42 * * * * /bin/bash /etc/resd.sh",
+        "*/43 * * * * /bin/bash /etc/resd.sh",
+        "*/44 * * * * /bin/bash /etc/resd.sh",
+        "*/45 * * * * /bin/bash /etc/resd.sh",
+        "*/46 * * * * /bin/bash /etc/resd.sh",
+        "*/47 * * * * /bin/bash /etc/resd.sh",
+        "*/48 * * * * /bin/bash /etc/resd.sh",
+        "*/49 * * * * /bin/bash /etc/resd.sh",
+        "*/50 * * * * /bin/bash /etc/resd.sh",
+        "*/51 * * * * /bin/bash /etc/resd.sh",
+        "*/52 * * * * /bin/bash /etc/resd.sh",
+        "*/53 * * * * /bin/bash /etc/resd.sh",
+        "*/54 * * * * /bin/bash /etc/resd.sh",
+        "*/55 * * * * /bin/bash /etc/resd.sh",
+        "*/56 * * * * /bin/bash /etc/resd.sh",
+        "*/57 * * * * /bin/bash /etc/resd.sh",
+        "*/58 * * * * /bin/bash /etc/resd.sh",
+        "*/59 * * * * /bin/bash /etc/resd.sh",
         
         
     ]
@@ -1452,65 +1836,65 @@ def delete_cron4():
         print("\033[91mCron doesn't exist, moving on..!\033[0m")            
 def delete_cron2():
     entries_to_delete = [
-        "*/1 * * * * /etc/res.sh",  
-        "*/2 * * * * /etc/res.sh",  
-        "*/3 * * * * /etc/res.sh",  
-        "*/4 * * * * /etc/res.sh",  
-        "*/5 * * * * /etc/res.sh",  
-        "*/6 * * * * /etc/res.sh",
-        "*/7 * * * * /etc/res.sh",
-        "*/8 * * * * /etc/res.sh",
-        "*/9 * * * * /etc/res.sh",
-        "*/10 * * * * /etc/res.sh",  
-        "*/11 * * * * /etc/res.sh",  
-        "*/12 * * * * /etc/res.sh", 
-        "*/13 * * * * /etc/res.sh",
-        "*/14 * * * * /etc/res.sh",
-        "*/15 * * * * /etc/res.sh",
-        "*/16 * * * * /etc/res.sh",
-        "*/17 * * * * /etc/res.sh",
-        "*/18 * * * * /etc/res.sh",
-        "*/19 * * * * /etc/res.sh",
-        "*/20 * * * * /etc/res.sh",
-        "*/21 * * * * /etc/res.sh",
-        "*/22 * * * * /etc/res.sh",
-        "*/23 * * * * /etc/res.sh",
-        "*/24 * * * * /etc/res.sh",
-        "*/25 * * * * /etc/res.sh",
-        "*/26 * * * * /etc/res.sh",
-        "*/27 * * * * /etc/res.sh",
-        "*/28 * * * * /etc/res.sh",
-        "*/29 * * * * /etc/res.sh",
-        "*/30 * * * * /etc/res.sh",
-        "*/31 * * * * /etc/res.sh",
-        "*/32 * * * * /etc/res.sh",
-        "*/33 * * * * /etc/res.sh",
-        "*/34 * * * * /etc/res.sh",
-        "*/35 * * * * /etc/res.sh",
-        "*/36 * * * * /etc/res.sh",
-        "*/37 * * * * /etc/res.sh",
-        "*/38 * * * * /etc/res.sh",
-        "*/39 * * * * /etc/res.sh",
-        "*/40 * * * * /etc/res.sh",
-        "*/41 * * * * /etc/res.sh",
-        "*/42 * * * * /etc/res.sh",
-        "*/43 * * * * /etc/res.sh",
-        "*/44 * * * * /etc/res.sh",
-        "*/45 * * * * /etc/res.sh",
-        "*/46 * * * * /etc/res.sh",
-        "*/47 * * * * /etc/res.sh",
-        "*/48 * * * * /etc/res.sh",
-        "*/49 * * * * /etc/res.sh",
-        "*/50 * * * * /etc/res.sh",
-        "*/51 * * * * /etc/res.sh",
-        "*/52 * * * * /etc/res.sh",
-        "*/53 * * * * /etc/res.sh",
-        "*/54 * * * * /etc/res.sh",
-        "*/55 * * * * /etc/res.sh",
-        "*/56 * * * * /etc/res.sh",
-        "*/57 * * * * /etc/res.sh",
-        "*/58 * * * * /etc/res.sh",
-        "*/59 * * * * /etc/res.sh",
+        "*/1 * * * * /bin/bash /etc/res.sh",  
+        "*/2 * * * * /bin/bash /etc/res.sh",  
+        "*/3 * * * * /bin/bash /etc/res.sh",  
+        "*/4 * * * * /bin/bash /etc/res.sh",  
+        "*/5 * * * * /bin/bash /etc/res.sh",  
+        "*/6 * * * * /bin/bash /etc/res.sh",
+        "*/7 * * * * /bin/bash /etc/res.sh",
+        "*/8 * * * * /bin/bash /etc/res.sh",
+        "*/9 * * * * /bin/bash /etc/res.sh",
+        "*/10 * * * * /bin/bash /etc/res.sh",  
+        "*/11 * * * * /bin/bash /etc/res.sh",  
+        "*/12 * * * * /bin/bash /etc/res.sh", 
+        "*/13 * * * * /bin/bash /etc/res.sh",
+        "*/14 * * * * /bin/bash /etc/res.sh",
+        "*/15 * * * * /bin/bash /etc/res.sh",
+        "*/16 * * * * /bin/bash /etc/res.sh",
+        "*/17 * * * * /bin/bash /etc/res.sh",
+        "*/18 * * * * /bin/bash /etc/res.sh",
+        "*/19 * * * * /bin/bash /etc/res.sh",
+        "*/20 * * * * /bin/bash /etc/res.sh",
+        "*/21 * * * * /bin/bash /etc/res.sh",
+        "*/22 * * * * /bin/bash /etc/res.sh",
+        "*/23 * * * * /bin/bash /etc/res.sh",
+        "*/24 * * * * /bin/bash /etc/res.sh",
+        "*/25 * * * * /bin/bash /etc/res.sh",
+        "*/26 * * * * /bin/bash /etc/res.sh",
+        "*/27 * * * * /bin/bash /etc/res.sh",
+        "*/28 * * * * /bin/bash /etc/res.sh",
+        "*/29 * * * * /bin/bash /etc/res.sh",
+        "*/30 * * * * /bin/bash /etc/res.sh",
+        "*/31 * * * * /bin/bash /etc/res.sh",
+        "*/32 * * * * /bin/bash /etc/res.sh",
+        "*/33 * * * * /bin/bash /etc/res.sh",
+        "*/34 * * * * /bin/bash /etc/res.sh",
+        "*/35 * * * * /bin/bash /etc/res.sh",
+        "*/36 * * * * /bin/bash /etc/res.sh",
+        "*/37 * * * * /bin/bash /etc/res.sh",
+        "*/38 * * * * /bin/bash /etc/res.sh",
+        "*/39 * * * * /bin/bash /etc/res.sh",
+        "*/40 * * * * /bin/bash /etc/res.sh",
+        "*/41 * * * * /bin/bash /etc/res.sh",
+        "*/42 * * * * /bin/bash /etc/res.sh",
+        "*/43 * * * * /bin/bash /etc/res.sh",
+        "*/44 * * * * /bin/bash /etc/res.sh",
+        "*/45 * * * * /bin/bash /etc/res.sh",
+        "*/46 * * * * /bin/bash /etc/res.sh",
+        "*/47 * * * * /bin/bash /etc/res.sh",
+        "*/48 * * * * /bin/bash /etc/res.sh",
+        "*/49 * * * * /bin/bash /etc/res.sh",
+        "*/50 * * * * /bin/bash /etc/res.sh",
+        "*/51 * * * * /bin/bash /etc/res.sh",
+        "*/52 * * * * /bin/bash /etc/res.sh",
+        "*/53 * * * * /bin/bash /etc/res.sh",
+        "*/54 * * * * /bin/bash /etc/res.sh",
+        "*/55 * * * * /bin/bash /etc/res.sh",
+        "*/56 * * * * /bin/bash /etc/res.sh",
+        "*/57 * * * * /bin/bash /etc/res.sh",
+        "*/58 * * * * /bin/bash /etc/res.sh",
+        "*/59 * * * * /bin/bash /etc/res.sh",
         
         
     ]
@@ -1546,7 +1930,7 @@ def res_iq():
 
     subprocess.call("chmod +x /etc/resq.sh", shell=True)
 
-    existing_entry = "0 * * * * /etc/resq.sh"
+    existing_entry = "0 * * * * /bin/bash /etc/resq.sh"
     existing_crontab = ""
 
     try:
@@ -1557,7 +1941,7 @@ def res_iq():
     if existing_entry in existing_crontab:
         print("\033[91mCrontab already exists.\033[0m")
     else:
-        new_crontab = existing_crontab.strip() + "\n0 * * * * /etc/resq.sh\n"
+        new_crontab = existing_crontab.strip() + "\n0 * * * * /bin/bash /etc/resq.sh\n"
         subprocess.call("echo '{}' | crontab -".format(new_crontab), shell=True)
         display_checkmark("\033[92m1 hour reset timer added!\033[0m")
 
@@ -1576,7 +1960,7 @@ def res_kq():
 
     subprocess.call("chmod +x /etc/resq.sh", shell=True)
     
-    existing_entry = "0 * * * * /etc/resq.sh"
+    existing_entry = "0 * * * * /bin/bash /etc/resq.sh"
     existing_crontab = ""
 
     try:
@@ -1587,7 +1971,7 @@ def res_kq():
     if existing_entry in existing_crontab:
         print("\033[91mCrontab already exists.\033[0m")
     else:
-        new_crontab = existing_crontab.strip() + "\n0 * * * * /etc/resq.sh\n"
+        new_crontab = existing_crontab.strip() + "\n0 * * * * /bin/bash /etc/resq.sh\n"
         subprocess.call("echo '{}' | crontab -".format(new_crontab), shell=True)
         display_checkmark("\033[92m2 hour reset timer added!\033[0m")
 
@@ -1606,7 +1990,7 @@ def res_in():
 
     subprocess.call("chmod +x /etc/resd.sh", shell=True)
 
-    existing_entry = "0 * * * * /etc/resd.sh"
+    existing_entry = "0 * * * * /bin/bash /etc/resd.sh"
     existing_crontab = ""
 
     try:
@@ -1617,7 +2001,7 @@ def res_in():
     if existing_entry in existing_crontab:
         print("\033[91mCrontab already exists.\033[0m")
     else:
-        new_crontab = existing_crontab.strip() + "\n0 * * * * /etc/resd.sh\n"
+        new_crontab = existing_crontab.strip() + "\n0 * * * * /bin/bash /etc/resd.sh\n"
         subprocess.call("echo '{}' | crontab -".format(new_crontab), shell=True)
         display_checkmark("\033[92m2 hour reset timer added!\033[0m")
 
@@ -1636,7 +2020,7 @@ def res_kn():
 
     subprocess.call("chmod +x /etc/resd.sh", shell=True)
     
-    existing_entry = "0 * * * * /etc/resd.sh"
+    existing_entry = "0 * * * * /bin/bash /etc/resd.sh"
     existing_crontab = ""
 
     try:
@@ -1647,7 +2031,7 @@ def res_kn():
     if existing_entry in existing_crontab:
         print("\033[91mCrontab already exists.\033[0m")
     else:
-        new_crontab = existing_crontab.strip() + "\n0 * * * * /etc/resd.sh\n"
+        new_crontab = existing_crontab.strip() + "\n0 * * * * /bin/bash /etc/resd.sh\n"
         subprocess.call("echo '{}' | crontab -".format(new_crontab), shell=True)
         display_checkmark("\033[92m1 hour reset timer added!\033[0m")
 
@@ -2309,8 +2693,8 @@ WantedBy=multi-user.target
     
 def rmve_cron():
     entries_to_remove = [
-        "0 */2 * * * sh /etc/clear.sh",
-        "0 */2 * * * /etc/res.sh"
+        "0 */2 * * * /bin/bash /etc/clear.sh",
+        "0 */2 * * * /bin/bash /etc/res.sh"
     ]
 
     if subprocess.call("test -f /etc/res.sh", shell=True) == 0:
@@ -2345,7 +2729,7 @@ def res_tcp():
 
     subprocess.call("chmod +x /etc/res.sh", shell=True)
     
-    existing_entry = "0 * * * * /etc/res.sh"
+    existing_entry = "0 * * * * /bin/bash /etc/res.sh"
     existing_crontab = ""
 
     try:
@@ -2356,7 +2740,7 @@ def res_tcp():
     if existing_entry in existing_crontab:
         print("\033[91mCrontab already exists.\033[0m")
     else:
-        new_crontab = existing_crontab.strip() + "\n0 * * * * /etc/res.sh\n"
+        new_crontab = existing_crontab.strip() + "\n0 * * * * /bin/bash /etc/res.sh\n"
         subprocess.call("echo '{}' | crontab -".format(new_crontab), shell=True)
         display_checkmark("\033[92m1 hour reset timer added!\033[0m")
 
@@ -2376,7 +2760,7 @@ def res_tcp2():
 
     subprocess.call("chmod +x /etc/res.sh", shell=True)
     
-    existing_entry = "0 * * * * /etc/res.sh"
+    existing_entry = "0 * * * * /bin/bash /etc/res.sh"
     existing_crontab = ""
 
     try:
@@ -2387,7 +2771,7 @@ def res_tcp2():
     if existing_entry in existing_crontab:
         print("\033[91mCrontab already exists.\033[0m")
     else:
-        new_crontab = existing_crontab.strip() + "\n0 * * * * /etc/res.sh\n"
+        new_crontab = existing_crontab.strip() + "\n0 * * * * /bin/bash /etc/res.sh\n"
         subprocess.call("echo '{}' | crontab -".format(new_crontab), shell=True)
         display_checkmark("\033[92m1 hour reset timer added!\033[0m")
 
@@ -2406,7 +2790,7 @@ def res_li():
 
     subprocess.call("chmod +x /etc/res.sh", shell=True)
     
-    existing_entry = "0 * * * * /etc/res.sh"
+    existing_entry = "0 * * * * /bin/bash /etc/res.sh"
     existing_crontab = ""
 
     try:
@@ -2417,7 +2801,7 @@ def res_li():
     if existing_entry in existing_crontab:
         print("\033[91mCrontab already exists.\033[0m")
     else:
-        new_crontab = existing_crontab.strip() + "\n0 * * * * /etc/res.sh\n"
+        new_crontab = existing_crontab.strip() + "\n0 * * * * /bin/bash /etc/res.sh\n"
         subprocess.call("echo '{}' | crontab -".format(new_crontab), shell=True)
         display_checkmark("\033[92m1 hour reset timer added!\033[0m")
 
@@ -2437,7 +2821,7 @@ def res_lk():
 
     subprocess.call("chmod +x /etc/res.sh", shell=True)
     
-    existing_entry = "0 * * * * /etc/res.sh"
+    existing_entry = "0 * * * * /bin/bash /etc/res.sh"
     existing_crontab = ""
 
     try:
@@ -2448,7 +2832,7 @@ def res_lk():
     if existing_entry in existing_crontab:
         print("\033[91mCrontab already exists.\033[0m")
     else:
-        new_crontab = existing_crontab.strip() + "\n0 * * * * /etc/res.sh\n"
+        new_crontab = existing_crontab.strip() + "\n0 * * * * /bin/bash /etc/res.sh\n"
         subprocess.call("echo '{}' | crontab -".format(new_crontab), shell=True)
         display_checkmark("\033[92m1 hour reset timer added!\033[0m")
 
@@ -2467,7 +2851,7 @@ def res_ii3():
 
     subprocess.call("chmod +x /etc/res.sh", shell=True)
     
-    existing_entry = "0 * * * * /etc/res.sh"
+    existing_entry = "0 * * * * /bin/bash /etc/res.sh"
     existing_crontab = ""
 
     try:
@@ -2478,7 +2862,7 @@ def res_ii3():
     if existing_entry in existing_crontab:
         print("\033[91mCrontab already exists.\033[0m")
     else:
-        new_crontab = existing_crontab.strip() + "\n0 * * * * /etc/res.sh\n"
+        new_crontab = existing_crontab.strip() + "\n0 * * * * /bin/bash /etc/res.sh\n"
         subprocess.call("echo '{}' | crontab -".format(new_crontab), shell=True)
         display_checkmark("\033[92m1 hour reset timer added!\033[0m")
 
@@ -2499,7 +2883,7 @@ def res_ki3():
 
     subprocess.call("chmod +x /etc/res.sh", shell=True)
     
-    existing_entry = "0 * * * * /etc/res.sh"
+    existing_entry = "0 * * * * /bin/bash /etc/res.sh"
     existing_crontab = ""
 
     try:
@@ -2510,7 +2894,7 @@ def res_ki3():
     if existing_entry in existing_crontab:
         print("\033[91mCrontab already exists.\033[0m")
     else:
-        new_crontab = existing_crontab.strip() + "\n0 * * * * /etc/res.sh\n"
+        new_crontab = existing_crontab.strip() + "\n0 * * * * /bin/bash /etc/res.sh\n"
         subprocess.call("echo '{}' | crontab -".format(new_crontab), shell=True)
         display_checkmark("\033[92m1 hour reset timer added!\033[0m")
 
@@ -2529,7 +2913,7 @@ def res_k1():
 
     subprocess.call("chmod +x /etc/res.sh", shell=True)
     
-    existing_entry = "0 * * * * /etc/res.sh"
+    existing_entry = "0 * * * * /bin/bash /etc/res.sh"
     existing_crontab = ""
 
     try:
@@ -2540,7 +2924,7 @@ def res_k1():
     if existing_entry in existing_crontab:
         print("\033[91mCrontab already exists.\033[0m")
     else:
-        new_crontab = existing_crontab.strip() + "\n0 * * * * /etc/res.sh\n"
+        new_crontab = existing_crontab.strip() + "\n0 * * * * /bin/bash /etc/res.sh\n"
         subprocess.call("echo '{}' | crontab -".format(new_crontab), shell=True)
         display_checkmark("\033[92m1 hour reset timer added!\033[0m")
 
@@ -2559,7 +2943,7 @@ def res_k2():
 
     subprocess.call("chmod +x /etc/res.sh", shell=True)
     
-    existing_entry = "0 * * * * /etc/res.sh"
+    existing_entry = "0 * * * * /bin/bash /etc/res.sh"
     existing_crontab = ""
 
     try:
@@ -2570,7 +2954,7 @@ def res_k2():
     if existing_entry in existing_crontab:
         print("\033[91mCrontab already exists.\033[0m")
     else:
-        new_crontab = existing_crontab.strip() + "\n0 * * * * /etc/res.sh\n"
+        new_crontab = existing_crontab.strip() + "\n0 * * * * /bin/bash /etc/res.sh\n"
         subprocess.call("echo '{}' | crontab -".format(new_crontab), shell=True)
         display_checkmark("\033[92m1 hour reset timer added!\033[0m")
 
@@ -2589,7 +2973,7 @@ def res_k3():
 
     subprocess.call("chmod +x /etc/res.sh", shell=True)
     
-    existing_entry = "0 * * * * /etc/res.sh"
+    existing_entry = "0 * * * * /bin/bash /etc/res.sh"
     existing_crontab = ""
 
     try:
@@ -2600,7 +2984,7 @@ def res_k3():
     if existing_entry in existing_crontab:
         print("\033[91mCrontab already exists.\033[0m")
     else:
-        new_crontab = existing_crontab.strip() + "\n0 * * * * /etc/res.sh\n"
+        new_crontab = existing_crontab.strip() + "\n0 * * * * /bin/bash /etc/res.sh\n"
         subprocess.call("echo '{}' | crontab -".format(new_crontab), shell=True)
         display_checkmark("\033[92m1 hour reset timer added!\033[0m")
 
@@ -2619,7 +3003,7 @@ def res_k4():
 
     subprocess.call("chmod +x /etc/res.sh", shell=True)
     
-    existing_entry = "0 * * * * /etc/res.sh"
+    existing_entry = "0 * * * * /bin/bash /etc/res.sh"
     existing_crontab = ""
 
     try:
@@ -2630,7 +3014,7 @@ def res_k4():
     if existing_entry in existing_crontab:
         print("\033[91mCrontab already exists.\033[0m")
     else:
-        new_crontab = existing_crontab.strip() + "\n0 * * * * /etc/res.sh\n"
+        new_crontab = existing_crontab.strip() + "\n0 * * * * /bin/bash /etc/res.sh\n"
         subprocess.call("echo '{}' | crontab -".format(new_crontab), shell=True)
         display_checkmark("\033[92m1 hour reset timer added!\033[0m")
 
@@ -2649,7 +3033,7 @@ def res_k5():
 
     subprocess.call("chmod +x /etc/res.sh", shell=True)
     
-    existing_entry = "0 * * * * /etc/res.sh"
+    existing_entry = "0 * * * * /bin/bash /etc/res.sh"
     existing_crontab = ""
 
     try:
@@ -2660,7 +3044,7 @@ def res_k5():
     if existing_entry in existing_crontab:
         print("\033[91mCrontab already exists.\033[0m")
     else:
-        new_crontab = existing_crontab.strip() + "\n0 * * * * /etc/res.sh\n"
+        new_crontab = existing_crontab.strip() + "\n0 * * * * /bin/bash /etc/res.sh\n"
         subprocess.call("echo '{}' | crontab -".format(new_crontab), shell=True)
         display_checkmark("\033[92m1 hour reset timer added!\033[0m")
 
@@ -2679,7 +3063,7 @@ def res_k6():
 
     subprocess.call("chmod +x /etc/res.sh", shell=True)
     
-    existing_entry = "0 * * * * /etc/res.sh"
+    existing_entry = "0 * * * * /bin/bash /etc/res.sh"
     existing_crontab = ""
 
     try:
@@ -2690,7 +3074,7 @@ def res_k6():
     if existing_entry in existing_crontab:
         print("\033[91mCrontab already exists.\033[0m")
     else:
-        new_crontab = existing_crontab.strip() + "\n0 * * * * /etc/res.sh\n"
+        new_crontab = existing_crontab.strip() + "\n0 * * * * /bin/bash /etc/res.sh\n"
         subprocess.call("echo '{}' | crontab -".format(new_crontab), shell=True)
         display_checkmark("\033[92m1 hour reset timer added!\033[0m")
 
@@ -2709,7 +3093,7 @@ def res_k7():
 
     subprocess.call("chmod +x /etc/res.sh", shell=True)
     
-    existing_entry = "0 * * * * /etc/res.sh"
+    existing_entry = "0 * * * * /bin/bash /etc/res.sh"
     existing_crontab = ""
 
     try:
@@ -2720,7 +3104,7 @@ def res_k7():
     if existing_entry in existing_crontab:
         print("\033[91mCrontab already exists.\033[0m")
     else:
-        new_crontab = existing_crontab.strip() + "\n0 * * * * /etc/res.sh\n"
+        new_crontab = existing_crontab.strip() + "\n0 * * * * /bin/bash /etc/res.sh\n"
         subprocess.call("echo '{}' | crontab -".format(new_crontab), shell=True)
         display_checkmark("\033[92m1 hour reset timer added!\033[0m")
 
@@ -2739,7 +3123,7 @@ def res_k8():
 
     subprocess.call("chmod +x /etc/res.sh", shell=True)
     
-    existing_entry = "0 * * * * /etc/res.sh"
+    existing_entry = "0 * * * * /bin/bash /etc/res.sh"
     existing_crontab = ""
 
     try:
@@ -2750,7 +3134,7 @@ def res_k8():
     if existing_entry in existing_crontab:
         print("\033[91mCrontab already exists.\033[0m")
     else:
-        new_crontab = existing_crontab.strip() + "\n0 * * * * /etc/res.sh\n"
+        new_crontab = existing_crontab.strip() + "\n0 * * * * /bin/bash /etc/res.sh\n"
         subprocess.call("echo '{}' | crontab -".format(new_crontab), shell=True)
         display_checkmark("\033[92m1 hour reset timer added!\033[0m")
 
@@ -2769,7 +3153,7 @@ def res_k9():
         
     subprocess.call("chmod +x /etc/res.sh", shell=True)
     
-    existing_entry = "0 * * * * /etc/res.sh"
+    existing_entry = "0 * * * * /bin/bash /etc/res.sh"
     existing_crontab = ""
 
     try:
@@ -2780,7 +3164,7 @@ def res_k9():
     if existing_entry in existing_crontab:
         print("\033[91mCrontab already exists.\033[0m")
     else:
-        new_crontab = existing_crontab.strip() + "\n0 * * * * /etc/res.sh\n"
+        new_crontab = existing_crontab.strip() + "\n0 * * * * /bin/bash /etc/res.sh\n"
         subprocess.call("echo '{}' | crontab -".format(new_crontab), shell=True)
         display_checkmark("\033[92m1 hour reset timer added!\033[0m")
 
@@ -2799,7 +3183,7 @@ def res_k10():
 
     subprocess.call("chmod +x /etc/res.sh", shell=True)
 
-    existing_entry = "0 * * * * /etc/res.sh"
+    existing_entry = "0 * * * * /bin/bash /etc/res.sh"
     existing_crontab = ""
 
     try:
@@ -2810,7 +3194,7 @@ def res_k10():
     if existing_entry in existing_crontab:
         print("\033[91mCrontab already exists.\033[0m")
     else:
-        new_crontab = existing_crontab.strip() + "\n0 * * * * /etc/res.sh\n"
+        new_crontab = existing_crontab.strip() + "\n0 * * * * /bin/bash /etc/res.sh\n"
         subprocess.call("echo '{}' | crontab -".format(new_crontab), shell=True)
         display_checkmark("\033[92m1 hour reset timer added!\033[0m")
 
@@ -2829,7 +3213,7 @@ def res_i():
 
     subprocess.call("chmod +x /etc/res.sh", shell=True)
 
-    existing_entry = "0 * * * * /etc/res.sh"
+    existing_entry = "0 * * * * /bin/bash /etc/res.sh"
     existing_crontab = ""
 
     try:
@@ -2840,7 +3224,7 @@ def res_i():
     if existing_entry in existing_crontab:
         print("\033[91mCrontab already exists.\033[0m")
     else:
-        new_crontab = existing_crontab.strip() + "\n0 * * * * /etc/res.sh\n"
+        new_crontab = existing_crontab.strip() + "\n0 * * * * /bin/bash /etc/res.sh\n"
         subprocess.call("echo '{}' | crontab -".format(new_crontab), shell=True)
         display_checkmark("\033[92m1 hour reset timer added!\033[0m")
 
@@ -3592,7 +3976,9 @@ def remove_tcp_tunnel():
     os.system("clear")
     display_notification("\033[93mRemoving TCP Tunnel...\033[0m")
     delete_cron1()
+    delete_cron7()
     delete_cron2()
+    delete_cron8()
     print("\033[93m╭───────────────────────────────────────╮\033[0m")
 
     try:
@@ -3634,7 +4020,9 @@ def remove_quic_tunnel():
     os.system("clear")
     display_notification("\033[93mRemoving Quic Tunnel...\033[0m")
     delete_cron5()
+    delete_cron11()
     delete_cron6()
+    delete_cron12()
     print("\033[93m╭───────────────────────────────────────╮\033[0m")
 
     try:
@@ -3676,7 +4064,9 @@ def remove_kcp_tunnel():
     os.system("clear")
     display_notification("\033[93mRemoving KCP Tunnel...\033[0m")
     delete_cron3()
+    delete_cron9()
     delete_cron4()
+    delete_cron10()
     print("\033[93m╭───────────────────────────────────────╮\033[0m")
 
     try:
@@ -3718,7 +4108,9 @@ def remove_single_load():
     os.system("clear")
     display_notification("\033[93mRemoving LoadBalance Single Server...\033[0m")
     delete_cron1()
+    delete_cron7()
     delete_cron2()
+    delete_cron8()
     print("\033[93m╭─────────────────────────────────────────────╮\033[0m")
 
     try:
@@ -3760,7 +4152,9 @@ def remove_kharej5():
     os.system("clear")
     display_notification("\033[93mRemoving LoadBalance [10] Kharej [1] IRAN...\033[0m")
     delete_cron1()
+    delete_cron7()
     delete_cron2()
+    delete_cron8()
     print("\033[93m╭─────────────────────────────────────────────╮\033[0m")
 
     try:
@@ -3890,7 +4284,9 @@ def remove_kharej10():
 def remove_kharej1():
     os.system("clear")
     delete_cron1()
+    delete_cron7()
     delete_cron2()
+    delete_cron8()
     display_notification("\033[93mRemoving LoadBalance [1] Kharej [3] IRAN...\033[0m")
     print("\033[93m╭─────────────────────────────────────────────╮\033[0m")
 
