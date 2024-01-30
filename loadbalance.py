@@ -1544,7 +1544,6 @@ def minutes():
             print('Invalid choice.') 
             
 def hourz1():
-   
     hours = int(input("\033[93mEnter the \033[92mReset Timer\033[93m [in hours]:\033[0m "))
     delete_cron1()
     delete_cron2()
@@ -1555,19 +1554,26 @@ def hourz1():
         cron_entry = f"0 */{hours} * * * /bin/bash /etc/res.sh"
 
     try:
-        existing_crontab = subprocess.check_output("crontab -l", shell=True).decode()
-    except subprocess.CalledProcessError:
-        print("\033[91mNo existing cron found!\033[0m")
+        process = subprocess.run('crontab -l', shell=True, capture_output=True, text=True)
+        existing_crontab = process.stdout
 
-    new_crontab = f"{existing_crontab.rstrip()}\n{cron_entry}"
-    try:
-        subprocess.check_output(f'echo "{new_crontab}" | crontab -', shell=True)
-        display_checkmark("\033[92mCron entry added successfully!\033[0m")
-    except subprocess.CalledProcessError as e:
-        display_error(f"Failed to add cron entry. Error: {e}")
+        if existing_crontab.strip() != "":
+            new_crontab = f"{existing_crontab.rstrip()}\n{cron_entry}"
+        else:
+            new_crontab = cron_entry
 
+        new_crontab += '\n'
+
+        process = subprocess.run('crontab -', shell=True, input=new_crontab, text=True, capture_output=True)
+
+        if process.returncode == 0:
+            display_checkmark("\033[92mCron entry added successfully!\033[0m")
+        else:
+            display_error(f"Failed to add cron entry. Error: {process.stderr}")
+    except Exception as e:
+        display_error(f"Error: {e}") 
+        
 def hourz2():
-   
     hours = int(input("\033[93mEnter the \033[92mReset Timer\033[93m [in hours]:\033[0m "))
     delete_cron3()
     delete_cron4()
@@ -1578,19 +1584,28 @@ def hourz2():
         cron_entry = f"0 */{hours} * * * /bin/bash /etc/resd.sh"
 
     try:
-        existing_crontab = subprocess.check_output("crontab -l", shell=True).decode()
-    except subprocess.CalledProcessError:
-        print("\033[91mNo existing cron found!\033[0m")
+        process = subprocess.run('crontab -l', shell=True, capture_output=True, text=True)
+        existing_crontab = process.stdout
 
-    new_crontab = f"{existing_crontab.rstrip()}\n{cron_entry}"
-    try:
-        subprocess.check_output(f'echo "{new_crontab}" | crontab -', shell=True)
-        display_checkmark("\033[92mCron entry added successfully!\033[0m")
-    except subprocess.CalledProcessError as e:
-        display_error(f"Failed to add cron entry. Error: {e}")
+        if existing_crontab.strip() != "":
+            new_crontab = f"{existing_crontab.rstrip()}\n{cron_entry}"
+        else:
+            new_crontab = cron_entry
+
+        new_crontab += '\n'
+
+        process = subprocess.run('crontab -', shell=True, input=new_crontab, text=True, capture_output=True)
+
+        if process.returncode == 0:
+            display_checkmark("\033[92mCron entry added successfully!\033[0m")
+        else:
+            display_error(f"Failed to add cron entry. Error: {process.stderr}")
+    except Exception as e:
+        display_error(f"Error: {e}")
+        
+
         
 def hourz3():
-   
     hours = int(input("\033[93mEnter the \033[92mReset Timer\033[93m [in hours]:\033[0m "))
     delete_cron5()
     delete_cron6()
@@ -1601,16 +1616,24 @@ def hourz3():
         cron_entry = f"0 */{hours} * * * /bin/bash /etc/resq.sh"
 
     try:
-        existing_crontab = subprocess.check_output("crontab -l", shell=True).decode()
-    except subprocess.CalledProcessError:
-        print("\033[91mNo existing cron found!\033[0m")
+        process = subprocess.run('crontab -l', shell=True, capture_output=True, text=True)
+        existing_crontab = process.stdout
 
-    new_crontab = f"{existing_crontab.rstrip()}\n{cron_entry}"
-    try:
-        subprocess.check_output(f'echo "{new_crontab}" | crontab -', shell=True)
-        display_checkmark("\033[92mCron entry added successfully!\033[0m")
-    except subprocess.CalledProcessError as e:
-        display_error(f"Failed to add cron entry. Error: {e}")   
+        if existing_crontab.strip() != "":
+            new_crontab = f"{existing_crontab.rstrip()}\n{cron_entry}"
+        else:
+            new_crontab = cron_entry
+
+        new_crontab += '\n'
+
+        process = subprocess.run('crontab -', shell=True, input=new_crontab, text=True, capture_output=True)
+
+        if process.returncode == 0:
+            display_checkmark("\033[92mCron entry added successfully!\033[0m")
+        else:
+            display_error(f"Failed to add cron entry. Error: {process.stderr}")
+    except Exception as e:
+        display_error(f"Error: {e}")
         
 def minutes1():
     minutes = int(input("\033[93mEnter the \033[92mReset Timer\033[93m [in minutes]:\033[0m "))
@@ -1622,14 +1645,15 @@ def minutes1():
     try:
         existing_crontab = subprocess.check_output("crontab -l", shell=True).decode()
     except subprocess.CalledProcessError:
-        print("\033[91mNo existing cron found!\033[0m")
+        existing_crontab = ""
 
-    new_crontab = f"{existing_crontab.rstrip()}\n{cron_entry}"
+    new_crontab = f"{existing_crontab.rstrip()}\n{cron_entry}\n"
+
     try:
         subprocess.check_output(f'echo "{new_crontab}" | crontab -', shell=True)
         display_checkmark("\033[92mCron entry added successfully!\033[0m")
     except subprocess.CalledProcessError as e:
-        display_error(f"Failed to add cron entry. Error: {e}") 
+        display_error(f"Failed to add cron entry. Error: {e}")
 
 def minutes2():
     minutes = int(input("\033[93mEnter the \033[92mReset Timer\033[93m [in minutes]:\033[0m "))
