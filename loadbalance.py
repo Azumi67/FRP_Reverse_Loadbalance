@@ -1923,7 +1923,8 @@ def res_iq():
 
     with open("/etc/resq.sh", "w") as f:
         f.write("#!/bin/bash\n")
-        f.write("sudo kill -9 $(pgrep frps)\n")
+        f.write("pids=$(pgrep frps)\n")
+        f.write("sudo kill -9 $pids\n")
         f.write("sudo systemctl daemon-reload\n")
         f.write("sudo systemctl restart azumifrps_quic\n")
         f.write("sudo journalctl --vacuum-size=1M\n")
@@ -1953,7 +1954,8 @@ def res_kq():
 
     with open("/etc/resq.sh", "w") as f:
         f.write("#!/bin/bash\n")
-        f.write("sudo kill -9 $(pgrep frpc)\n")  
+        f.write("pids=$(pgrep frpc)\n")
+        f.write("sudo kill -9 $pids\n")  
         f.write("sudo systemctl daemon-reload\n")
         f.write("sudo systemctl restart azumifrpc_quic\n")
         f.write("sudo journalctl --vacuum-size=1M\n") 
@@ -1983,7 +1985,8 @@ def res_in():
 
     with open("/etc/resd.sh", "w") as f:
         f.write("#!/bin/bash\n")
-        f.write("sudo kill -9 $(pgrep frps)\n")
+        f.write("pids=$(pgrep frps)\n")
+        f.write("sudo kill -9 $pids\n")
         f.write("sudo systemctl daemon-reload\n")
         f.write("sudo systemctl restart azumifrps_KCP\n")
         f.write("sudo journalctl --vacuum-size=1M\n")
@@ -2013,7 +2016,8 @@ def res_kn():
 
     with open("/etc/resd.sh", "w") as f:
         f.write("#!/bin/bash\n")
-        f.write("sudo kill -9 $(pgrep frpc)\n")  
+        f.write("pids=$(pgrep frpc)\n")
+        f.write("sudo kill -9 $pids\n")
         f.write("sudo systemctl daemon-reload\n")
         f.write("sudo systemctl restart azumifrpc_KCP\n")
         f.write("sudo journalctl --vacuum-size=1M\n") 
@@ -2722,7 +2726,8 @@ def res_tcp():
 
     with open("/etc/res.sh", "w") as f:
         f.write("#!/bin/bash\n")
-        f.write("sudo kill -9 $(pgrep frps)\n")  
+        f.write("pids=$(pgrep frps)\n")
+        f.write("sudo kill -9 $pids\n") 
         f.write("sudo systemctl daemon-reload\n")
         f.write("sudo systemctl restart azumifrps1\n")
         f.write("sudo journalctl --vacuum-size=1M\n")  
@@ -2752,7 +2757,8 @@ def res_tcp2():
 
     with open("/etc/res.sh", "w") as f:
         f.write("#!/bin/bash\n")
-        f.write("sudo kill -9 $(pgrep frpc)\n")  
+        f.write("pids=$(pgrep frpc)\n")
+        f.write("sudo kill -9 $pids\n") 
         f.write("sudo systemctl daemon-reload\n")
         f.write("sudo systemctl restart azumifrpc1\n")
         f.write("sudo journalctl --vacuum-size=1M\n") 
@@ -2783,7 +2789,8 @@ def res_li():
 
     with open("/etc/res.sh", "w") as f:
         f.write("#!/bin/bash\n")
-        f.write("sudo kill -9 $(pgrep frps)\n")  
+        f.write("pids=$(pgrep frps)\n")
+        f.write("sudo kill -9 $pids\n") 
         f.write("sudo systemctl daemon-reload\n")
         f.write("sudo systemctl restart azumifrps2\n")
         f.write("sudo journalctl --vacuum-size=1M\n") 
@@ -2813,7 +2820,8 @@ def res_lk():
 
     with open("/etc/res.sh", "w") as f:
         f.write("#!/bin/bash\n")
-        f.write("sudo kill -9 $(pgrep frpc)\n")  
+        f.write("pids=$(pgrep frpc)\n")
+        f.write("sudo kill -9 $pids\n")
         f.write("sudo systemctl daemon-reload\n")
         f.write("sudo systemctl restart azumifrpc2\n")
         f.write("sudo journalctl --vacuum-size=1M\n") 
@@ -2844,7 +2852,8 @@ def res_ii3():
 
     with open("/etc/res.sh", "w") as f:
         f.write("#!/bin/bash\n")
-        f.write("sudo kill -9 $(pgrep frps)\n")  
+        f.write("pids=$(pgrep frps)\n")
+        f.write("sudo kill -9 $pids\n")
         f.write("sudo systemctl daemon-reload\n")
         f.write("sudo systemctl restart azumifrps4\n")
         f.write("sudo journalctl --vacuum-size=1M\n") 
@@ -2874,7 +2883,8 @@ def res_ki3():
 
     with open("/etc/res.sh", "w") as f:
         f.write("#!/bin/bash\n")
-        f.write("sudo kill -9 $(pgrep frpc)\n")  
+        f.write("pids=$(pgrep frpc)\n")
+        f.write("sudo kill -9 $pids\n")
         f.write("sudo systemctl daemon-reload\n")
         f.write("sudo systemctl restart azumifrpc11\n")
         f.write("sudo systemctl restart azumifrpc12\n")
@@ -2906,7 +2916,8 @@ def res_k1():
 
     with open("/etc/res.sh", "w") as f:
         f.write("#!/bin/bash\n")
-        f.write("sudo kill -9 $(pgrep frpc)\n")  
+        f.write("pids=$(pgrep frpc)\n")
+        f.write("sudo kill -9 $pids\n")
         f.write("sudo systemctl daemon-reload\n")
         f.write("sudo systemctl restart azumifrpc3\n")
         f.write("sudo journalctl --vacuum-size=1M\n") 
@@ -2936,7 +2947,8 @@ def res_k2():
 
     with open("/etc/res.sh", "w") as f:
         f.write("#!/bin/bash\n")
-        f.write("sudo kill -9 $(pgrep frpc)\n")  
+        f.write("pids=$(pgrep frpc)\n")
+        f.write("sudo kill -9 $pids\n") 
         f.write("sudo systemctl daemon-reload\n")
         f.write("sudo systemctl restart azumifrpc4\n")
         f.write("sudo journalctl --vacuum-size=1M\n") 
@@ -2966,7 +2978,8 @@ def res_k3():
 
     with open("/etc/res.sh", "w") as f:
         f.write("#!/bin/bash\n")
-        f.write("sudo kill -9 $(pgrep frpc)\n")  
+        f.write("pids=$(pgrep frpc)\n")
+        f.write("sudo kill -9 $pids\n")
         f.write("sudo systemctl daemon-reload\n")
         f.write("sudo systemctl restart azumifrpc5\n")
         f.write("sudo journalctl --vacuum-size=1M\n") 
@@ -2996,7 +3009,8 @@ def res_k4():
 
     with open("/etc/res.sh", "w") as f:
         f.write("#!/bin/bash\n")
-        f.write("sudo kill -9 $(pgrep frpc)\n")  
+        f.write("pids=$(pgrep frpc)\n")
+        f.write("sudo kill -9 $pids\n") 
         f.write("sudo systemctl daemon-reload\n")
         f.write("sudo systemctl restart azumifrpc6\n")
         f.write("sudo journalctl --vacuum-size=1M\n") 
@@ -3026,7 +3040,8 @@ def res_k5():
 
     with open("/etc/res.sh", "w") as f:
         f.write("#!/bin/bash\n")
-        f.write("sudo kill -9 $(pgrep frpc)\n")  
+        f.write("pids=$(pgrep frpc)\n")
+        f.write("sudo kill -9 $pids\n")
         f.write("sudo systemctl daemon-reload\n")
         f.write("sudo systemctl restart azumifrpc7\n")
         f.write("sudo journalctl --vacuum-size=1M\n") 
@@ -3056,7 +3071,8 @@ def res_k6():
 
     with open("/etc/res.sh", "w") as f:
         f.write("#!/bin/bash\n")
-        f.write("sudo kill -9 $(pgrep frpc)\n")  
+        f.write("pids=$(pgrep frpc)\n")
+        f.write("sudo kill -9 $pids\n") 
         f.write("sudo systemctl daemon-reload\n")
         f.write("sudo systemctl restart azumifrpc8\n")
         f.write("sudo journalctl --vacuum-size=1M\n") 
@@ -3086,7 +3102,8 @@ def res_k7():
 
     with open("/etc/res.sh", "w") as f:
         f.write("#!/bin/bash\n")
-        f.write("sudo kill -9 $(pgrep frpc)\n")  
+        f.write("pids=$(pgrep frpc)\n")
+        f.write("sudo kill -9 $pids\n") 
         f.write("sudo systemctl daemon-reload\n")
         f.write("sudo systemctl restart azumifrpc9\n")
         f.write("sudo journalctl --vacuum-size=1M\n")
@@ -3116,7 +3133,8 @@ def res_k8():
 
     with open("/etc/res.sh", "w") as f:
         f.write("#!/bin/bash\n")
-        f.write("sudo kill -9 $(pgrep frpc)\n")  
+        f.write("pids=$(pgrep frpc)\n")
+        f.write("sudo kill -9 $pids\n") 
         f.write("sudo systemctl daemon-reload\n")
         f.write("sudo systemctl restart azumifrpc10\n")
         f.write("sudo journalctl --vacuum-size=1M\n")
@@ -3146,7 +3164,8 @@ def res_k9():
 
     with open("/etc/res.sh", "w") as f:
         f.write("#!/bin/bash\n")
-        f.write("sudo kill -9 $(pgrep frpc)\n")  
+        f.write("pids=$(pgrep frpc)\n")
+        f.write("sudo kill -9 $pids\n") 
         f.write("sudo systemctl daemon-reload\n")
         f.write("sudo systemctl restart azumifrpc11\n")
         f.write("sudo journalctl --vacuum-size=1M\n")
@@ -3176,7 +3195,8 @@ def res_k10():
 
     with open("/etc/res.sh", "w") as f:
         f.write("#!/bin/bash\n")
-        f.write("sudo kill -9 $(pgrep frpc)\n")
+        f.write("pids=$(pgrep frpc)\n")
+        f.write("sudo kill -9 $pids\n")
         f.write("sudo systemctl daemon-reload\n")
         f.write("sudo systemctl restart azumifrpc12\n")
         f.write("sudo journalctl --vacuum-size=1M\n")
@@ -3206,7 +3226,8 @@ def res_i():
 
     with open("/etc/res.sh", "w") as f:
         f.write("#!/bin/bash\n")
-        f.write("sudo kill -9 $(pgrep frps)\n")
+        f.write("pids=$(pgrep frps)\n")
+        f.write("sudo kill -9 $pids\n")
         f.write("sudo systemctl daemon-reload\n")
         f.write("sudo systemctl restart azumifrps3\n")
         f.write("sudo journalctl --vacuum-size=1M\n")
